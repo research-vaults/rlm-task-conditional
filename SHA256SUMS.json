@@ -7,11 +7,6 @@
       "sha256": "0412fce9c955c3907d599ec771289f53bdfdcbc1b14bbd20ba2dcaf62c26eb52"
     },
     {
-      "path": "ANONYMOUS_RELEASE_RIGHTS_AND_CORRECTIONS.md",
-      "bytes": 2553,
-      "sha256": "fd10a5fe2a4fa7599f8af13c94787f505b7994dc7e857a8cbe210631bfb7ee84"
-    },
-    {
       "path": "CLAIM_TO_COMMAND_MAP.md",
       "bytes": 6602,
       "sha256": "99b327f4d3516e974716cf9eafaf43ebaf61adef3bf829e3dd40f934dd2cf465"
@@ -23,8 +18,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 4692,
-      "sha256": "86076914ec4e4db614e547dcd95c4c3e40491fc876aac666a3d4a4ca6f13cb34"
+      "bytes": 4792,
+      "sha256": "aeebdc8b537cd0deb5bc4aab6dd99a007577b3df6bdfc8761c3cd383e5e5c6a1"
+    },
+    {
+      "path": "RELEASE_RIGHTS_AND_DATA_BOUNDARIES.md",
+      "bytes": 2551,
+      "sha256": "d9a281b97c83326bb48ad4290a57f1ae93700eda503f7f41318d2c15594e8e5e"
     },
     {
       "path": "paper/main_aaai_submission.tex",
@@ -1913,8 +1913,8 @@
     },
     {
       "path": "verify_release.py",
-      "bytes": 51828,
-      "sha256": "83e78989a35f6a50eb87d9c29ccb310ff1d7b3dbcf14e29aef1ceeab385cfdf8"
+      "bytes": 51822,
+      "sha256": "320088147b5676261793583c5ba10d21b0c095e30f9e6edd512caf83b2f6f7f4"
     }
   ]
 }

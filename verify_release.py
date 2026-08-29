@@ -308,7 +308,7 @@ fails += check(
     (169, 166, 0.961),
 )
 fails += check("Seed-21 second judge is not human", seed21_second["audit_contract"]["human_validation"], False)
-rights = (ROOT / "ANONYMOUS_RELEASE_RIGHTS_AND_CORRECTIONS.md").read_text(encoding="utf-8")
+rights = (ROOT / "RELEASE_RIGHTS_AND_DATA_BOUNDARIES.md").read_text(encoding="utf-8")
 normalized_rights = " ".join(rights.split())
 fails += check(
     "Release rights/data/correction surface",

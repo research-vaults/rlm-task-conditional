@@ -9,18 +9,18 @@ license states otherwise.
 
 ## Third-party data and software
 
-The package does not grant rights to any third-party benchmark, model, API,
+The repository does not grant rights to any third-party benchmark, model, API,
 paper, template or software dependency. Users must obtain those resources
 from their official sources and comply with the applicable licenses, dataset
 terms and provider policies.
 
-Source-document-scale benchmark content is excluded. The archive contains
+Source-document-scale benchmark content is excluded. The repository contains
 release-safe manifests, aggregates, hashes, protocols and compact generated
 traces needed to verify reported results without redistributing the underlying
 BrowseComp-Plus, Oolong, LongBench-v2 or HotpotQA corpora. Commands requiring
-those excluded source payloads are marked `LOCAL_ONLY`. The AAAI style and
-bibliography files are included only to reproduce the submitted manuscript and
-remain subject to the venue's terms.
+those excluded source payloads are marked `LOCAL_ONLY`. The frozen manuscript
+source snapshots and bibliography are retained only for claim verification;
+venue template files and compiled submission PDFs are not included.
 
 Selected files can contain short task statements, answers or generated
 responses needed to audit a row, but not source-document-scale benchmark
@@ -29,9 +29,8 @@ source-payload fields and redacts email-like strings from text artifacts before
 packaging. Unredacted local evidence remains outside the repository and this
 release grants no additional rights to the underlying public-corpus text.
 
-Python and LaTeX dependencies are not relicensed or vendored except for the
-venue files noted above. Installations remain governed by their upstream
-licenses.
+Python and LaTeX dependencies are not vendored or relicensed. Installations
+remain governed by their upstream licenses.
 
 ## Corrections and versions
 

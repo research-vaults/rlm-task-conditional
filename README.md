@@ -19,6 +19,8 @@ across controlled aggregation and open multi-document search settings.
 - `CLAIM_TO_COMMAND_MAP.md`: maps evidence to commands and states whether each
   command is public, needs withheld inputs or requires fresh provider calls.
 - `CONFIGURATION.md`: environment variables, external inputs and execution boundaries.
+- `RELEASE_RIGHTS_AND_DATA_BOUNDARIES.md`: third-party data, licensing and
+  correction boundaries.
 - `SHA256SUMS.json`: size and SHA-256 manifest for every release member.
 - `verify_release.py`: deterministic, no-network release verifier.
 
