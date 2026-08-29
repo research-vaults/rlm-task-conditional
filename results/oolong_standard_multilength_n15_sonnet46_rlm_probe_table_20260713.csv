@@ -1,0 +1,4 @@
+example_id,task_group,context_len,task,answer_type,gold,sonnet46_prediction,sonnet46_score,sonnet46_cost_usd,sonnet46_error,gemini25_standard_rlm_prediction,gemini25_standard_rlm_score,slm_labeler_typed_prediction,slm_labeler_typed_score
+813080036,counting,8192,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.COMPARISON,more common than,,0.0,0.0,TimeoutError: rlm timed out after 360s on example 813080036,same frequency as,0.0,more common than,1.0
+313030058,timeline,8192,TASK_TYPE.MOST_FREQ,ANSWER_TYPE.DATE,2022-03-27 00:00:00,10/26/2023,0.0,0.027621,,03/27/2022,1.0,"Mar 27, 2022",1.0
+713070051,user,8192,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.USER,19460,99850,0.0,0.021984,,It's a tie or no contradictions found for these users.,0.0,19460,1.0

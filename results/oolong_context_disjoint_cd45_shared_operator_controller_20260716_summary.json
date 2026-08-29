@@ -1,0 +1,89 @@
+{
+  "answer_type_match_count": 45,
+  "by_group": {
+    "counting": {
+      "cost_usd": 0.0029118,
+      "exact_count": 12,
+      "exact_rate": 0.8,
+      "execution_errors": 0,
+      "mean_score": 0.8168709333333334,
+      "n": 15,
+      "parse_errors": 0
+    },
+    "timeline": {
+      "cost_usd": 0.0030258,
+      "exact_count": 11,
+      "exact_rate": 0.7333333333333333,
+      "execution_errors": 0,
+      "mean_score": 0.7775075333333333,
+      "n": 15,
+      "parse_errors": 0
+    },
+    "user": {
+      "cost_usd": 0.0029230000000000007,
+      "exact_count": 13,
+      "exact_rate": 0.8666666666666667,
+      "execution_errors": 0,
+      "mean_score": 0.9166666666666666,
+      "n": 15,
+      "parse_errors": 0
+    }
+  },
+  "by_length": {
+    "1024": {
+      "cost_usd": 0.0029472,
+      "exact_count": 13,
+      "exact_rate": 0.8666666666666667,
+      "execution_errors": 0,
+      "mean_score": 0.8666666666666667,
+      "n": 15,
+      "parse_errors": 0
+    },
+    "262144": {
+      "cost_usd": 0.0029728000000000007,
+      "exact_count": 12,
+      "exact_rate": 0.8,
+      "execution_errors": 0,
+      "mean_score": 0.8685394666666667,
+      "n": 15,
+      "parse_errors": 0
+    },
+    "4096": {
+      "cost_usd": 0.0029405999999999994,
+      "exact_count": 11,
+      "exact_rate": 0.7333333333333333,
+      "execution_errors": 0,
+      "mean_score": 0.775839,
+      "n": 15,
+      "parse_errors": 0
+    }
+  },
+  "contract": "LLM controller selects task/answer_type from question only; existing typed Oolong operator library executes over stored CD-45 Gemma row-label predictions. This is a shared-operator controller diagnostic, not standard rlms or official SRLM/lambda-RLM.",
+  "cost_usd": 0.008860599999999998,
+  "created_utc": "2026-07-16T14:40:39.776515+00:00",
+  "exact_count": 36,
+  "exact_rate": 0.8,
+  "execution_errors": 0,
+  "mean_score": 0.8370150444444444,
+  "model": "google/gemini-2.5-flash",
+  "n": 45,
+  "parse_errors": 0,
+  "run_id": "oolong_context_disjoint_cd45_shared_operator_controller_20260716",
+  "score_sum": 37.665677,
+  "selected_answer_type_counts": {
+    "ANSWER_TYPE.COMPARISON": 12,
+    "ANSWER_TYPE.DATE": 3,
+    "ANSWER_TYPE.LABEL": 9,
+    "ANSWER_TYPE.NUMERIC": 14,
+    "ANSWER_TYPE.USER": 7
+  },
+  "selected_task_counts": {
+    "TASK_TYPE.LEAST_FREQ": 6,
+    "TASK_TYPE.MOST_FREQ": 11,
+    "TASK_TYPE.NUMERIC_ONE_CLASS": 14,
+    "TASK_TYPE.RELATIVE_FREQ": 14
+  },
+  "source_csv": "results/oolong_context_disjoint_cd45_shared_operator_controller_20260716.csv",
+  "task_match_count": 45,
+  "trace_jsonl": "results/oolong_context_disjoint_cd45_shared_operator_controller_20260716_trace.jsonl"
+}

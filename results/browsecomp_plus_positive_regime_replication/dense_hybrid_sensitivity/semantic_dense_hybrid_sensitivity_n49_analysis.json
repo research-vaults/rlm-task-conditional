@@ -1,0 +1,210 @@
+{
+  "chronology": "Designed after the original N=49 outcomes and scores were visible. Rank 1 was a bounded preflight; ranks 2-49 were resumed under unchanged protocol and runner hashes. No result is confirmatory.",
+  "cost": {
+    "embedding_successful_request_cost_sum_all_plans": 0.12764289000000006,
+    "embedding_successful_request_count_all_plans": 245,
+    "embedding_successful_request_tokens_all_plans": 9006741,
+    "openrouter_account_reconciliation": {
+      "captured_after_complete_plan_freeze_utc": "2026-07-21T15:29:05Z",
+      "delta_minus_returned_cost_usd": 0.0027098300000188997,
+      "embedding_requests": 245,
+      "embedding_total_tokens": 9006741,
+      "interpretation": "Returned usage is the directly linked successful-request cost. The bounded account delta is the conservative interval attribution and includes the interrupted rank-5 serial request or provider/account timing. The credential may be shared, so the difference is not imputed to a hidden request.",
+      "openrouter_account_delta_usd": 0.13035272000001896,
+      "openrouter_account_usage_after_usd": 394.059084196,
+      "openrouter_account_usage_before_usd": 393.928731476,
+      "openrouter_generation_cost_usd": 0.0,
+      "recorded_failed_attempts": 0,
+      "remaining_credits_after_usd": 5.940915803999985,
+      "runpod_cost_during_embedding_preparation_usd": 0.0,
+      "successful_embedding_request_returned_cost_sum_usd": 0.12764289000000006,
+      "total_credits_usd": 400.0
+    },
+    "openrouter_embedding_usage_delta_resumed_episode": 0.0,
+    "openrouter_usage_delta_generation_driver_episodes_only": 0.0017763999999829139,
+    "rank1_preflight_openrouter_embedding_usage_delta": 0.0017763999999829139,
+    "rank1_preflight_runpod_listed_rate_usd": 0.2895052784883887,
+    "runpod_generation_listed_rate_usd_all_episodes": 1.4490896068101062,
+    "runpod_generation_listed_rate_usd_resumed_episode": 1.1595843283217175,
+    "runpod_generation_plus_judge_all_episodes_usd": 1.8359322304727839,
+    "runpod_judge_listed_rate_usd": 0.3868426236626776,
+    "standard_rlm_to_dense_hybrid_route_attributed_ratio": 29.144018179964625
+  },
+  "evidence_tier": "post_hoc_sensitivity_only",
+  "generation_coverage_reconstructed_from_rows": {
+    "attempted": 98,
+    "completed": 90,
+    "counter_note": "The resumed summary counter excludes the two rank-1 preflight cells; row-level coverage is authoritative.",
+    "errors": 8,
+    "summary_episode_completed_counter": 88,
+    "summary_episode_error_counter": 8
+  },
+  "interpretation_guardrail": "All comparisons involving the learned retriever are post-hoc sensitivity analyses. They may assess whether a stronger nonrecursive retrieval alternative changes the observed ranking, but cannot establish a newly confirmed effect.",
+  "methods": [
+    "dense_hybrid_qwen3emb8b_qwen36",
+    "bm25_replay_qwen36"
+  ],
+  "n": 49,
+  "original_judge_parsed": 137,
+  "paired_descriptive": {
+    "bm25_replay_qwen36__vs__bm25_qwen36": {
+      "difference": 0.020408163265306145,
+      "left_only": 1,
+      "mcnemar_exact_two_sided_p": 1.0,
+      "n": 49,
+      "paired_bootstrap_95": [
+        0.0,
+        0.061224489795918366
+      ],
+      "right_only": 0
+    },
+    "dense_hybrid_qwen3emb8b_qwen36__vs__bm25_qwen36": {
+      "difference": -0.02040816326530609,
+      "left_only": 4,
+      "mcnemar_exact_two_sided_p": 1.0,
+      "n": 49,
+      "paired_bootstrap_95": [
+        -0.14285714285714285,
+        0.10204081632653061
+      ],
+      "right_only": 5
+    },
+    "dense_hybrid_qwen3emb8b_qwen36__vs__bm25_replay_qwen36": {
+      "difference": -0.040816326530612235,
+      "left_only": 4,
+      "mcnemar_exact_two_sided_p": 0.75390625,
+      "n": 49,
+      "paired_bootstrap_95": [
+        -0.16326530612244897,
+        0.08163265306122448
+      ],
+      "right_only": 6
+    },
+    "dense_hybrid_qwen3emb8b_qwen36__vs__standard_rlm_qwen36": {
+      "difference": -0.30612244897959184,
+      "left_only": 4,
+      "mcnemar_exact_two_sided_p": 0.002599477767944336,
+      "n": 49,
+      "paired_bootstrap_95": [
+        -0.46938775510204084,
+        -0.14285714285714285
+      ],
+      "right_only": 19
+    },
+    "dense_hybrid_qwen3emb8b_qwen36__vs__text_decompose_qwen36": {
+      "difference": -0.02040816326530609,
+      "left_only": 5,
+      "mcnemar_exact_two_sided_p": 1.0,
+      "n": 49,
+      "paired_bootstrap_95": [
+        -0.14285714285714285,
+        0.10204081632653061
+      ],
+      "right_only": 6
+    }
+  },
+  "results": {
+    "bm25_qwen36": {
+      "active_runtime_listed_rate_usd": 0.3208268691483763,
+      "completed": 46,
+      "provenance": "original untouched N=49 execution; same frozen rows and same Gemma judge revision",
+      "semantic_accuracy": 0.42857142857142855,
+      "semantic_correct": 21,
+      "wall_seconds_median": 3.9869370839878684,
+      "wilson_95": [
+        0.30023319078881594,
+        0.5672950690998263
+      ]
+    },
+    "bm25_replay_qwen36": {
+      "active_runtime_listed_rate_usd": 0.5087394102303701,
+      "completed": 47,
+      "semantic_accuracy": 0.4489795918367347,
+      "semantic_correct": 22,
+      "wall_seconds_median": 4.944358082982944,
+      "wall_seconds_total": 417.1894935829914,
+      "wilson_95": [
+        0.31852841068686644,
+        0.5868489178050209
+      ]
+    },
+    "dense_hybrid_qwen3emb8b_qwen36": {
+      "active_runtime_listed_rate_usd": 0.38861631489793974,
+      "active_runtime_plus_embedding_returned_cost_usd": 0.5162592048979397,
+      "completed": 43,
+      "semantic_accuracy": 0.40816326530612246,
+      "semantic_correct": 20,
+      "wall_seconds_median": 3.441568416019436,
+      "wall_seconds_total": 318.6830828320235,
+      "wilson_95": [
+        0.28215238520386865,
+        0.5475268060815286
+      ]
+    },
+    "standard_rlm_qwen36": {
+      "active_runtime_listed_rate_usd": 15.045867653119638,
+      "completed": 43,
+      "provenance": "original untouched N=49 execution; same frozen rows and same Gemma judge revision",
+      "semantic_accuracy": 0.7142857142857143,
+      "semantic_correct": 35,
+      "wall_seconds_median": 69.91797316599695,
+      "wilson_95": [
+        0.575911164922199,
+        0.8215040554118739
+      ]
+    },
+    "text_decompose_qwen36": {
+      "active_runtime_listed_rate_usd": 1.884406568751732,
+      "completed": 48,
+      "provenance": "original untouched N=49 execution; same frozen rows and same Gemma judge revision",
+      "semantic_accuracy": 0.42857142857142855,
+      "semantic_correct": 21,
+      "wall_seconds_median": 29.161358750003274,
+      "wilson_95": [
+        0.30023319078881594,
+        0.5672950690998263
+      ]
+    }
+  },
+  "retrieval_diagnostic": {
+    "bm25_replay_qwen36": {
+      "required_document_full_recall_rows": 1,
+      "required_document_recall_mean_post_output_diagnostic": 0.2562439261418853,
+      "selected_chars_median": 219979,
+      "selected_documents_median": 8
+    },
+    "dense_hybrid_qwen3emb8b_qwen36": {
+      "bm25_top64_required_document_full_recall_rows": 2,
+      "bm25_top64_required_document_recall_mean_post_output_diagnostic": 0.3210398445092323,
+      "required_document_full_recall_rows": 0,
+      "required_document_recall_mean_post_output_diagnostic": 0.26144314868804663,
+      "selected_chars_median": 216507,
+      "selected_documents_median": 6
+    },
+    "dense_vs_bm25_selection": {
+      "jaccard_mean": 0.1650505240391195,
+      "jaccard_median": 0.16666666666666666,
+      "rows_with_different_selected_sets": 49
+    }
+  },
+  "semantic_judge": {
+    "attempted": 90,
+    "format_failures_scored_incorrect": 0,
+    "model": "google/gemma-4-26B-A4B-it",
+    "parsed": 90,
+    "revision": "01e5b3ee840d3a9e0b0b493c593e85398a30ef75"
+  },
+  "source_hashes": {
+    "compact_judge_input": "edeea2a4623b3a1d8ef17b5dc00b4fd7745db1bd374696f7747211d7dba7a23b",
+    "embedding_cost_reconciliation": "8c7ef2262f46204a74a6d5a1ec63c9fc48d899b5c30b1c529d886bc07e6555a0",
+    "execution_lock": "e92a0542d6945e105e51baab8d995ad33720b4cf970a05d57349758af90e92e6",
+    "generation_summary": "377ddecf4087006d7cce0169195fe42a3e6af8b71519aef7f3bcb428e38b980a",
+    "manifest": "3aa19bb692f37d567a8983396ae950a11aca5b6ba5664e9b2c05160a0df6fea2",
+    "raw_generation": "2e77b0a89a396beb6e3ac5d69e7803add98c20f2b696e25ee527d506ca22405f",
+    "retrieval_plans": "b25becf25a3c3a3e78b984f507a10a65933d1c632422c638968379197945f474",
+    "scheduler_interruption": "fa7261bce8a5a4edc8d95804ef1b40309d9bbe557699b7486522739f343ce5c6",
+    "semantic_judge": "7f91f98608aded6399762e14824771d62f6ee7bc6c69fdbed2b26121038b84f6",
+    "semantic_judge_summary": "d960e1f58db4ac95ada053e26d1a9e5dc928e1ef262f2783926907e0f3937029"
+  },
+  "study_id": "browsecomp_plus_n49_dense_hybrid_sensitivity_v1"
+}

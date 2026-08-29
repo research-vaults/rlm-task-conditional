@@ -1,0 +1,509 @@
+{
+  "metadata": {
+    "manifest": "results/oolong_standard_validation_n45_manifest_20260713.json",
+    "n": 45,
+    "bootstraps": 5000,
+    "seed": 20260713,
+    "purpose": "current-model freshness sensitivity for Gemini 3.5 Flash direct controller on frozen Oolong N=45",
+    "inputs": {
+      "slm_qparsed_typed": "results/oolong_standard_validation_n45_slm_labeler_typed_20260713.csv",
+      "direct_gemini25": "results/oolong_standard_validation_n45_direct_controller_gemini25flash_20260713.csv",
+      "direct_gemini35": "results/oolong_standard_validation_n45_direct_controller_gemini35flash_20260713.csv",
+      "standard_rlm_gemini25": "results/oolong_standard_validation_n45_rlm_20260713.csv"
+    }
+  },
+  "overall": {
+    "slm_qparsed_typed": {
+      "n": 45,
+      "exact_count": 30,
+      "exact_rate": 0.666667,
+      "mean_score": 0.726051,
+      "cost_usd": 0.248136,
+      "cost_per_exact_usd": 0.008271,
+      "errors": 0,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "exact_count": 9,
+          "exact_rate": 0.6,
+          "mean_score": 0.672493,
+          "cost_usd": 0.079001,
+          "cost_per_exact_usd": 0.008778,
+          "errors": 0
+        },
+        "timeline": {
+          "n": 15,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "mean_score": 0.560867,
+          "cost_usd": 0.090046,
+          "cost_per_exact_usd": 0.011256,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "exact_count": 13,
+          "exact_rate": 0.866667,
+          "mean_score": 0.944793,
+          "cost_usd": 0.079089,
+          "cost_per_exact_usd": 0.006084,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "8192": {
+          "n": 9,
+          "exact_count": 7,
+          "exact_rate": 0.777778,
+          "mean_score": 0.777778,
+          "cost_usd": 0.007451,
+          "cost_per_exact_usd": 0.001064,
+          "errors": 0
+        },
+        "16384": {
+          "n": 9,
+          "exact_count": 7,
+          "exact_rate": 0.777778,
+          "mean_score": 0.804144,
+          "cost_usd": 0.017921,
+          "cost_per_exact_usd": 0.00256,
+          "errors": 0
+        },
+        "32768": {
+          "n": 9,
+          "exact_count": 4,
+          "exact_rate": 0.444444,
+          "mean_score": 0.637478,
+          "cost_usd": 0.029809,
+          "cost_per_exact_usd": 0.007452,
+          "errors": 0
+        },
+        "65536": {
+          "n": 9,
+          "exact_count": 6,
+          "exact_rate": 0.666667,
+          "mean_score": 0.682478,
+          "cost_usd": 0.065553,
+          "cost_per_exact_usd": 0.010925,
+          "errors": 0
+        },
+        "131072": {
+          "n": 9,
+          "exact_count": 6,
+          "exact_rate": 0.666667,
+          "mean_score": 0.728378,
+          "cost_usd": 0.127402,
+          "cost_per_exact_usd": 0.021234,
+          "errors": 0
+        }
+      },
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "latency_s": 0.0
+    },
+    "direct_gemini25": {
+      "n": 45,
+      "exact_count": 18,
+      "exact_rate": 0.4,
+      "mean_score": 0.459733,
+      "cost_usd": 0.580068,
+      "cost_per_exact_usd": 0.032226,
+      "errors": 0,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "exact_count": 5,
+          "exact_rate": 0.333333,
+          "mean_score": 0.392207,
+          "cost_usd": 0.188098,
+          "cost_per_exact_usd": 0.03762,
+          "errors": 0
+        },
+        "timeline": {
+          "n": 15,
+          "exact_count": 3,
+          "exact_rate": 0.2,
+          "mean_score": 0.29956,
+          "cost_usd": 0.196881,
+          "cost_per_exact_usd": 0.065627,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "exact_count": 10,
+          "exact_rate": 0.666667,
+          "mean_score": 0.687433,
+          "cost_usd": 0.195089,
+          "cost_per_exact_usd": 0.019509,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "8192": {
+          "n": 9,
+          "exact_count": 3,
+          "exact_rate": 0.333333,
+          "mean_score": 0.353111,
+          "cost_usd": 0.017647,
+          "cost_per_exact_usd": 0.005882,
+          "errors": 0
+        },
+        "16384": {
+          "n": 9,
+          "exact_count": 5,
+          "exact_rate": 0.555556,
+          "mean_score": 0.6381,
+          "cost_usd": 0.038121,
+          "cost_per_exact_usd": 0.007624,
+          "errors": 0
+        },
+        "32768": {
+          "n": 9,
+          "exact_count": 3,
+          "exact_rate": 0.333333,
+          "mean_score": 0.430989,
+          "cost_usd": 0.076084,
+          "cost_per_exact_usd": 0.025361,
+          "errors": 0
+        },
+        "65536": {
+          "n": 9,
+          "exact_count": 4,
+          "exact_rate": 0.444444,
+          "mean_score": 0.508522,
+          "cost_usd": 0.148461,
+          "cost_per_exact_usd": 0.037115,
+          "errors": 0
+        },
+        "131072": {
+          "n": 9,
+          "exact_count": 3,
+          "exact_rate": 0.333333,
+          "mean_score": 0.367944,
+          "cost_usd": 0.299755,
+          "cost_per_exact_usd": 0.099918,
+          "errors": 0
+        }
+      },
+      "total_input_tokens": 1930802,
+      "total_output_tokens": 331,
+      "latency_s": 73.432
+    },
+    "direct_gemini35": {
+      "n": 45,
+      "exact_count": 20,
+      "exact_rate": 0.444444,
+      "mean_score": 0.506876,
+      "cost_usd": 2.942868,
+      "cost_per_exact_usd": 0.147143,
+      "errors": 0,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "exact_count": 6,
+          "exact_rate": 0.4,
+          "mean_score": 0.41208,
+          "cost_usd": 0.949134,
+          "cost_per_exact_usd": 0.158189,
+          "errors": 0
+        },
+        "timeline": {
+          "n": 15,
+          "exact_count": 2,
+          "exact_rate": 0.133333,
+          "mean_score": 0.208547,
+          "cost_usd": 1.017493,
+          "cost_per_exact_usd": 0.508747,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "exact_count": 12,
+          "exact_rate": 0.8,
+          "mean_score": 0.9,
+          "cost_usd": 0.97624,
+          "cost_per_exact_usd": 0.081353,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "8192": {
+          "n": 9,
+          "exact_count": 5,
+          "exact_rate": 0.555556,
+          "mean_score": 0.618056,
+          "cost_usd": 0.101484,
+          "cost_per_exact_usd": 0.020297,
+          "errors": 0
+        },
+        "16384": {
+          "n": 9,
+          "exact_count": 4,
+          "exact_rate": 0.444444,
+          "mean_score": 0.506944,
+          "cost_usd": 0.19944,
+          "cost_per_exact_usd": 0.04986,
+          "errors": 0
+        },
+        "32768": {
+          "n": 9,
+          "exact_count": 6,
+          "exact_rate": 0.666667,
+          "mean_score": 0.686444,
+          "cost_usd": 0.388057,
+          "cost_per_exact_usd": 0.064676,
+          "errors": 0
+        },
+        "65536": {
+          "n": 9,
+          "exact_count": 4,
+          "exact_rate": 0.444444,
+          "mean_score": 0.4448,
+          "cost_usd": 0.746479,
+          "cost_per_exact_usd": 0.18662,
+          "errors": 0
+        },
+        "131072": {
+          "n": 9,
+          "exact_count": 1,
+          "exact_rate": 0.111111,
+          "mean_score": 0.278133,
+          "cost_usd": 1.507407,
+          "cost_per_exact_usd": 1.507407,
+          "errors": 0
+        }
+      },
+      "total_input_tokens": 1930802,
+      "total_output_tokens": 5185,
+      "latency_s": 169.136
+    },
+    "standard_rlm_gemini25": {
+      "n": 45,
+      "exact_count": 17,
+      "exact_rate": 0.377778,
+      "mean_score": 0.438091,
+      "cost_usd": 1.799692,
+      "cost_per_exact_usd": 0.105864,
+      "errors": 1,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "exact_count": 4,
+          "exact_rate": 0.266667,
+          "mean_score": 0.266667,
+          "cost_usd": 0.710264,
+          "cost_per_exact_usd": 0.177566,
+          "errors": 1
+        },
+        "timeline": {
+          "n": 15,
+          "exact_count": 4,
+          "exact_rate": 0.266667,
+          "mean_score": 0.366667,
+          "cost_usd": 0.776304,
+          "cost_per_exact_usd": 0.194076,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "exact_count": 9,
+          "exact_rate": 0.6,
+          "mean_score": 0.68094,
+          "cost_usd": 0.313124,
+          "cost_per_exact_usd": 0.034792,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "8192": {
+          "n": 9,
+          "exact_count": 6,
+          "exact_rate": 0.666667,
+          "mean_score": 0.666667,
+          "cost_usd": 0.234612,
+          "cost_per_exact_usd": 0.039102,
+          "errors": 0
+        },
+        "16384": {
+          "n": 9,
+          "exact_count": 5,
+          "exact_rate": 0.555556,
+          "mean_score": 0.638889,
+          "cost_usd": 0.301838,
+          "cost_per_exact_usd": 0.060368,
+          "errors": 0
+        },
+        "32768": {
+          "n": 9,
+          "exact_count": 2,
+          "exact_rate": 0.222222,
+          "mean_score": 0.305556,
+          "cost_usd": 0.279003,
+          "cost_per_exact_usd": 0.139502,
+          "errors": 0
+        },
+        "65536": {
+          "n": 9,
+          "exact_count": 2,
+          "exact_rate": 0.222222,
+          "mean_score": 0.305556,
+          "cost_usd": 0.331094,
+          "cost_per_exact_usd": 0.165547,
+          "errors": 1
+        },
+        "131072": {
+          "n": 9,
+          "exact_count": 2,
+          "exact_rate": 0.222222,
+          "mean_score": 0.273789,
+          "cost_usd": 0.653145,
+          "cost_per_exact_usd": 0.326572,
+          "errors": 0
+        }
+      },
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "latency_s": 0.0
+    }
+  },
+  "paired": {
+    "slm_qparsed_typed_vs_direct_gemini35": {
+      "n": 45,
+      "b_a_right_b_wrong": 13,
+      "c_b_right_a_wrong": 3,
+      "two_sided_exact_p": 0.021270751953125,
+      "exact_diff": 0.222222,
+      "score_diff": 0.219176,
+      "exact_diff_cluster_ci": {
+        "mean": 0.222904,
+        "ci_low": 0.045455,
+        "ci_high": 0.414634
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.219831,
+        "ci_low": 0.067238,
+        "ci_high": 0.384633
+      },
+      "clusters": 34
+    },
+    "direct_gemini35_vs_direct_gemini25": {
+      "n": 45,
+      "b_a_right_b_wrong": 8,
+      "c_b_right_a_wrong": 6,
+      "two_sided_exact_p": 0.79052734375,
+      "exact_diff": 0.044444,
+      "score_diff": 0.047142,
+      "exact_diff_cluster_ci": {
+        "mean": 0.046994,
+        "ci_low": -0.116279,
+        "ci_high": 0.214286
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.048559,
+        "ci_low": -0.134224,
+        "ci_high": 0.222891
+      },
+      "clusters": 34
+    },
+    "direct_gemini35_vs_standard_rlm_gemini25": {
+      "n": 45,
+      "b_a_right_b_wrong": 9,
+      "c_b_right_a_wrong": 6,
+      "two_sided_exact_p": 0.60723876953125,
+      "exact_diff": 0.066667,
+      "score_diff": 0.068784,
+      "exact_diff_cluster_ci": {
+        "mean": 0.067038,
+        "ci_low": -0.121951,
+        "ci_high": 0.26087
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.068697,
+        "ci_low": -0.122583,
+        "ci_high": 0.258851
+      },
+      "clusters": 34
+    },
+    "slm_qparsed_typed_vs_standard_rlm_gemini25": {
+      "n": 45,
+      "b_a_right_b_wrong": 14,
+      "c_b_right_a_wrong": 1,
+      "two_sided_exact_p": 0.0009765625,
+      "exact_diff": 0.288889,
+      "score_diff": 0.28796,
+      "exact_diff_cluster_ci": {
+        "mean": 0.289543,
+        "ci_low": 0.139535,
+        "ci_high": 0.447368
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.288357,
+        "ci_low": 0.138698,
+        "ci_high": 0.442181
+      },
+      "clusters": 34
+    }
+  },
+  "interpretation": {
+    "headline": "Gemini 3.5 Flash direct improves over Gemini 2.5 Flash direct on exact count but remains below the frozen SLM+typed route and costs much more on this N=45 slice.",
+    "claim_boundary": "The completed N=45 comparisons are direct-controller freshness sensitivity only. The Gemini 3.5 Flash RLM scaffold attempt is recorded separately as an aborted stability prefix and must not be read as a completed N=45 standard-RLM benchmark."
+  },
+  "aborted_partial_rlm_gemini35": {
+    "source_csv": "results/oolong_standard_validation_n45_rlm_gemini35flash_20260713.csv",
+    "completed_rows_before_manual_stop": 8,
+    "stop_reason": "Manual stop after early scaffold/provider instability: three timeouts in the first eight completed rows, plus usage-accounting retry failures during later rows.",
+    "status": "aborted_stability_sensitivity_not_full_benchmark",
+    "summary": {
+      "n": 8,
+      "exact_count": 5,
+      "exact_rate": 0.625,
+      "mean_score": 0.625,
+      "cost_usd": 0.468394,
+      "cost_per_exact_usd": 0.093679,
+      "errors": 3,
+      "by_group": {
+        "counting": {
+          "n": 8,
+          "exact_count": 5,
+          "exact_rate": 0.625,
+          "mean_score": 0.625,
+          "cost_usd": 0.468394,
+          "cost_per_exact_usd": 0.093679,
+          "errors": 3
+        }
+      },
+      "by_length": {
+        "8192": {
+          "n": 3,
+          "exact_count": 2,
+          "exact_rate": 0.666667,
+          "mean_score": 0.666667,
+          "cost_usd": 0.202244,
+          "cost_per_exact_usd": 0.101122,
+          "errors": 1
+        },
+        "16384": {
+          "n": 3,
+          "exact_count": 3,
+          "exact_rate": 1.0,
+          "mean_score": 1.0,
+          "cost_usd": 0.26615,
+          "cost_per_exact_usd": 0.088717,
+          "errors": 0
+        },
+        "32768": {
+          "n": 2,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "mean_score": 0.0,
+          "cost_usd": 0.0,
+          "cost_per_exact_usd": null,
+          "errors": 2
+        }
+      },
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "latency_s": 0.0
+    }
+  }
+}

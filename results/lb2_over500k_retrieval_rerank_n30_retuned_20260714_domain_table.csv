@@ -1,0 +1,19 @@
+domain,method,n,correct,accuracy,context_chars_min,context_chars_max
+Code Repository Understanding,bm25_gemma_vote,5,3,0.600000,915974,11918963
+Code Repository Understanding,bm25_gemini_vote,5,3,0.600000,915974,11918963
+Code Repository Understanding,bm25_gemma_rerank_gemini_vote,5,3,0.600000,915974,11918963
+Long In-context Learning,bm25_gemma_vote,5,1,0.200000,554114,2531634
+Long In-context Learning,bm25_gemini_vote,5,2,0.400000,554114,2531634
+Long In-context Learning,bm25_gemma_rerank_gemini_vote,5,2,0.400000,554114,2531634
+Long Structured Data Understanding,bm25_gemma_vote,5,0,0.000000,550914,9781854
+Long Structured Data Understanding,bm25_gemini_vote,5,2,0.400000,550914,9781854
+Long Structured Data Understanding,bm25_gemma_rerank_gemini_vote,5,2,0.400000,550914,9781854
+Long-dialogue History Understanding,bm25_gemma_vote,5,0,0.000000,525209,566401
+Long-dialogue History Understanding,bm25_gemini_vote,5,1,0.200000,525209,566401
+Long-dialogue History Understanding,bm25_gemma_rerank_gemini_vote,5,1,0.200000,525209,566401
+Multi-Document QA,bm25_gemma_vote,5,3,0.600000,546183,2261771
+Multi-Document QA,bm25_gemini_vote,5,2,0.400000,546183,2261771
+Multi-Document QA,bm25_gemma_rerank_gemini_vote,5,3,0.600000,546183,2261771
+Single-Document QA,bm25_gemma_vote,5,1,0.200000,620252,829592
+Single-Document QA,bm25_gemini_vote,5,1,0.200000,620252,829592
+Single-Document QA,bm25_gemma_rerank_gemini_vote,5,1,0.200000,620252,829592

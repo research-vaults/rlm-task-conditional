@@ -1,0 +1,6 @@
+method,n,exact,exact_rate,mean_score,cost_usd,errors
+slm_typed_stored_cd15,15,15,1.0,1.0,0.107011,0
+direct_gemini_original_cd15,15,9,0.6,0.65,0.33577,0
+standard_rlm_original_cd15,15,10,0.666667,0.704167,0.308485,0
+direct_gemini_replay_cd15,15,8,0.533333,0.533333,0.340761,0
+standard_rlm_three_repeats_aggregate,45,30,0.666667,0.7125,1.252444,0

@@ -1,0 +1,4 @@
+method,n,correct,accuracy,total_cost_usd,cost_per_example_usd,invalid_examples,invalid_votes
+bm25_gemma_vote,30,8,0.266667,0.035521620,0.001184054,3,24
+bm25_gemini_vote,30,11,0.366667,0.158754500,0.005291817,2,13
+bm25_gemma_rerank_gemini_vote,30,12,0.400000,0.186275560,0.006209185,2,14

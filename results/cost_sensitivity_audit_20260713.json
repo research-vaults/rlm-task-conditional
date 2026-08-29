@@ -1,0 +1,111 @@
+{
+  "generated_at_utc": "2026-07-14T19:34:21.096142+00:00",
+  "purpose": "Cost sensitivity and repricing audit for paper-facing RLM-vs-preprocessing claims.",
+  "important_scope": [
+    "T-STRUCT ratios are deployed-configuration ratios, not pure scaffold-overhead or matched-model estimates.",
+    "Oolong N=30 reports corrected token-trace pricing and retains the old raw SLM estimate only as an audit sensitivity.",
+    "All rows are list-price, uncached local-log costs; engineering and maintenance costs are excluded."
+  ],
+  "scenarios": [
+    {
+      "family": "T-STRUCT",
+      "scenario": "reported deployed configuration",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "Gemma extraction + fixed aggregation",
+      "baseline_cost_usd": 0.01982595,
+      "comparator_cost_usd": 0.0002,
+      "baseline_to_comparator_ratio": 99.1297,
+      "interpretation": "This is the paper-facing deployed-configuration ratio, not a matched-model scaffold-overhead estimate."
+    },
+    {
+      "family": "T-STRUCT",
+      "scenario": "Gemma alternative cost x10",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "Gemma extraction + fixed aggregation",
+      "baseline_cost_usd": 0.01982595,
+      "comparator_cost_usd": 0.002,
+      "baseline_to_comparator_ratio": 9.913,
+      "interpretation": "Even if the Gemma extraction path were ten times more expensive than logged, it remains cheaper on the stored run."
+    },
+    {
+      "family": "T-STRUCT",
+      "scenario": "RLM cost /2 and Gemma alternative cost x2",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "Gemma extraction + fixed aggregation",
+      "baseline_cost_usd": 0.00991297,
+      "comparator_cost_usd": 0.0004,
+      "baseline_to_comparator_ratio": 24.7824,
+      "interpretation": "A conservative two-sided price perturbation still leaves a large cost gap; it should still be described as deployed-configuration cost."
+    },
+    {
+      "family": "Oolong N=30 standard-unlabeled",
+      "scenario": "corrected token-trace price",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "SLM-labeler + typed",
+      "baseline_cost_usd": 0.255676,
+      "comparator_cost_usd": 0.007257,
+      "baseline_to_comparator_ratio": 35.2316,
+      "interpretation": "Paper-facing corrected price after adding the exact Gemma 4 26B-A4B OpenRouter entry."
+    },
+    {
+      "family": "Oolong N=30 standard-unlabeled",
+      "scenario": "old raw pre-patch SLM estimate",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "SLM-labeler + typed",
+      "baseline_cost_usd": 0.255676,
+      "comparator_cost_usd": 0.103732,
+      "baseline_to_comparator_ratio": 2.4648,
+      "interpretation": "The old raw SLM estimate is retained for audit; even under it, the SLM route is cheaper than standard RLM on this pilot."
+    },
+    {
+      "family": "Oolong N=120 standard-unlabeled",
+      "scenario": "reported logged price",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "SLM-labeler + typed",
+      "baseline_cost_usd": 2.68834,
+      "comparator_cost_usd": 0.658995,
+      "baseline_to_comparator_ratio": 4.0795,
+      "interpretation": "Main public-contract cost ratio from fully traced stored outputs."
+    },
+    {
+      "family": "Oolong N=120 standard-unlabeled",
+      "scenario": "SLM route x2",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "SLM-labeler + typed",
+      "baseline_cost_usd": 2.68834,
+      "comparator_cost_usd": 1.31799,
+      "baseline_to_comparator_ratio": 2.0397,
+      "interpretation": "A doubled SLM price still leaves the SLM route cheaper than standard RLM."
+    },
+    {
+      "family": "Oolong N=120 standard-unlabeled",
+      "scenario": "direct Gemini comparator",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "direct Gemini",
+      "baseline_cost_usd": 2.68834,
+      "comparator_cost_usd": 1.546563,
+      "baseline_to_comparator_ratio": 1.7383,
+      "interpretation": "Direct Gemini ties standard RLM on accuracy and is cheaper; this is a matched-controller scaffold diagnostic."
+    },
+    {
+      "family": "Oolong N=45 method-locked checkpoint",
+      "scenario": "reported logged price",
+      "baseline_label": "standard_rlm",
+      "comparator_label": "SLM-labeler + typed",
+      "baseline_cost_usd": 1.799692,
+      "comparator_cost_usd": 0.248136,
+      "baseline_to_comparator_ratio": 7.2528,
+      "interpretation": "Method-locked checkpoint cost ratio under the same standard-input contract; example IDs are prior-excluded but context-window overlap is disclosed separately."
+    },
+    {
+      "family": "Oolong N=45 method-locked checkpoint",
+      "scenario": "Gemini 3.5 direct vs SLM",
+      "baseline_label": "Gemini 3.5 direct",
+      "comparator_label": "SLM-labeler + typed",
+      "baseline_cost_usd": 2.942868,
+      "comparator_cost_usd": 0.248136,
+      "baseline_to_comparator_ratio": 11.8599,
+      "interpretation": "Current-model direct controller remains substantially more expensive than the SLM route on the method-locked checkpoint slice."
+    }
+  ]
+}

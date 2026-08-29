@@ -1,0 +1,344 @@
+{
+  "source_results": "results/hotpotqa_public_semantic_n24_20260713_results.jsonl",
+  "overall": {
+    "llm_direct": {
+      "n": 24,
+      "support_exact": 17,
+      "support_exact_rate": 0.7083333333333334,
+      "answer_correct": 23,
+      "answer_accuracy": 0.9583333333333334,
+      "mean_evidence_f1": 0.8916666666666666,
+      "mean_evidence_precision": 0.9236111111111112,
+      "mean_evidence_recall": 0.8993055555555557,
+      "mean_selected_context_recall": 1.0,
+      "cost_usd": 0.0204255,
+      "errors": 0
+    },
+    "llm_generated_lexical_operator": {
+      "n": 24,
+      "support_exact": 8,
+      "support_exact_rate": 0.3333333333333333,
+      "answer_correct": 0,
+      "answer_accuracy": 0.0,
+      "mean_evidence_f1": 0.6097222222222223,
+      "mean_evidence_precision": 0.625,
+      "mean_evidence_recall": 0.6006944444444444,
+      "mean_selected_context_recall": 1.0,
+      "cost_usd": 0.019558899999999997,
+      "errors": 0
+    },
+    "slm_direct": {
+      "n": 24,
+      "support_exact": 14,
+      "support_exact_rate": 0.5833333333333334,
+      "answer_correct": 22,
+      "answer_accuracy": 0.9166666666666666,
+      "mean_evidence_f1": 0.8361111111111109,
+      "mean_evidence_precision": 0.861111111111111,
+      "mean_evidence_recall": 0.8506944444444445,
+      "mean_selected_context_recall": 1.0,
+      "cost_usd": 0.00357981,
+      "errors": 0
+    },
+    "slm_tfidf_reranker": {
+      "n": 24,
+      "support_exact": 9,
+      "support_exact_rate": 0.375,
+      "answer_correct": 19,
+      "answer_accuracy": 0.7916666666666666,
+      "mean_evidence_f1": 0.7624999999999998,
+      "mean_evidence_precision": 0.8819444444444443,
+      "mean_evidence_recall": 0.7118055555555557,
+      "mean_selected_context_recall": 0.7743055555555557,
+      "cost_usd": 0.00158334,
+      "errors": 0
+    },
+    "tfidf_top2": {
+      "n": 24,
+      "support_exact": 3,
+      "support_exact_rate": 0.125,
+      "answer_correct": 0,
+      "answer_accuracy": 0.0,
+      "mean_evidence_f1": 0.4361111111111111,
+      "mean_evidence_precision": 0.4583333333333333,
+      "mean_evidence_recall": 0.4236111111111111,
+      "mean_selected_context_recall": 1.0,
+      "cost_usd": 0.0,
+      "errors": 0
+    }
+  },
+  "by_level": {
+    "hard": {
+      "llm_direct": {
+        "n": 24,
+        "support_exact": 17,
+        "support_exact_rate": 0.7083333333333334,
+        "answer_correct": 23,
+        "answer_accuracy": 0.9583333333333334,
+        "mean_evidence_f1": 0.8916666666666666,
+        "mean_evidence_precision": 0.9236111111111112,
+        "mean_evidence_recall": 0.8993055555555557,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0204255,
+        "errors": 0
+      },
+      "llm_generated_lexical_operator": {
+        "n": 24,
+        "support_exact": 8,
+        "support_exact_rate": 0.3333333333333333,
+        "answer_correct": 0,
+        "answer_accuracy": 0.0,
+        "mean_evidence_f1": 0.6097222222222223,
+        "mean_evidence_precision": 0.625,
+        "mean_evidence_recall": 0.6006944444444444,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.019558899999999997,
+        "errors": 0
+      },
+      "slm_direct": {
+        "n": 24,
+        "support_exact": 14,
+        "support_exact_rate": 0.5833333333333334,
+        "answer_correct": 22,
+        "answer_accuracy": 0.9166666666666666,
+        "mean_evidence_f1": 0.8361111111111109,
+        "mean_evidence_precision": 0.861111111111111,
+        "mean_evidence_recall": 0.8506944444444445,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.00357981,
+        "errors": 0
+      },
+      "slm_tfidf_reranker": {
+        "n": 24,
+        "support_exact": 9,
+        "support_exact_rate": 0.375,
+        "answer_correct": 19,
+        "answer_accuracy": 0.7916666666666666,
+        "mean_evidence_f1": 0.7624999999999998,
+        "mean_evidence_precision": 0.8819444444444443,
+        "mean_evidence_recall": 0.7118055555555557,
+        "mean_selected_context_recall": 0.7743055555555557,
+        "cost_usd": 0.00158334,
+        "errors": 0
+      },
+      "tfidf_top2": {
+        "n": 24,
+        "support_exact": 3,
+        "support_exact_rate": 0.125,
+        "answer_correct": 0,
+        "answer_accuracy": 0.0,
+        "mean_evidence_f1": 0.4361111111111111,
+        "mean_evidence_precision": 0.4583333333333333,
+        "mean_evidence_recall": 0.4236111111111111,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0,
+        "errors": 0
+      }
+    }
+  },
+  "by_type": {
+    "bridge": {
+      "llm_direct": {
+        "n": 17,
+        "support_exact": 12,
+        "support_exact_rate": 0.7058823529411765,
+        "answer_correct": 16,
+        "answer_accuracy": 0.9411764705882353,
+        "mean_evidence_f1": 0.8784313725490196,
+        "mean_evidence_precision": 0.9313725490196078,
+        "mean_evidence_recall": 0.8774509803921569,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0147391,
+        "errors": 0
+      },
+      "llm_generated_lexical_operator": {
+        "n": 17,
+        "support_exact": 5,
+        "support_exact_rate": 0.29411764705882354,
+        "answer_correct": 0,
+        "answer_accuracy": 0.0,
+        "mean_evidence_f1": 0.5960784313725491,
+        "mean_evidence_precision": 0.6176470588235294,
+        "mean_evidence_recall": 0.5833333333333333,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0135488,
+        "errors": 0
+      },
+      "slm_direct": {
+        "n": 17,
+        "support_exact": 9,
+        "support_exact_rate": 0.5294117647058824,
+        "answer_correct": 16,
+        "answer_accuracy": 0.9411764705882353,
+        "mean_evidence_f1": 0.8568627450980393,
+        "mean_evidence_precision": 0.8921568627450979,
+        "mean_evidence_recall": 0.8774509803921569,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.00259311,
+        "errors": 0
+      },
+      "slm_tfidf_reranker": {
+        "n": 17,
+        "support_exact": 5,
+        "support_exact_rate": 0.29411764705882354,
+        "answer_correct": 13,
+        "answer_accuracy": 0.7647058823529411,
+        "mean_evidence_f1": 0.7352941176470589,
+        "mean_evidence_precision": 0.892156862745098,
+        "mean_evidence_recall": 0.6715686274509803,
+        "mean_selected_context_recall": 0.7598039215686274,
+        "cost_usd": 0.00113349,
+        "errors": 0
+      },
+      "tfidf_top2": {
+        "n": 17,
+        "support_exact": 2,
+        "support_exact_rate": 0.11764705882352941,
+        "answer_correct": 0,
+        "answer_accuracy": 0.0,
+        "mean_evidence_f1": 0.40980392156862744,
+        "mean_evidence_precision": 0.4411764705882353,
+        "mean_evidence_recall": 0.392156862745098,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0,
+        "errors": 0
+      }
+    },
+    "comparison": {
+      "llm_direct": {
+        "n": 7,
+        "support_exact": 5,
+        "support_exact_rate": 0.7142857142857143,
+        "answer_correct": 7,
+        "answer_accuracy": 1.0,
+        "mean_evidence_f1": 0.9238095238095239,
+        "mean_evidence_precision": 0.9047619047619048,
+        "mean_evidence_recall": 0.9523809523809523,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0056864,
+        "errors": 0
+      },
+      "llm_generated_lexical_operator": {
+        "n": 7,
+        "support_exact": 3,
+        "support_exact_rate": 0.42857142857142855,
+        "answer_correct": 0,
+        "answer_accuracy": 0.0,
+        "mean_evidence_f1": 0.6428571428571429,
+        "mean_evidence_precision": 0.6428571428571429,
+        "mean_evidence_recall": 0.6428571428571429,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0060101,
+        "errors": 0
+      },
+      "slm_direct": {
+        "n": 7,
+        "support_exact": 5,
+        "support_exact_rate": 0.7142857142857143,
+        "answer_correct": 6,
+        "answer_accuracy": 0.8571428571428571,
+        "mean_evidence_f1": 0.7857142857142857,
+        "mean_evidence_precision": 0.7857142857142857,
+        "mean_evidence_recall": 0.7857142857142857,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0009867,
+        "errors": 0
+      },
+      "slm_tfidf_reranker": {
+        "n": 7,
+        "support_exact": 4,
+        "support_exact_rate": 0.5714285714285714,
+        "answer_correct": 6,
+        "answer_accuracy": 0.8571428571428571,
+        "mean_evidence_f1": 0.8285714285714285,
+        "mean_evidence_precision": 0.8571428571428571,
+        "mean_evidence_recall": 0.8095238095238094,
+        "mean_selected_context_recall": 0.8095238095238094,
+        "cost_usd": 0.00044985,
+        "errors": 0
+      },
+      "tfidf_top2": {
+        "n": 7,
+        "support_exact": 1,
+        "support_exact_rate": 0.14285714285714285,
+        "answer_correct": 0,
+        "answer_accuracy": 0.0,
+        "mean_evidence_f1": 0.5,
+        "mean_evidence_precision": 0.5,
+        "mean_evidence_recall": 0.5,
+        "mean_selected_context_recall": 1.0,
+        "cost_usd": 0.0,
+        "errors": 0
+      }
+    }
+  },
+  "pairwise_support_exact_against_slm_tfidf_reranker": {
+    "slm_tfidf_reranker_vs_llm_direct": {
+      "base": "slm_tfidf_reranker",
+      "other": "llm_direct",
+      "b_base_right_other_wrong": 0,
+      "c_other_right_base_wrong": 8,
+      "both_right": 9,
+      "both_wrong": 7,
+      "two_sided_exact_p": 0.0078125,
+      "mean_evidence_f1_delta_base_minus_other": -0.12916666666666668
+    },
+    "slm_tfidf_reranker_vs_llm_generated_lexical_operator": {
+      "base": "slm_tfidf_reranker",
+      "other": "llm_generated_lexical_operator",
+      "b_base_right_other_wrong": 4,
+      "c_other_right_base_wrong": 3,
+      "both_right": 5,
+      "both_wrong": 12,
+      "two_sided_exact_p": 1.0,
+      "mean_evidence_f1_delta_base_minus_other": 0.15277777777777776
+    },
+    "slm_tfidf_reranker_vs_slm_direct": {
+      "base": "slm_tfidf_reranker",
+      "other": "slm_direct",
+      "b_base_right_other_wrong": 1,
+      "c_other_right_base_wrong": 6,
+      "both_right": 8,
+      "both_wrong": 9,
+      "two_sided_exact_p": 0.125,
+      "mean_evidence_f1_delta_base_minus_other": -0.07361111111111113
+    },
+    "slm_tfidf_reranker_vs_tfidf_top2": {
+      "base": "slm_tfidf_reranker",
+      "other": "tfidf_top2",
+      "b_base_right_other_wrong": 6,
+      "c_other_right_base_wrong": 0,
+      "both_right": 3,
+      "both_wrong": 15,
+      "two_sided_exact_p": 0.03125,
+      "mean_evidence_f1_delta_base_minus_other": 0.3263888888888889
+    }
+  },
+  "failure_counters": {
+    "llm_direct": {
+      "extra_non_gold_evidence": 4,
+      "missed_gold_evidence": 5
+    },
+    "llm_generated_lexical_operator": {
+      "extra_non_gold_evidence": 15,
+      "missed_gold_evidence": 16
+    },
+    "slm_direct": {
+      "extra_non_gold_evidence": 7,
+      "missed_gold_evidence": 6
+    },
+    "slm_tfidf_reranker": {
+      "extra_non_gold_evidence": 6,
+      "missed_gold_evidence": 14,
+      "candidate_recall_lt_1": 12
+    },
+    "tfidf_top2": {
+      "extra_non_gold_evidence": 19,
+      "missed_gold_evidence": 21
+    }
+  },
+  "interpretation": {
+    "main_signal": "This is a public natural-evidence diagnostic: HotpotQA support-fact selection. It should be used to test whether the semantic-boundary result survives outside project-generated paraphrase tasks.",
+    "claim_boundary": "Not a full HotpotQA leaderboard and not an official RLM-family comparison. Use only as public-provenance evidence that lexical preprocessing alone is an insufficient default for semantic evidence selection."
+  }
+}

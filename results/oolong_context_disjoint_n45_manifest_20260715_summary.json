@@ -1,0 +1,669 @@
+{
+  "metadata": {
+    "dataset": "oolongbench/oolong-synth",
+    "split": "test",
+    "input_contract": "standard_unlabeled_context_window_text",
+    "context_variant": "standard",
+    "seed": 20260715,
+    "created_utc": "2026-07-15T02:41:13.354825+00:00",
+    "prospective_freeze": true,
+    "frozen_before_new_model_calls": true,
+    "context_window_disjoint_from_prior_project_oolong": true,
+    "source_document_disjoint_claim": "not separately available; context_window_id is the enforceable source-window unit",
+    "groups": [
+      "counting",
+      "timeline",
+      "user"
+    ],
+    "context_lengths": [
+      1024,
+      4096,
+      262144
+    ],
+    "per_cell": 5,
+    "max_per_context_window_id": 2,
+    "prior_unique_ids": 726,
+    "prior_unique_context_window_ids": 79,
+    "prior_artifact_count": 69,
+    "selection_policy": "exclude every prior project Oolong example ID and context_window_id found in results/*.json/csv; select balanced task_group x context_len cells by seeded shuffle; cap context reuse within the new slice"
+  },
+  "n": 45,
+  "groups": {
+    "counting": 15,
+    "timeline": 15,
+    "user": 15
+  },
+  "lengths": {
+    "1024": 15,
+    "4096": 15,
+    "262144": 15
+  },
+  "unique_context_window_ids": 32,
+  "max_questions_per_context_window_id": 2,
+  "context_window_reuse_histogram": {
+    "1": 19,
+    "2": 13
+  },
+  "prior_overlap_check": {
+    "selected_prior_id_overlap": 0,
+    "selected_prior_context_window_overlap": 0
+  },
+  "candidate_availability_after_prior_context_exclusion": {
+    "counting/1024": {
+      "candidate_rows": 144,
+      "candidate_context_window_ids": 21
+    },
+    "counting/4096": {
+      "candidate_rows": 116,
+      "candidate_context_window_ids": 15
+    },
+    "counting/262144": {
+      "candidate_rows": 125,
+      "candidate_context_window_ids": 14
+    },
+    "timeline/1024": {
+      "candidate_rows": 107,
+      "candidate_context_window_ids": 18
+    },
+    "timeline/4096": {
+      "candidate_rows": 106,
+      "candidate_context_window_ids": 12
+    },
+    "timeline/262144": {
+      "candidate_rows": 100,
+      "candidate_context_window_ids": 11
+    },
+    "user/1024": {
+      "candidate_rows": 59,
+      "candidate_context_window_ids": 10
+    },
+    "user/4096": {
+      "candidate_rows": 80,
+      "candidate_context_window_ids": 11
+    },
+    "user/262144": {
+      "candidate_rows": 125,
+      "candidate_context_window_ids": 12
+    }
+  },
+  "cells": {
+    "counting/1024": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "20001": 1,
+        "20005": 1,
+        "40000": 1,
+        "70000": 1,
+        "70001": 1
+      },
+      "selected_ids": [
+        "210020009",
+        "710070026",
+        "710070007",
+        "210020033",
+        "410040003"
+      ]
+    },
+    "counting/4096": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "40008": 1,
+        "50006": 1,
+        "60008": 1,
+        "70008": 1,
+        "90008": 1
+      },
+      "selected_ids": [
+        "412040009",
+        "712070012",
+        "512050034",
+        "912090010",
+        "612060011"
+      ]
+    },
+    "counting/262144": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "20024": 1,
+        "20025": 1,
+        "60025": 1,
+        "70024": 1,
+        "70025": 1
+      },
+      "selected_ids": [
+        "718070027",
+        "618060051",
+        "718070049",
+        "218020053",
+        "218020026"
+      ]
+    },
+    "timeline/1024": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "20002": 1,
+        "20004": 1,
+        "30001": 1,
+        "40001": 1,
+        "90001": 1
+      },
+      "selected_ids": [
+        "410040043",
+        "310030048",
+        "210020017",
+        "210020029",
+        "910090047"
+      ]
+    },
+    "timeline/4096": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "20008": 1,
+        "40006": 1,
+        "60006": 1,
+        "60008": 1,
+        "90008": 1
+      },
+      "selected_ids": [
+        "912090031",
+        "612060022",
+        "612060046",
+        "412040047",
+        "212020028"
+      ]
+    },
+    "timeline/262144": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "20024": 1,
+        "40024": 1,
+        "40025": 1,
+        "70024": 1,
+        "90024": 1
+      },
+      "selected_ids": [
+        "918090044",
+        "218020038",
+        "418040042",
+        "718070046",
+        "418040063"
+      ]
+    },
+    "user/1024": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "30000": 1,
+        "40001": 1,
+        "60001": 1,
+        "70000": 1,
+        "70001": 1
+      },
+      "selected_ids": [
+        "410040038",
+        "310030013",
+        "610060037",
+        "710070033",
+        "710070014"
+      ]
+    },
+    "user/4096": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "30006": 1,
+        "30008": 1,
+        "40006": 1,
+        "70006": 1,
+        "70008": 1
+      },
+      "selected_ids": [
+        "312030020",
+        "712070048",
+        "712070018",
+        "412040041",
+        "312030051"
+      ]
+    },
+    "user/262144": {
+      "selected": 5,
+      "unique_context_window_ids": 5,
+      "context_window_reuse": {
+        "20025": 1,
+        "30025": 1,
+        "40024": 1,
+        "40025": 1,
+        "60001": 1
+      },
+      "selected_ids": [
+        "418040032",
+        "618060211",
+        "418040058",
+        "218020061",
+        "318030064"
+      ]
+    }
+  },
+  "prior_inputs": [
+    {
+      "path": "results/oolong_heldout_frozen_manifest_20260712.json",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_manifest_20260714.json",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 14
+    },
+    {
+      "path": "results/oolong_rollout_variability_n3_8k_manifest_20260714.json",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 3
+    },
+    {
+      "path": "results/oolong_standard_multilength_frozen_manifest_20260712.json",
+      "rows": 126,
+      "ids": 126,
+      "context_window_ids": 47
+    },
+    {
+      "path": "results/oolong_standard_multilength_frozen_manifest_20260712_max3.json",
+      "rows": 126,
+      "ids": 126,
+      "context_window_ids": 48
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_5len_manifest_20260712.json",
+      "rows": 120,
+      "ids": 120,
+      "context_window_ids": 72
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_missing75_manifest_20260712.json",
+      "rows": 75,
+      "ids": 75,
+      "context_window_ids": 52
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunk100_completed9_manifest_20260712.json",
+      "rows": 9,
+      "ids": 9,
+      "context_window_ids": 9
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_smoke_manifest_20260712.json",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 15
+    },
+    {
+      "path": "results/oolong_standard_multilength_n45_5len_manifest_20260712.json",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 37
+    },
+    {
+      "path": "results/oolong_standard_multilength_smoke_manifest_20260712.json",
+      "rows": 27,
+      "ids": 27,
+      "context_window_ids": 22
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_manifest_20260714.json",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 73
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_manifest_20260713.json",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 34
+    },
+    {
+      "path": "results/oolong_heldout_lambda_rlm_n150_20260712.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_lambda_rlm_smoke_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_model_methods_smoke_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_noapi_predictions_20260712.csv",
+      "rows": 300,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_noapi_repaired_predictions_20260712.csv",
+      "rows": 300,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_prehend_srlm_n30_20260712.csv",
+      "rows": 60,
+      "ids": 60,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_prehend_srlm_n60_20260712.csv",
+      "rows": 60,
+      "ids": 60,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_prehend_srlm_smoke_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_rlm_n150_20260712.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_rlm_n30_20260712.csv",
+      "rows": 29,
+      "ids": 29,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_heldout_rlm_n60_20260712.csv",
+      "rows": 60,
+      "ids": 60,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_question_paraphrase_stress_20260713.csv",
+      "rows": 360,
+      "ids": 120,
+      "context_window_ids": 72
+    },
+    {
+      "path": "results/oolong_rlm_faithful_n80_20260707T094655Z.csv",
+      "rows": 4,
+      "ids": 1,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rlm_faithful_n80_20260707T095020Z.csv",
+      "rows": 320,
+      "ids": 80,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rollout_variability_microaudit_20260714.csv",
+      "rows": 24,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_replay_direct_full_20260714.csv",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_replay_rlm_full_20260714.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_replay_rollout1_20260714.csv",
+      "rows": 11,
+      "ids": 4,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_rollout_variability_n3_8k_replay_rollout2_20260714.csv",
+      "rows": 6,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_completed15_rlm_20260712.csv",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_completed9_rlm_20260712.csv",
+      "rows": 9,
+      "ids": 9,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_direct_controller_gemini25flash_20260713.csv",
+      "rows": 120,
+      "ids": 120,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713.csv",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_missing75_rlm_20260712.csv",
+      "rows": 75,
+      "ids": 75,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_missing75_slm_labeler_typed_20260712.csv",
+      "rows": 75,
+      "ids": 75,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713.csv",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke6_20260713.csv",
+      "rows": 6,
+      "ids": 6,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_rlm_20260712.csv",
+      "rows": 120,
+      "ids": 120,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_slm_labeler_question_parsed_typed_20260713.csv",
+      "rows": 120,
+      "ids": 120,
+      "context_window_ids": 72
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_slm_labeler_typed_20260712.csv",
+      "rows": 120,
+      "ids": 120,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunk100_slm_labeler_typed_20260712.csv",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunked_slm_labeler_typed_20260712.csv",
+      "rows": 9,
+      "ids": 9,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunked_slm_labeler_typed_dryrun_20260712.csv",
+      "rows": 15,
+      "ids": 15,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_sonnet46_rlm_20260713.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_sonnet46_rlm_probe_table_20260713.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n45_rlm_20260712.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_n45_slm_labeler_typed_20260712.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_multilength_smoke_slm_labeler_typed_dryrun_20260712.csv",
+      "rows": 27,
+      "ids": 27,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_methods_n30_20260712.csv",
+      "rows": 90,
+      "ids": 30,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_methods_n9_20260712.csv",
+      "rows": 27,
+      "ids": 9,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_slm_labeler_typed_n30_20260712.csv",
+      "rows": 30,
+      "ids": 30,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_slm_labeler_typed_n3_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_slm_labeler_typed_n9_20260712.csv",
+      "rows": 9,
+      "ids": 9,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_direct_controller_gemini25flash_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_rlm_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_slm_labeler_question_parsed_typed_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 73
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_slm_labeler_typed_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_slm_labeler_typed_dryrun_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_direct_controller_gemini25flash_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_direct_controller_gemini35flash_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_rlm_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_rlm_gemini35flash_20260713.csv",
+      "rows": 8,
+      "ids": 8,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_slm_labeler_typed_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_slm_labeler_typed_dryrun_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/tmp_dryrun_oolong_standard_slm_labeler.csv",
+      "rows": 3,
+      "ids": 3,
+      "context_window_ids": 0
+    },
+    {
+      "path": "results/typed_oolong_proxy_n80_20260711.csv",
+      "rows": 80,
+      "ids": 80,
+      "context_window_ids": 0
+    }
+  ]
+}

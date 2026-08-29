@@ -1,0 +1,217 @@
+{
+  "created_utc": "2026-07-13T19:00:33Z",
+  "n": 20,
+  "source_csv": "results/tmixed_finalization_probe_combined_n20_20260713.csv",
+  "source_model_io": [
+    "results/model_io_tmixed_finalization_probe_n8_20260713.jsonl",
+    "results/model_io_tmixed_finalization_probe_n12_offset8_20260713.jsonl"
+  ],
+  "purpose": "Frozen exact-example manifest for the T-MIXED finalization-contract probe. Use this instead of regenerating examples from historical salted-hash RNG code.",
+  "domain_counts": {
+    "clinician_burnout_reduction": 10,
+    "diagnostic_error_reduction": 10
+  },
+  "known_generator_risk": "Historical T-MIXED generator scripts used Python hash(domain) in RNG seeds, which is salted by process unless PYTHONHASHSEED is fixed. This manifest freezes the actual evaluated contexts from logged model I/O.",
+  "examples": [
+    {
+      "example_id": "R22_clinicia_00",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 3,
+      "n_total": 8,
+      "context": "[P01] A quality improvement initiative targeting hand hygiene compliance raised adherence rates from 72 to 94 percent across all clinical wards.\n\n[P02] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P03] The post-merger restructuring intensified emotional exhaustion among ward nurses, with compassion fatigue scores increasing from 5.1 to 7.8 over the six-month integration period.\n\n[P04] The hospital's electronic prescribing system was upgraded to version 7.2, improving medication reconciliation compliance from 74 to 91 percent across inpatient wards.\n\n[P05] New antimicrobial prescribing guidelines emphasising culture-directed therapy were adopted by all acute trusts in the region following a collaborative quality-improvement initiative.\n\n[P06] Emotional depletion ratings among community health nurses were substantially attenuated after the introduction of flexible rostering; mean scores fell from 7.2 to 4.3 on the occupational exhaustion inventory.\n\n[P07] A cluster-randomised trial found that moral injury burden was notably abated in wards that adopted collaborative ethical frameworks, with the MIQ score improving by 2.4 points.\n\n[P08] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.",
+      "context_sha256": "74f7b8074a66bcff8f4dd8280f0783aa59eccff6911d564e9adcb250a8f3aece",
+      "direct_prompt_sha256": "6f27cbbb54ebe47a0586fd723bad49f46a172819197e8f5cea3970a183b14393"
+    },
+    {
+      "example_id": "R22_clinicia_01",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 3,
+      "n_total": 7,
+      "context": "[P01] The surgical robot installation in the orthopaedic department reduced average procedure duration by 22 minutes and improved accuracy in implant placement.\n\n[P02] Outpatient appointment backlogs were addressed through a hybrid digital consultation model that reduced waiting times by an average of 19 days across eight specialties.\n\n[P03] Unsupported remote consultations compounded occupational stress for primary-care practitioners, who flagged increased demoralization and reduced sense of professional efficacy.\n\n[P04] The hospital's electronic prescribing system was upgraded to version 7.2, improving medication reconciliation compliance from 74 to 91 percent across inpatient wards.\n\n[P05] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P06] Emotional depletion ratings among community health nurses were substantially attenuated after the introduction of flexible rostering; mean scores fell from 7.2 to 4.3 on the occupational exhaustion inventory.\n\n[P07] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.",
+      "context_sha256": "1a5ed11c1c319a994f79cc251a292b57799f121b2bbed615042bdc0a95fc4d85",
+      "direct_prompt_sha256": "fdc9d82676359087c17a4f927bc7a90e980af0536f12879c53928339fc7c2042"
+    },
+    {
+      "example_id": "R22_clinicia_02",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 2,
+      "n_total": 7,
+      "context": "[P01] The hospital's electronic prescribing system was upgraded to version 7.2, improving medication reconciliation compliance from 74 to 91 percent across inpatient wards.\n\n[P02] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P03] Outpatient appointment backlogs were addressed through a hybrid digital consultation model that reduced waiting times by an average of 19 days across eight specialties.\n\n[P04] Respiratory syncytial virus admissions peaked in week 47, placing pressure on paediatric beds in three regional centres and triggering surge contingency protocols.\n\n[P05] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P06] Unsupported remote consultations compounded occupational stress for primary-care practitioners, who flagged increased demoralization and reduced sense of professional efficacy.\n\n[P07] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.",
+      "context_sha256": "11c315f1249b736b0c5e43b170abb3af0da499bb20da435a22a73c551204d02b",
+      "direct_prompt_sha256": "4c329336cda2fe87be7ceecab4cd39ec509bf669bf7d360b1ecc9b7c6c0f2084"
+    },
+    {
+      "example_id": "R22_clinicia_03",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 3,
+      "n_total": 6,
+      "context": "[P01] A quality improvement initiative targeting hand hygiene compliance raised adherence rates from 72 to 94 percent across all clinical wards.\n\n[P02] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P03] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.\n\n[P04] Respiratory syncytial virus admissions peaked in week 47, placing pressure on paediatric beds in three regional centres and triggering surge contingency protocols.\n\n[P05] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P06] Post-intervention assessments in the surgical department revealed that compassion fatigue scores were meaningfully ameliorated, dropping by one full standard deviation after six months of structured debriefing sessions.",
+      "context_sha256": "e864c9e60d4e28c1fdf477fe114a8da386d5841888fd22e8dd8f59357df8c6b5",
+      "direct_prompt_sha256": "a2b6877b7551fb662e932245f56f9b01e8f6522faba2d55f7b726058521f1b34"
+    },
+    {
+      "example_id": "R22_clinicia_04",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 4,
+      "n_total": 8,
+      "context": "[P01] Post-intervention assessments in the surgical department revealed that compassion fatigue scores were meaningfully ameliorated, dropping by one full standard deviation after six months of structured debriefing sessions.\n\n[P02] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P03] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.\n\n[P04] Unsupported remote consultations compounded occupational stress for primary-care practitioners, who flagged increased demoralization and reduced sense of professional efficacy.\n\n[P05] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P06] Emotional depletion ratings among community health nurses were substantially attenuated after the introduction of flexible rostering; mean scores fell from 7.2 to 4.3 on the occupational exhaustion inventory.\n\n[P07] New antimicrobial prescribing guidelines emphasising culture-directed therapy were adopted by all acute trusts in the region following a collaborative quality-improvement initiative.\n\n[P08] Respiratory syncytial virus admissions peaked in week 47, placing pressure on paediatric beds in three regional centres and triggering surge contingency protocols.",
+      "context_sha256": "6c66ea272cdea2d664cf3ddbf6286e55cb698c6cc88c356b59d2577b1786ff6d",
+      "direct_prompt_sha256": "24095c51143f32c749be1887ef87a5ecbb806588b37df7a8e926ade266a376db"
+    },
+    {
+      "example_id": "R22_clinicia_05",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 2,
+      "n_total": 5,
+      "context": "[P01] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P02] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P03] Outpatient appointment backlogs were addressed through a hybrid digital consultation model that reduced waiting times by an average of 19 days across eight specialties.\n\n[P04] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.\n\n[P05] A quality improvement initiative targeting hand hygiene compliance raised adherence rates from 72 to 94 percent across all clinical wards.",
+      "context_sha256": "91ce361786009b5a0226beef0581adb99ed83c05a4a43cfd74b5ec0b91a4399f",
+      "direct_prompt_sha256": "d0b987c41b4dbf8ad4ec9d799e0cb6caec099f5b852395204bdb8db0a4265b30"
+    },
+    {
+      "example_id": "R22_clinicia_06",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 2,
+      "n_total": 6,
+      "context": "[P01] Respiratory syncytial virus admissions peaked in week 47, placing pressure on paediatric beds in three regional centres and triggering surge contingency protocols.\n\n[P02] New antimicrobial prescribing guidelines emphasising culture-directed therapy were adopted by all acute trusts in the region following a collaborative quality-improvement initiative.\n\n[P03] Emotional depletion ratings among community health nurses were substantially attenuated after the introduction of flexible rostering; mean scores fell from 7.2 to 4.3 on the occupational exhaustion inventory.\n\n[P04] Outpatient appointment backlogs were addressed through a hybrid digital consultation model that reduced waiting times by an average of 19 days across eight specialties.\n\n[P05] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P06] The post-merger restructuring intensified emotional exhaustion among ward nurses, with compassion fatigue scores increasing from 5.1 to 7.8 over the six-month integration period.",
+      "context_sha256": "24042051466950c3441084b8608b6acefc9774632ac4276e96ee933499ee6a5a",
+      "direct_prompt_sha256": "6d73d566d2470828ed5074d0ef1f7b6d6244728e9bf06b70ce9fc372801ba3ac"
+    },
+    {
+      "example_id": "R22_clinicia_07",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 2,
+      "n_total": 6,
+      "context": "[P01] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.\n\n[P02] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P03] Unsupported remote consultations compounded occupational stress for primary-care practitioners, who flagged increased demoralization and reduced sense of professional efficacy.\n\n[P04] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P05] New antimicrobial prescribing guidelines emphasising culture-directed therapy were adopted by all acute trusts in the region following a collaborative quality-improvement initiative.\n\n[P06] A quality improvement initiative targeting hand hygiene compliance raised adherence rates from 72 to 94 percent across all clinical wards.",
+      "context_sha256": "8352dbcbc45d53cd5a1f1dc85ead47ab9d0015a42180e8749af27b9397bbf876",
+      "direct_prompt_sha256": "9119bc2fd853d4f2e817c12ded510538c57b09f37b7d6257b2372b5d5fcf8b65"
+    },
+    {
+      "example_id": "R22_clinicia_08",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 4,
+      "n_total": 9,
+      "context": "[P01] The hospital's electronic prescribing system was upgraded to version 7.2, improving medication reconciliation compliance from 74 to 91 percent across inpatient wards.\n\n[P02] New antimicrobial prescribing guidelines emphasising culture-directed therapy were adopted by all acute trusts in the region following a collaborative quality-improvement initiative.\n\n[P03] Staff demoralization, measured via anonymised pulse surveys, was progressively mitigated following leadership coaching: the proportion reporting low morale fell from 61 percent to 28 percent.\n\n[P04] A cluster-randomised trial found that moral injury burden was notably abated in wards that adopted collaborative ethical frameworks, with the MIQ score improving by 2.4 points.\n\n[P05] Unsupported remote consultations compounded occupational stress for primary-care practitioners, who flagged increased demoralization and reduced sense of professional efficacy.\n\n[P06] A longitudinal study of intensive care physicians found that the moral distress index was significantly alleviated following the introduction of peer-support circles, with scores declining from 68 to 41 on the validated wellbeing scale.\n\n[P07] Post-intervention assessments in the surgical department revealed that compassion fatigue scores were meaningfully ameliorated, dropping by one full standard deviation after six months of structured debriefing sessions.\n\n[P08] Respiratory syncytial virus admissions peaked in week 47, placing pressure on paediatric beds in three regional centres and triggering surge contingency protocols.\n\n[P09] A quality improvement initiative targeting hand hygiene compliance raised adherence rates from 72 to 94 percent across all clinical wards.",
+      "context_sha256": "9484a32845f52b041ea4476543b9ef4dea561b6946319d4e30da9260e64dce8f",
+      "direct_prompt_sha256": "ebdd6fbc088e31e57753a0c616a38eafb7b699ed610f47eb56a2bb3c970ae15b"
+    },
+    {
+      "example_id": "R22_clinicia_09",
+      "domain": "clinician_burnout_reduction",
+      "query": "studies reporting improvement in clinician burnout levels",
+      "gold_count": 3,
+      "n_total": 8,
+      "context": "[P01] The mindfulness-based resilience programme curtailed the rate of vicarious trauma progression, with participants reporting a 43 percent lower incidence of secondary traumatic stress symptoms at the 12-month follow-up.\n\n[P02] Unsupported remote consultations compounded occupational stress for primary-care practitioners, who flagged increased demoralization and reduced sense of professional efficacy.\n\n[P03] The hospital's electronic prescribing system was upgraded to version 7.2, improving medication reconciliation compliance from 74 to 91 percent across inpatient wards.\n\n[P04] The surgical robot installation in the orthopaedic department reduced average procedure duration by 22 minutes and improved accuracy in implant placement.\n\n[P05] Pandemic-related workload exacerbated the sense of moral distress, as physicians reported feeling unable to provide adequate care despite growing personal sacrifice.\n\n[P06] Respiratory syncytial virus admissions peaked in week 47, placing pressure on paediatric beds in three regional centres and triggering surge contingency protocols.\n\n[P07] A cluster-randomised trial found that moral injury burden was notably abated in wards that adopted collaborative ethical frameworks, with the MIQ score improving by 2.4 points.\n\n[P08] Post-intervention assessments in the surgical department revealed that compassion fatigue scores were meaningfully ameliorated, dropping by one full standard deviation after six months of structured debriefing sessions.",
+      "context_sha256": "a98cd3914013bd7a7682270f02e95c3511e0793622abd42ab916c2f76d4f6c19",
+      "direct_prompt_sha256": "4dd9f14d2954b30308ce7610f2b26e201b1934f75a189f781c7843532e937473"
+    },
+    {
+      "example_id": "R22_diagnost_00",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 4,
+      "n_total": 8,
+      "context": "[P01] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.\n\n[P02] The implementation of structured handover checklists curtailed the incidence of missed diagnoses in the emergency department, with diagnostic discordance rates dropping from 8.3 to 2.1 percent over the trial period.\n\n[P03] Procurement of a mobile CT unit enabled stroke imaging in rural ambulances, cutting the median time from symptom onset to treatment by 34 minutes.\n\n[P04] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P05] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P06] The rate of pathological misclassification was meaningfully attenuated following the adoption of multidisciplinary tumour board reviews, particularly for rare haematological malignancies where concordance improved by 31 percentage points.\n\n[P07] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P08] Automation bias intensified as reliance on clinical decision support tools grew, with physicians less likely to override erroneous flagging compared with the pre-implementation era.",
+      "context_sha256": "0cf44b8967a28e76292ee780d7bc7abfb308359ae58fb8d0f49e27a01e693a7f",
+      "direct_prompt_sha256": "8a116a8c75c10d8494ce3b9cd7e755b38dface705b4b66d04b56cb0b5259342f"
+    },
+    {
+      "example_id": "R22_diagnost_01",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 2,
+      "n_total": 6,
+      "context": "[P01] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P02] The rate of pathological misclassification was meaningfully attenuated following the adoption of multidisciplinary tumour board reviews, particularly for rare haematological malignancies where concordance improved by 31 percentage points.\n\n[P03] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P04] Diagnostic uncertainty was exacerbated in telemedicine encounters due to the inability to perform physical examination, particularly for musculoskeletal and dermatological conditions.\n\n[P05] Staffing shortages in pathology laboratories amplified the risk of specimen mix-up events, with near-miss reports increasing threefold during the review period.\n\n[P06] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.",
+      "context_sha256": "bd5ab85b217d18c33dab655fc0e56d5be81c7b2c60a530aabb2369f40b19bdaa",
+      "direct_prompt_sha256": "3095038cf90f1de0febc677c70c8bfa9cc846b80ec96ca8357c5c9fef0a5799f"
+    },
+    {
+      "example_id": "R22_diagnost_02",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 2,
+      "n_total": 7,
+      "context": "[P01] Diagnostic uncertainty was exacerbated in telemedicine encounters due to the inability to perform physical examination, particularly for musculoskeletal and dermatological conditions.\n\n[P02] Staffing shortages in pathology laboratories amplified the risk of specimen mix-up events, with near-miss reports increasing threefold during the review period.\n\n[P03] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P04] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P05] The implementation of structured handover checklists curtailed the incidence of missed diagnoses in the emergency department, with diagnostic discordance rates dropping from 8.3 to 2.1 percent over the trial period.\n\n[P06] Biomarker research identified three novel serum proteins associated with early cognitive decline, opening avenues for pre-symptomatic dementia screening.\n\n[P07] An observational study of nurse-to-patient ratios found no association with adverse event rates once case complexity was adjusted for.",
+      "context_sha256": "b1a8d12bb379e825b622c1f320bc0aff3df593579cebd6205c7b205c107e2180",
+      "direct_prompt_sha256": "7c55a0335359e17fcd812d4d13cc1adb182b1096ec289f0f2b99987afb6b32d6"
+    },
+    {
+      "example_id": "R22_diagnost_03",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 3,
+      "n_total": 8,
+      "context": "[P01] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P02] Missed radiology findings were substantially mitigated after the introduction of AI-assisted second-read protocols, with false-negative rates for pulmonary nodules falling by 58 percent.\n\n[P03] Diagnostic uncertainty was exacerbated in telemedicine encounters due to the inability to perform physical examination, particularly for musculoskeletal and dermatological conditions.\n\n[P04] Biomarker research identified three novel serum proteins associated with early cognitive decline, opening avenues for pre-symptomatic dementia screening.\n\n[P05] The implementation of structured handover checklists curtailed the incidence of missed diagnoses in the emergency department, with diagnostic discordance rates dropping from 8.3 to 2.1 percent over the trial period.\n\n[P06] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P07] An observational study of nurse-to-patient ratios found no association with adverse event rates once case complexity was adjusted for.\n\n[P08] Procurement of a mobile CT unit enabled stroke imaging in rural ambulances, cutting the median time from symptom onset to treatment by 34 minutes.",
+      "context_sha256": "26d9e3923e815c179e444f36b87fc39737f955b6020c24be7f90c885a5964458",
+      "direct_prompt_sha256": "cde5fef4175f1c44d1aa8c413a364b5638dc87227ec3f08029f737e9c32b6376"
+    },
+    {
+      "example_id": "R22_diagnost_04",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 2,
+      "n_total": 6,
+      "context": "[P01] Biomarker research identified three novel serum proteins associated with early cognitive decline, opening avenues for pre-symptomatic dementia screening.\n\n[P02] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P03] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.\n\n[P04] The rate of pathological misclassification was meaningfully attenuated following the adoption of multidisciplinary tumour board reviews, particularly for rare haematological malignancies where concordance improved by 31 percentage points.\n\n[P05] Automation bias intensified as reliance on clinical decision support tools grew, with physicians less likely to override erroneous flagging compared with the pre-implementation era.\n\n[P06] Missed radiology findings were substantially mitigated after the introduction of AI-assisted second-read protocols, with false-negative rates for pulmonary nodules falling by 58 percent.",
+      "context_sha256": "916578b9f0b02ef107430fc70712a574048a9b36244b04c038d0c409daca96af",
+      "direct_prompt_sha256": "28fdf23f0a6ed4644558b54b9e97a63275524143c3decf953d2118585ea61235"
+    },
+    {
+      "example_id": "R22_diagnost_05",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 3,
+      "n_total": 7,
+      "context": "[P01] Automation bias intensified as reliance on clinical decision support tools grew, with physicians less likely to override erroneous flagging compared with the pre-implementation era.\n\n[P02] Biomarker research identified three novel serum proteins associated with early cognitive decline, opening avenues for pre-symptomatic dementia screening.\n\n[P03] Procurement of a mobile CT unit enabled stroke imaging in rural ambulances, cutting the median time from symptom onset to treatment by 34 minutes.\n\n[P04] Missed radiology findings were substantially mitigated after the introduction of AI-assisted second-read protocols, with false-negative rates for pulmonary nodules falling by 58 percent.\n\n[P05] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P06] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P07] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.",
+      "context_sha256": "bd6c7f58c790c41fb65b93d2d3fbf4fdc61bf1b0fea6018e389f7f31a753a1a8",
+      "direct_prompt_sha256": "517810bc9e5894f2da31cfd3f155fce849e5930005e124c593474edd870a23de"
+    },
+    {
+      "example_id": "R22_diagnost_06",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 3,
+      "n_total": 6,
+      "context": "[P01] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P02] Missed radiology findings were substantially mitigated after the introduction of AI-assisted second-read protocols, with false-negative rates for pulmonary nodules falling by 58 percent.\n\n[P03] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P04] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P05] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.\n\n[P06] Automation bias intensified as reliance on clinical decision support tools grew, with physicians less likely to override erroneous flagging compared with the pre-implementation era.",
+      "context_sha256": "5223e36f9aae6e1bf20eba02a72ab16f94fc5a64e1d8afbaa2abbd585f74ebf0",
+      "direct_prompt_sha256": "6c2e82fbffb06f4c4003904acbb802312a665db371fe2180d36b10d2f753b7fa"
+    },
+    {
+      "example_id": "R22_diagnost_07",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 3,
+      "n_total": 6,
+      "context": "[P01] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P02] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P03] The cardiology department introduced a remote cardiac monitoring programme that enrolled 2,400 patients with paroxysmal atrial fibrillation in the first year.\n\n[P04] Diagnostic uncertainty was exacerbated in telemedicine encounters due to the inability to perform physical examination, particularly for musculoskeletal and dermatological conditions.\n\n[P05] Missed radiology findings were substantially mitigated after the introduction of AI-assisted second-read protocols, with false-negative rates for pulmonary nodules falling by 58 percent.\n\n[P06] An observational study of nurse-to-patient ratios found no association with adverse event rates once case complexity was adjusted for.",
+      "context_sha256": "39a27bc87b238fa833b14987d89f225261a2098f21091b9f45cb981c7367b7b5",
+      "direct_prompt_sha256": "0bc006cbd7e27fb9dd08feafe0278205bb95ba2adac3fc857579feba9caf8c90"
+    },
+    {
+      "example_id": "R22_diagnost_08",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 4,
+      "n_total": 8,
+      "context": "[P01] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.\n\n[P02] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P03] Biomarker research identified three novel serum proteins associated with early cognitive decline, opening avenues for pre-symptomatic dementia screening.\n\n[P04] The rate of pathological misclassification was meaningfully attenuated following the adoption of multidisciplinary tumour board reviews, particularly for rare haematological malignancies where concordance improved by 31 percentage points.\n\n[P05] Automation bias intensified as reliance on clinical decision support tools grew, with physicians less likely to override erroneous flagging compared with the pre-implementation era.\n\n[P06] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P07] An observational study of nurse-to-patient ratios found no association with adverse event rates once case complexity was adjusted for.\n\n[P08] The implementation of structured handover checklists curtailed the incidence of missed diagnoses in the emergency department, with diagnostic discordance rates dropping from 8.3 to 2.1 percent over the trial period.",
+      "context_sha256": "b707d5e51dc9c6ac514362961f490dd89a660abd3ae6e039494b5c86f267949f",
+      "direct_prompt_sha256": "e396e45d14398b30bbe9e07b5943f4db461a3c247784deb3b372f2019aaaa0c1"
+    },
+    {
+      "example_id": "R22_diagnost_09",
+      "domain": "diagnostic_error_reduction",
+      "query": "research showing fewer diagnostic errors or improved diagnostic accuracy",
+      "gold_count": 3,
+      "n_total": 7,
+      "context": "[P01] Delayed diagnoses of sepsis were largely abated after the electronic alert system was calibrated to flag borderline lactate values; door-to-antibiotic time improved by 47 minutes.\n\n[P02] Overdependence on anchoring bias was progressively ameliorated through simulation-based training, and novice residents showed a 26 percent lower frequency of premature diagnostic closure.\n\n[P03] Automation bias intensified as reliance on clinical decision support tools grew, with physicians less likely to override erroneous flagging compared with the pre-implementation era.\n\n[P04] The implementation of structured handover checklists curtailed the incidence of missed diagnoses in the emergency department, with diagnostic discordance rates dropping from 8.3 to 2.1 percent over the trial period.\n\n[P05] Biomarker research identified three novel serum proteins associated with early cognitive decline, opening avenues for pre-symptomatic dementia screening.\n\n[P06] An observational study of nurse-to-patient ratios found no association with adverse event rates once case complexity was adjusted for.\n\n[P07] A nationwide survey of pharmacy practice found that medication-dispensing error rates remained stable at 0.9 per 10,000 transactions, with no significant trend over five years.",
+      "context_sha256": "80d3da66d47734a6e325d0bdd865c6d3a4f1b57f769227e3671c8c7ce1e3ba20",
+      "direct_prompt_sha256": "efcc552e5c2f1e3448676532f1582f4436aa7208c39112454ee1d1c307c1e2ab"
+    }
+  ]
+}

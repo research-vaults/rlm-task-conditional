@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-13T20:00:30.884305+00:00",
+    "run_type": "paid_compatibility_stop_rule_probe",
+    "model": "anthropic/claude-sonnet-4.6 via OpenRouter",
+    "scaffold": "standard rlms v0.1.3 through eval_oolong_frozen_manifest_methods.py",
+    "manifest": "results/oolong_standard_multilength_n15_smoke_manifest_20260712.json",
+    "source_csv": "results/oolong_standard_multilength_n15_sonnet46_rlm_20260713.csv",
+    "context_variant": "standard context_window_text; no gold local labels",
+    "selection": "first example per task group from the all-length N=15 smoke manifest; all three are 8192-token rows",
+    "timeout_seconds": 360,
+    "temperature": "rlms default for the OpenRouter backend",
+    "stop_rule": "Do not scale to N=15 if the 3-row compatibility probe has timeout/stability issues or no correct rows.",
+    "raw_trajectory_limitation": "The historical runner stored final prediction/error/cost rows, not raw RLM trajectories. This analysis reconstructs full input contexts and records all available outputs."
+  },
+  "overall": {
+    "sonnet46_standard_rlm_probe": {
+      "n": 3,
+      "exact_count": 0,
+      "exact_rate": 0.0,
+      "score_sum": 0.0,
+      "mean_score": 0.0,
+      "cost_usd": 0.049605,
+      "errors": 1
+    },
+    "gemini25_standard_rlm_same_ids": {
+      "n": 3,
+      "exact_count": 1,
+      "exact_rate": 0.333333,
+      "score_sum": 1.0,
+      "mean_score": 0.333333,
+      "cost_usd": 0.013839,
+      "errors": 0
+    },
+    "slm_labeler_typed_same_ids": {
+      "n": 3,
+      "exact_count": 3,
+      "exact_rate": 1.0,
+      "score_sum": 3.0,
+      "mean_score": 1.0,
+      "cost_usd": 0.033162,
+      "errors": 0
+    }
+  },
+  "by_group": {
+    "counting": {
+      "sonnet46_standard_rlm_probe": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.0,
+        "errors": 1
+      },
+      "gemini25_standard_rlm_same_ids": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.001076,
+        "errors": 0
+      },
+      "slm_labeler_typed_same_ids": {
+        "n": 1,
+        "exact_count": 1,
+        "exact_rate": 1.0,
+        "score_sum": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.012767,
+        "errors": 0
+      }
+    },
+    "timeline": {
+      "sonnet46_standard_rlm_probe": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.027621,
+        "errors": 0
+      },
+      "gemini25_standard_rlm_same_ids": {
+        "n": 1,
+        "exact_count": 1,
+        "exact_rate": 1.0,
+        "score_sum": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.010493,
+        "errors": 0
+      },
+      "slm_labeler_typed_same_ids": {
+        "n": 1,
+        "exact_count": 1,
+        "exact_rate": 1.0,
+        "score_sum": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.009647,
+        "errors": 0
+      }
+    },
+    "user": {
+      "sonnet46_standard_rlm_probe": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.021984,
+        "errors": 0
+      },
+      "gemini25_standard_rlm_same_ids": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.00227,
+        "errors": 0
+      },
+      "slm_labeler_typed_same_ids": {
+        "n": 1,
+        "exact_count": 1,
+        "exact_rate": 1.0,
+        "score_sum": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.010748,
+        "errors": 0
+      }
+    }
+  },
+  "paired_exact": {
+    "sonnet46_vs_gemini25_standard_rlm": {
+      "n": 3,
+      "b_a_right_b_wrong": 0,
+      "c_b_right_a_wrong": 1
+    },
+    "sonnet46_vs_slm_labeler_typed": {
+      "n": 3,
+      "b_a_right_b_wrong": 0,
+      "c_b_right_a_wrong": 3
+    }
+  },
+  "row_details": [
+    {
+      "example_id": "813080036",
+      "task_group": "counting",
+      "context_len": 8192,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "question": "In the above data, is label 'incorrect' more common, less common, or the same frequency as label 'correct'? Give your final answer in the form 'Answer: incorrect is [X] correct', where [X] is 'more common than', 'less common than', or 'same frequency as'.",
+      "gold": "more common than",
+      "context_sha256": "651a5cd4c6deb82e4a8153aa7ad49368768b424ee183578bce5f4f01dc63948e",
+      "context_chars": 22135,
+      "sonnet46_prediction": "",
+      "sonnet46_score": 0.0,
+      "sonnet46_cost_usd": 0.0,
+      "sonnet46_error": "TimeoutError: rlm timed out after 360s on example 813080036",
+      "gemini25_standard_rlm_prediction": "same frequency as",
+      "gemini25_standard_rlm_score": 0.0,
+      "gemini25_standard_rlm_cost_usd": 0.001076,
+      "slm_labeler_typed_prediction": "more common than",
+      "slm_labeler_typed_score": 1.0,
+      "slm_labeler_typed_cost_usd": 0.012767
+    },
+    {
+      "example_id": "313030058",
+      "task_group": "timeline",
+      "context_len": 8192,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.DATE",
+      "question": "In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY.",
+      "gold": "2022-03-27 00:00:00",
+      "context_sha256": "ee925569fccb894c6d8776799b2f4eeb69b4d59e34a583b6c80c2b4ded7beb4a",
+      "context_chars": 23889,
+      "sonnet46_prediction": "10/26/2023",
+      "sonnet46_score": 0.0,
+      "sonnet46_cost_usd": 0.027621,
+      "sonnet46_error": "",
+      "gemini25_standard_rlm_prediction": "03/27/2022",
+      "gemini25_standard_rlm_score": 1.0,
+      "gemini25_standard_rlm_cost_usd": 0.010493,
+      "slm_labeler_typed_prediction": "Mar 27, 2022",
+      "slm_labeler_typed_score": 1.0,
+      "slm_labeler_typed_cost_usd": 0.009647
+    },
+    {
+      "example_id": "713070051",
+      "task_group": "user",
+      "context_len": 8192,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.USER",
+      "question": "In the above data, which user has more instances with the label contradiction: User 19460 or User 99850? Give your final answer in the form 'User: [X]', where [X] is the user ID.",
+      "gold": "19460",
+      "context_sha256": "c973f0c22f1c4687c6e058a68c9518a38ff12382ab68363b3c25528923277526",
+      "context_chars": 21704,
+      "sonnet46_prediction": "99850",
+      "sonnet46_score": 0.0,
+      "sonnet46_cost_usd": 0.021984,
+      "sonnet46_error": "",
+      "gemini25_standard_rlm_prediction": "It's a tie or no contradictions found for these users.",
+      "gemini25_standard_rlm_score": 0.0,
+      "gemini25_standard_rlm_cost_usd": 0.00227,
+      "slm_labeler_typed_prediction": "19460",
+      "slm_labeler_typed_score": 1.0,
+      "slm_labeler_typed_cost_usd": 0.010748
+    }
+  ],
+  "decision": {
+    "scale_to_full_n15_now": false,
+    "reason": "The compatibility probe solved 0/3, timed out on one short counting row, and was wrong on the two completed rows. Scaling would add cost without closing the official stronger-family comparator objection.",
+    "paper_use": "Supplement-only stop-rule note; not a benchmark row and not evidence against Sonnet as a direct model."
+  }
+}

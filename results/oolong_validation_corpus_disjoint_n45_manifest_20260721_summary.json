@@ -1,0 +1,1203 @@
+{
+  "metadata": {
+    "dataset": "oolongbench/oolong-synth",
+    "revision": "f0d59eaf0febf130664cfceb710436c8e3216b2b",
+    "split": "validation",
+    "input_contract": "standard_unlabeled_context_window_text",
+    "context_variant": "standard",
+    "prospective_freeze": true,
+    "frozen_before_new_method_outputs": true,
+    "created_utc": "2026-07-21T01:31:57.302305+00:00",
+    "seed": 20260721,
+    "groups": [
+      "counting",
+      "timeline",
+      "user"
+    ],
+    "lengths": [
+      8192,
+      16384,
+      32768,
+      65536,
+      131072
+    ],
+    "per_cell": 3,
+    "max_per_context_window_id": 3,
+    "source_corpus_disjoint_from_prior_project_oolong": true,
+    "source_document_disjoint_claim": "unidentifiable: official schema has no source-document identifier",
+    "authoritative_source_corpus_field": "dataset",
+    "validation_source_corpora": [
+      "spam",
+      "trec_coarse"
+    ],
+    "test_source_corpora": [
+      "agnews",
+      "app_reviews",
+      "formality",
+      "imdb",
+      "metaphors",
+      "multinli",
+      "negation",
+      "yahoo"
+    ],
+    "official_schema": [
+      "id",
+      "context_len",
+      "dataset",
+      "context_window_text",
+      "context_window_text_with_labels",
+      "question",
+      "task_group",
+      "task",
+      "answer",
+      "answer_type",
+      "input_subset",
+      "num_labels",
+      "context_window_id"
+    ],
+    "schema_has_source_document_id": false,
+    "readme_sha256": "90f02d57e06f838b292eb26f30b9aabb60dc7f02ebe4422926d554fc64d512ea",
+    "parquet_inventory_sha256": "20f6cb41ae08297e98d9771e02cc1b847562ed7a130460a311c845a3a535423d"
+  },
+  "n": 45,
+  "groups": {
+    "counting": 15,
+    "timeline": 15,
+    "user": 15
+  },
+  "lengths": {
+    "131072": 9,
+    "16384": 9,
+    "32768": 9,
+    "65536": 9,
+    "8192": 9
+  },
+  "datasets": {
+    "spam": 27,
+    "trec_coarse": 18
+  },
+  "unique_context_window_ids": 20,
+  "max_questions_per_context_window_id": 3,
+  "context_reuse_histogram": {
+    "1": 2,
+    "2": 11,
+    "3": 7
+  },
+  "universe": {
+    "validation_rows": 1300,
+    "validation_contexts": 30,
+    "test_rows": 5200,
+    "test_contexts": 178,
+    "prior_ids": 780,
+    "prior_contexts": 117,
+    "prior_artifacts": 107
+  },
+  "overlap": {
+    "validation_test_ids": 0,
+    "validation_test_contexts": 0,
+    "validation_test_datasets": 0,
+    "validation_prior_ids": 0,
+    "validation_prior_contexts": 0,
+    "validation_prior_datasets": 0
+  },
+  "cells": {
+    "counting/8192": {
+      "candidate_rows": 52,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "13000053",
+        "113010035",
+        "13000014"
+      ],
+      "selected_contexts": [
+        "10",
+        "10010",
+        "9"
+      ]
+    },
+    "counting/16384": {
+      "candidate_rows": 42,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "14000056",
+        "114010016",
+        "114010037"
+      ],
+      "selected_contexts": [
+        "10012",
+        "10013",
+        "13"
+      ]
+    },
+    "counting/32768": {
+      "candidate_rows": 49,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "15000209",
+        "115010016",
+        "15000234"
+      ],
+      "selected_contexts": [
+        "0",
+        "1",
+        "10016"
+      ]
+    },
+    "counting/65536": {
+      "candidate_rows": 52,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "16000219",
+        "16000235",
+        "116010201"
+      ],
+      "selected_contexts": [
+        "10000",
+        "3",
+        "4"
+      ]
+    },
+    "counting/131072": {
+      "candidate_rows": 43,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "17000241",
+        "17000216",
+        "117010228"
+      ],
+      "selected_contexts": [
+        "10004",
+        "6",
+        "8"
+      ]
+    },
+    "timeline/8192": {
+      "candidate_rows": 22,
+      "candidate_contexts": 2,
+      "selected": 3,
+      "selected_ids": [
+        "113010033",
+        "113010055",
+        "113010032"
+      ],
+      "selected_contexts": [
+        "10009",
+        "10010"
+      ]
+    },
+    "timeline/16384": {
+      "candidate_rows": 23,
+      "candidate_contexts": 2,
+      "selected": 3,
+      "selected_ids": [
+        "114010058",
+        "114010028",
+        "114010052"
+      ],
+      "selected_contexts": [
+        "10012",
+        "10013"
+      ]
+    },
+    "timeline/32768": {
+      "candidate_rows": 22,
+      "candidate_contexts": 2,
+      "selected": 3,
+      "selected_ids": [
+        "115010059",
+        "115010032",
+        "115010057"
+      ],
+      "selected_contexts": [
+        "10016",
+        "10017"
+      ]
+    },
+    "timeline/65536": {
+      "candidate_rows": 25,
+      "candidate_contexts": 2,
+      "selected": 3,
+      "selected_ids": [
+        "116010213",
+        "116010237",
+        "116010222"
+      ],
+      "selected_contexts": [
+        "10000",
+        "10001"
+      ]
+    },
+    "timeline/131072": {
+      "candidate_rows": 23,
+      "candidate_contexts": 2,
+      "selected": 3,
+      "selected_ids": [
+        "117010243",
+        "117010220",
+        "117010244"
+      ],
+      "selected_contexts": [
+        "10003",
+        "10004"
+      ]
+    },
+    "user/8192": {
+      "candidate_rows": 26,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "113010021",
+        "113010039",
+        "13000057"
+      ],
+      "selected_contexts": [
+        "10",
+        "10009",
+        "10010"
+      ]
+    },
+    "user/16384": {
+      "candidate_rows": 35,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "14000060",
+        "14000036",
+        "114010024"
+      ],
+      "selected_contexts": [
+        "10012",
+        "12",
+        "13"
+      ]
+    },
+    "user/32768": {
+      "candidate_rows": 29,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "115010026",
+        "15000222",
+        "15000246"
+      ],
+      "selected_contexts": [
+        "0",
+        "1",
+        "10016"
+      ]
+    },
+    "user/65536": {
+      "candidate_rows": 23,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "16000249",
+        "116010235",
+        "16000227"
+      ],
+      "selected_contexts": [
+        "10001",
+        "3",
+        "4"
+      ]
+    },
+    "user/131072": {
+      "candidate_rows": 34,
+      "candidate_contexts": 4,
+      "selected": 3,
+      "selected_ids": [
+        "17000254",
+        "17000231",
+        "117010212"
+      ],
+      "selected_contexts": [
+        "10003",
+        "6",
+        "8"
+      ]
+    }
+  },
+  "selected_ids_sha256": "eb47cd5f91a4d66ed266c28a8c549395adce60513b86a63aafc6c7bf0469fb7b",
+  "prior_inputs": [
+    {
+      "path": "results/oolong_context_disjoint2_n9_max3_manifest_20260717.json",
+      "rows": 9,
+      "ids": 9,
+      "contexts": 6,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "imdb",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd15_repeatability_manifest_20260715.json",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 14,
+      "datasets": [
+        "agnews",
+        "imdb",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd30_official_qwen_remaining_manifest_20260719.json",
+      "rows": 30,
+      "ids": 30,
+      "contexts": 20,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "multinli",
+        "negation"
+      ]
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_manifest_20260715.json",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 32,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_heldout_frozen_manifest_20260712.json",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_manifest_20260714.json",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 14,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_rollout_variability_n3_8k_manifest_20260714.json",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 3,
+      "datasets": [
+        "formality",
+        "imdb",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_frozen_manifest_20260712.json",
+      "rows": 126,
+      "ids": 126,
+      "contexts": 47,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_frozen_manifest_20260712_max3.json",
+      "rows": 126,
+      "ids": 126,
+      "contexts": 48,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_5len_manifest_20260712.json",
+      "rows": 120,
+      "ids": 120,
+      "contexts": 72,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_missing75_manifest_20260712.json",
+      "rows": 75,
+      "ids": 75,
+      "contexts": 52,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunk100_completed9_manifest_20260712.json",
+      "rows": 9,
+      "ids": 9,
+      "contexts": 9,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "metaphors",
+        "multinli",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_smoke_manifest_20260712.json",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 15,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_n45_5len_manifest_20260712.json",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 37,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_multilength_smoke_manifest_20260712.json",
+      "rows": 27,
+      "ids": 27,
+      "contexts": 22,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_manifest_20260714.json",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 73,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_manifest_20260713.json",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 34,
+      "datasets": [
+        "agnews",
+        "app_reviews",
+        "formality",
+        "imdb",
+        "metaphors",
+        "multinli",
+        "negation",
+        "yahoo"
+      ]
+    },
+    {
+      "path": "results/oolong_cd15_rlm_atomic_ops_20260717.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 14,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_cd15_rlm_same_ops_20260716.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 14,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_cd15_rlm_same_ops_smoke1_20260716.csv",
+      "rows": 1,
+      "ids": 1,
+      "contexts": 1,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_cd45_rlm_atomic_ops_20260717.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 32,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_cd45_rlm_same_ops_20260716.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 32,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd15_direct_gemini25_repeat_20260718.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd15_rlm_repeat1_20260716.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd15_rlm_repeat2_20260716.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd15_rlm_repeat3_20260716.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd15_rlm_repeatability_20260716_per_example.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd45_rlm_program_trace_subset_20260716.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd45_shared_operator_controller_20260716.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 32,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd45_shared_operator_controller_smoke3_20260716.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 3,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_cd45_specialization_controls_20260716.csv",
+      "rows": 180,
+      "ids": 45,
+      "contexts": 32,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_luna_complete_20260718.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_luna_preflight3_20260718.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_luna_rlm_32k_canary3_20260717.csv",
+      "rows": 1,
+      "ids": 1,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_luna_rlm_360s_20260717.csv",
+      "rows": 9,
+      "ids": 9,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_luna_rlm_canary3_20260717.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_sol_rlm_360s_20260717.csv",
+      "rows": 17,
+      "ids": 17,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_sol_rlm_canary3_20260717.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_terra_rlm_canary3_20260715.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_terra_rlm_complete_20260715.csv",
+      "rows": 13,
+      "ids": 13,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt56_terra_rlm_strict_20260715.csv",
+      "rows": 20,
+      "ids": 20,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt5_rlm_20260715.csv",
+      "rows": 5,
+      "ids": 5,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt5_rlm_canary3_20260715.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_gpt5_rlm_strict_20260715.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_rlm_20260715.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_rlm_repeat1_20260716.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_rlm_repeatability_20260716_per_example.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_slm_labeler_question_parsed_typed_20260715.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 32,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_slm_labeler_typed_20260715.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_context_disjoint_n45_slm_labeler_typed_dryrun_20260715.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_lambda_rlm_n150_20260712.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_lambda_rlm_smoke_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_model_methods_smoke_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_noapi_predictions_20260712.csv",
+      "rows": 300,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_noapi_repaired_predictions_20260712.csv",
+      "rows": 300,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_prehend_srlm_n30_20260712.csv",
+      "rows": 60,
+      "ids": 60,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_prehend_srlm_n60_20260712.csv",
+      "rows": 60,
+      "ids": 60,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_prehend_srlm_smoke_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_rlm_n150_20260712.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_rlm_n30_20260712.csv",
+      "rows": 29,
+      "ids": 29,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_heldout_rlm_n60_20260712.csv",
+      "rows": 60,
+      "ids": 60,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_question_paraphrase_stress_20260713.csv",
+      "rows": 360,
+      "ids": 120,
+      "contexts": 72,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rlm_faithful_n80_20260707T094655Z.csv",
+      "rows": 4,
+      "ids": 1,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rlm_faithful_n80_20260707T095020Z.csv",
+      "rows": 320,
+      "ids": 80,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rollout_variability_microaudit_20260714.csv",
+      "rows": 24,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_replay_direct_full_20260714.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_replay_rlm_full_20260714.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rollout_variability_n15_replay_rollout1_20260714.csv",
+      "rows": 11,
+      "ids": 4,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_rollout_variability_n3_8k_replay_rollout2_20260714.csv",
+      "rows": 6,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_completed15_rlm_20260712.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_completed9_rlm_20260712.csv",
+      "rows": 9,
+      "ids": 9,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_direct_controller_gemini25flash_20260713.csv",
+      "rows": 120,
+      "ids": 120,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_missing75_rlm_20260712.csv",
+      "rows": 75,
+      "ids": 75,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_missing75_slm_labeler_typed_20260712.csv",
+      "rows": 75,
+      "ids": 75,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke6_20260713.csv",
+      "rows": 6,
+      "ids": 6,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_rlm_20260712.csv",
+      "rows": 120,
+      "ids": 120,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_slm_labeler_question_parsed_typed_20260713.csv",
+      "rows": 120,
+      "ids": 120,
+      "contexts": 72,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n120_slm_labeler_typed_20260712.csv",
+      "rows": 120,
+      "ids": 120,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunk100_slm_labeler_typed_20260712.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunked_slm_labeler_typed_20260712.csv",
+      "rows": 9,
+      "ids": 9,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_chunked_slm_labeler_typed_dryrun_20260712.csv",
+      "rows": 15,
+      "ids": 15,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_sonnet46_rlm_20260713.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n15_sonnet46_rlm_probe_table_20260713.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n45_rlm_20260712.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_n45_slm_labeler_typed_20260712.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_multilength_smoke_slm_labeler_typed_dryrun_20260712.csv",
+      "rows": 27,
+      "ids": 27,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_methods_n30_20260712.csv",
+      "rows": 90,
+      "ids": 30,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_methods_n9_20260712.csv",
+      "rows": 27,
+      "ids": 9,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_slm_labeler_typed_n30_20260712.csv",
+      "rows": 30,
+      "ids": 30,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_slm_labeler_typed_n3_20260712.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_unlabeled_slm_labeler_typed_n9_20260712.csv",
+      "rows": 9,
+      "ids": 9,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_direct_controller_gemini25flash_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_rlm_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_slm_labeler_question_parsed_typed_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 73,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_slm_labeler_typed_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n150_slm_labeler_typed_dryrun_20260714.csv",
+      "rows": 150,
+      "ids": 150,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_direct_controller_gemini25flash_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_direct_controller_gemini35flash_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_rlm_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_rlm_gemini35flash_20260713.csv",
+      "rows": 8,
+      "ids": 8,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_slm_labeler_typed_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/oolong_standard_validation_n45_slm_labeler_typed_dryrun_20260713.csv",
+      "rows": 45,
+      "ids": 45,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/tmp_dryrun_oolong_standard_slm_labeler.csv",
+      "rows": 3,
+      "ids": 3,
+      "contexts": 0,
+      "datasets": []
+    },
+    {
+      "path": "results/typed_oolong_proxy_n80_20260711.csv",
+      "rows": 80,
+      "ids": 80,
+      "contexts": 0,
+      "datasets": []
+    }
+  ]
+}

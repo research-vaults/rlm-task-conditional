@@ -1,0 +1,145 @@
+{
+  "created_utc": "2026-07-19T17:37:34.200927+00:00",
+  "measurement_type": "released_implementation_surface_upper_bound",
+  "files": {
+    "typed_aggregation_kernel_and_audit": {
+      "path": "scripts/probe_typed_oolong_proxy.py",
+      "sha256": "59f1047533080f249a724b99b5e184059b121a5399324fb1c65c652852ab450e",
+      "bytes": 22927,
+      "physical_lines": 592,
+      "nonblank_lines": 507,
+      "comment_only_lines": 22,
+      "top_level_function_count": 16,
+      "nested_and_top_level_function_count": 18,
+      "top_level_class_count": 1,
+      "top_level_functions": [
+        "parse_date_any",
+        "month_name",
+        "parse_rows",
+        "normalize_label",
+        "labels_in_question",
+        "_users",
+        "apply_filters",
+        "counts_for",
+        "arg_by_count",
+        "compare_counts",
+        "solve_typed",
+        "load_test_metadata",
+        "hydrate_selected_examples",
+        "wilson",
+        "summarize",
+        "main"
+      ],
+      "top_level_classes": [
+        "Row"
+      ]
+    },
+    "question_schema_parser_and_audit": {
+      "path": "scripts/analyze_oolong_question_parsed_typed.py",
+      "sha256": "7d727d278d2d2ea4c17f490a5cb97d554f4d37b774abe721dd83d9e41897be4f",
+      "bytes": 11455,
+      "physical_lines": 294,
+      "nonblank_lines": 264,
+      "comment_only_lines": 1,
+      "top_level_function_count": 6,
+      "nested_and_top_level_function_count": 7,
+      "top_level_class_count": 0,
+      "top_level_functions": [
+        "load_manifest",
+        "load_trace",
+        "infer_answer_type",
+        "infer_task",
+        "bootstrap_cluster_diff",
+        "main"
+      ],
+      "top_level_classes": []
+    },
+    "slm_labeling_execution_and_audit": {
+      "path": "scripts/eval_oolong_standard_slm_labeler_typed.py",
+      "sha256": "acc303b3e0a29d4e124447bceb93bcc7ec7433e3cf1ea23abdefdc1d0fa25492",
+      "bytes": 32868,
+      "physical_lines": 835,
+      "nonblank_lines": 754,
+      "comment_only_lines": 10,
+      "top_level_function_count": 19,
+      "nested_and_top_level_function_count": 22,
+      "top_level_class_count": 1,
+      "top_level_functions": [
+        "hard_timeout",
+        "safe_slug",
+        "load_project_env",
+        "parse_unlabeled_rows",
+        "extract_allowed_labels",
+        "build_label_prompt",
+        "call_openrouter",
+        "block_cache_path",
+        "write_json_atomic",
+        "compute_uncached_block",
+        "label_rows_with_slm",
+        "_json_from_text",
+        "parse_predicted_labels",
+        "labeled_context_from_predictions",
+        "gold_row_labels",
+        "run_example",
+        "existing_keys",
+        "summarize",
+        "main"
+      ],
+      "top_level_classes": [
+        "HardTimeoutError"
+      ]
+    },
+    "standard_rlm_tool_wrappers": {
+      "path": "scripts/oolong_operator_library.py",
+      "sha256": "314f900d221e55fd814c8afafe3dfcbf647977724f71b8171dffd9ddfbcf0bb7",
+      "bytes": 10765,
+      "physical_lines": 296,
+      "nonblank_lines": 268,
+      "comment_only_lines": 1,
+      "top_level_function_count": 5,
+      "nested_and_top_level_function_count": 10,
+      "top_level_class_count": 0,
+      "top_level_functions": [
+        "_safe_preview",
+        "_write_trace",
+        "_normalize_task",
+        "_normalize_answer_type",
+        "make_oolong_operator_tools"
+      ],
+      "top_level_classes": []
+    }
+  },
+  "totals": {
+    "bytes": 78015,
+    "physical_lines": 2017,
+    "nonblank_lines": 1793,
+    "comment_only_lines": 34,
+    "top_level_function_count": 46,
+    "nested_and_top_level_function_count": 57,
+    "top_level_class_count": 2
+  },
+  "declared_schema": {
+    "task_family_count": 6,
+    "task_families": [
+      "TASK_TYPE.MOST_FREQ",
+      "TASK_TYPE.LEAST_FREQ",
+      "TASK_TYPE.NUMERIC_ONE_CLASS",
+      "TASK_TYPE.RELATIVE_FREQ",
+      "TASK_TYPE.REPRESENTED_N_TIMES",
+      "TASK_TYPE.SECOND_MOST_FREQ"
+    ],
+    "answer_type_count": 5,
+    "answer_types": [
+      "ANSWER_TYPE.LABEL",
+      "ANSWER_TYPE.USER",
+      "ANSWER_TYPE.DATE",
+      "ANSWER_TYPE.NUMERIC",
+      "ANSWER_TYPE.COMPARISON"
+    ],
+    "atomic_tool_count": 5,
+    "convenience_tool_count": 1,
+    "all_tool_count": 6
+  },
+  "scope_note": "Counts cover the complete released source files used by the typed route, including CLI, tracing, caching, analysis, and reporting support. They are not minimal runtime LOC.",
+  "nonclaim": "Source size does not measure human engineering hours, maintenance burden, or total cost of ownership; no such quantities were logged prospectively."
+}

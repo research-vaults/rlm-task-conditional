@@ -1,0 +1,6 @@
+noise_view,operational_definition,count,concentration,interpretation
+Task/model noise in SLM workers,SLM+typed wrong and row-label accuracy below 0.90,20,"counting 11, timeline 5, user 4",Local semantic-label noise still matters; cheap workers are not solved readers.
+Aggregator sensitivity after local labeling,SLM+typed wrong despite row-label accuracy at least 0.90,20,"counting 9, timeline 4, user 7",Small local errors or schema edge cases can flip exact aggregate answers.
+RLM scaffold/reliability noise,Standard RLM wrong because the run produced timeout/scaffold error text,9,"32k 1, 65k 5, 131k 3",The deployed RLM stack has length-sensitive reliability failures not seen in direct Gemini.
+Whole-context model noise,Direct Gemini wrong without infrastructure error,66,"8k 9, 16k 12, 32k 15, 65k 16, 131k 14",Removing RLM recursion does not solve the aggregation task; direct reading remains noisy.
+RLM non-error answer noise,Standard RLM wrong without captured timeout/scaffold error,58,counting/user/timeline mixed; see JSON by_group/by_length,"Most RLM failures are ordinary wrong answers, with scaffold errors adding a reliability tail."

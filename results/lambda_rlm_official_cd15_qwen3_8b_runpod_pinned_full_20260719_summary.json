@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "run_id": "lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719",
+    "created_utc": "2026-07-19T20:45:09.576566+00:00",
+    "source_csv": "results/lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719.csv",
+    "method_status": "official lambda-RLM implementation via project-side frozen-manifest adapter",
+    "protocol_caveat": "LambdaRLM receives Context/Question/Answer prompt; standard rlms run receives context and root_prompt separately.",
+    "context_variant": "standard",
+    "manifest": "results/oolong_context_disjoint_cd15_repeatability_manifest_20260715.json",
+    "manifest_sha256": "6b16c98cd8a4cbb4261768e0334e5354e47f247d2f9f09788e99ac58bf15ec84",
+    "source_state": {
+      "repo": "https://github.com/lambda-calculus-LLM/lambda-RLM",
+      "commit": "3874d393483dc4299101918cf8e9af670194bd88",
+      "tracked_worktree_clean": true,
+      "tracked_status": "",
+      "lambda_rlm_py_sha256": "3f0e0521f92e1e124e76aa4f717a7bf29c95386ff42b3faf6057d4fa320f42e6",
+      "benchmark_py_sha256": "903d8f42a5d6ab512cdc126db54429aee278021841ef07b9e9732afcb034727a"
+    },
+    "configuration": {
+      "backend": "openai",
+      "model": "Qwen/Qwen3-8B",
+      "base_url": "https://lkk7sgyqzda9p5-8000.proxy.runpod.net/v1",
+      "api_key_env": "RUNPOD_API_KEY",
+      "stream": true,
+      "context_window_chars": 100000,
+      "temperature": 0.6,
+      "top_p": 0.7,
+      "max_tokens": 4096,
+      "timeout_seconds": 1800,
+      "max_errors": 2,
+      "max_consecutive_errors": 2,
+      "max_cost_usd": 5.0
+    },
+    "trace": "results/lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719_traces.jsonl"
+  },
+  "overall": {
+    "lambda_rlm": {
+      "n": 15,
+      "score_sum": 8.0,
+      "mean_score": 0.533333,
+      "exact_count": 8,
+      "exact_rate": 0.533333,
+      "cost_usd": 0.0,
+      "errors": 2
+    }
+  },
+  "by_group": {
+    "counting": {
+      "lambda_rlm": {
+        "n": 5,
+        "score_sum": 4.0,
+        "mean_score": 0.8,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "cost_usd": 0.0,
+        "errors": 0
+      }
+    },
+    "timeline": {
+      "lambda_rlm": {
+        "n": 5,
+        "score_sum": 2.0,
+        "mean_score": 0.4,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "cost_usd": 0.0,
+        "errors": 1
+      }
+    },
+    "user": {
+      "lambda_rlm": {
+        "n": 5,
+        "score_sum": 2.0,
+        "mean_score": 0.4,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "cost_usd": 0.0,
+        "errors": 1
+      }
+    }
+  }
+}

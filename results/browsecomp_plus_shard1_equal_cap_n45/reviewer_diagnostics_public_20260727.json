@@ -1,0 +1,244 @@
+{
+  "chronology": "RETROSPECTIVE_REANALYSIS",
+  "claim_boundary": "Descriptive diagnostics of a frozen endpoint. Required-document strata were not prospectively specified and support no subgroup significance or causal claim.",
+  "fixed_denominator": 45,
+  "no_context_parametric_probe": {
+    "chronology": "POST_HOC_EXPLORATORY",
+    "claim_boundary": "Question-only parametric-knowledge diagnostic; not a fifth equal-cap route and not evidence of contamination or memorization.",
+    "cross_judge_agreement_successful": {
+      "count": 45,
+      "n": 45
+    },
+    "fixed_denominator": 45,
+    "format_retry": {
+      "correct": 0,
+      "original_responses_were_semantic_no_labels_without_required_prefix": true,
+      "parsed": 2,
+      "ranks": [
+        18,
+        24
+      ],
+      "restricted_sha256": "917c55d939e77f7d8249229cff1789786b2fdd079723514524a64eb8ca4fea73"
+    },
+    "gemma_judge": {
+      "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
+      "correct": 0,
+      "model": "google/gemma-4-26b-a4b-it"
+    },
+    "generation_canonical_slug": "qwen/qwen3.6-35b-a3b-20260415",
+    "generation_model": "qwen/qwen3.6-35b-a3b",
+    "gpt56_judge": {
+      "canonical_slug": "openai/gpt-5.6-sol-20260709",
+      "correct": 0,
+      "model": "openai/gpt-5.6-sol"
+    },
+    "normalized_contains": 0,
+    "prediction_chars_successful": {
+      "max": 624,
+      "median": 479,
+      "min": 2
+    },
+    "protocol_id": "BCP-EQUAL-CAP-N45-NOCONTEXT-v1",
+    "provider_account_delta_usd": 0.152520854,
+    "reported_usage_cost_usd": 0.152520854,
+    "source_hashes": {
+      "catalog": "8dc4a1c5e02fb68784bede4fc9acfd16e2c1cda2ba6d3432cd0022c6bae4bc09",
+      "gemma_format_retry_restricted": "917c55d939e77f7d8249229cff1789786b2fdd079723514524a64eb8ca4fea73",
+      "gemma_restricted": "efa3795f739cc50df39e4f5f65e7cdabd4e349805f04a16738921f3c4348997e",
+      "generation_restricted": "89fd6a543677b0a27ab44999bd441d3ce212e2d53694f5d7c16d4f5961462795",
+      "gpt56_restricted": "8b0ff8fa97241f88cafaad9ae8e76c5bf6441c319aeef8635afa19f802696a55",
+      "protocol": "fc6f7022f0b4e6b38eab8754733a4687fc84a7df597eb1f14be511fc6fbfa214",
+      "runner": "d86636214a2104081a1348d61f847f0a9486a9e80f709b4cff7bc1439050b528"
+    },
+    "strict_exact": 0,
+    "study_id": "browsecomp_plus_equal_cap_n45_no_context_v1",
+    "successful_generations": 45
+  },
+  "paired_rlm_contrasts": {
+    "BM25": {
+      "comparator_only_correct": 4,
+      "difference": 0.1333333333333333,
+      "holm_adjusted_p": 0.5386962890625,
+      "mcnemar_exact_two_sided_p": 0.1795654296875,
+      "paired_bootstrap_95": [
+        -0.022222222222222223,
+        0.28888888888888886
+      ],
+      "rlm_only_correct": 10
+    },
+    "iterative": {
+      "comparator_only_correct": 8,
+      "difference": -0.0444444444444444,
+      "holm_adjusted_p": 0.79052734375,
+      "mcnemar_exact_two_sided_p": 0.79052734375,
+      "paired_bootstrap_95": [
+        -0.2,
+        0.1111111111111111
+      ],
+      "rlm_only_correct": 6
+    },
+    "text": {
+      "comparator_only_correct": 11,
+      "difference": -0.1333333333333333,
+      "holm_adjusted_p": 0.5386962890625,
+      "mcnemar_exact_two_sided_p": 0.210113525390625,
+      "paired_bootstrap_95": [
+        -0.3111111111111111,
+        0.044444444444444446
+      ],
+      "rlm_only_correct": 5
+    }
+  },
+  "prediction_length_diagnostic": {
+    "by_route": {
+      "BM25": {
+        "primary_correct_median": 14,
+        "primary_incorrect_median": 1111,
+        "successful_outputs": {
+          "max": 13206,
+          "median": 21.5,
+          "min": 2,
+          "q1": 12.25,
+          "q3": 826.5
+        },
+        "unit": "characters"
+      },
+      "RLM": {
+        "primary_correct_median": 15,
+        "primary_incorrect_median": 1187.0,
+        "successful_outputs": {
+          "max": 4643,
+          "median": 16,
+          "min": 4,
+          "q1": 12.0,
+          "q3": 88.0
+        },
+        "unit": "characters"
+      },
+      "iterative": {
+        "primary_correct_median": 23,
+        "primary_incorrect_median": 1458.0,
+        "successful_outputs": {
+          "max": 13805,
+          "median": 26,
+          "min": 6,
+          "q1": 13.0,
+          "q3": 932.0
+        },
+        "unit": "characters"
+      },
+      "text": {
+        "primary_correct_median": 14,
+        "primary_incorrect_median": 289.0,
+        "successful_outputs": {
+          "max": 13844,
+          "median": 15,
+          "min": 2,
+          "q1": 11.0,
+          "q3": 96.0
+        },
+        "unit": "characters"
+      }
+    },
+    "interpretation": "Within every route, the median correct response is shorter than the median incorrect response. This is descriptive and does not establish absence of judge length bias."
+  },
+  "required_document_granularity": {
+    "distribution": {
+      "1": 1,
+      "2": 4,
+      "3": 4,
+      "4": 6,
+      "5": 6,
+      "6": 6,
+      "7": 8,
+      "8": 4,
+      "9": 1,
+      "10": 1,
+      "11": 3,
+      "12": 1
+    },
+    "median": 6,
+    "post_hoc_descriptive_strata": [
+      {
+        "label": "1--4",
+        "n": 15,
+        "required_document_counts": {
+          "1": 1,
+          "2": 4,
+          "3": 4,
+          "4": 6
+        },
+        "semantic_correct": {
+          "BM25": 7,
+          "RLM": 11,
+          "iterative": 12,
+          "text": 14
+        }
+      },
+      {
+        "label": "5--7",
+        "n": 20,
+        "required_document_counts": {
+          "5": 6,
+          "6": 6,
+          "7": 8
+        },
+        "semantic_correct": {
+          "BM25": 12,
+          "RLM": 12,
+          "iterative": 13,
+          "text": 16
+        }
+      },
+      {
+        "label": "8--12",
+        "n": 10,
+        "required_document_counts": {
+          "8": 4,
+          "9": 1,
+          "10": 1,
+          "11": 3,
+          "12": 1
+        },
+        "semantic_correct": {
+          "BM25": 6,
+          "RLM": 8,
+          "iterative": 8,
+          "text": 7
+        }
+      }
+    ],
+    "range": [
+      1,
+      12
+    ]
+  },
+  "second_judge_agreement_by_route": {
+    "BM25": {
+      "agreement": 41,
+      "successful_outputs": 42
+    },
+    "RLM": {
+      "agreement": 41,
+      "successful_outputs": 41
+    },
+    "iterative": {
+      "agreement": 45,
+      "successful_outputs": 45
+    },
+    "text": {
+      "agreement": 45,
+      "successful_outputs": 45
+    }
+  },
+  "source_hashes": {
+    "compact_restricted": "b8e1f6bd84238ceff6f7e944fc71d670da961e1a57511585e63f2c9ce758e7f9",
+    "manifest_restricted": "c74487ed2cb53640c107c352ab3ba6569f5aa09a16eb74978700e791658ae816",
+    "no_context_public": "06c0d529b6e69a55253cfc95183e0138f9b47c89933e2810d3f2ec27786f6794",
+    "primary_analysis": "9c5c2768629977d78c2322aee3811383a2dac5d644ec96ef817c66de51763066",
+    "primary_judge_restricted": "b485c2c49c816538b990d7b255ae64963abb3884e48731d0d7efd70ef16091bd",
+    "script": "ab018d0a1be7b1f8e50b12669bff9e30d921a19b9442d06305822553071de994",
+    "second_judge_restricted": "47cd653e0d3ccfe3c95a4dfdd9052b8e74618839cd618c602d2c0f90bab7f8d2"
+  },
+  "study_id": "browsecomp_plus_equal_cap_n45_reviewer_diagnostics_v1"
+}

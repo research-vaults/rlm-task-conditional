@@ -1,0 +1,146 @@
+{
+  "created_at": "2026-07-18T20:01:17Z",
+  "steps": [
+    {
+      "step": "create_template",
+      "status": 500,
+      "response": "{\"error\":\"create template: save template: Serverless templates do not support volumeInGb.\",\"status\":500}\n"
+    },
+    {
+      "step": "create_template_retry_no_volume",
+      "status": 201,
+      "response": {
+        "category": "NVIDIA",
+        "config": {
+          "templateId": "3ac6y9532c"
+        },
+        "containerDiskInGb": 100,
+        "containerRegistryAuthId": "",
+        "env": {
+          "DTYPE": "bfloat16",
+          "GPU_MEMORY_UTILIZATION": "0.92",
+          "HF_TOKEN": "<redacted-hf-token>",
+          "MAX_MODEL_LEN": "32768",
+          "MODEL_NAME": "mit-oasys/rlm-qwen3-8b-v0.1",
+          "OPENAI_SERVED_MODEL_NAME_OVERRIDE": "mit-oasys/rlm-qwen3-8b-v0.1",
+          "RAW_OPENAI_OUTPUT": "1"
+        },
+        "id": "3ac6y9532c",
+        "imageName": "runpod/worker-v1-vllm:v2.22.5",
+        "isServerless": true,
+        "name": "rlm-qwen3-8b-vllm-smoke-20260718b",
+        "ports": [
+          "8000/http"
+        ],
+        "readme": "Temporary endpoint for RLM-Qwen3-8B-v0.1 smoke in RLM audit project; delete after use.",
+        "startJupyter": true,
+        "startSsh": true,
+        "volumeMountPath": "/workspace"
+      }
+    },
+    {
+      "step": "create_endpoint",
+      "status": 201,
+      "response": {
+        "allowedCudaVersions": [
+          "13.0",
+          "12.9",
+          "12.8",
+          "12.7",
+          "12.6"
+        ],
+        "createdAt": "2026-07-18T20:01:45.948Z",
+        "executionTimeoutMs": 900000,
+        "flashboot": true,
+        "gpuCount": 1,
+        "gpuTypeIds": [
+          "NVIDIA L40S",
+          "NVIDIA A40",
+          "NVIDIA RTX A6000",
+          "NVIDIA L4"
+        ],
+        "id": "kl68voh8ttlb0q",
+        "idleTimeout": 5,
+        "name": "rlm-qwen3-8b-smoke-20260718",
+        "networkVolumeId": "",
+        "scalerType": "QUEUE_DELAY",
+        "scalerValue": 4,
+        "template": {
+          "category": "NVIDIA",
+          "config": {
+            "templateId": "3ac6y9532c"
+          },
+          "containerDiskInGb": 100,
+          "containerRegistryAuthId": "",
+          "env": {
+            "DTYPE": "bfloat16",
+            "GPU_MEMORY_UTILIZATION": "0.92",
+            "HF_TOKEN": "<redacted-hf-token>",
+            "MAX_MODEL_LEN": "32768",
+            "MODEL_NAME": "mit-oasys/rlm-qwen3-8b-v0.1",
+            "OPENAI_SERVED_MODEL_NAME_OVERRIDE": "mit-oasys/rlm-qwen3-8b-v0.1",
+            "RAW_OPENAI_OUTPUT": "1"
+          },
+          "id": "3ac6y9532c",
+          "isServerless": true,
+          "name": "rlm-qwen3-8b-vllm-smoke-20260718b",
+          "ports": [
+            "8000/http"
+          ],
+          "readme": "Temporary endpoint for RLM-Qwen3-8B-v0.1 smoke in RLM audit project; delete after use.",
+          "startJupyter": true,
+          "startSsh": true
+        },
+        "templateId": "3ac6y9532c",
+        "userId": "<redacted-runpod-user>",
+        "version": 1,
+        "workersMax": 1,
+        "workersMin": 0,
+        "workersStandby": 1
+      }
+    }
+  ],
+  "template_id": "3ac6y9532c",
+  "endpoint_id": "kl68voh8ttlb0q",
+  "cleanup": [
+    {
+      "step": "endpoint_delete",
+      "at_utc": "2026-07-18T20:15:01Z",
+      "status": 204,
+      "body": null
+    },
+    {
+      "step": "template_delete",
+      "at_utc": "2026-07-18T20:15:01Z",
+      "status": 204,
+      "body": null
+    }
+  ],
+  "post_cleanup_checks": [
+    {
+      "path": "/endpoints",
+      "status": 200,
+      "body_preview": "[]"
+    },
+    {
+      "path": "/pods",
+      "status": 200,
+      "body_preview": "[]"
+    },
+    {
+      "path": "/templates",
+      "status": 200,
+      "body_preview": "[]"
+    },
+    {
+      "path": "/billing/endpoints",
+      "status": 200,
+      "body_preview": "[]"
+    },
+    {
+      "path": "/billing/pods",
+      "status": 200,
+      "body_preview": "[{'amount': 0.028743274859152734, 'timeBilledMs': 145134, 'diskSpaceBilledGB': 160, 'podId': '01r89x1fjejxpi', 'time': '2026-06-29 00:00:00'}, {'amount': 0.34352920937817544, 'timeBilledMs': 3524623, 'diskSpaceBilledGB': 720, 'podId': 'pnn8j8c897ehz9', 'time': '2026-06-29 00:00:00'}, {'amount': 0.01387379108928144, 'timeBilledMs': 141997, 'diskSpaceBilledGB': 80, 'podId': 'rezngrspm8daap', 'time': '2026-06-29 00:00:00'}, {'amount': 0.17265523644164205, 'timeBilledMs': 1734977, 'diskSpaceBilledGB': 700, 'podId': 'tccgwnpb9wsckw', 'time': '2026-06-29 00:00:00'}, {'amount': 0.41840340581256896, 'timeBilledMs': 3767634, 'diskSpaceBilledGB': 630, 'podId': '5hib9uyolfbprf', 'time': '2026-06-30 00:00:00'}, {'amount': 0.17242438823450357, 'timeBilledMs': 1552614, 'diskSpaceBilledGB': 270, 'podId': '8mkomrifuvtm3s', 'time': '2026-06-30 00:00:00'}, {'amount': 0.020247121108695865, 'timeBilledMs': 182623, 'diskSpaceBilledGB': 45, 'podId': 'hlm6gtolnpsbnl', 'time': '2026-06-30 00:00:00'}, {'amount': 0.009271654998883605, 'timeBilledMs': 81311, 'diskSpaceBilledGB': 45, 'podId': 'yqxaubmzj48tda', 'time': '2026-06-30 00:00:00'}, {'amount': 0.6591152271721512, 'timeBilledMs': 3354321, 'diskSpaceBilledGB': 880, 'podId': 'n49pm4hfti32hm', 'time': '2026-07-02 00:00:00'}, {'amount': 0.331656041322276, 'timeBilledMs': 2991996, 'diskSpaceBilledGB': 450, 'podId': 'oex3qmtjsivamk', 'time': '2026-07-04 00:00:00'}, {'amount': 0.7830729502020404, 'timeBilledMs': 7064370, 'diskSpaceBilledGB': 1080, 'podId': 'oex3qmtjsivamk', 'time': '2026-07-05 00:00:00'}, {'amount': 9.47036965447478, 'timeBilledMs': 84416660, 'diskSpaceBilledGB': 22480, 'podId': 'q8eym6ubxg4hrp', 'time': '2026-07-16 00:00:00'}, {'amount': 3.572058563353494, 'timeBilledMs': 31836096, 'diskSpaceBilledGB': 8560, 'podId': 'q8eym6ubxg4hrp', 'time': '2026-07-17 00:00:00'}]"
+    }
+  ]
+}

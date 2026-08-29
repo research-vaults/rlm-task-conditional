@@ -1,0 +1,52 @@
+{
+  "chronology": "POST_HOC_EXPLORATORY",
+  "claim_boundary": "Question-only parametric-knowledge diagnostic; not a fifth equal-cap route and not evidence of contamination or memorization.",
+  "cross_judge_agreement_successful": {
+    "count": 45,
+    "n": 45
+  },
+  "fixed_denominator": 45,
+  "format_retry": {
+    "correct": 0,
+    "original_responses_were_semantic_no_labels_without_required_prefix": true,
+    "parsed": 2,
+    "ranks": [
+      18,
+      24
+    ],
+    "restricted_sha256": "917c55d939e77f7d8249229cff1789786b2fdd079723514524a64eb8ca4fea73"
+  },
+  "gemma_judge": {
+    "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
+    "correct": 0,
+    "model": "google/gemma-4-26b-a4b-it"
+  },
+  "generation_canonical_slug": "qwen/qwen3.6-35b-a3b-20260415",
+  "generation_model": "qwen/qwen3.6-35b-a3b",
+  "gpt56_judge": {
+    "canonical_slug": "openai/gpt-5.6-sol-20260709",
+    "correct": 0,
+    "model": "openai/gpt-5.6-sol"
+  },
+  "normalized_contains": 0,
+  "prediction_chars_successful": {
+    "max": 624,
+    "median": 479,
+    "min": 2
+  },
+  "protocol_id": "BCP-EQUAL-CAP-N45-NOCONTEXT-v1",
+  "provider_account_delta_usd": 0.152520854,
+  "reported_usage_cost_usd": 0.152520854,
+  "source_hashes": {
+    "catalog": "8dc4a1c5e02fb68784bede4fc9acfd16e2c1cda2ba6d3432cd0022c6bae4bc09",
+    "gemma_format_retry_restricted": "917c55d939e77f7d8249229cff1789786b2fdd079723514524a64eb8ca4fea73",
+    "gemma_restricted": "efa3795f739cc50df39e4f5f65e7cdabd4e349805f04a16738921f3c4348997e",
+    "generation_restricted": "89fd6a543677b0a27ab44999bd441d3ce212e2d53694f5d7c16d4f5961462795",
+    "gpt56_restricted": "8b0ff8fa97241f88cafaad9ae8e76c5bf6441c319aeef8635afa19f802696a55",
+    "protocol": "fc6f7022f0b4e6b38eab8754733a4687fc84a7df597eb1f14be511fc6fbfa214",
+    "runner": "d86636214a2104081a1348d61f847f0a9486a9e80f709b4cff7bc1439050b528"
+  },
+  "strict_exact": 0,
+  "study_id": "browsecomp_plus_equal_cap_n45_no_context_v1",
+  "successful_generations": 45
+}

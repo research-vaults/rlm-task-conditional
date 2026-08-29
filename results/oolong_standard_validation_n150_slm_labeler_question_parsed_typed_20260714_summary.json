@@ -1,0 +1,74 @@
+{
+  "answer_type_parse_accuracy_vs_metadata": 1.0,
+  "by_group": {
+    "counting": {
+      "exact_count": 23,
+      "mean_score": 0.55933,
+      "n": 50
+    },
+    "timeline": {
+      "exact_count": 31,
+      "mean_score": 0.679096,
+      "n": 50
+    },
+    "user": {
+      "exact_count": 44,
+      "mean_score": 0.903438,
+      "n": 50
+    }
+  },
+  "by_length": {
+    "131072": {
+      "exact_count": 15,
+      "mean_score": 0.59517,
+      "n": 30
+    },
+    "16384": {
+      "exact_count": 20,
+      "mean_score": 0.67827,
+      "n": 30
+    },
+    "32768": {
+      "exact_count": 22,
+      "mean_score": 0.78042,
+      "n": 30
+    },
+    "65536": {
+      "exact_count": 19,
+      "mean_score": 0.71813,
+      "n": 30
+    },
+    "8192": {
+      "exact_count": 22,
+      "mean_score": 0.7977833333333333,
+      "n": 30
+    }
+  },
+  "cluster_bootstrap_paired_diff": {
+    "clusters": 73,
+    "exact_diff": {
+      "ci_high": 0.29931972789115646,
+      "ci_low": 0.10596026490066225,
+      "mean": 0.201354981417587
+    },
+    "score_diff": {
+      "ci_high": 0.32506159422245035,
+      "ci_low": 0.13869062977858898,
+      "mean": 0.230758139568064
+    }
+  },
+  "cost_usd": 0.8387771099999997,
+  "errors": 0,
+  "exact_count": 98,
+  "exact_rate": 0.6533333333333333,
+  "mean_score": 0.7139546666666666,
+  "metadata_contract": "Question parser infers task and answer_type from natural-language question; stored SLM row-label predictions are reused; no new model/API calls.",
+  "n": 150,
+  "paired_exact": {
+    "b_qp_right_rlm_wrong": 44,
+    "c_rlm_right_qp_wrong": 14
+  },
+  "rlm_exact_count": 68,
+  "run_id": "oolong_standard_validation_n150_slm_labeler_question_parsed_typed_20260714",
+  "task_parse_accuracy_vs_metadata": 1.0
+}

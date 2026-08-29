@@ -1,0 +1,28 @@
+{
+  "captured_utc": "2026-07-20T15:49:20+00:00",
+  "pod_id": "lkk7sgyqzda9p5",
+  "request_scope": {
+    "grouping": "podId",
+    "bucketSize": "day",
+    "startTime": "2026-07-19T00:00:00Z",
+    "endTime": "2026-07-20T23:59:59Z"
+  },
+  "billing_rows": [
+    {
+      "amount": 5.470828904071823,
+      "timeBilledMs": 6562425,
+      "diskSpaceBilledGB": 1440,
+      "podId": "lkk7sgyqzda9p5",
+      "time": "2026-07-19 00:00:00"
+    }
+  ],
+  "status": "finalized_provider_export",
+  "aggregate": {
+    "amount_usd": 5.470828904071823,
+    "time_billed_ms": 6562425,
+    "time_billed_s": 6562.425
+  },
+  "wrapper_runtime_s": 6562.147356875001,
+  "coverage_fraction_of_wrapper": 1.0000423097973727,
+  "interpretation": "The refreshed provider export covers the complete wrapper interval (the 0.278-second excess is billing-bucket rounding). Treat $5.470829 as finalized actual infrastructure spend while retaining the $5.450228 creation-to-cleanup listed-rate estimate as the protocol-comparison quantity."
+}

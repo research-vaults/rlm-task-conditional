@@ -1,0 +1,119 @@
+{
+  "analysis_contract": "paired complete prospective ranks 1-37; generation failures count incorrect",
+  "case_audit": {
+    "agreement_with_gemma": 15,
+    "artifact": "results/browsecomp_plus_positive_regime/bcp_semantic_disagreement_case_audit_r1_37_20260720.json",
+    "audit_type": "Post-hoc project-side case inspection; not an independent human annotation study",
+    "audited": 15,
+    "independent_human_validation": false,
+    "judge_label_visible_during_case_audit": true,
+    "scope": "all semantic-vs-normalized-containment disagreements on paired ranks 1-37"
+  },
+  "cost": {
+    "active_runtime_routes_total_usd": 8.29212237992103,
+    "failed_h100_provider_billing_usd": 0.4054053651634604,
+    "generation_current_provider_export_usd": 12.15298984979745,
+    "generation_listed_rate_estimate_through_user_stop_usd": 14.558426469635,
+    "generation_pod_listed_rate_usd_per_hour": 2.99,
+    "judge_listed_rate_estimate_usd": 0.33433934999981324,
+    "note": "Stage-B provider billing was still populating; listed-rate creation-to-stop is the conservative attempted-cost estimate.",
+    "openrouter_usd": 0.0,
+    "route_attribution_scope": "active row wall time multiplied by the listed generation-pod hourly rate; excludes shared startup, idle time, failed H100 attempt, and semantic judge",
+    "stage_a_h200_provider_billing_usd_current_export": 6.471934544155374,
+    "stage_b_h200_provider_billing_usd_current_export": 5.2756499404786155
+  },
+  "judge_revision": "01e5b3ee840d3a9e0b0b493c593e85398a30ef75",
+  "methods": {
+    "bm25_qwen36": {
+      "active_runtime_listed_rate_usd": 0.11542309347537177,
+      "attempted": 37,
+      "completed": 34,
+      "completion_rate": 0.918918918918919,
+      "normalized_contains": 18,
+      "rlm_code_blocks": 0,
+      "rlm_iterations": 0,
+      "semantic_accuracy": 0.5675675675675675,
+      "semantic_correct": 21,
+      "strict_exact": 18,
+      "wall_seconds_max": 21.15705049999815,
+      "wall_seconds_median": 3.0137630000008357,
+      "wall_seconds_total": 138.97094866599946,
+      "wilson_95": [
+        0.4091418109016808,
+        0.7132828072284269
+      ]
+    },
+    "standard_rlm_qwen36": {
+      "active_runtime_listed_rate_usd": 7.3899984652361095,
+      "attempted": 37,
+      "completed": 32,
+      "completion_rate": 0.8648648648648649,
+      "normalized_contains": 21,
+      "rlm_code_blocks": 526,
+      "rlm_iterations": 533,
+      "semantic_accuracy": 0.6486486486486487,
+      "semantic_correct": 24,
+      "strict_exact": 19,
+      "wall_seconds_max": 1279.5214046249985,
+      "wall_seconds_median": 50.17936579199886,
+      "wall_seconds_total": 8897.657014999997,
+      "wilson_95": [
+        0.4875902312255084,
+        0.7817439286607287
+      ]
+    },
+    "text_decompose_qwen36": {
+      "active_runtime_listed_rate_usd": 0.7867008212095485,
+      "attempted": 37,
+      "completed": 37,
+      "completion_rate": 1.0,
+      "normalized_contains": 21,
+      "rlm_code_blocks": 0,
+      "rlm_iterations": 0,
+      "semantic_accuracy": 0.5945945945945946,
+      "semantic_correct": 22,
+      "strict_exact": 16,
+      "wall_seconds_max": 65.01532420799958,
+      "wall_seconds_median": 23.914262708000024,
+      "wall_seconds_total": 947.1983131619982,
+      "wilson_95": [
+        0.43485964730229365,
+        0.7365348180798572
+      ]
+    }
+  },
+  "n": 37,
+  "paired": {
+    "bm25_qwen36__vs__text_decompose_qwen36": {
+      "difference": -0.027027027027027084,
+      "left_only": 4,
+      "mcnemar_exact_two_sided_p": 1.0,
+      "paired_bootstrap_95": [
+        -0.1891891891891892,
+        0.13513513513513514
+      ],
+      "right_only": 5
+    },
+    "standard_rlm_qwen36__vs__bm25_qwen36": {
+      "difference": 0.08108108108108114,
+      "left_only": 10,
+      "mcnemar_exact_two_sided_p": 0.629058837890625,
+      "paired_bootstrap_95": [
+        -0.13513513513513514,
+        0.2972972972972973
+      ],
+      "right_only": 7
+    },
+    "standard_rlm_qwen36__vs__text_decompose_qwen36": {
+      "difference": 0.05405405405405406,
+      "left_only": 9,
+      "mcnemar_exact_two_sided_p": 0.803619384765625,
+      "paired_bootstrap_95": [
+        -0.16216216216216217,
+        0.2702702702702703
+      ],
+      "right_only": 7
+    }
+  },
+  "semantic_judge": "google/gemma-4-26B-A4B-it"
+}

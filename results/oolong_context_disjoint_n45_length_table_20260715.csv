@@ -1,0 +1,10 @@
+context_len,method,n,mean_score,exact_rate,cost_usd,errors
+1024,direct_controller,15,0.833333,0.733333,0.003517,0
+1024,slm_qparsed_typed,15,0.866667,0.866667,0.000948,0
+1024,standard_rlm,15,0.802813,0.8,0.096588,0
+4096,direct_controller,15,0.508593,0.4,0.015087,0
+4096,slm_qparsed_typed,15,0.77584,0.733333,0.006095,0
+4096,standard_rlm,15,0.591927,0.533333,0.121268,0
+262144,direct_controller,15,0.304167,0.266667,1.005987,0
+262144,slm_qparsed_typed,15,0.86854,0.8,0.409372,0
+262144,standard_rlm,15,0.475567,0.466667,0.783158,0

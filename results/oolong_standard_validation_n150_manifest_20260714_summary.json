@@ -1,0 +1,504 @@
+{
+  "metadata": {
+    "dataset": "oolongbench/oolong-synth",
+    "split": "test",
+    "input_contract": "standard_unlabeled_context_window_text",
+    "context_variant": "standard",
+    "seed": 20260714,
+    "created_utc": "2026-07-14T03:57:31.200959+00:00",
+    "prospective_freeze": true,
+    "frozen_before_new_model_calls": true,
+    "groups": [
+      "counting",
+      "timeline",
+      "user"
+    ],
+    "context_lengths": [
+      8192,
+      16384,
+      32768,
+      65536,
+      131072
+    ],
+    "per_cell": 10,
+    "max_per_context_window_id": 3,
+    "prior_exclusion_counts": {
+      "results/oolong_rlm_faithful_n80_20260707T095020Z.csv": 80,
+      "results/oolong_standard_unlabeled_methods_n30_20260712.csv": 30,
+      "results/oolong_standard_unlabeled_slm_labeler_typed_n30_20260712.csv": 30,
+      "results/oolong_heldout_frozen_manifest_20260712.json": 150,
+      "results/oolong_standard_multilength_n15_smoke_manifest_20260712.json": 15,
+      "results/oolong_standard_multilength_n45_5len_manifest_20260712.json": 45,
+      "results/oolong_standard_multilength_n120_5len_manifest_20260712.json": 120,
+      "results/oolong_standard_multilength_n120_missing75_manifest_20260712.json": 75
+    },
+    "excluded_prior_unique_ids": 353,
+    "selection_policy": "exclude the prior project Oolong ID set known to this freezer at creation time; select groups x context_lengths cells; seeded shuffle within each cell; cap total reuse of context_window_id; write only metadata needed for later hydration from public Oolong parquet",
+    "split_overlap_after_archival_audit": {
+      "source": "results/oolong_standard_validation_n150_split_overlap_audit_20260714.json",
+      "interpretation": "larger fixed-pipeline replication, not context-window-disjoint validation",
+      "prior_target_id_overlap": 20,
+      "prior_context_window_overlap": 73,
+      "target_rows_on_prior_context_windows": 150,
+      "target_rows_on_new_context_windows": 0,
+      "note": "Later union-over-archived-project audit found overlap with project Oolong artifacts not fully represented by the freezer's original prior_exclusion_counts."
+    }
+  },
+  "n": 150,
+  "groups": {
+    "counting": 50,
+    "timeline": 50,
+    "user": 50
+  },
+  "lengths": {
+    "8192": 30,
+    "16384": 30,
+    "32768": 30,
+    "65536": 30,
+    "131072": 30
+  },
+  "unique_context_window_ids": 73,
+  "max_questions_per_context_window_id": 3,
+  "context_window_reuse_histogram": {
+    "1": 19,
+    "2": 31,
+    "3": 23
+  },
+  "cells": {
+    "counting/8192": {
+      "candidate_rows_after_exclusion": 109,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20009": 1,
+        "20010": 1,
+        "30009": 1,
+        "30010": 1,
+        "40010": 1,
+        "50009": 1,
+        "70009": 1,
+        "70010": 1,
+        "90009": 1,
+        "90010": 1
+      },
+      "selected_ids": [
+        "513050019",
+        "713070039",
+        "413040038",
+        "913090037",
+        "213020013",
+        "313030016",
+        "913090013",
+        "713070015",
+        "213020037",
+        "313030035"
+      ]
+    },
+    "counting/16384": {
+      "candidate_rows_after_exclusion": 126,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20013": 1,
+        "30013": 1,
+        "40012": 1,
+        "40013": 1,
+        "50013": 1,
+        "60013": 1,
+        "80012": 1,
+        "80013": 1,
+        "90012": 1,
+        "90013": 1
+      },
+      "selected_ids": [
+        "914090037",
+        "814080040",
+        "414040038",
+        "314030042",
+        "414040013",
+        "814080012",
+        "214020038",
+        "514050051",
+        "614060039",
+        "914090014"
+      ]
+    },
+    "counting/32768": {
+      "candidate_rows_after_exclusion": 130,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20016": 1,
+        "20017": 1,
+        "30017": 1,
+        "40016": 1,
+        "40017": 1,
+        "50017": 1,
+        "60016": 1,
+        "70017": 1,
+        "80001": 1,
+        "90017": 1
+      },
+      "selected_ids": [
+        "415040017",
+        "215020042",
+        "915090043",
+        "215020018",
+        "615060019",
+        "315030043",
+        "715070043",
+        "515050056",
+        "415040041",
+        "815080227"
+      ]
+    },
+    "counting/65536": {
+      "candidate_rows_after_exclusion": 121,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20019": 1,
+        "30018": 1,
+        "30019": 1,
+        "40019": 1,
+        "50018": 1,
+        "60018": 1,
+        "60019": 1,
+        "70018": 1,
+        "80003": 1,
+        "90019": 1
+      },
+      "selected_ids": [
+        "916090046",
+        "316030050",
+        "716070020",
+        "216020044",
+        "616060046",
+        "416040044",
+        "516050034",
+        "616060019",
+        "816080204",
+        "316030023"
+      ]
+    },
+    "counting/131072": {
+      "candidate_rows_after_exclusion": 119,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20022": 1,
+        "30021": 1,
+        "30022": 1,
+        "40022": 1,
+        "50022": 1,
+        "60021": 1,
+        "60022": 1,
+        "70021": 1,
+        "70022": 1,
+        "80006": 1
+      },
+      "selected_ids": [
+        "717070048",
+        "617060022",
+        "617060048",
+        "817080235",
+        "317030021",
+        "217020049",
+        "317030053",
+        "717070023",
+        "417040048",
+        "517050066"
+      ]
+    },
+    "timeline/8192": {
+      "candidate_rows_after_exclusion": 111,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20009": 1,
+        "30009": 1,
+        "40009": 1,
+        "40010": 1,
+        "60009": 1,
+        "60010": 1,
+        "70009": 1,
+        "80010": 1,
+        "90009": 1,
+        "90010": 1
+      },
+      "selected_ids": [
+        "613060052",
+        "413040052",
+        "213020027",
+        "913090056",
+        "313030033",
+        "913090026",
+        "413040032",
+        "813080055",
+        "613060025",
+        "713070027"
+      ]
+    },
+    "timeline/16384": {
+      "candidate_rows_after_exclusion": 128,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20013": 1,
+        "40012": 1,
+        "60012": 1,
+        "60013": 1,
+        "70012": 1,
+        "70013": 1,
+        "80012": 1,
+        "80013": 1,
+        "90012": 1,
+        "90013": 1
+      },
+      "selected_ids": [
+        "214020056",
+        "614060052",
+        "714070029",
+        "614060032",
+        "414040033",
+        "814080030",
+        "914090055",
+        "714070059",
+        "814080051",
+        "914090028"
+      ]
+    },
+    "timeline/32768": {
+      "candidate_rows_after_exclusion": 124,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20016": 1,
+        "20017": 1,
+        "30017": 1,
+        "40016": 1,
+        "40017": 1,
+        "60016": 1,
+        "70016": 1,
+        "70017": 1,
+        "80000": 1,
+        "90017": 1
+      },
+      "selected_ids": [
+        "615060037",
+        "315030063",
+        "715070040",
+        "415040064",
+        "215020037",
+        "915090064",
+        "815080221",
+        "715070061",
+        "215020050",
+        "415040032"
+      ]
+    },
+    "timeline/65536": {
+      "candidate_rows_after_exclusion": 120,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20018": 1,
+        "20019": 1,
+        "40019": 1,
+        "60018": 1,
+        "60019": 1,
+        "70018": 1,
+        "70019": 1,
+        "80003": 1,
+        "80004": 1,
+        "90018": 1
+      },
+      "selected_ids": [
+        "816080249",
+        "416040065",
+        "616060037",
+        "816080221",
+        "916090042",
+        "216020040",
+        "716070065",
+        "616060061",
+        "216020057",
+        "716070042"
+      ]
+    },
+    "timeline/131072": {
+      "candidate_rows_after_exclusion": 120,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20021": 1,
+        "20022": 1,
+        "40021": 1,
+        "60021": 1,
+        "60022": 1,
+        "70022": 1,
+        "80006": 1,
+        "80008": 1,
+        "90021": 1,
+        "90022": 1
+      },
+      "selected_ids": [
+        "717070066",
+        "417040045",
+        "617060042",
+        "617060070",
+        "917090037",
+        "817080249",
+        "817080229",
+        "217020042",
+        "917090067",
+        "217020063"
+      ]
+    },
+    "user/8192": {
+      "candidate_rows_after_exclusion": 99,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20010": 1,
+        "30010": 1,
+        "40009": 1,
+        "40010": 1,
+        "60009": 1,
+        "60010": 1,
+        "70009": 1,
+        "70010": 1,
+        "90009": 1,
+        "90010": 1
+      },
+      "selected_ids": [
+        "413040021",
+        "913090042",
+        "613060039",
+        "713070020",
+        "213020040",
+        "713070049",
+        "913090015",
+        "613060018",
+        "413040046",
+        "313030046"
+      ]
+    },
+    "user/16384": {
+      "candidate_rows_after_exclusion": 121,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20012": 1,
+        "20013": 1,
+        "30012": 1,
+        "40012": 1,
+        "40013": 1,
+        "60012": 1,
+        "60013": 1,
+        "70013": 1,
+        "80013": 1,
+        "90013": 1
+      },
+      "selected_ids": [
+        "714070053",
+        "214020042",
+        "214020020",
+        "814080048",
+        "414040040",
+        "614060025",
+        "414040016",
+        "614060042",
+        "914090045",
+        "314030034"
+      ]
+    },
+    "user/32768": {
+      "candidate_rows_after_exclusion": 121,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20016": 1,
+        "20017": 1,
+        "30017": 1,
+        "40016": 1,
+        "60017": 1,
+        "70016": 1,
+        "70017": 1,
+        "80001": 1,
+        "90016": 1,
+        "90017": 1
+      },
+      "selected_ids": [
+        "715070037",
+        "415040027",
+        "715070049",
+        "915090053",
+        "815080236",
+        "215020026",
+        "615060053",
+        "215020048",
+        "315030058",
+        "915090022"
+      ]
+    },
+    "user/65536": {
+      "candidate_rows_after_exclusion": 135,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20018": 1,
+        "30018": 1,
+        "40018": 1,
+        "40019": 1,
+        "60018": 1,
+        "60019": 1,
+        "70018": 1,
+        "70019": 1,
+        "80003": 1,
+        "90019": 1
+      },
+      "selected_ids": [
+        "716070060",
+        "616060048",
+        "416040050",
+        "616060026",
+        "316030030",
+        "816080209",
+        "716070029",
+        "416040027",
+        "916090048",
+        "216020028"
+      ]
+    },
+    "user/131072": {
+      "candidate_rows_after_exclusion": 137,
+      "selected": 10,
+      "unique_context_window_ids": 10,
+      "context_window_reuse": {
+        "20021": 1,
+        "40021": 1,
+        "40022": 1,
+        "60021": 1,
+        "60022": 1,
+        "70021": 1,
+        "80006": 1,
+        "80008": 1,
+        "90021": 1,
+        "90022": 1
+      },
+      "selected_ids": [
+        "217020026",
+        "717070034",
+        "417040054",
+        "917090026",
+        "917090051",
+        "817080244",
+        "617060033",
+        "817080214",
+        "617060053",
+        "417040033"
+      ]
+    }
+  }
+}

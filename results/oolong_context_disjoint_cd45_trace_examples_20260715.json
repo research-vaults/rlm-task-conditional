@@ -1,0 +1,463 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-15T18:23:44.301490+00:00",
+    "purpose": "No-call representative trace examples over paired CD-45 outputs.",
+    "source_files": {
+      "slm_qparsed_typed": "results/oolong_context_disjoint_n45_slm_labeler_question_parsed_typed_20260715.csv",
+      "standard_rlm_gemini25_flash": "results/oolong_context_disjoint_n45_rlm_20260715.csv",
+      "standard_rlm_gpt5": "results/oolong_context_disjoint_n45_gpt5_rlm_strict_20260715.csv",
+      "direct_gemini25_flash": "results/oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715.csv"
+    },
+    "trace_files": {
+      "slm_qparsed_typed": "results/oolong_context_disjoint_n45_slm_labeler_typed_20260715_trace.jsonl",
+      "direct_gemini25_flash": "results/oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715_trace.jsonl"
+    },
+    "method_order_for_patterns": [
+      "standard_rlm_gemini25_flash",
+      "standard_rlm_gpt5",
+      "slm_qparsed_typed",
+      "direct_gemini25_flash"
+    ],
+    "rlm_trace_limitation": "CD-45 standard-RLM generated program text is not available in the stored artifacts; only predictions, costs, and errors are retained."
+  },
+  "summary": {
+    "case_count": 5,
+    "outcome_pattern_counts": {
+      "rlm_gemini,gpt5_rlm,slm,direct=0000": 5,
+      "rlm_gemini,gpt5_rlm,slm,direct=0010": 6,
+      "rlm_gemini,gpt5_rlm,slm,direct=0011": 1,
+      "rlm_gemini,gpt5_rlm,slm,direct=0100": 2,
+      "rlm_gemini,gpt5_rlm,slm,direct=0110": 3,
+      "rlm_gemini,gpt5_rlm,slm,direct=0111": 1,
+      "rlm_gemini,gpt5_rlm,slm,direct=1000": 1,
+      "rlm_gemini,gpt5_rlm,slm,direct=1001": 1,
+      "rlm_gemini,gpt5_rlm,slm,direct=1010": 4,
+      "rlm_gemini,gpt5_rlm,slm,direct=1011": 4,
+      "rlm_gemini,gpt5_rlm,slm,direct=1110": 3,
+      "rlm_gemini,gpt5_rlm,slm,direct=1111": 14
+    }
+  },
+  "cases": [
+    {
+      "case_id": "slm_and_direct_fix_standard_rlm",
+      "example_id": "912090010",
+      "reason": "SLM+typed, direct Gemini, and GPT-5 RLM all answer the comparison correctly; standard RLM/Gemini collapses to a tie.",
+      "task_group": "counting",
+      "context_len": 4096,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "question": "In the above data, is label 'negative' more common, less common, or the same frequency as label 'positive'? Give your final answer in the form 'Answer: negative is [X] positive', where [X] is 'more common than', 'less common than', or 'same frequency as'.",
+      "gold": "less common than",
+      "methods": {
+        "slm_qparsed_typed": {
+          "prediction": "less common than",
+          "gold": "less common than",
+          "correct": 1.0,
+          "cost_usd": 0.0004641,
+          "error": ""
+        },
+        "standard_rlm_gemini25_flash": {
+          "prediction": "same frequency as",
+          "gold": "less common than",
+          "correct": 0.0,
+          "cost_usd": 0.000996,
+          "error": ""
+        },
+        "standard_rlm_gpt5": {
+          "prediction": "less common than",
+          "gold": "less common than",
+          "correct": 1.0,
+          "cost_usd": 0.322726,
+          "error": ""
+        },
+        "direct_gemini25_flash": {
+          "prediction": "less common than",
+          "gold": "less common than",
+          "correct": 1.0,
+          "cost_usd": 0.0010607,
+          "error": ""
+        }
+      },
+      "trace_summaries": {
+        "slm_qparsed_typed": {
+          "trace_available": true,
+          "model": "google/gemma-4-26b-a4b-it",
+          "row_count": 71,
+          "block_count": 1,
+          "typed_ops": [
+            "count_label",
+            "compare"
+          ],
+          "typed_status": "label_compare",
+          "row_label_accuracy": 0.9577464788732394,
+          "allowed_labels": [
+            "positive",
+            "negative"
+          ],
+          "input_tokens": 4215,
+          "output_tokens": 640,
+          "estimated_cost_usd": 0.0004641,
+          "first_block_rows": [
+            1,
+            71
+          ],
+          "raw_response_preview": "```json\n{\"labels\":[{\"i\":1,\"label\":\"positive\"},{\"i\":2,\"label\":\"positive\"},{\"i\":3,\"label\":\"positive\"},{\"i\":4,\"label\":\"positive\"},{\"i\":5,\"label\":\"positive\"},{\"i\":6,\"label\":\"positive\"},{\"i\":7,\"label\":\"positive\"},{\"i\":8,\"label\":\"positive\"},{\"i\":"
+        },
+        "direct_gemini25_flash": {
+          "trace_available": true,
+          "model": "google/gemini-2.5-flash",
+          "input_tokens": 3469,
+          "output_tokens": 8,
+          "latency_s": 0.533,
+          "raw_response_preview": "Answer: negative is less common than positive"
+        },
+        "standard_rlm_gemini25_flash": {
+          "trace_available": false,
+          "reason": "The CD-45 standard-RLM CSV stores prediction, cost, and error only; generated program text was not retained for this run."
+        },
+        "standard_rlm_gpt5": {
+          "trace_available": false,
+          "reason": "The strict-stop GPT-5 RLM sensitivity stores prediction, cost, and error only; generated program text was not retained for this run."
+        }
+      }
+    },
+    {
+      "case_id": "slm_and_direct_fix_standard_and_gpt5_rlm",
+      "example_id": "412040009",
+      "reason": "SLM+typed and direct Gemini answer a least-label question correctly; standard RLM/Gemini chooses the wrong label and GPT-5 RLM times out.",
+      "task_group": "counting",
+      "context_len": 4096,
+      "task": "TASK_TYPE.LEAST_FREQ",
+      "answer_type": "ANSWER_TYPE.LABEL",
+      "question": "In the above data, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: True, False.",
+      "gold": "True",
+      "methods": {
+        "slm_qparsed_typed": {
+          "prediction": "true",
+          "gold": "True",
+          "correct": 1.0,
+          "cost_usd": 0.00048504,
+          "error": ""
+        },
+        "standard_rlm_gemini25_flash": {
+          "prediction": "False",
+          "gold": "True",
+          "correct": 0.0,
+          "cost_usd": 0.00217,
+          "error": ""
+        },
+        "standard_rlm_gpt5": {
+          "prediction": "",
+          "gold": "True",
+          "correct": 0.0,
+          "cost_usd": 0.0,
+          "error": "TimeoutError: rlm timed out after 240s on example 412040009"
+        },
+        "direct_gemini25_flash": {
+          "prediction": "True",
+          "gold": "True",
+          "correct": 1.0,
+          "cost_usd": 0.0010557,
+          "error": ""
+        }
+      },
+      "trace_summaries": {
+        "slm_qparsed_typed": {
+          "trace_available": true,
+          "model": "google/gemma-4-26b-a4b-it",
+          "row_count": 77,
+          "block_count": 1,
+          "typed_ops": [
+            "count_label",
+            "argmin"
+          ],
+          "typed_status": "label_least",
+          "row_label_accuracy": 0.8311688311688312,
+          "allowed_labels": [
+            "true",
+            "false",
+            "answer' where answer is one of the labels: true"
+          ],
+          "input_tokens": 4267,
+          "output_tokens": 694,
+          "estimated_cost_usd": 0.00048504,
+          "first_block_rows": [
+            1,
+            77
+          ],
+          "raw_response_preview": "```json\n{\"labels\":[{\"i\":1,\"label\":\"false\"},{\"i\":2,\"label\":\"false\"},{\"i\":3,\"label\":\"false\"},{\"i\":4,\"label\":\"true\"},{\"i\":5,\"label\":\"true\"},{\"i\":6,\"label\":\"true\"},{\"i\":7,\"label\":\"false\"},{\"i\":8,\"label\":\"false\"},{\"i\":9,\"label\":\"false\"},{\"i\":10,"
+        },
+        "direct_gemini25_flash": {
+          "trace_available": true,
+          "model": "google/gemini-2.5-flash",
+          "input_tokens": 3494,
+          "output_tokens": 3,
+          "latency_s": 0.626,
+          "raw_response_preview": "Label: True"
+        },
+        "standard_rlm_gemini25_flash": {
+          "trace_available": false,
+          "reason": "The CD-45 standard-RLM CSV stores prediction, cost, and error only; generated program text was not retained for this run."
+        },
+        "standard_rlm_gpt5": {
+          "trace_available": false,
+          "reason": "The strict-stop GPT-5 RLM sensitivity stores prediction, cost, and error only; generated program text was not retained for this run."
+        }
+      }
+    },
+    {
+      "case_id": "structured_routes_fix_direct",
+      "example_id": "312030020",
+      "reason": "Both RLM controllers and SLM+typed recover the most frequent user; direct whole-context Gemini selects a different user.",
+      "task_group": "user",
+      "context_len": 4096,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.USER",
+      "question": "In the above data, which user is represented most often? Give your final answer in the form 'User: [X]', where [X] is the user ID.",
+      "gold": "16226",
+      "methods": {
+        "slm_qparsed_typed": {
+          "prediction": "16226",
+          "gold": "16226",
+          "correct": 1.0,
+          "cost_usd": 0.00032511000000000004,
+          "error": ""
+        },
+        "standard_rlm_gemini25_flash": {
+          "prediction": "16226",
+          "gold": "16226",
+          "correct": 1.0,
+          "cost_usd": 0.001539,
+          "error": ""
+        },
+        "standard_rlm_gpt5": {
+          "prediction": "16226",
+          "gold": "16226",
+          "correct": 1.0,
+          "cost_usd": 0.019027,
+          "error": ""
+        },
+        "direct_gemini25_flash": {
+          "prediction": "72294",
+          "gold": "16226",
+          "correct": 0.0,
+          "cost_usd": 0.0009809,
+          "error": ""
+        }
+      },
+      "trace_summaries": {
+        "slm_qparsed_typed": {
+          "trace_available": true,
+          "model": "google/gemma-4-26b-a4b-it",
+          "row_count": 38,
+          "block_count": 1,
+          "typed_ops": [
+            "count_user",
+            "argmax"
+          ],
+          "typed_status": "user_most",
+          "row_label_accuracy": 0.9473684210526315,
+          "allowed_labels": [
+            "Sports",
+            "World",
+            "Business",
+            "Sci/Tech"
+          ],
+          "input_tokens": 3499,
+          "output_tokens": 349,
+          "estimated_cost_usd": 0.00032511000000000004,
+          "first_block_rows": [
+            1,
+            38
+          ],
+          "raw_response_preview": "```json\n{\"labels\":[{\"i\":1,\"label\":\"Business\"},{\"i\":2,\"label\":\"World\"},{\"i\":3,\"label\":\"Business\"},{\"i\":4,\"label\":\"Business\"},{\"i\":5,\"label\":\"Sports\"},{\"i\":6,\"label\":\"Business\"},{\"i\":7,\"label\":\"Business\"},{\"i\":8,\"label\":\"Sports\"},{\"i\":9,\"labe"
+        },
+        "direct_gemini25_flash": {
+          "trace_available": true,
+          "model": "google/gemini-2.5-flash",
+          "input_tokens": 3203,
+          "output_tokens": 8,
+          "latency_s": 0.708,
+          "raw_response_preview": "User: 72294"
+        },
+        "standard_rlm_gemini25_flash": {
+          "trace_available": false,
+          "reason": "The CD-45 standard-RLM CSV stores prediction, cost, and error only; generated program text was not retained for this run."
+        },
+        "standard_rlm_gpt5": {
+          "trace_available": false,
+          "reason": "The strict-stop GPT-5 RLM sensitivity stores prediction, cost, and error only; generated program text was not retained for this run."
+        }
+      }
+    },
+    {
+      "case_id": "rlm_and_direct_fix_slm",
+      "example_id": "710070026",
+      "reason": "The SLM row labels are locally exact, but a tie/normalization edge in typed aggregation returns the wrong least label; standard RLM and direct Gemini answer correctly.",
+      "task_group": "counting",
+      "context_len": 1024,
+      "task": "TASK_TYPE.LEAST_FREQ",
+      "answer_type": "ANSWER_TYPE.LABEL",
+      "question": "In the above data, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: neutral, entailment, contradiction.",
+      "gold": "neutral",
+      "methods": {
+        "slm_qparsed_typed": {
+          "prediction": "contradiction",
+          "gold": "neutral",
+          "correct": 0.0,
+          "cost_usd": 6.744e-05,
+          "error": ""
+        },
+        "standard_rlm_gemini25_flash": {
+          "prediction": "neutral",
+          "gold": "neutral",
+          "correct": 1.0,
+          "cost_usd": 0.008058,
+          "error": ""
+        },
+        "standard_rlm_gpt5": {
+          "prediction": "",
+          "gold": "neutral",
+          "correct": 0.0,
+          "cost_usd": 0.0,
+          "error": "TimeoutError: rlm timed out after 240s on example 710070026"
+        },
+        "direct_gemini25_flash": {
+          "prediction": "neutral",
+          "gold": "neutral",
+          "correct": 1.0,
+          "cost_usd": 0.0002487,
+          "error": ""
+        }
+      },
+      "trace_summaries": {
+        "slm_qparsed_typed": {
+          "trace_available": true,
+          "model": "google/gemma-4-26b-a4b-it",
+          "row_count": 7,
+          "block_count": 1,
+          "typed_ops": [
+            "count_label",
+            "argmin"
+          ],
+          "typed_status": "label_least",
+          "row_label_accuracy": 1.0,
+          "allowed_labels": [
+            "neutral",
+            "entailment",
+            "contradiction",
+            "answer' where answer is one of the labels: neutral"
+          ],
+          "input_tokens": 717,
+          "output_tokens": 74,
+          "estimated_cost_usd": 6.744e-05,
+          "first_block_rows": [
+            1,
+            7
+          ],
+          "raw_response_preview": "```json\n{\"labels\":[{\"i\":1,\"label\":\"neutral\"},{\"i\":2,\"label\":\"contradiction\"},{\"i\":3,\"label\":\"entailment\"},{\"i\":4,\"label\":\"entailment\"},{\"i\":5,\"label\":\"neutral\"},{\"i\":6,\"label\":\"entailment\"},{\"i\":7,\"label\":\"contradiction\"}]}\n```"
+        },
+        "direct_gemini25_flash": {
+          "trace_available": true,
+          "model": "google/gemini-2.5-flash",
+          "input_tokens": 804,
+          "output_tokens": 3,
+          "latency_s": 0.542,
+          "raw_response_preview": "Label: neutral"
+        },
+        "standard_rlm_gemini25_flash": {
+          "trace_available": false,
+          "reason": "The CD-45 standard-RLM CSV stores prediction, cost, and error only; generated program text was not retained for this run."
+        },
+        "standard_rlm_gpt5": {
+          "trace_available": false,
+          "reason": "The strict-stop GPT-5 RLM sensitivity stores prediction, cost, and error only; generated program text was not retained for this run."
+        }
+      }
+    },
+    {
+      "case_id": "long_context_gpt5_scaffold_timeout",
+      "example_id": "218020026",
+      "reason": "At 262k context, SLM+typed, standard RLM/Gemini, and direct Gemini agree; GPT-5 standard RLM times out under the strict row cap.",
+      "task_group": "counting",
+      "context_len": 262144,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "question": "In the above data, is label 'negative' more common, less common, or the same frequency as label 'positive'? Give your final answer in the form 'Answer: negative is [X] positive', where [X] is 'more common than', 'less common than', or 'same frequency as'.",
+      "gold": "more common than",
+      "methods": {
+        "slm_qparsed_typed": {
+          "prediction": "more common than",
+          "gold": "more common than",
+          "correct": 1.0,
+          "cost_usd": 0.015164939999999998,
+          "error": ""
+        },
+        "standard_rlm_gemini25_flash": {
+          "prediction": "more common than",
+          "gold": "more common than",
+          "correct": 1.0,
+          "cost_usd": 0.081723,
+          "error": ""
+        },
+        "standard_rlm_gpt5": {
+          "prediction": "",
+          "gold": "more common than",
+          "correct": 0.0,
+          "cost_usd": 0.0,
+          "error": "TimeoutError: rlm timed out after 240s on example 218020026"
+        },
+        "direct_gemini25_flash": {
+          "prediction": "more common than",
+          "gold": "more common than",
+          "correct": 1.0,
+          "cost_usd": 0.0644651,
+          "error": ""
+        }
+      },
+      "trace_summaries": {
+        "slm_qparsed_typed": {
+          "trace_available": true,
+          "model": "google/gemma-4-26b-a4b-it",
+          "row_count": 661,
+          "block_count": 9,
+          "typed_ops": [
+            "count_label",
+            "compare"
+          ],
+          "typed_status": "label_compare",
+          "row_label_accuracy": 0.962178517397882,
+          "allowed_labels": [
+            "positive",
+            "negative.",
+            "negative"
+          ],
+          "input_tokens": 219980,
+          "output_tokens": 5958,
+          "estimated_cost_usd": 0.015164939999999998,
+          "first_block_rows": [
+            1,
+            80
+          ],
+          "raw_response_preview": "```json\n{\"labels\":[{\"i\":1,\"label\":\"positive\"},{\"i\":2,\"label\":\"negative\"},{\"i\":3,\"label\":\"positive\"},{\"i\":4,\"label\":\"positive\"},{\"i\":5,\"label\":\"positive\"},{\"i\":6,\"label\":\"positive\"},{\"i\":7,\"label\":\"negative\"},{\"i\":8,\"label\":\"negative\"},{\"i\":"
+        },
+        "direct_gemini25_flash": {
+          "trace_available": true,
+          "model": "google/gemini-2.5-flash",
+          "input_tokens": 214817,
+          "output_tokens": 8,
+          "latency_s": 3.401,
+          "raw_response_preview": "Answer: negative is more common than positive"
+        },
+        "standard_rlm_gemini25_flash": {
+          "trace_available": false,
+          "reason": "The CD-45 standard-RLM CSV stores prediction, cost, and error only; generated program text was not retained for this run."
+        },
+        "standard_rlm_gpt5": {
+          "trace_available": false,
+          "reason": "The strict-stop GPT-5 RLM sensitivity stores prediction, cost, and error only; generated program text was not retained for this run."
+        }
+      }
+    }
+  ]
+}

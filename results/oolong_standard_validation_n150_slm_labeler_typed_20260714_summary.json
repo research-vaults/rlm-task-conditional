@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "run_id": "oolong_standard_validation_n150_slm_labeler_typed_20260714",
+    "created_utc": "2026-07-14T05:35:06.836518+00:00",
+    "source_csv": "results/oolong_standard_validation_n150_slm_labeler_typed_20260714.csv",
+    "method": "slm_labeler_typed",
+    "context_variant": "standard",
+    "chunk_size": 100,
+    "dry_run": false,
+    "request_timeout_seconds": 180.0,
+    "block_concurrency": 8,
+    "block_retries": 1,
+    "block_retry_sleep_seconds": 2.0,
+    "block_cache_dir": "results/oolong_standard_validation_n150_block_cache_20260714",
+    "block_cache_files": 1226,
+    "retry_errors": false
+  },
+  "overall": {
+    "slm_labeler_typed": {
+      "n": 150,
+      "score_sum": 107.0932,
+      "mean_score": 0.713955,
+      "exact_count": 98,
+      "exact_rate": 0.653333,
+      "cost_usd": 0.838771,
+      "errors": 0,
+      "mean_row_label_accuracy": 0.833832
+    }
+  },
+  "by_group": {
+    "counting": {
+      "slm_labeler_typed": {
+        "n": 50,
+        "score_sum": 27.9665,
+        "mean_score": 0.55933,
+        "exact_count": 23,
+        "exact_rate": 0.46
+      }
+    },
+    "timeline": {
+      "slm_labeler_typed": {
+        "n": 50,
+        "score_sum": 33.9548,
+        "mean_score": 0.679096,
+        "exact_count": 31,
+        "exact_rate": 0.62
+      }
+    },
+    "user": {
+      "slm_labeler_typed": {
+        "n": 50,
+        "score_sum": 45.1719,
+        "mean_score": 0.903438,
+        "exact_count": 44,
+        "exact_rate": 0.88
+      }
+    }
+  }
+}

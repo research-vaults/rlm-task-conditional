@@ -1,0 +1,1029 @@
+\documentclass[letterpaper]{article}
+
+\usepackage[submission]{aaai2027}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage{pifont}
+\usepackage{threeparttable}
+\usepackage{natbib}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{needspace}
+
+% Keep supplement floats near their discussion and allow adjacent wide tables
+% to share the top of a page instead of accumulating at the document end.
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setcounter{topnumber}{4}
+\setcounter{dbltopnumber}{4}
+\setcounter{totalnumber}{8}
+
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=flexible,
+  frame=single,
+  xleftmargin=2pt,
+  xrightmargin=2pt
+}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\pdfinfo{
+   /Title (Supplement: When Are RLMs Actually Useful?)
+   /Author (Anonymous)
+}
+
+\title{Supplementary Material:\\When Are RLMs Actually Useful?\\
+A Cost-Aware Task-Conditional Evaluation}
+\author{Anonymous}
+\affiliations{Anonymous Institution}
+
+\begin{document}
+\raggedbottom
+\maketitle
+
+\section{Purpose of This Supplement}
+
+This supplement documents task-family definitions, claim status, Oolong ablations, failure decomposition, MCQ-format caveats and reproducibility artifacts for the AAAI submission. The main paper reports T-STRUCT, T-MIXED and diagnostic T-NLP; Table~\ref{tab:supp-tasks} also records the supplement-only T-SEM and T-SQ diagnostics and the public LB2-MDQA anchor. The anonymous release contains the submission source, selected claim-bearing evidence and a no-call verifier. Restricted inputs, credentials, broad caches and internal notes remain excluded, and the text states the corresponding scope limits.
+
+\section{Task Families and A Priori Hypotheses}
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{1.45cm}p{2.15cm}p{3.1cm}@{}}
+\toprule
+\textbf{Family (N)} & \textbf{Key operation} & \textbf{A priori hypothesis} \\
+\midrule
+T-STRUCT (30) & Exact pairwise enumeration & SLM extraction + fixed operator \\
+T-SEM (30) & Semantic synonym retrieval & SLM/retrieval \\
+T-MIXED (30) & Directional counting & Holistic/structured semantic inference \\
+T-NLP (24) & Text classification & SLM direct \\
+T-SQ (30) & Structured threshold query & Fixed operator \\
+LB2-MDQA (94) & MCQ multi-document QA & Retrieval plus debiasing; RLM above context limit \\
+\bottomrule
+\end{tabular}
+\caption{Controlled task families. Each family targets a distinct long-context operation with a prespecified alternative route.}
+\label{tab:supp-tasks}
+\end{table}
+
+\paragraph{Evidence map.}
+We separate controlled mechanism evidence, public-anchor validation and diagnostics. Claim-bearing rows require matched inputs, scoring, cost records and failure accounting; proxies and incomplete smokes remain diagnostics.
+
+\Needspace{12\baselineskip}
+\section{Claim Status}
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.15cm}p{4.55cm}@{}}
+\toprule
+\textbf{Claim / evidence} & \textbf{Boundary} \\
+\midrule
+\textbf{Cost-accounted RLM audit}\par Five families + LB2; $N=24$--94; confirmed for stated direct slices & Direct official-RLM accuracy or benchmark-score output is logged for T-STRUCT, T-MIXED, the label-provided Oolong aggregation ablation and the LB2 $>$500k pilot. T-SEM is cost-only; T-SQ is a code-generation proxy; T-NLP is compatibility-diagnostic only. \\
+\textbf{Final-answer contract sensitivity}\par T-MIXED matched-model probes; $N=20+30$; strong mechanism evidence & Same Gemini Flash model: old $N=20$ probe isolates the answer-count contract failure (direct 100\%; old RLM 0\%; repaired JSON finalizer 65\%). A deterministic current-contract $N=30$ extension avoids the historical salted generator and compares direct 28/30 at \$0.0223 with repaired RLM 18/30 at \$0.1089. \\
+\textbf{RLM-favorable context limit}\par LB2 $>$500k; $N=9+6$; preliminary & Recovered earlier-subset RLM 44\%, Flash direct 33\%, BM25 11\% and Sonnet over-window; a same-manifest standard-RLM smoke on six balanced rows solves 1/6 with one timeout. These are feasibility/stop-rule rows, not a stable method ranking. \\
+\textbf{Over-window retrieval/rerank diagnostic}\par LongBench-v2 train $>$500k chars; $N=30$; supplement diagnostic & Balanced five-per-domain slice: BM25+Gemma 8/30, BM25+Gemini 11/30 and BM25+Gemma-rerank+Gemini 12/30 at \$0.186 total for the strongest route. A same-row RLM smoke covers only six rows and is reported separately. \\
+\textbf{Generic-parser output-schema failure}\par Label-provided Oolong-synth; $N=80+150$; diagnostic plus frozen held-out ablation & Gold local labels are visible to all methods. RLM wins timeline/user in the original slice; oracle typed operators reach 97.3\% on held-out $N=150$ before repair and 100\% after four-case repair. \\
+\textbf{Unseen-corpus transfer}\par Standard-unlabeled Oolong VC-45; pre-output locked after one outcome-blind no-call parser repair & Two validation corpora absent from prior/test artifacts: SLM+typed 35/45, RLM 28/45, direct 23/45. Exact-rate uncertainty includes zero; source-document identity is unavailable. \\
+\bottomrule
+\end{tabular}
+\caption{Claim evidence status (part 1 of 2). The labels distinguish claims confirmed on the stated slices from mechanism evidence, diagnostics and pilots.}
+\label{tab:supp-claims}
+\end{table}
+
+\paragraph{End-to-end semantic labeling boundary.}
+Standard-unlabeled Oolong-synth uses \texttt{context\_window\_text} only. On frozen $N=120$, SLM-labeler+typed reaches 66.7\% exact versus RLM 44.2\% at about 4.1$\times$ lower captured API cost. SU-150 repeats the ordering at larger $N$ but reuses prior context windows. CD-45 supplies specialization and same-tools controls. VC-45 supplies the cleanest source-corpus transfer check: after one outcome-blind no-call parser grammar repair and before paid outputs, its routes were locked on two validation corpora absent from prior project Oolong artifacts. SLM+typed reaches 35/45, RLM 28/45 and direct Gemini 23/45; exact-rate uncertainty includes zero. Task and source are not factorially balanced so task-subgroup results are descriptive. Frozen CD-15 checks additionally cover RLM repeatability, the official post-trained RLM-Qwen policy and official-code $\lambda$-RLM. Standard-\texttt{rlms} same-operator diagnostics reach 31/45 with a convenience solver and 29/45 with atomic tools only.
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.15cm}p{4.55cm}@{}}
+\toprule
+\textbf{Claim / evidence} & \textbf{Boundary} \\
+\midrule
+\textbf{Less-templated semantic boundary}\par Paraphrase long-context diagnostic; $N=24$; supplement diagnostic & Gemma direct reaches 20/24 exact and Gemma worker labels 18/24, versus 9/24 for both direct Gemini and a Gemini-generated lexical-operator proxy. The result favors semantic workers or retrieval over generated lexical filters; it does not establish official RLM-family parity. \\
+\textbf{Public natural semantic evidence}\par HotpotQA support-fact diagnostic; $N=24$; supplement diagnostic & On a public HotpotQA hard slice, direct Gemini is strongest (17/24, F1 0.892), Gemma direct is cheaper and competitive (14/24, F1 0.836) and TF-IDF / generated lexical filters lag. The slice is a diagnostic, not a HotpotQA leaderboard or an official RLM-family comparison. \\
+\textbf{Rotating priming}\par LB2-MDQA Academic QA; $N=50+44$; pooled support, limited held-out replication & Discovery effect large; held-out $N=44$ alone n.s.; single-call accuracy not separately measured. \\
+\textbf{Task-adaptive router}\par Four-family pilot plus T-SQ rule; $N=20$; pilot-supported & The router combines a classifier with hybrid routes. It is compared with Sonnet direct and a Sonnet code proxy, not with standard \texttt{rlms} as a universal baseline. \\
+\bottomrule
+\end{tabular}
+\caption{Claim evidence status (part 2 of 2). Public-anchor rows retain their input-contract, split and comparator boundaries.}
+\label{tab:supp-claims-2}
+\end{table}
+
+\section{Protocol Details}
+
+\paragraph{Reusable cost-aware audit protocol.}
+Table~\ref{tab:supp-cost-aware-audit-protocol} states the paper's reusable protocol card. It is stricter than a standard baseline checklist because the audited object is a scaffolded inference procedure: a row should not be promoted from diagnostic evidence to method evidence unless the input contract, output schema, scorer, failure accounting and cost trace are matched.
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{0.75cm}p{1.8cm}p{4.4cm}@{}}
+\toprule
+\textbf{Step} & \textbf{Check} & \textbf{Audit rule} \\
+\midrule
+1 & Scope & Name the scaffold, input field, answer contract, scorer and non-claims before comparing methods. \\
+2 & Match rows & Run the scaffold and alternatives on identical instances; separate development, fixed-pipeline and split-validity evidence. \\
+3 & Cheap route & Include deterministic code, retrieval/reranking, SLM workers, direct LLM and RLM only where each is natural for the operation. \\
+4 & Cost/failures & Record per-example cost, timeout/error rows, retry/stop rules and attempted-cost lower bounds. \\
+5 & Confounds & Add finalizer, schema, same-operator, wrong-family, repeatability and trace probes when results could be harness artifacts. \\
+6 & Claims & Mark rows as confirmed, diagnostic, smoke, proxy or future; report falsifiers and candidate-positive regimes separately. \\
+\bottomrule
+\end{tabular}
+\caption{Cost-aware audit protocol card instantiated by this paper. It is the reusable evaluation-science artifact: compare standard RLM only after cheaper operation-matched mechanisms receive the same instances, answer contract, scorer, cost logging and failure accounting.}
+\label{tab:supp-cost-aware-audit-protocol}
+\end{table}
+
+\paragraph{Role-based model coverage.}
+The primary panel assigns models to deployment roles rather than constructing a broad leaderboard: Gemini~2.5~Flash controls the logged standard RLM and supplies direct frontier inference, Gemma~4~26B-A4B supplies SLM worker paths and GPT-4o-mini controls the short T-NLP LLM+SLM route. GPT-5 is used for the T-STRUCT frontier-controller exception and a CD-45 controller sensitivity. Sonnet~4.6 appears only in the separately labelled stopped compatibility diagnostic below. Many central alternatives are deterministic or structural so the unresolved breadth question is same-contract coverage of stronger RLM-family systems rather than additional direct-LLM columns.
+
+That stronger-family evidence includes frozen-manifest adapter pressure tests, matched standard-unlabeled smokes, the CD-15 repeatability study and CD-45 same-operator-library diagnostics. The unmodified public $\lambda$-RLM repository attempts all 15 frozen CD-15 IDs with its published Qwen3-8B settings and reaches 8/15 exact with two declared timeouts. MIT OASYS's official \texttt{rlm-qwen3-30b-a3b-v0.1} post-trained policy reaches 10/15 exact with one timeout through the canonical \texttt{rlm} harness and model-card Oolong settings. The $\lambda$ row is official-code cross-task evidence rather than an original-paper reproduction; rankable official SRLM and same-contract RAH rows remain unavailable.
+
+Controller-freshness and compatibility checks are reported separately from family parity. They comprise Gemini~3.5~Flash direct inference, complete GPT-5 and GPT-5.6 Luna standard-\texttt{rlms} CD-45 sensitivities, GPT-5.6 Terra canary/stopped-prefix artifacts, an earlier RLM-Qwen3-8B endpoint timeout and a Sonnet~4.6 standard-RLM probe stopped after 0/3. Table~\ref{tab:supp-protocol-caps} gives the row-level contracts and evidence roles; these checks do not constitute full official SRLM/$\lambda$-RLM/RAH benchmark parity.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{4.0cm}p{3.4cm}p{2.0cm}p{6.3cm}@{}}
+\toprule
+\textbf{Slice / row} & \textbf{RLM controller} & \textbf{Row cap} & \textbf{Interpretation} \\
+\midrule
+Oolong CD-45 central & Gemini~2.5 Flash & 360s & Main standard-\texttt{rlms} row. \\
+Oolong CD-15 repeats & Gemini~2.5 Flash & 360s & Repeatability diagnostic over a frozen subset. \\
+Oolong CD-15 official trained policy & Qwen3-30B-A3B + official LoRA & 1500s & Canonical-harness, same-contract diagnostic; one timeout is scored incorrect. \\
+Oolong CD-45 same-operator RLM & Gemini~2.5 Flash & 360s & Standard-\texttt{rlms} custom-tool diagnostic, not official SRLM/$\lambda$-RLM. \\
+Oolong CD-45 controller sensitivity & GPT-5 & 240s & Controller+stability sensitivity, not pure controller ablation. \\
+Oolong GPT-5.6 prefixes & GPT-5.6 Terra & 240s & Execution-boundary artifacts only. \\
+Oolong CD-45 GPT-5.6 complete & GPT-5.6 Luna & 360s & Current-controller sensitivity; complete strict-stop row, not official SRLM/$\lambda$-RLM/RAH. \\
+Oolong CD-15 official $\lambda$ code & Qwen3-8B & 1800s & Complete unmodified-repository cross-task row; 15/15 attempted, 13 completed, 8 exact. \\
+Earlier official $\lambda$ prefix & Qwen3-8B & Provider stop & Superseded infrastructure chronology; 9 valid/15 intended and non-rankable. \\
+LB2 $>$500k smoke & Gemini~2.5 Flash & 480s & Stop-rule feasibility smoke, not stable ranking. \\
+$\lambda$-RLM official-loader smoke & Gemini~2.5 Flash & 180s & Different benchmark/loader sanity check. \\
+RLM-Qwen official-checkpoint smoke & RLM-Qwen3-8B via RunPod vLLM & 420s & Official checkpoint serving/compatibility smoke; same-contract row timed out. \\
+Sonnet standard-RLM probe & Sonnet~4.6 & 360s & Compatibility stop-rule artifact. \\
+\bottomrule
+\end{tabular}
+\caption{Protocol caps for claim-central and diagnostic rows. Caps differ because the rows answer different questions: central standard-\texttt{rlms} estimates, controller/stability sensitivities and stop-rule smokes should not be merged as pure model swaps.}
+\label{tab:supp-protocol-caps}
+\end{table*}
+
+\paragraph{Cost accounting.}
+RLM cost aggregates controller program generation, recursive or child-query execution and final answer extraction. Direct LLM/SLM baselines are single-call unless retrieval-augmented. Fixed operators have zero marginal LLM cost but not zero engineering cost; hybrid pipelines such as T-STRUCT include their SLM extraction calls. Current RLM cost averages are successful-completion costs from row-level logged prediction/cost/error files; not every central RLM row retains a full raw generated-program/provider-payload trajectory. The release includes an attempted-cost audit script and JSON artifact that scan local \texttt{model\_calls*.jsonl} files for official-RLM completion rows rather than any one headline run. Across those 85 logged attempt rows, 76 completed rows record \$1.289 total cost while 9 failed timeout/error rows record zero captured usage/cost. Thus the local logs support a recorded attempted-cost lower bound across archived official-RLM model-call traces but they cannot reconcile to a single Oolong/T-MIXED headline denominator or reconstruct provider-side billing for failed partial scaffold calls whose usage was not returned.
+
+Because person-hour estimates are unavailable, we report a deterministic audit of implementation surface. The complete released typed-route package spans four source files and 2,017 physical lines (1,793 nonblank) including the SLM labeler, typed aggregation kernel, natural-language schema parser, standard-RLM tool wrappers, command-line interfaces, caching, tracing and analysis support. The release declares schemas for six families and five answer types. Three families appear as controlled families in the main paper; the others support supplement-only diagnostics or public anchoring. The standard-RLM diagnostic exposes five atomic/schema tools and one optional convenience solver. These counts are an auditable upper bound on the released implementation surface, not a minimal runtime kernel or a measure of human engineering time, maintenance burden or total cost of ownership.
+
+We also parameterize the unmeasured one-time implementation cost instead of treating it as zero. On SU-150, the observed successful-completion API-cost difference is \$0.022041 per case; amortizing assumed one-time budgets of \$100, \$1,000 and \$10,000 from API savings alone requires 4,538, 45,371 and 453,704 cases when the ratio is computed from unrounded costs and rounded up to the next whole case. On VC-45, the corresponding difference is \$0.018377 and the thresholds are 5,442, 54,416 and 544,158 cases under the same rule. These are deployment-volume sensitivities, not estimates of actual labor or maintenance. They omit failed-call billing, latency value, reliability and future model-price changes; SU-150 also reuses prior windows while VC-45 is source-corpus transfer without document-level independence.
+
+A deterministic cost-sensitivity audit reconciles the stored result files. T-STRUCT's roughly 99$\times$ gap is a deployed-configuration comparison: GPT-5-backed standard RLM costs \$0.019826/example on the stored run while the Gemma extraction plus fixed aggregation route is estimated at \$0.0002/example. It is not a pure matched-model estimate of scaffold overhead. For the Oolong $N=30$ pilot, the corrected SLM-labeler token-trace price is \$0.007257 versus \$0.255676 for RLM (35.2$\times$); the older pre-patch SLM estimate was \$0.103732 and still leaves RLM 2.46$\times$ more expensive. On the Oolong $N=120$ public-contract run, RLM costs \$2.688340 versus \$0.658995 for SLM+typed (4.08$\times$). The larger $N=150$ fixed-pipeline replication gives \$4.144901 versus \$0.838777 (4.94$\times$ captured successful-completion cost). Exact prices may change, but the reported cost comparisons survive the disclosed sensitivity checks within their stated deployment scope.
+
+\paragraph{Claim calibration.}
+The labels ``supported'', ``pilot'', ``hypothesis-generating'', ``diagnostic'' and ``cost-only'' have specific meanings in the main paper. The Oolong timeline/user pattern shows that a generic fixed-parser/SLM route can impose the wrong output schema under a label-provided aggregation contract; it is not a standard unlabeled Oolong result. The same-slice typed proxy is a post-hoc oracle repair using gold local labels and benchmark task/output metadata, not a large-scale Oolong benchmark or an official $\lambda$-RLM reproduction. A frozen held-out label-provided Oolong slice compares the typed mechanism, standard RLM and public $\lambda$-RLM and prehend SRLM-style pressure tests on the same examples. The typed v1 row is the pre-repair held-out score; the 100\% repaired result remains post-repair because two bounded operators were added after inspecting four misses. The $\lambda$-RLM and prehend SRLM-style rows are adapter-based debugging and pressure checks, not evaluations under the original papers' benchmark settings. The standard-unlabeled stronger-family smokes use the same public \texttt{context\_window\_text} contract as the $N{=}120$ replication but remain $N{=}15$ budgeted probes because the public adapters did not outperform standard RLM or the SLM+typed route on the smoke slice. LB2 $>$500k is a context-window pilot; T-SEM is not an RLM accuracy comparison.
+
+The release includes a separate stronger-family protocol-boundary audit. It records the local $\lambda$-RLM repository commit, the public prehend/SRLM-style fork commit, the adapter scripts used, the largest contract tested for each row and the exact claim each row can and cannot support. A larger run of the current public adapters would increase sample size without removing the official-reproduction limitation. The corresponding expansion rule is therefore to scale only an official or near-official same-contract SRLM/$\lambda$-RLM comparator rather than enlarging the current public $\lambda$ adapter, prehend-style adapter, Gemini~3.5 RLM prefix or Sonnet~4.6 RLM stop-rule probe for row count alone.
+
+For a complete official-code cross-task check, we passed the frozen CD-15 standard-unlabeled manifest (five counting, five timeline and five user questions across 1k/4k/262k buckets) to the unmodified public $\lambda$-RLM repository at commit \texttt{3874d393483d}. The controller was Qwen3-8B, a model tier evaluated by that repository, with its published settings (temperature 0.6, top-$p$ 0.7, 4096 output tokens, 100k-character $\lambda$ context and streaming). The weight revision was pinned to \texttt{b968826d9c46}; serving used \texttt{vllm/vllm-openai:v0.21.0} on one secure-cloud 80GB H100. We retained the same Oolong prompt, output contract and scorer. A balanced three-row canary completed without execution errors. Because one canary was a 262k row, expansion was triggered independently of accuracy. All 15 IDs were then attempted on this provider-consistent deployment. Two 262k rows hit the declared 1,800-second cap and are scored incorrect under intention-to-evaluate.
+
+The complete row reaches 8/15 strict exact (53.3\%): 4/5 counting, 2/5 timeline and 2/5 user; by length it reaches 4/5 at 1k, 3/5 at 4k and 1/5 at 262k. Against SLM+typed at 15/15, discordance is 0 $\lambda$-only versus 7 SLM-only (two-sided exact McNemar $p{=}0.0156$). Against stored direct Gemini at 9/15 it is 2 $\lambda$-only versus 3 direct-only ($p{=}1.0$); against stored standard RLM/Gemini at 10/15 it is 1 versus 3 ($p{=}0.625$); and against the official trained Qwen policy at 10/15 it is 2 versus 4 ($p{=}0.688$). Failure analysis gives two latent-gold/output-contract failures, three semantic/aggregation errors and two timeouts. The 13 completed rows use at least 281 model calls; killed timeout subprocesses cannot return their internal call totals. Creation-to-cleanup runtime is 6,562 seconds or \$5.450 at the listed \$2.99/hour rate. The finalized post-cleanup provider export is \$5.471 over 6,562.425 seconds and covers the complete wrapper interval; the 0.278-second excess is billing-bucket rounding. OpenRouter spend is \$0.00. This frozen-before-execution row supersedes the earlier truncated provider run but remains an official-code cross-task evaluation rather than a reproduction of $\lambda$-RLM's original benchmark protocol.
+
+We separately exercised the public $\lambda$-RLM repository's LongBench-v2 ``oolong'' loader through a trace-preserving wrapper. This task differs from our Oolong-synth aggregation contract: the released loader maps ``oolong'' to LongBench-v2 Single-Document QA. The bounded one-row run on the shortest loaded example (163{,}347 characters, Gemini~2.5~Flash through OpenRouter, default 100k-character $\lambda$ context window and a 180-second row cap) timed out before returning an answer or cost. The result does not measure $\lambda$-RLM accuracy. It only documents that the released loader was tested and was not a cheap drop-in same-contract comparator under our provider setup.
+
+We also tested the public training-based checkpoint \texttt{mit-oasys/rlm-qwen3-8b-v0.1}. A temporary RunPod serverless vLLM endpoint served it successfully: \texttt{/models} returned the checkpoint after a 136s cold start and a small chat probe returned in 1.19s. However, the same-contract standard-\texttt{rlm} smoke on one frozen CD row reached the 420s outer cap without a raw response, generated program, usage record or scoreable answer. This stop-rule artifact is not negative accuracy evidence against RLM-Qwen. Under the local serving and scaffold setup, the path was not stable enough for a rankable same-contract comparison.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.7cm}p{5.2cm}p{5.3cm}@{}}
+\toprule
+\textbf{Claim type} & \textbf{Supported statement} & \textbf{Not claimed} \\
+\midrule
+Controlled families & Operation-matched routes equal or exceed standard RLM's observed accuracy/cost points on the evaluated controlled families. & That all RLM-family methods fail or that every task admits a cheap fixed substitute. \\
+Oolong label-provided & RLM handles flexible output schemas better than a generic fixed parser; typed operators show the gap is schema/mechanism-specific. & A standard unlabeled Oolong leaderboard result or proof that open-ended Python is necessary. \\
+Oolong standard-unlabeled & Frozen N=120 establishes the direction; SU-150 is largest by $N$ but reuses prior windows; CD-45 isolates specialization; pre-output-locked VC-45 transfers after one outcome-blind parser repair, with exact-rate uncertainty including zero. & A full RLM-family benchmark, preregistration, document-level disjointness, factorial source-by-task evidence or a guarantee that SLM workers win under every decomposition policy. \\
+Oolong specialization & On CD-45, metadata, no-call question-parsed and paid shared-operator-controller typed routes all solve 36/45; an intentionally wrong-family typed route solves 2/45, a generic label route solves 3/45 and standard \texttt{rlms} with the same typed operator library solves 31/45 with the convenience solver or 29/45 when restricted to atomic tools. & That a production router would choose families perfectly, that the stress routes are fair baseline methods, that the shared-operator controller is standard \texttt{rlms} or that the same-operator diagnostics are official SRLM/$\lambda$-RLM reproductions. \\
+Long-context pilot & RLM remains feasible beyond some direct context windows while a balanced $N=30$ retrieval/rerank diagnostic shows that cheap retrieval routes are feasible but brittle. A six-row same-manifest standard-RLM smoke did not justify blind scale-up. & A stable ranking on $>$500k-character QA; current LB2 rows are not full same-slice official RLM-family comparisons. \\
+Stronger-family implementations & The unmodified public $\lambda$-RLM code completes a rankable same-contract CD-15 cross-task diagnostic at 8/15 exact with two declared timeouts; the earlier nine-valid-row prefix is superseded and public prehend-style smokes remain adapter pressure checks. & A reproduction of the original $\lambda$-RLM paper protocol, official SRLM/RAH parity, a full family leaderboard or a family-wide conclusion from CD-15. \\
+\bottomrule
+\end{tabular}
+\caption{Claim calibration used throughout the submission.}
+\label{tab:supp-claim-calibration}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{6.0cm}rrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Acc.} & \textbf{Cost} & \textbf{Invalid ex.} \\
+\midrule
+BM25 + Gemma reader & 8/30 & 26.7\% & \$0.0355 & 3 \\
+BM25 + Gemini reader & 11/30 & 36.7\% & \$0.1588 & 2 \\
+BM25 + Gemma rerank + Gemini & 12/30 & 40.0\% & \$0.1863 & 2 \\
+\bottomrule
+\end{tabular}
+\caption{Balanced LongBench-v2 train-split $>$500k-character retrieval/rerank diagnostic ($N=30$, five examples from each domain, seed 20260714). All rows use local BM25 over the full context and three answer-order votes. The rerank row applies Gemma to score 24 BM25 candidates before Gemini reads the selected excerpts. This is an over-window alternative diagnostic, not a same-row RLM-family comparison.}
+\label{tab:supp-lb2-over500k-rerank}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{6.0cm}rrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Acc.} & \textbf{Cost} & \textbf{Errors} \\
+\midrule
+Standard \texttt{rlms} & 1/6 & 16.7\% & \$0.4698 & 1 \\
+BM25 + Gemma reader & 1/6 & 16.7\% & \$0.0065 & 0 \\
+BM25 + Gemini reader & 2/6 & 33.3\% & \$0.0284 & 0 \\
+BM25 + Gemma rerank + Gemini & 2/6 & 33.3\% & \$0.0326 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Same-row standard-\texttt{rlms} smoke on the balanced LongBench-v2 train-split $>$500k-character manifest. The six rows are the shortest eligible context in each balanced domain. This is a stop-rule feasibility check, not a full $N=30$ ranking.}
+\label{tab:supp-lb2-over500k-rlm-smoke}
+\end{table*}
+
+\Needspace{6\baselineskip}
+The balanced diagnostic covers Code Repository Understanding, Long In-context Learning, Long Structured Data Understanding, Long-dialogue History Understanding, Multi-Document QA and Single-Document QA. The strongest row, BM25+Gemma-rerank+Gemini, reaches 3/5 on code, 2/5 on in-context learning, 2/5 on structured data, 1/5 on dialogue, 3/5 on multi-document QA and 1/5 on single-document QA. Reranking changes three rows and improves only one net example over BM25+Gemini. We therefore use the result to calibrate the over-window boundary: cheap retrieval/reranking is a necessary comparison for RLM but this particular route does not close the extreme-context region.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.3cm}p{3.3cm}p{2.8cm}p{2.2cm}p{4.0cm}@{}}
+\toprule
+\textbf{Family} & \textbf{Implementation status} & \textbf{Protocol level} & \textbf{Largest current contract} & \textbf{Allowed interpretation} \\
+\midrule
+Standard \texttt{rlms} & Official audited target & Target method & SU-150 standard-unlabeled & Primary evidence about deployed standard \texttt{rlms} v0.1.3 on the evaluated contracts. \\
+Standard \texttt{rlms} + same Oolong tools & Official target scaffold plus diagnostic custom tools & Same-operator diagnostic & CD-45 standard-unlabeled & Tests whether giving standard \texttt{rlms} the same typed Oolong operator library closes the specialization objection; convenience and atomic-only variants improve over standard RLM but remain below SLM+typed/shared-operator and are not official stronger-family protocols. \\
+$\lambda$-RLM & Unmodified official public repository through a prompt/data adapter & Official-code cross-task diagnostic, not paper protocol & Complete frozen CD-15 & Same input/output/scorer row reaches 8/15 with two declared timeouts and identifies finalization, semantic/aggregation and long-row execution failures; it is rankable on this contract but not an original-paper reproduction. \\
+$\lambda$-RLM standard smoke & Same public repository, standard-contract adapter & Adapter debug smoke & SMOKE-15 standard-unlabeled & Explains why this adapter was not scaled; zero exact answers under our aggregate-answer contract is not evidence that full $\lambda$-RLM fails. \\
+$\lambda$-RLM official-loader smoke & Public repository's LongBench-v2 loader and \texttt{LambdaRLM} class & Different benchmark, official-entrypoint sanity check & $N=1$ shortest loaded row & Timed out at 180s under OpenRouter/Gemini; documents execution of the released entry point but provides no method-level accuracy evidence on our Oolong-synth contract. \\
+RLM-Qwen3-8B official checkpoint & Public RLM checkpoint served through temporary RunPod vLLM and installed \texttt{rlm.RLM} & Official checkpoint, serving/compatibility smoke & $N=1$ CD standard-unlabeled row & Endpoint served the model but the same-contract RLM row timed out at 420s with no generated program or answer; not scaled because it is a stop-rule artifact, not accuracy evidence. \\
+prehend SRLM-style & Public SRLM-style fork, not official Apple code & Unofficial style adapter & LP-60; SMOKE-15 standard & Shows uncertainty-guided search can approach standard RLM; not an official SRLM reproduction or full benchmark parity. \\
+prehend standard smoke & Same fork on matched standard-input rows & Small pressure smoke & SMOKE-15 standard-unlabeled & Did not show an immediate reversal against SLM+typed/direct Gemini; too small and unofficial for final SRLM ranking. \\
+\bottomrule
+\end{tabular}
+\caption{Stronger-family protocol-boundary audit. This table is produced from a no-call JSON/CSV/Markdown artifact over local repositories, adapter scripts and stored result summaries. It clarifies why the paper treats these rows as bounded pressure checks rather than official reproductions.}
+\label{tab:supp-stronger-protocol-boundary}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}p{2.5cm}p{3.0cm}p{3.2cm}p{4.0cm}p{3.2cm}@{}}
+\toprule
+\textbf{Audit peer} & \textbf{Object} & \textbf{Convention} & \textbf{Our alignment} & \textbf{Boundary} \\
+\midrule
+Kapoor et al. & Agent-scaffold evaluation & Costed simple-baseline pressure & Same-input operation-matched routes and cost & Different agent domain. \\
+Moghadasi--Ghaderi & Benchmark-disclosure audit & Harness, cost and failure disclosure & Frozen manifests, gates, traces and claim tiers & Survey-like rather than mechanism evidence. \\
+Wang RLM reproduction & RLM-specific failure audit & Recursion, latency and overthinking probes & Same-operator, repeatability, finalizer and stop-rule probes & Broader deployment question than reproduction. \\
+Yehudai et al. & Agent-evaluation survey & Cost, robustness and protocol dimensions & Supplies dimensions, not sample-count requirements & Not an empirical scale peer. \\
+EvalCards line & Evaluation documentation & Scope, intended use and limitations & Evidence tiers, falsifiers and release checks & Reporting infrastructure, not RLM evidence. \\
+\bottomrule
+\end{tabular}
+\caption{Primary same-archetype alignment: focused evaluation audits and reporting standards set the paper's structure and claim-discipline bar.}
+\label{tab:supp-comparator-alignment}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}p{2.5cm}p{3.0cm}p{3.2cm}p{4.0cm}p{3.2cm}@{}}
+\toprule
+\textbf{Topic neighbor} & \textbf{Object} & \textbf{Convention} & \textbf{Our alignment} & \textbf{Boundary} \\
+\midrule
+RLM & Long-context program method & Runtime/cost plots and trajectories & Same standard scaffold, costs, traces and matched alternatives & Not every original model/task setting. \\
+SRLM & Reflective program search & Program-choice uncertainty & Adapter pressure tests and semantic-task analysis & No official same-contract row. \\
+$\lambda$-RLM & Typed functional control & Reliability and bounded operators & Typed ceiling, same-tools probes, official-code CD-15 & Cross-task diagnostic, not paper reproduction. \\
+RAH / coding agents & Recursive harnesses on Oolong-style tasks & Richer agent/tool decomposition & Keeps the positive recursive boundary open & No same-contract RAH row. \\
+Oolong & Long-context local labeling and pooling & Labels-provided ablations and public contract & LP ablations plus SU/CD standard-input slices & Not a new Oolong leaderboard. \\
+LongBench family & Broad difficult long-context QA & Retrieval, validity and format-bias controls & Over-window and MCQ-bias diagnostics & Not a broad leaderboard. \\
+Divide-and-conquer / routing & Planner-worker-aggregator evaluation & Separates task, model and aggregation noise & SLM/retrieval alternatives and router illustration & Router is not a deployment benchmark. \\
+\bottomrule
+\end{tabular}
+\caption{Secondary topic-neighbor alignment. These papers define the audited object, public anchors and non-claims; they are not the focused-audit scale bar.}
+\label{tab:supp-comparator-topic-alignment}
+\end{table*}
+
+\paragraph{Comparator roles and publication status.}
+We separate comparator \emph{role} from publication \emph{status}. Kapoor et al. is the strongest accepted method-near peer for our cost/scaffold-audit framing (TMLR 2025). Wang's RLM reproduction is the closest topic/archetype intersection peer but is an arXiv reproduction study so we use it for recursion-depth, latency and overthinking pressure rather than as a top-venue scale bar. Oolong is accepted at COLM 2026; RLM, $\lambda$-RLM, SRLM, RAH, Cao et al. and LongBench Pro remain topic-neighbor or benchmark/method pressure papers. We use these papers to bound novelty and RLM-family claims while costed scaffold audits set the same-archetype evaluation standard.
+
+\section{Label-Provided Oolong-Synth Aggregation Ablation}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{6.0cm}rrrrr@{}}
+\toprule
+\textbf{Group} & \textbf{N} & \textbf{Oracle typed} & \textbf{RLM} & \textbf{fp+SLM} & \textbf{SLM direct} \\
+\midrule
+Overall & 80 & 100.0\% & 82.4\% & 70.0\% & 53.8\% \\
+Counting & 29 & 100.0\% & 85.3\% & 100.0\% & 65.5\% \\
+Timeline & 29 & 100.0\% & 79.9\% & 44.8\% & 37.9\% \\
+User & 22 & 100.0\% & 81.8\% & 63.6\% & 59.1\% \\
+\bottomrule
+\end{tabular}
+\caption{Same-slice label-provided Oolong-synth aggregation ablation ($N=80$, seed 42, max context 8192 tokens). All methods receive \texttt{context\_window\_text\_with\_labels} so gold local labels are visible; this is not standard unlabeled Oolong classification-plus-aggregation. RLM/fp+SLM/SLM rows are logged methods under this input contract; typed proxy is a post-hoc deterministic typed-combinator diagnostic with no model/API calls that also uses benchmark task/output metadata. Entries are mean Oolong scores: exact match for categorical/date-style answers, accepted substrings for relative-frequency comparison strings and $0.75^{|\Delta|}$ partial credit for numeric near-misses.}
+\label{tab:supp-oolong}
+\end{table*}
+
+The subgroup pattern isolates a mechanism under the label-provided aggregation contract. Counting favors deterministic parsing, whereas timeline/user identification favors RLM over the generic fp+SLM fallback because the fallback does not fix the required output type correctly in advance. The typed proxy localizes this gap to output-schema and harness design: once the Oolong task family and output metadata are expressed as bounded typed operators, the same slice is solved at 100\%. This does not show that open-ended generated Python is necessary when labels are already supplied. The benchmark scorer gives three RLM examples fractional credit. Thresholding those scores at 1.0 leaves the ordering unchanged: RLM is 64/80 (80.0\%) strict exact, versus 56/80 (70.0\%) for fp+SLM, 43/80 (53.8\%) for SLM direct and 37/80 (46.2\%) for SLM+CoT. Both the RLM timeline advantage and the typed-proxy repair remain hypothesis-generating diagnostics because the subgroup tests are small, the input is label-provided and the proxy was added after failure inspection.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{N} & \textbf{Overall} & \textbf{Counting} & \textbf{Timeline/User} \\
+\midrule
+Fixed parser & 150 & 44.0\% & 100.0\% & 14.0/18.0\% \\
+$\lambda$-RLM public impl. & 150 & 43.1\% & 63.2\% & 32.0/34.0\% \\
+prehend SRLM-style & 60 & 83.0\% & 90.3\% & 83.8/75.0\% \\
+Oracle typed v1 & 150 & 97.3\% & 100.0\% & 96.0/96.0\% \\
+Oracle typed repair & 150 & 100.0\% & 100.0\% & 100.0/100.0\% \\
+RLM & 150 & 86.9\% & 89.5\% & 79.1/92.0\% \\
+\bottomrule
+\end{tabular}
+\caption{LP-150: frozen held-out label-provided Oolong aggregation ablation (seed 20260712, no overlap with the same-slice LP-80). All rows use \texttt{context\_window\_text\_with\_labels}; standard unlabeled Oolong is not evaluated here. The v1 typed rules were fixed before new model calls; the repaired row adds two bounded operators after inspecting four misses. The RLM row uses the same OpenRouter Gemini~2.5~Flash \texttt{rlms} configuration as the same-slice run. The $\lambda$-RLM row uses the public implementation through a project-side frozen-manifest adapter, default 100k-character context window. The prehend SRLM-style row uses the public fork's $K=3$ self-consistency/confidence/trace-length selection on the first balanced $N=60$ frozen examples. Entries are mean Oolong scores under this ablation.}
+\label{tab:supp-oolong-heldout}
+\end{table*}
+
+On exact outcomes over the frozen label-provided $N=150$, typed v1 beats RLM with discordance $b=23,c=4$ (two-sided exact $p<0.001$); the repaired typed row beats RLM with $b=23,c=0$ ($p<10^{-6}$). RLM remains substantially stronger than the pure fixed parser ($b=72,c=11$, $p<10^{-10}$). The public $\lambda$-RLM implementation pressure test scores 43.1\% mean score / 42.0\% exact, below standard RLM ($b=73,c=9$, $p<10^{-12}$) and typed v1 ($b=86,c=3$, $p<10^{-20}$) and statistically similar to the pure fixed parser on exact outcomes ($b=27,c=30$, n.s.). The prehend SRLM-style pressure test is much stronger than the $\lambda$ adapter on the matched $N=60$ subset (83.0\% mean score; $b=30,c=3$, $p=1.4{\times}10^{-6}$) and is not significantly different from standard RLM on paired exact outcomes ($b=4,c=10$, $p=0.180$) but it remains below typed v1 ($b=0,c=10$, $p=0.002$). Its failures are wrong numeric counts (4), wrong relations (3), wrong user IDs (3) and wrong labels (2). Thus the result is not that RLM-family search is weak but that under a gold-label aggregation contract a task-family typed harness is a better comparator than a generic parser fallback or generic recursive/reflective QA adapter.
+
+\section{Standard-Unlabeled Oolong Pilot}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Overall} & \textbf{Counting} & \textbf{Timeline} & \textbf{User} \\
+\midrule
+SLM-labeler + typed & 85.8\% & 95.6\% & 71.8\% & 90.0\% \\
+RLM & 61.0\% & 73.2\% & 39.9\% & 70.0\% \\
+SLM direct & 43.5\% & 40.6\% & 50.0\% & 40.0\% \\
+SLM+CoT & 24.7\% & 44.2\% & 20.0\% & 10.0\% \\
+\bottomrule
+\end{tabular}
+\caption{Standard-unlabeled Oolong-synth pilot on frozen held-out IDs ($N=30$, ten per group). All methods use \texttt{context\_window\_text}; gold row labels are not present in the prompt. The SLM-labeler+typed baseline uses Gemma row-labeling calls that log exact prompts/responses and token counts and then runs deterministic typed aggregation over predicted labels. Entries are mean Oolong scores; corrected SLM-labeler costs are reported in text from the token trace.}
+\label{tab:supp-oolong-standard}
+\end{table*}
+
+Exact-match rates follow the same ordering: SLM-labeler+typed 25/30 (83.3\%), RLM 17/30 (56.7\%), SLM direct 13/30 (43.3\%) and SLM+CoT 7/30 (23.3\%). The SLM-labeler trace reprices to \$0.007257 total under the corrected Gemma~4 26B-A4B OpenRouter price entry, versus RLM \$0.255676, about 35$\times$ lower API cost. The raw SLM-labeler CSV retains the older pre-patch estimate (\$0.103732) for audit; direct/CoT whole-context rows are not used for corrected cost-ratio claims because those runs did not store token traces. Its mean row-label accuracy is 88.5\% over successful labeling calls (85.5\% if the one label-set-inference failure is counted as zero). Paired exact outcomes favor SLM-labeler+typed over RLM ($b=9,c=1$, two-sided exact $p=0.021$) but this remains a balanced pilot rather than a full Oolong benchmark.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} & \textbf{\$/exact} \\
+\midrule
+Q-parsed SLM+typed & 80/120 & 72.7\% & \$0.659 & 0 & \$0.0082 \\
+Direct Gemini & 54/120 & 50.0\% & \$1.547 & 0 & \$0.0286 \\
+RLM & 53/120 & 48.9\% & \$2.688 & 9 & \$0.0507 \\
+\bottomrule
+\end{tabular}
+\caption{Standard-unlabeled Oolong-synth multi-length result on a frozen balanced manifest ($N=120$, three task groups $\times$ five context lengths $\times$ eight examples; 72 context clusters, max two questions per context). All rows use \texttt{context\_window\_text}; gold local labels are not present. The stored SLM-labeler + typed row is paired with a post-run no-call question-inferred schema audit within the known Oolong task family: it infers task/output schema from the natural-language question before aggregation and gives 100\% agreement with benchmark metadata on these stored labels. This is deployability evidence, not a fully prospective open-taxonomy parser validation. Costs are corrected/logged API costs from traced calls.}
+\label{tab:supp-oolong-standard-n120}
+\end{table}
+
+\paragraph{$N=120$: uncertainty and direct control.}
+This public-contract replication expands the short $N=30$ pilot to five context lengths and 72 context clusters. Paired exact outcomes favor stored SLM-labeler+typed over standard RLM ($b=37,c=10$, $p=9.85\times10^{-5}$). The N120 three-way controller JSON (full path in the manifest) gives context-cluster intervals of 66.7\% [58.2, 75.0] for SLM+typed and 44.2\% [35.6, 53.0] for RLM; paired differences are 11.9--33.0 exact-rate points and 14.1--33.7 mean-score points. A post-run no-call schema audit infers task/output type from each question and preserves 80/120 but reuses stored SLM labels rather than rerunning a prospectively locked parser. Direct Gemini, using the RLM controller model without recursion or code execution, reaches 54/120 exact and 50.0\% mean score at \$1.546563. It is not detectably different from RLM ($b=26,c=25,p=1.0$; cluster exact-difference interval -10.9--13.0) while SLM+typed still wins ($b=30,c=4,p=6.16\times10^{-6}$; 12.4--30.3). This is therefore a deployed-stack comparison, not a scaffold-only causal estimate. Counting/timeline/user exact counts are 20/31/29 for SLM+typed, 15/16/23 for direct Gemini and 9/19/25 for RLM.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} & \textbf{\$/exact} \\
+\midrule
+Q-parsed SLM+typed & 30/45 & 72.6\% & \$0.248 & 0 & \$0.0083 \\
+Direct Gemini & 18/45 & 46.0\% & \$0.580 & 0 & \$0.0322 \\
+Standard RLM & 17/45 & 43.8\% & \$1.800 & 1 & \$0.1059 \\
+\bottomrule
+\end{tabular}
+\caption{First standard-unlabeled Oolong fixed-pipeline validation after freezing the question parser, typed operators, SLM prompt, scorer and cost rules. The manifest was selected to exclude listed earlier example IDs but later split-overlap auditing shows that it shares many context-window IDs with earlier Oolong manifests. All rows use \texttt{context\_window\_text}; gold local labels are not present.}
+\label{tab:supp-oolong-validation-n45}
+\end{table*}
+
+Table~\ref{tab:supp-oolong-validation-n45} is the first method-locked fixed-pipeline checkpoint for the frozen question-facing parser path over 34 context clusters. It is smaller than the $N=120$ multi-length evaluation and has been superseded by the larger $N=150$ replication in Table~\ref{tab:supp-oolong-validation-n150}, but it preserves the same ordering: SLM+typed beats standard RLM on exact outcomes ($b=14,c=1$, two-sided exact $p=9.77\times10^{-4}$; cluster exact-diff CI 13.6--44.9 points) and also beats direct Gemini ($b=15,c=3$, $p=0.0075$; cluster exact-diff CI 8.9--43.5 points). No direct--RLM difference is detected on paired exact outcomes ($b=8,c=7$, $p=1.0$). A later split-overlap audit shows this checkpoint shares 31/34 context windows with the $N=120$ manifest and 42/45 rows sit on those overlapping contexts so it is not a context-disjoint source holdout. The subgroup profile is useful for mechanism analysis rather than for separate confirmatory claims: SLM+typed scores 9/15 on counting, 8/15 on timeline and 13/15 on user; RLM scores 4/15, 4/15 and 9/15; direct Gemini scores 5/15, 3/15 and 10/15. The checkpoint therefore strengthens the parser/typed-route claim while preserving the limitation that Oolong-style aggregation remains brittle, especially for numeric filtered counts.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} & \textbf{\$/exact} \\
+\midrule
+Q-parsed SLM+typed & 98/150 & 71.4\% & \$0.839 & 0 & \$0.0086 \\
+Direct Gemini & 65/150 & 47.8\% & \$1.939 & 0 & \$0.0298 \\
+Standard RLM & 68/150 & 48.4\% & \$4.145 & 6 & \$0.0610 \\
+\bottomrule
+\end{tabular}
+\caption{SU-150: larger standard-unlabeled Oolong fixed-pipeline replication after freezing the question parser, typed operators, SLM prompt, scorer and cost rules. The manifest balances three task groups across five context lengths ($10$ examples per group/length cell; 73 context clusters; max context reuse 3). A split-overlap audit finds that it is not context-window-disjoint from earlier Oolong work. All rows use \texttt{context\_window\_text}; gold local labels are not present.}
+\label{tab:supp-oolong-validation-n150}
+\end{table*}
+
+\paragraph{SU-150: scale and overlap.}
+SU-150 is the largest standard-unlabeled Oolong tier by nominal $N$; VC-45 remains the cleanest source-corpus transfer. The parser, typed operators, SLM prompt, scorer and cost rules were fixed before calls. A no-call question-parser audit agrees with metadata on 150/150 rows and reproduces the 98/150 SLM+typed result from stored labels. Paired exact outcomes favor SLM+typed over RLM ($b=44,c=14,p=1.00\times10^{-4}$) and direct Gemini ($b=42,c=9,p=3.39\times10^{-6}$); direct and RLM do not differ detectably ($b=26,c=29,p=0.788$). Context-cluster intervals give SLM+typed 65.3\% [57.3, 73.3] and RLM 45.3\% [36.9, 54.0], with a paired advantage of 10.6--29.9 points. These intervals describe evaluated windows, not independence from development contexts: the split audit finds 20 prior ID overlaps and prior-window overlap for all 150 rows. Counting/timeline/user exact counts are 23/31/44 for SLM+typed, 18/19/28 for direct Gemini and 14/23/31 for RLM. SLM+typed also has the highest mean score in every length bucket (79.8, 67.8, 78.0, 71.8 and 59.5\% from 8k to 131k); RLM is closest at 16k but has six timeout/error rows and the highest cost per exact answer. SU-150 is a larger known-family fixed-pipeline replication, not a context-disjoint holdout or open-domain leaderboard.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} & \textbf{\$/exact} \\
+\midrule
+Question-parsed SLM+typed & 35/45 & 82.1\% & \$0.312 & 0 & \$0.0089 \\
+Direct Gemini & 23/45 & 55.2\% & \$0.658 & 0 & \$0.0286 \\
+Standard RLM & 28/45 & 65.6\% & \$1.139 & 0 & \$0.0407 \\
+\bottomrule
+\end{tabular}
+\caption{VC-45: pre-output-locked standard-unlabeled Oolong replication after one outcome-blind no-call parser repair. Its \texttt{spam} and \texttt{trec\_coarse} source corpora do not occur in the official test split or prior project artifacts. Task and length margins are balanced but not every task--source cell; the official schema exposes no source-document identifier.}
+\label{tab:supp-oolong-validation-corpus-disjoint-n45}
+\end{table*}
+
+VC-45 was frozen before paid outputs after an exact-schema audit of the pinned Oolong snapshot. The freezer verifies zero overlap with the test split and prior project artifacts on row ID, context-window ID and upstream corpus. A no-call preflight exposed one narrow parser grammar omission for ``spam or ham (i.e., not spam)''; admitting the parenthesis before any paid output gave 45/45 parser-valid rows. The post-run question-only parser agrees with benchmark task and answer metadata on all 45 rows and exactly reproduces the 35/45 typed result.
+
+SLM+typed has the highest point estimate and the lowest captured successful-completion cost. Against standard RLM, paired exact discordance is $b=10,c=3$ (two-sided exact $p=0.0923$; three-pair Holm $p=0.1846$); the 20-cluster exact-rate difference interval is 0.0--31.1 points while the mean-score difference interval is 3.0--30.9 points. SLM+typed beats direct Gemini with $b=14,c=2$ ($p=0.00418$; Holm $p=0.0125$). No direct--RLM difference is detected ($b=8,c=13,p=0.383$). By group, SLM+typed / RLM / direct exact counts are 10/6/9 for counting, 14/9/8 for timeline and 11/13/6 for user. Timeline rows all come from \texttt{spam} while counting and user rows span both corpora; subgroup differences are therefore descriptive, not source-independent. Captured retained-row cost is \$2.109802; the OpenRouter account delta is \$2.304960 because an aborted duplicate-worker launch and partial in-flight calls add \$0.195158. All 45 SLM prompts/responses, direct prompts/responses and standard-RLM input contexts, raw answers, 205 generated code blocks and trajectories are retained.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} & \textbf{\$/exact} \\
+\midrule
+Q-parsed SLM+typed & 36/45 & 83.7\% & \$0.416 & 0 & \$0.0116 \\
+Direct Gemini & 21/45 & 54.9\% & \$1.025 & 0 & \$0.0488 \\
+Standard RLM & 27/45 & 62.3\% & \$1.001 & 0 & \$0.0371 \\
+Standard RLM + same typed ops & 31/45 & 69.3\% & \$1.314 & 2 & \$0.0424 \\
+\bottomrule
+\end{tabular}
+\caption{CD-45: project-history context-window-ID-disjoint standard-unlabeled Oolong validation after excluding all previously used example IDs and context-window IDs found in archived artifacts. The manifest balances counting, timeline and user tasks across 1k, 4k and 262k windows, has 32 context clusters and permits at most two questions per window. Gold local labels are absent. This is not proven source-document-disjoint and its length mix differs from SU-150. Bootstrap intervals resample context-window clusters conditional on the observed method executions; a separate RLM repeat probes rollout sensitivity. Costs are captured successful-completion totals and are lower bounds for rows with failures.}
+\label{tab:supp-oolong-context-disjoint-n45}
+\end{table*}
+
+\paragraph{CD-45: split validity.}
+CD-45 is the cleanest project-history split check: after scanning prior Oolong result artifacts, its manifest has zero overlap on example ID and context-window ID. The question parser agrees with task/answer metadata on 45/45 rows and the same typed operators aggregate stored SLM labels. Exact outcomes favor SLM+typed over RLM ($b=11,c=2,p=0.0225$) and direct Gemini ($b=16,c=1,p=2.75\times10^{-4}$); direct is directionally below RLM ($b=2,c=8,p=0.109$). Context-cluster intervals are 80.0\% [68.6, 91.1] for SLM+typed, 60.0\% [45.5, 74.4] for RLM and 46.7\% [30.4, 63.4] for direct; SLM--RLM intervals are 6.0--35.6 exact-rate points and 7.4--36.1 mean-score points. Counting/timeline/user exact counts are 12/11/13 for SLM+typed, 6/8/13 for RLM and 8/5/8 for direct. At 1k/4k/262k, SLM+typed scores 13/11/12; direct falls to 4/15 at 262k while RLM remains intermediate. Oolong exposes no stronger source-document key and CD-45's 1k/4k/262k mix differs from SU-150's 8k--131k range. CD-45 therefore supports split validity under a shifted length mix, not document disjointness or a pure overlap ablation of SU-150.
+
+A no-call selection audit makes that last caveat explicit. SU-150 has 150 rows over 8k/16k/32k/65k/131k windows and 73 context clusters but its archival split audit finds prior context-window overlap. CD-45 has zero prior project example-ID and context-window-ID overlap but uses 1k/4k/262k windows and all three methods score higher: SLM+typed 36/45 versus 98/150 on SU-150, standard RLM 27/45 versus 68/150 and direct Gemini 21/45 versus 65/150. The released JSON/MD selection audit supports the following interpretation: SU-150 supplies larger fixed-pipeline scale and method-lock evidence while CD-45 supplies cleaner split-validity evidence under a different length mix.
+
+A separate no-call specialization stress test asks whether SLM+typed benefits primarily from selecting the correct operation family. It reuses the same stored CD-45 Gemma row-label predictions and changes only that family. The metadata route and natural-language question-parsed route both solve 36/45. An intentionally wrong-family route solves 2/45 and a naive generic most-frequent-label route solves 3/45. These stress routes are not competing methods; they show that the SLM+typed advantage depends on choosing the correct operation family. This supports the paper's deployment-specialization framing and would have weakened the thesis if the wrong-family route had remained strong.
+
+We also ran a paid shared-operator controller diagnostic on the same CD-45 stored SLM-label predictions. Gemini~2.5~Flash received only the natural-language question, the allowed typed Oolong operator schema and the answer-type schema. It selected the task and answer type and the same typed operators then executed deterministically over the stored row labels. This diagnostic has 45/45 task agreement, 45/45 answer-type agreement, 36/45 exact, 83.7\% mean score, zero parse/execution errors and \$0.00886 captured controller cost. It reduces the concern that the typed route depends on hidden metadata routing but it is not standard \texttt{rlms}, not an official SRLM/$\lambda$-RLM comparator and not evidence that a generic open-ended RLM scaffold would choose the same bounded operator program.
+
+The direct same-operator-library standard-\texttt{rlms} diagnostic addresses that last point. We injected the same typed Oolong operator library through \texttt{custom\_tools}, first including a high-level convenience solver and then withholding it in an atomic-only ablation while preserving standard \texttt{rlms} free-form program generation, standard \texttt{context\_window\_text} input and the natural-language question as the root prompt. Neither row is the shared-operator controller or official SRLM/$\lambda$-RLM. On CD-45 the convenience row solves 31/45 exact (68.9\%, mean score 69.3\%) at \$1.314, with two 360-second timeouts, 173 tool calls and 348 generated code blocks. By group it is 11/15 on counting, 9/15 on timeline and 11/15 on user; by length it is 12/15 at 1k, 10/15 at 4k and 9/15 at 262k. Paired exact outcomes still directionally favor SLM+typed/shared-operator over same-operator RLM (SLM-only 7, same-operator-only 2, $p=0.180$) while same-operator RLM is directionally above direct Gemini (direct-only 6, same-operator-only 16, $p=0.052$) and not significantly different from the original standard-RLM rollout (original-only 8, same-operator-only 12, $p=0.503$).
+
+The atomic-only variant retains the schema-list tools and the three functions below but removes the high-level \texttt{solve\_oolong\_with\_tools} convenience solver:
+\begin{quote}
+\small\ttfamily
+parse\_oolong\_rows\\[-1pt]
+label\_oolong\_rows\_with\_slm\\[-1pt]
+solve\_labeled\_oolong
+\end{quote}
+It solves 29/45 exact (64.4\%, mean score 69.3\%) at \$0.959, with four timeout/error rows, 155 tool calls and 337 generated code blocks. By group it is 9/15 on counting, 8/15 on timeline and 12/15 on user; by length it is 11/15 at 1k, 11/15 at 4k and 7/15 at 262k. Paired exact outcomes favor SLM+typed/shared-operator over atomic same-operator RLM (SLM-only 9, atomic-only 2) while the convenience and atomic rows are close but not identical (convenience-only 8, atomic-only 6). The failure trace contains wrong task/output choices, malformed final answers, self-reported tool-use confusion, unsupported typed-solver calls and long-row timeouts. Supplying the operator library therefore helps standard RLM, and the effect does not rest entirely on one convenience solver. Under this bounded protocol, however, free-form orchestration still does not match the cheaper specialized SLM+typed route or deterministic shared-operator execution.
+
+A no-call same-operator program-trace exhibit extracts ten representative cases from the completed convenience and atomic trajectory logs. The artifact covers all 45 rows for both variants, records the aggregate failure-class mix and prints selected generated code blocks without quoting long input contexts. It makes the same-operator mechanism inspectable beyond the separate three-row original-standard-RLM trajectory subset: the convenience row contains 348 generated code blocks and the atomic row contains 337, with examples of deterministic parsing successes, wrong-route choices, malformed finalization, tool-use confusion and timeout/error behavior. This remains qualitative mechanism evidence; the aggregate claims are still the completed 31/45 and 29/45 CD-45 rows above.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.2cm}p{1.5cm}p{1.3cm}p{1.8cm}p{1.8cm}p{1.7cm}p{1.7cm}p{3.3cm}@{}}
+\toprule
+\textbf{Case} & \textbf{ID} & \textbf{Group / length} & \textbf{RLM / Gemini} & \textbf{RLM / GPT-5} & \textbf{SLM + typed} & \textbf{Direct} & \textbf{What it shows} \\
+\midrule
+RLM tie error & 91209\allowbreak0010 & C/4k & same frequency (0) & less common (1) & less common (1) & less common (1) & Fixed comparison repairs an RLM tie after accurate SLM row labels. \\
+RLM label error + timeout & 41204\allowbreak0009 & C/4k & False (0) & timeout (0) & true (1) & True (1) & SLM+typed and direct answer correctly; GPT-5 RLM hits the row cap. \\
+Direct aggregation error & 31203\allowbreak0020 & U/4k & 16226 (1) & 16226 (1) & 16226 (1) & 72294 (0) & Direct selects the wrong most-frequent user; structured routes recover it. \\
+Typed edge miss & 71007\allowbreak0026 & C/1k & neutral (1) & timeout (0) & contradiction (0) & neutral (1) & A typed tie/normalization edge fails despite exact local labels. \\
+Long-context timeout & 21802\allowbreak0026 & C/262k & more common (1) & timeout (0) & more common (1) & more common (1) & Three routes agree; GPT-5 RLM times out at 262k. \\
+\bottomrule
+\end{tabular}
+\caption{Representative CD-45 paired examples from the no-call trace artifact. Parentheses mark exact correctness. The SLM+typed and direct-controller rows have stored prompts/raw responses and token/cost traces. Aggregate CD-45 standard-RLM rows retain predictions, costs and errors; a separate three-row trajectory subset captures generated code blocks for qualitative inspection so this table remains behavior-first rather than a new generated-program benchmark.}
+\label{tab:supp-cd45-trace-examples}
+\end{table*}
+
+The trace examples in Table~\ref{tab:supp-cd45-trace-examples} are not a substitute for aggregate statistics; they explain why the aggregate statistics are plausible. They show three distinct mechanisms: standard RLM can still make ordinary aggregation mistakes, direct whole-context prompting can miss structured counts and SLM+typed can fail when local labels are right but the typed reduction has an output-edge case. The same artifact also freezes the full CD-45 outcome-pattern counts across standard RLM/Gemini, standard RLM/GPT-5, SLM+typed and direct Gemini. It avoids quoting long contexts and records the trace boundary directly: the aggregate CD-45 standard-RLM runs keep row predictions, costs and errors while SLM/direct paths keep prompts, raw responses and token traces.
+
+To inspect generated programs directly, we ran a separate three-row standard-RLM/Gemini trajectory subset on the frozen CD-45 manifest with the \texttt{rlms} logger enabled. This qualitative artifact solves 2/3 rows, costs \$0.015245, records no harness errors and captures 14 generated code blocks. The two successes illustrate different program shapes: a least-label row uses batched local LLM classification followed by a \texttt{Counter} while a most-frequent-user row uses regex extraction and a \texttt{Counter}. The failed label-comparison row also uses batched local classification but its comparison/final-answer path returns ``more common than'' where the gold relation is ``less common than.'' The subset supplies program text for mechanism inspection without changing the CD-45 aggregate accuracy, cost or paired-significance estimates.
+
+To estimate rollout variability, we also ran a full independent standard-RLM/Gemini repeat on the same frozen CD-45 manifest, with the same standard/unlabeled context and 360-second row cap. The repeat solves 21/45 exact, has 55.8\% mean score, costs \$0.970 and records two 360-second timeout/error rows. The original and repeated RLM executions are exact on the same 15 examples, wrong on the same 12 examples and disagree on 18 examples: 12 original-only exact and 6 repeat-only exact. Compared with this repeat, SLM+typed has exact discordance 17/2 and remains 36/45 exact. CD-45 therefore supports the SLM+typed advantage under a second RLM execution while the original bootstrap interval remains conditional on observed executions rather than covering both sampled contexts and stochastic scaffold rollouts. The repeat also preserves the task-conditional pattern: RLM is best on user rows (10/15 repeat exact) and weaker on counting/timeline (5/15 and 6/15), with the two errors on 262k-token timeline/user rows.
+
+\paragraph{Controller and policy fidelity ladder.}
+The following rows have different evidential roles. Standard \texttt{rlms} with Gemini~2.5~Flash is the primary audited scaffold; GPT-5 and GPT-5.6 Luna are controller-and-stability sensitivities within that scaffold; RLM-Qwen3-30B-A3B is a bounded official trained-policy diagnostic; public SRLM-style and earlier $\lambda$-RLM adapters are pressure checks; and the unmodified official $\lambda$-RLM repository contributes a complete, rankable CD-15 cross-task row. We therefore do not pool these rows, treat model diversity as independent replication or promote the official-code row to original-paper protocol parity.
+
+A separate CD-15 repeatability stop-rule is now complete. The subset was frozen from CD-45 before the repeat calls, balances five examples per task group and five per length bucket, uses 14 context windows with max reuse two and was selected deterministically. On the parent CD-45 outputs, that fixed subset has SLM+typed 15/15 exact at \$0.107, standard RLM/Gemini 10/15 at \$0.308, GPT-5 standard RLM 10/15 at \$0.562 with four errors and direct Gemini 9/15 at \$0.336. Three independent standard-RLM/Gemini repeats with the same standard/unlabeled context and 360-second row cap then produced 13/15 exact at \$0.513, 11/15 exact at \$0.324 and 6/15 exact at \$0.415; their combined captured OpenRouter cost is \$1.252. There are no harness timeout rows but one internal RLM error-string prediction and two free-form non-answer failures are counted incorrect. Only 3/15 examples are correct in all three repeats while one relative-frequency row is wrong in every repeat. We intentionally do not present a pooled repeat accuracy: the three outcomes per item are dependent rollout observations, not 45 independent benchmark examples. This is not a benchmark-scale variance estimate but it directly documents that the standard RLM scaffold is stochastic enough that a single small frozen subset can range from RLM-favorable to clearly weak under the same controller and row cap.
+
+We replayed direct Gemini on the same CD-15 rows. The chronology matters: the subset was frozen for repeatability after the parent CD-45 outcomes were known and the positive-side interpretation was formulated after the RLM repeats. This is therefore a retrospective descriptive diagnostic, not a prospectively selected positive regime. The direct replay solves 8/15 exact at \$0.341 with zero errors; the three RLM rollouts solve 13/15, 11/15 and 6/15. Averaging the three RLM outcomes within each of the 15 unique items gives a 13.3-point advantage over the one observed direct replay but an item-cluster bootstrap spans $-13.3$ to 40.0 points. This interval is conditional on the three observed RLM rollouts and one direct rollout, not total fresh-rollout uncertainty. We do not report an aggregate McNemar test: duplicating the single direct replay three times would create 45 dependent pseudo-pairs. The stored SLM+typed route remains 15/15 exact at \$0.107.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{7.0cm}rrrr@{}}
+\toprule
+\textbf{CD-15 route} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} \\
+\midrule
+Stored SLM+typed & 15/15 & 100.0\% & \$0.107 & 0 \\
+Direct Gemini replay & 8/15 & 53.3\% & \$0.341 & 0 \\
+Standard RLM repeat 1 & 13/15 & 86.7\% & \$0.513 & 0 \\
+Standard RLM repeat 2 & 11/15 & 78.3\% & \$0.324 & 0 \\
+Standard RLM repeat 3 & 6/15 & 48.8\% & \$0.415 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Retrospective CD-15 rollout diagnostic on the frozen repeatability subset. The direct replay was observed once and the three dependent RLM rollouts are reported separately. Item-clustered uncertainty spans $-13.3$ to 40.0 points so this is not a powered RLM-over-direct claim. Costs are observed captured costs, not projected repeated-direct spend.}
+\label{tab:supp-cd15-positive-lock}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{8.0cm}rrrr@{}}
+\toprule
+\textbf{Frozen CD-15 route} & \textbf{Exact} & \textbf{Mean} & \textbf{Complete} & \textbf{Cost} \\
+\midrule
+Stored SLM+typed & 15/15 & 100.0\% & 15/15 & \$0.107 API \\
+Stored direct Gemini & 9/15 & 65.0\% & 15/15 & \$0.336 API \\
+Stored standard RLM/Gemini & 10/15 & 70.4\% & 15/15 & \$0.308 API \\
+Official RLM-Qwen3-30B-A3B & 10/15 & 70.4\% & 14/15 & \$1.719 GPU$^{\dagger}$ \\
+Official-code $\lambda$-RLM/Qwen3-8B & 8/15 & 53.3\% & 13/15 & \$5.450 GPU$^{\ddagger}$ \\
+\bottomrule
+\end{tabular}
+\caption{Official-policy and official-code diagnostics on the identical frozen CD-15 manifest. $^{\dagger}$The trained-policy cost includes cold start and its declared 1,500-second timeout cap; finalized infrastructure billing was \$12.510 after a teardown overrun. $^{\ddagger}$The $\lambda$ cost is the creation-to-cleanup listed-rate estimate including two 1,800-second caps; finalized infrastructure billing was \$5.471. Neither row is a full SRLM/$\lambda$-RLM/RAH benchmark reproduction.}
+\label{tab:supp-cd15-official-qwen}
+\end{table*}
+
+To test whether the result depends on a generic prompted controller, we served the official MIT OASYS RLM-Qwen3-30B-A3B policy (base \texttt{Qwen/Qwen3-30B-A3B-Instruct-2507}, LoRA \texttt{mit-oasys/rlm-qwen3-30b-a3b-v0.1}) on one 80GB-class RunPod GPU and ran it through the authors' current canonical \texttt{rlm} harness. We matched the model-card Oolong inference settings: depth one, at most 20 iterations, 4096 controller and child completion tokens, disabled Qwen thinking, the official Oolong instruction plus the natural-language question, standard/unlabeled \texttt{context\_window\_text} and the same local scorer used by the stored CD-15 baselines. The local official-harness checkout was fixed at commit \texttt{72d6940142ddfb84e\allowbreak e6be573dc999a37e633e671}. No task metadata, local gold labels or typed Oolong operators were supplied.
+
+The policy returns 10/15 exact and 70.4\% mean Oolong score. It completes 14/15 rows; the final 262k-window relative-frequency row returns no response within the predeclared 1,500-second outer cap and is scored incorrect. By task group it reaches 3/5 exact on counting, 4/5 on timeline and 3/5 on user. The 14 completed trajectories contain 70 iterations and 70 generated code blocks; completed-row median latency is 15.3 seconds and maximum latency is 72.9 seconds. Against SLM+typed, paired exact discordance is 0 official-only versus 5 SLM-only ($p=0.0625$); against stored direct Gemini it is 5 versus 4 ($p=1.0$) and against stored standard RLM/Gemini it is 4 versus 4 ($p=1.0$). The official policy, stored standard RLM/Gemini and stored standard RLM/GPT-5 each reach 10/15 exact on this subset. The diagnostic adds official trained-policy coverage and shows a numerical RLM-over-direct difference, but it neither establishes a powered win nor reverses the specialized route on this slice.
+
+The deployment log separates scientific protocol cost from an operational incident. At the listed \$2.99/hour rate, elapsed GPU time from pod rental through cold start, 14 completions and the final timeout cap is \$1.719. Finalized RunPod billing was \$12.510 because the final request outlived the local alarm and the detached pod remained active after the local process died; the \$10.791 difference is teardown overrun, not model compute required by the declared protocol. OpenRouter spend for this run was \$0.00. The anonymous release contains the adjudicated row table, analysis JSON/Markdown and compact generated-program trajectories; the 105MB raw trajectory file is retained locally rather than included in the compact release bundle.
+
+We prospectively attempted to complete official-policy coverage from CD-15 to the full CD-45 population. Before calls, we froze the exact 30-row set difference between the parent CD-45 manifest and CD-15 (10 rows per task group and length bucket; zero ID overlap with CD-15), fixed a three-row expansion preflight and declared a stop after three total or two consecutive row errors. The preflight completed without errors (2/3 exact) but the expanded run returned only six further completed trajectories before two consecutive HTTP 400 errors fired the stop. Both errors expose the same published policy serving-configuration boundary: the model-card configuration caps total served tokens at 16,384 while these requests required at least 12,289 input plus 4,096 reserved output tokens or 16,385 total. This is not the base Qwen model's architectural context limit. Across the returned eight-row prefix, the policy generated 57 iterations and 55 code blocks. We did not alter the model-card context or completion settings, reorder rows or resume after observing the failures. Accordingly, this prefix is deployability evidence only: it is not pooled with CD-15, no CD-45 accuracy estimate is reported and the 2/8 descriptive prefix exact count is not used for method ranking. The pod was deleted successfully after 754.15 seconds; the listed-rate estimate is \$0.626, the provider billing endpoint had not yet itemized the charge and OpenRouter spend was \$0.00.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{5.0cm}rrrr@{}}
+\toprule
+\textbf{CD-45 route} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} \\
+\midrule
+Q-parsed SLM+typed & 36/45 & 83.7\% & \$0.416 & 0 \\
+Standard RLM / Gemini 2.5 Flash & 27/45 & 62.3\% & \$1.001 & 0 \\
+Standard RLM repeat / Gemini 2.5 Flash & 21/45 & 55.8\% & \$0.970 & 2 \\
+Standard RLM + same typed ops / Gemini 2.5 Flash & 31/45 & 69.3\% & \$1.314 & 2 \\
+Standard RLM / GPT-5 & 23/45 & 58.1\% & \$2.442 & 15 \\
+Standard RLM / GPT-5.6 Luna & 26/45 & 62.9\% & \$3.966 & 2 \\
+\bottomrule
+\end{tabular}
+\caption{Completed strict-stop CD-45 controller-freshness sensitivity. The GPT-5 row uses \texttt{openai/gpt-5} via OpenRouter inside the same local standard-\texttt{rlms} scaffold with a 240-second per-row timeout; the GPT-5.6 Luna row uses the central 360-second cap. These are controller/stability sensitivities, not replacements for official SRLM or $\lambda$-RLM reproductions.}
+\label{tab:supp-oolong-cd45-gpt5-freshness}
+\end{table*}
+
+The completed GPT-5 controller run does not eliminate the CD-45 difference. SLM+typed beats GPT-5 standard RLM on paired exact outcomes ($b=15,c=2$, two-sided exact $p=0.00235$), with a context-cluster exact-difference interval of 11.1--47.7 points. GPT-5 is not significantly different from the logged Gemini~2.5 Flash standard-RLM row on paired exact outcomes (GPT-5-only 6, Gemini-only 10, $p=0.454$) but it is less stable under the strict stop rule: 15/45 rows record timeout or scaffold-error failures. Because the run changes the top-level controller while retaining the local scaffold and not recreating the original GPT-5/GPT-5-mini nested-call configuration, it should be read as evidence that a stronger top-level controller alone does not remove the standard scaffold's bounded-run reliability problem on this slice, not as evidence against all frontier-controller RLM-family variants.
+
+\Needspace{9\baselineskip}
+We also checked three GPT-5.6 routes available through OpenRouter:
+\begin{quote}
+\small\ttfamily
+openai/gpt-5.6-sol\\[-1pt]
+openai/gpt-5.6-terra\\[-1pt]
+openai/gpt-5.6-luna
+\end{quote}
+A three-row CD-45 Terra canary completed with 2/3 exact, zero errors and \$0.073751 captured cost. Two full Terra attempts stopped before a rankable endpoint, one at the provider boundary and one at the budget-safety rule; neither prefix is used as accuracy evidence. We therefore ran a fresh complete GPT-5.6 Luna row under the same 360-second cap as the central Gemini row. Luna completes all 45 rows as a strict-stop artifact: 26/45 exact, 62.9\% mean score, two timeout/error rows and \$3.965806 captured successful-completion cost. SLM+typed remains higher on the same rows (36/45 exact, \$0.416415), with paired discordance $b=15,c=5$, two-sided exact $p=0.041$ and a 32-cluster exact-difference interval of 2.3--40.9 points. Luna is statistically indistinguishable from the logged Gemini~2.5 standard-RLM row (Luna-only 10, Gemini-only 11, $p=1.0$), directionally above GPT-5 (12 vs.\ 9 discordant exact wins, $p=0.664$) and directionally above direct Gemini (12 vs.\ 7, $p=0.359$). The complete Luna row replaces partial GPT-5.6 prefixes as the current-controller sensitivity: it does not reverse the operation-matched SLM+typed decision boundary and is about 9.5$\times$ costlier than SLM+typed on captured successful-completion cost.
+
+Separate from the context-window-disjoint slice in Table~\ref{tab:supp-oolong-context-disjoint-n45}, a current-model freshness sensitivity uses the earlier five-length, prior-ID-excluded $N{=}45$ method-locked checkpoint in Table~\ref{tab:supp-oolong-validation-n45}. On those older IDs, Gemini~3.5~Flash direct reaches 20/45 exact and 50.7\% mean score at \$2.942868, compared with 18/45 and 46.0\% for Gemini~2.5~Flash direct at \$0.580068; the larger dollar value is the captured cost under the specific provider route and price table used for this sensitivity. The two-extra-example gain is not significant on paired exact outcomes ($b{=}8,c{=}6,p{=}0.791$) and SLM+typed remains higher than Gemini~3.5 direct ($b{=}13,c{=}3,p{=}0.021$; paired cluster exact-diff CI 4.5--41.5 points). By subgroup, Gemini~3.5 direct is strongest on user aggregation (12/15) but weaker on timeline (2/15) and it degrades at 131k-token windows (1/9 exact). We also attempted a like-for-like standard-RLM run with Gemini~3.5~Flash on that older checkpoint but stopped it as a stability sensitivity rather than completing a benchmark: the prefix recorded 8 rows, all in counting, with 5/8 exact, 3/8 timeout errors, \$0.468394 captured cost and usage-accounting retries during later rows. This prefix is useful execution evidence only; it is not used as a completed N=45 RLM accuracy row or as evidence against Gemini~3.5 as a direct model.
+
+A small rollout-variability audit also replays the exact logged prompts from the earlier five-length $N=45$ method-locked checkpoint. The first micro-audit uses the first 8k-token validation row in each task group (three rows total) from the rollout manifest, not the SMOKE-15 stronger-family subset. SLM+typed is 3/3 exact in the original run and in two trace-replay repeats, with identical correctness on every row; direct Gemini is likewise stable but weaker, repeating 1/3 exact with the same counting error and timeline near miss. Standard RLM is less stable on this tiny repeat: the original $N=45$ run solved all three selected rows while the replay repeat solves 0/3, with two scaffold/environment-style failure messages and one numeric near miss. We then attempted the natural larger repeatability follow-up on REPLAY-15, a frozen 15-row manifest spanning all five context lengths and task groups. Direct Gemini completed the full REPLAY-15 replay and exactly reproduced its original correctness pattern (5/15 exact, mean score 0.429, no errors, $\$0.19134$). The standard-RLM repeat was stopped by the predeclared spend/latency rule after the first three 8k REPLAY-15 rows produced one wrong answer and two 360-second timeouts; those same three rows were all correct in the original $N=45$ RLM run. The rollout artifacts, indexed in \texttt{MANIFEST.md}, include the frozen manifests, all completed replay prompts/raw outputs, costs and the explicit stop-rule analysis. We keep this as supplement-level reliability evidence, not a benchmark-scale variance estimate.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}p{2.0cm}rrrr@{}}
+\toprule
+\textbf{Variant} & \textbf{Robust} & \textbf{Strict} & \textbf{Exact} & \textbf{Mean} \\
+\midrule
+Original & 120/120 & 120/120 & 80/120 & 72.7\% \\
+Answer format removed & 120/120 & 29/120 & 80/120 & 72.7\% \\
+Deterministic paraphrase & 120/120 & 0/120 & 80/120 & 72.7\% \\
+\bottomrule
+\end{tabular}
+\caption{No-call Oolong question-paraphrase stress test over the same frozen $N=120$ rows. The robust parser receives only the question variant and stored SLM row-label predictions; it does not use benchmark task/output metadata. ``Strict parser ok'' reports whether the original format-template parser can infer task/output schema from the variant.}
+\label{tab:supp-oolong-question-stress}
+\end{table}
+
+Table~\ref{tab:supp-oolong-question-stress} is not a new model run; it is a parser/harness stress test. It shows that the original exact-format parser is template-sensitive while a slightly more semantic rule parser still recovers the task and answer-type fields from format-removed and paraphrased questions. This reduces but does not eliminate the Oolong-template concern: the paraphrases are deterministic perturbations of Oolong questions, not independently authored questions from a new benchmark.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Exact} & \textbf{Mean} & \textbf{Cost} & \textbf{Err.} \\
+\midrule
+Q-parsed SLM+typed & 9/15 & 65.8\% & \$0.0127 & 0 \\
+Direct Gemini & 9/15 & 64.4\% & \$0.0304 & 0 \\
+Standard RLM & 7/15 & 48.3\% & \$0.1630 & 0 \\
+prehend SRLM-style & 7/15 & 46.7\% & \$0.0758 & 0 \\
+$\lambda$-RLM adapter debug & 0/15 & 0.0\% & \$0.0622 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{SMOKE-15 matched stronger-RLM-family smoke on the same standard-unlabeled Oolong $N{=}120$ public contract. Rows are the first five examples per task group from the frozen manifest. This is distinct from the REPLAY-15 rollout-repeat manifest. The $\lambda$-RLM and prehend rows use public implementations through project-side adapters with Gemini~2.5~Flash; they are debugging/pressure checks, not official reproductions or method-level comparisons.}
+\label{tab:supp-oolong-standard-family-smoke}
+\end{table}
+
+SMOKE-15 tests small matched-contract implementations rather than official SRLM or $\lambda$-RLM protocols. On the matched IDs, SLM+typed is directionally above standard RLM ($b=4,c=2$, n.s.) and prehend SRLM-style ($b=3,c=1$, n.s.) while no direct-Gemini--SLM+typed difference is detected on exact outcomes ($b=1,c=1$). The selected-subset SLM+typed cost is incremental and should not be extrapolated as an all-length per-example cost. The $\lambda$ adapter often emits narrative summaries, malformed comparison strings or requests for more data instead of the required aggregate answer. The prehend adapter is stronger, especially on user subtasks but still fails through wrong numeric aggregation, abstentions, multi-label contract mismatches and comparison-format errors.
+
+A separate Sonnet~4.6 standard-\texttt{rlms} compatibility diagnostic covers the first 8k row from each SMOKE-15 task group. It produces 0/3 exact, one 360-second timeout and two wrong completed answers; the matched SLM+typed rows are 3/3 and matched Gemini~2.5 standard RLM is 1/3. This stopped three-row diagnostic is not rankable and does not resolve official SRLM/$\lambda$-RLM fidelity. Together, these small adapter and compatibility probes show no immediate reversal but provide no method-level evidence about full SRLM or $\lambda$-RLM.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+\textbf{Len.} & \textbf{SLM} & \textbf{RLM} & \textbf{SLM \$} & \textbf{RLM \$} & \textbf{Ratio} \\
+\midrule
+8k & 16/24 & 14/24 & \$0.0199 & \$0.2528 & 12.7$\times$ \\
+16k & 19/24 & 12/24 & \$0.0414 & \$0.2356 & 5.7$\times$ \\
+32k & 16/24 & 13/24 & \$0.0852 & \$0.4125 & 4.8$\times$ \\
+65k & 15/24 & 4/24 & \$0.1768 & \$0.4464 & 2.5$\times$ \\
+131k & 14/24 & 10/24 & \$0.3357 & \$1.3410 & 4.0$\times$ \\
+\bottomrule
+\end{tabular}
+\caption{Length-sliced exact rates and captured successful-completion API costs for the $N=120$ standard-unlabeled replication. Each length bucket has 24 examples. Recorded standard-RLM scaffold errors by bucket are 0, 0, 1, 5 and 3 respectively.}
+\label{tab:supp-oolong-standard-n120-length}
+\end{table}
+
+Each length bucket has only 24 examples, so we do not interpret the slice as a leaderboard. SLM-labeler+typed remains ahead in every bucket while both accuracy and cost change with context length; the captured RLM/SLM cost multiplier therefore persists into the longer evaluated buckets. At 131k, SLM-labeler+typed still beats standard RLM but falls to 14/24 exact, showing that cheap local labeling does not solve the benchmark. RLM is weakest at 65k (4/24 exact, five errors) and most expensive at 131k (\$1.341 for 24 examples). Attempted-cost auditing remains conservative: the stored RLM logs contain 85 official-RLM attempt rows, 76 completions and 9 error rows, all with zero recorded failed-call usage so reported attempted cost is a lower bound rather than an imputed provider bill for failed partial executions. The two-method and three-way score/cost PDFs are included in the released \texttt{figures/} directory; the three-way files use the \texttt{n120\_threeway\_score\_by\_length} and \texttt{n120\_threeway\_cost\_by\_length} names.
+
+The cleaner CD-45 split-validity slice gives the complementary long-context cost check at 1k/4k/262k windows. On those rows, SLM+typed costs \$0.00095, \$0.00610 and \$0.40937 by length and solves 13/15, 11/15 and 12/15. Standard RLM costs \$0.09659, \$0.12127 and \$0.78316 and solves 12/15, 8/15 and 7/15. Direct Gemini is cheap at 1k/4k (\$0.00352/\$0.01509) but becomes the most expensive path at 262k (\$1.00599) while solving 4/15. Giving standard \texttt{rlms} the same typed operator library helps but does not remove the cost-scale pattern: the convenience row costs \$0.13746/\$0.17250/\$1.00449 at 1k/4k/262k and the atomic-only row costs \$0.17118/\$0.20065/\$0.58686, with long-row timeout/error counts of 2 and 4. Together, the two public-contract Oolong ladders cover 8k--131k and a context-window-ID-disjoint 262k stress point under explicitly different overlap properties.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.5cm}rp{4.1cm}@{}}
+\toprule
+\textbf{Noise view} & \textbf{Count} & \textbf{Interpretation} \\
+\midrule
+SLM local-label/model noise & 20 & SLM+typed wrong with row-label accuracy $<0.90$; cheap workers are strong but not solved readers. \\
+SLM aggregation sensitivity & 20 & SLM+typed wrong despite row-label accuracy $\ge0.90$; small local errors or schema edge cases can flip exact aggregates. \\
+RLM scaffold/reliability noise & 9 & Captured RLM timeout/scaffold errors, concentrated at 65k/131k windows. \\
+Direct whole-context model noise & 66 & Direct Gemini wrong without infrastructure errors; removing recursion alone does not solve aggregation. \\
+RLM non-error answer noise & 58 & RLM wrong without captured scaffold error; most misses are ordinary wrong answers plus a reliability tail. \\
+\bottomrule
+\end{tabular}
+\caption{No-call noise-decomposition diagnostic for the $N=120$ standard-unlabeled Oolong replication, following the divide-and-conquer view that failures can arise from task/local interpretation, length/model degradation, aggregation or scaffold reliability. Categories are operational diagnostics over frozen outputs, not new gold labels.}
+\label{tab:supp-oolong-noise}
+\end{table}
+
+The failure modes separate in a way that matches recent long-context decomposition work. RLM still beats direct/CoT Gemma overall in the $N=30$ four-method pilot and wins several user-ID cases where whole-context Gemma copies a source row or chooses the wrong entity, but the $N=120$ run adds nine timeout/scaffold errors and many wrong numeric or wrong-output-type predictions. Direct Gemini avoids those scaffold errors and is cheaper but still has 66 non-error wrong answers. SLM-labeler+typed has no scaffold errors, yet its 40 misses split evenly between local-label/model noise and aggregation sensitivity after high-accuracy local labeling. The evidence does not show that SLM solves Oolong. Instead, it shows that the dominant failure allocation changes by mechanism and that the current standard-RLM scaffold does not reduce model or aggregation noise enough to justify its extra cost on this frozen public contract. The diagnostic JSON, CSV and PDF artifacts are included in the release under the Oolong N=120 noise-decomposition filenames.
+
+\section{Public HotpotQA Semantic Evidence Diagnostic}
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Support exact} & \textbf{Ans.} & \textbf{F1} & \textbf{Cost} \\
+\midrule
+TF-IDF top-2 & 3/24 & -- & 0.436 & \$0.00000 \\
+Gemini lexical & 8/24 & -- & 0.610 & \$0.01956 \\
+Gemma reranker & 9/24 & 19/24 & 0.762 & \$0.00158 \\
+Gemma direct & 14/24 & 22/24 & 0.836 & \$0.00358 \\
+Gemini direct & 17/24 & 23/24 & 0.892 & \$0.02043 \\
+\bottomrule
+\end{tabular}
+\caption{Public HotpotQA distractor-validation semantic evidence diagnostic ($N=24$, all sampled examples are hard level). The task is support-fact sentence selection plus answer extraction over natural Wikipedia contexts. The Gemini lexical row asks Gemini to generate include/exclude phrases and then applies local deterministic substring matching; it is a generated lexical-operator proxy, not an official RLM run. Costs are OpenRouter logged API costs.}
+\label{tab:supp-hotpotqa-semantic}
+\end{table}
+
+HotpotQA provides a public counterpoint to the project-generated semantic paraphrase slice: natural Wikipedia multi-hop questions with sentence-level supporting facts. The run samples 24 hard distractor-validation examples with at most 58 candidate sentences. This is still a small diagnostic but it prevents the semantic-boundary evidence from relying only on project-generated passages.
+
+On this public slice, direct Gemini is the strongest evidence selector and answerer: 17/24 exact support sets, 23/24 answers and mean evidence F1 0.892. Gemma direct is weaker on exact support selection (14/24) but reaches 22/24 answer accuracy at about 5.7$\times$ lower cost. The cheaper Gemma TF-IDF reranker is answer-useful but retrieval-limited: its top-8 candidate context misses at least one gold support sentence on 12/24 examples, explaining why exact support selection stops at 9/24. The lexical baselines are much weaker for the mechanism question: TF-IDF top-2 reaches only 3/24 exact support sets and the Gemini-generated lexical operator reaches 8/24 while costing about the same as direct Gemini. Paired support-exact discordance favors direct Gemini over the Gemma reranker ($b=8,c=0$, two-sided exact $p=0.0078$) while the Gemma reranker beats pure TF-IDF top-2 ($b=6,c=0$, $p=0.031$) and is statistically similar to the generated lexical proxy ($b=4,c=3$, n.s.). The interpretation is task-conditional: lexical/programmatic filters are weak on this public natural semantic evidence-selection slice; semantic readers or rerankers are stronger primitives and frontier direct reading can be best when cost allows. Separate from this completed $N{=}24$ diagnostic, a prospective ten-document HotpotQA search-breadth $N{=}60$ test remained unexecuted after four standard-RLM canary configurations failed predeclared completion or answer-contract gates; no canary accuracy is paper evidence.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\linewidth]{../figures/semantic_boundary_failure_modes_20260713.pdf}
+\caption{Semantic-boundary failure-mode decomposition over the two $N{=}24$ diagnostics. Counts can co-occur. Lexical/programmatic filters mostly miss or over-select semantic evidence; reranking can be candidate-recall limited.}
+\label{fig:supp-semantic-boundary-failures}
+\end{figure}
+
+A no-call cross-diagnostic failure analysis makes the boundary more explicit. In HotpotQA, TF-IDF top-2 misses gold support on 21/24 rows and selects extra non-gold evidence on 19/24; the Gemini-generated lexical operator still misses gold on 16/24 and selects extra evidence on 15/24. Gemma reranking is a different failure mode: it answers 19/24 questions correctly but its top-8 retrieval candidate set omits at least one gold support sentence on 12/24 rows. In paraphrase counting, the generated lexical operator has 11 overcounts and four undercounts while direct Gemini has 15 overcounts despite high evidence F1. Gemma direct reduces this to three overcounts and one undercount; Gemma worker labeling is close, with six overcounts. The cases CSV documents lexical false positives, candidate-recall bottlenecks, lexical overcount and SLM worker/direct agreement without quoting long passages.
+
+\section{BrowseComp-Plus Positive-Regime Audit}
+
+\paragraph{Purpose and frozen-manifest boundary.}
+The earlier diagnostics did not establish a stable regime in which standard RLM had the highest point estimate. We therefore selected BrowseComp-Plus---a natural deep-search benchmark with heterogeneous questions and 1,000 documents per query---before observing outputs. The hypothesis favored recursive search because, unlike Oolong, the task does not expose a known aggregation family for a typed route. The frozen $N=80$ manifest uses official restricted query/corpus data, immutable upstream commits and ranked queries fixed before execution. Each context contains 1,000 documents and approximately 5.4--10.8 million whitespace tokens, far beyond the served model's endpoint window. The protocol forbids directional stopping and counts failed generation as incorrect.
+
+\paragraph{Matched-controller routes.}
+All routes use the same self-hosted \url{Qwen/Qwen3.6-35B-A3B-FP8} checkpoint at the exact revision recorded in the frozen execution lock; the served endpoint exposes a 65,536-token context. Standard RLM uses unmodified \texttt{rlms==0.1.3} program execution over externalized context. The BM25 route retrieves evidence before one Qwen call. The textual-decomposition route asks Qwen to form subquestions, searches locally for each and then supplies the selected text to the same Qwen model. Model identity, question, corpus, answer contract and scorer are matched; route-specific computation, access patterns and truncation budgets differ by design. Complete restricted logs record every request, response, usage field, elapsed time, generated RLM program, child call, exception and final output.
+
+\paragraph{Interruption, resumption and analysis contract.}
+The first execution was externally interrupted for time after ranks 1--37 were fully attempted, outside the frozen hard-stop rules. Rank 38 was partial. Scoring of ranks 1--37 was then visible so the completed study cannot be called an uninterrupted prospective endpoint. Before resumption, we froze a public amendment: preserve the original manifest, order, methods, prompts, scorer, model revision, decoding and timeouts; discard the partial rank 38; rerun all three methods at rank 38; and commit ranks 38--80 regardless of direction. The only infrastructure change pins the serving image by immutable digest. The resulting $N=80$ analysis completes the originally frozen manifest across two disclosed execution episodes after post-stop score visibility. All generation and judge failures count incorrect.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Route} & \textbf{Complete} & \textbf{Semantic correct} & \textbf{Wilson 95\%} & \textbf{Median / max s} \\
+\midrule
+Standard RLM & 70/80 & 54/80 (67.5\%) & 56.6--76.8 & 50.2 / 1,279.5 \\
+BM25 + same Qwen & 75/80 & 39/80 (48.8\%) & 38.1--59.5 & 3.1 / 21.2 \\
+Text decomposition + same Qwen & 80/80 & 48/80 (60.0\%) & 49.0--70.0 & 23.5 / 65.0 \\
+\bottomrule
+\end{tabular}
+\caption{Completed frozen BrowseComp-Plus $N=80$ manifest across two execution episodes after a disclosed interruption and post-stop score visibility. Failures count incorrect; RLM has the highest accuracy but lower completion and a much heavier latency tail.}
+\label{tab:supp-browsecomp-primary}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{6.0cm}rrr@{}}
+\toprule
+\textbf{Paired comparison} & \textbf{Difference} & \textbf{Discordance} & \textbf{Bootstrap 95\% / $p$} \\
+\midrule
+RLM $-$ BM25 & +18.8 pp & 25/10 & 5.0, 32.5 / .0167 \\
+RLM $-$ text decomposition & +7.5 pp & 19/13 & $-6.2$, 21.2 / .377 \\
+BM25 $-$ text decomposition & $-11.2$ pp & 8/17 & $-23.8$, 1.2 / .108 \\
+\bottomrule
+\end{tabular}
+\caption{Paired semantic-accuracy comparisons. Intervals are 20,000-replicate paired row bootstraps; $p$ is the unadjusted descriptive two-sided exact McNemar value. For RLM--BM25, Holm sensitivity is .033 over the two RLM contrasts and .050 over all three route pairs. Only RLM--BM25 excludes zero.}
+\label{tab:supp-browsecomp-paired}
+\end{table*}
+
+\paragraph{Semantic scoring and audit.}
+Exact matching undercounts valid answers with spacing, diacritics or omitted middle names while raw containment can reward a response that mentions the gold answer inside a refusal or contradiction. We therefore froze a method-blinded semantic judge using \url{google/gemma-4-26B-A4B-it} at the revision recorded in its execution lock, temperature zero. The judge receives only question, gold answer and prediction; route identity is hidden, parse failure scores zero and correctness retries are forbidden. It attempted all 225 available generations: 222 parsed exactly and three malformed leading ``no'' outputs were conservatively scored incorrect without rerun.
+
+We conducted an independent second-model audit with GPT-5.6 Sol at high reasoning. The adjudicator received only an opaque case ID, question, reference answer and candidate response; method and primary labels were hidden. The preselected set contains all 25 semantic-versus-containment disagreements, all three malformed primary-judge outputs and a deterministic 18-case stratified agreement sample. Agreement is 43/46 overall, 23/25 on disagreements, 3/3 on malformed cases and 17/18 on the agreement sample. Replacing primary labels only on these 46 cells changes RLM/text/BM25 from 54/48/39 to 55/47/38. RLM--BM25 remains supported ($b{=}26,c{=}9,p{=}0.0060$; Holm-adjusted .018 over three route pairs) while RLM--text remains uncertain ($b{=}20,c{=}12,p{=}0.215$). This is independent second-model validation, not human validation. A release-safe 240-cell ledger includes only rank, method, episode, completion, score booleans, parse status, provenance hashes and execution metadata; restricted text and rationales remain local.
+
+\paragraph{Mechanism and cost.}
+Standard RLM generated 1,183 code blocks over 1,197 iterations. Active row time was 19,256.1 seconds, versus 2,001.2 seconds for textual decomposition and 384.8 seconds for BM25. At the generation pod's listed \$4.39/hour rate, active-runtime attribution is \$23.482, \$2.440 and \$0.469, respectively. This excludes startup/idle time, the earlier failed H100 attempt and judging. The paired interval supports an RLM gain over BM25 but not text decomposition; RLM also has lower completion and roughly 9.6$\times$ the route-attributed active-runtime cost of text decomposition. Episode sensitivity preserves the direction: RLM is 24/37 before interruption and 30/43 after resumption, versus 21/37 and 18/43 for BM25 and 22/37 and 26/43 for text. This result complements the Oolong findings: when neither a typed task family nor a compact retrieval target is known, adaptive recursive search warrants evaluation but not automatic deployment.
+
+All model I/O is locally logged but official BrowseComp-Plus query/corpus text remains restricted. OpenRouter spend is \$0.00. Conservative listed-rate generation cost is \$29.378 across both execution episodes; the $N=80$ judge adds \$0.416, for \$29.794 total. These are self-hosted infrastructure costs, not API-dollar cells. Immutable manifests, model revisions, serving-image digest, source hashes, per-cell coverage and empty post-cleanup pod lists are verifier checked.
+
+\subsection{Untouched-Row Replication}
+
+\paragraph{Independent freeze and terminal rule.}
+The pinned query shard contains 139 rows. Before any replication output, we retained the original hash ordering, excluded all 80 original-study queries and froze all 59 remaining rows. The replication has zero query-ID overlap with the original study and preserves the same deterministic 1,000-document construction, model revision, official \texttt{rlms} commit, three routes, prompts, decoding, time limits, failure accounting and Gemma~4 semantic judge. Generation remained score-blind. At rank 49, the RLM client remained blocked beyond the declared row cap; an operator signal enforced the already exceeded timeout without inspecting correctness. The endpoint then returned three route failures at rank 49 and triggered the predeclared three-consecutive-error stability stop. We therefore report all 49 attempted rows including every rank-49 failure and do not resume the remaining ten rows after seeing scores. Ranks 1--48 were fully generated in one execution episode.
+
+% The final three full-width blocks otherwise form an all-float page whose
+% elastic inter-float glue creates visually misleading blank bands.
+\makeatletter
+\setlength{\@dblfptop}{0pt}
+\setlength{\@dblfpsep}{10pt}
+\setlength{\@dblfpbot}{0pt plus 1fil}
+\makeatother
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Route} & \textbf{Complete} & \textbf{Semantic correct} & \textbf{Wilson 95\%} & \textbf{Median / max s} & \textbf{Active \$} \\
+\midrule
+Standard RLM & 43/49 & 35/49 (71.4\%) & 57.6--82.2 & 69.9 / 2,694.4 & 15.046 \\
+BM25 + same Qwen & 46/49 & 21/49 (42.9\%) & 30.0--56.7 & 4.0 / 22.0 & 0.321 \\
+Text decomposition + same Qwen & 48/49 & 21/49 (42.9\%) & 30.0--56.7 & 29.2 / 65.5 & 1.884 \\
+\bottomrule
+\end{tabular}
+\caption{Untouched-row BrowseComp-Plus replication. The attempted-$N=49$ endpoint is fixed by a score-blind stability stop; failed generations count incorrect. RLM reproduces the positive-regime ordering with lower completion and a much heavier latency/cost tail.}
+\label{tab:supp-browsecomp-replication}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{5.8cm}rrr@{}}
+\toprule
+\textbf{Paired comparison} & \textbf{Difference} & \textbf{Discordance} & \textbf{Bootstrap 95\% / $p$} \\
+\midrule
+RLM $-$ BM25 & +28.6 pp & 19/5 & 10.2, 46.9 / .0066 \\
+RLM $-$ text decomposition & +28.6 pp & 17/3 & 12.2, 44.9 / .0026 \\
+BM25 $-$ text decomposition & 0.0 pp & 4/4 & $-12.2$, 12.2 / 1.000 \\
+\bottomrule
+\end{tabular}
+\caption{Replication-only paired semantic comparisons. Intervals are 50,000-replicate paired row bootstraps and $p$ is the unadjusted descriptive two-sided exact McNemar value. Holm adjustment over all three route pairs gives $p=0.0132$ for RLM--BM25 and $p=0.0077$ for RLM--text; both RLM contrasts remain below 0.05 and exclude zero.}
+\label{tab:supp-browsecomp-replication-paired}
+\end{table*}
+
+\paragraph{Scoring, independent-judge sensitivity and cost.}
+The method-blinded Gemma~4 judge parsed all 137 successful generations without a retry; the ten generation failures remain incorrect. After generation and primary scoring were closed, GPT-5.6 Luna at high reasoning independently re-judged all 137 successful outputs. It saw only an opaque ID, question, reference answer and one candidate response; route and primary labels were hidden. Agreement is 132/137 (96.4\%, Cohen's $\kappa{=}0.927$). Gemma/Luna correct counts are 35/33 for RLM, 21/20 for text decomposition and 21/19 for BM25, each over the attempted-$N{=}49$ denominator. Under Luna labels, RLM--text is +26.5 points (paired 95\% interval 10.2--42.9; $b{=}16,c{=}3$) and RLM--BM25 is +28.6 points (12.2--44.9; $b{=}18,c{=}4$); both three-pair Holm-adjusted values are $p{=}0.0130$. All five disagreements change a primary positive to a Luna negative: three concern the same title mismatch across all routes, one omits a requested full birth name and one contains the target only inside an unfinished code trace. This is independent model sensitivity, not human validation; the frozen human-audit packet remains unlabeled.
+
+Standard RLM generated 697 code blocks over 710 iterations. Generation creation-to-cleanup cost is \$18.026 and primary judging adds \$0.554 at listed rates, for \$18.580 total; route-attributed active runtime is \$15.046 RLM, \$1.884 text decomposition and \$0.321 BM25. OpenRouter cost for generation and primary judging is \$0.00. The independent audit adds \$0.112735 in returned per-call cost; the concurrent provider-account delta is \$0.496674 and is retained as the conservative upper attribution because the credential may be shared.
+
+After outcomes were visible, a post-hoc same-row sensitivity reranks 64 BM25 candidates with Qwen3-Embedding-8B before the same Qwen answer model and Gemma judge. The hybrid scores 20/49 at \$0.516 versus 22/49 at \$0.509 for matched BM25 replay and 35/49 for RLM; RLM--hybrid is +30.6 points (interval 14.3--46.9; $p{=}0.0026$). Required-document recall rises only from 0.256 to 0.261. This is not full-corpus dense retrieval and all recall diagnostics were computed after output.
+
+\paragraph{Retrospective matched-cap no-subcall control.}
+We held Qwen3.6, the released root loop, REPL, rows, prompts and execution caps fixed while disabling all four submodel-call bindings. Because standard-route outcomes were known, this is a retrospective component sensitivity. It is not official SRLM, not a prospective replication and not exact realized-dollar matching. It stops after rank 30 following a timeout and two endpoint 404s. Standard RLM solves 24/30 versus 20/30 (difference 13.3 points, interval 0.0--30.0; $b{=}5,c{=}1,p{=}0.219$); on 23 common completions the counts are 21 and 19. The $N{=}49$ failure-policy endpoint is 35/49 versus 20/49 but counts 19 unattempted rows incorrect, so it is a conservative reliability bound rather than a clean mechanism estimate; the attempted-prefix row is the relevant descriptive component sensitivity. The arm logs zero disabled-call attempts over 318 root iterations. Two rows hit the cap, two exceed the context limit and the final two return endpoint 404s. Creation-to-cleanup/active-runtime costs are \$4.706/\$4.327 versus \$15.046 active for standard RLM; judging adds \$0.0024. Different realized spend prevents a recursion-only causal claim.
+
+\subsection{Untouched-Shard Fixed-$N$ Replication}
+
+To remove the stopping-rule ambiguity from the positive-regime endpoint, we
+froze $N{=}45$ rows from official query shard 1 before output. The manifest
+uses SHA-256 ordering, contains exactly 1,000 unique documents per row and has
+zero query-ID or query-hash overlap with the earlier $N{=}80$ and $N{=}59$
+manifests. Model revision, official \texttt{rlms} commit, three route prompts,
+construction, caps, failure-as-incorrect policy and primary judge are
+unchanged. A local-driver interruption occurred after 107/135 cells. Before
+score inspection, a numbered infrastructure amendment preserved those cells
+byte-for-byte and resumed exactly the 28 missing cells on the surviving
+pinned pod. The combined compactor verifies 107 plus 28 non-overlapping cells,
+all 135 attempted cells and both raw hashes; the pod was deleted before
+scoring.
+
+\begin{table*}[!t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+\textbf{Route} & \textbf{Complete} & \textbf{Gemma correct} & \textbf{Wilson 95\%} & \textbf{Median / max s} & \textbf{Active \$} & \textbf{Sol correct} \\
+\midrule
+Standard RLM & 42/45 & 33/45 (73.3\%) & 59.0--84.0 & 44.6 / 1,289.4 & 6.746 & 33/45 \\
+Text decomposition + same Qwen & 45/45 & 29/45 (64.4\%) & 49.8--76.8 & 29.6 / 62.5 & 1.610 & 28/45 \\
+BM25 + same Qwen & 42/45 & 21/45 (46.7\%) & 32.9--60.9 & 3.2 / 21.2 & 0.294 & 21/45 \\
+\bottomrule
+\end{tabular}
+\caption{Disjoint fixed-$N{=}45$ BrowseComp-Plus replication. Failures count
+incorrect. RLM--BM25 is +26.7 points ($b{=}15,c{=}3$, paired bootstrap
+11.1--44.4, exact $p{=}0.0075$, two-contrast Holm $p{=}0.0151$).
+RLM--text is +8.9 points ($b{=}9,c{=}5$, $-6.7$--24.4,
+$p{=}0.424$) and remains uncertain.}
+\label{tab:supp-browsecomp-fixed-n45}
+\end{table*}
+
+The primary Gemma~4 judge attempted all 129 successful generations; 128
+responses parsed and one format failure was conservatively scored incorrect.
+GPT-5.6 Sol at high reasoning then re-judged all 129 outputs under route and
+primary-label blinding. Agreement is 128/129 (99.2\%, Cohen's
+$\kappa{=}0.983$). Sol preserves RLM and BM25 totals, changes text from 29 to
+28 and leaves the two RLM conclusions unchanged. This is independent
+second-model sensitivity, not human validation. Generation and primary
+judging cost \$10.120 and \$0.338 at listed RunPod rates. Sol returned
+\$0.590893 in per-call cost while the concurrent account delta was \$0.496861;
+both are retained because the credential may be shared. Restricted model I/O
+stays local. The release contains the public manifest, protocol, amendment,
+release-safe aggregates, source hashes and an independent 135-cell verifier.
+
+\section{Prospective Equal-Cap Comparison and Rollout Repeat}
+
+The strongest BrowseComp-Plus endpoint prospectively freezes 45 further
+untouched shard-1 queries before any route output and attempts all 180 cells.
+Standard RLM, iterative lexical search, textual decomposition and BM25 use the
+same self-hosted Qwen3.6-35B-A3B-FP8 checkpoint and seed 20. Each route has at
+most 20 sequential decisions and 1,200 seconds per row; route-specific access
+patterns differ by design. The execution required one qualification row, an
+interrupted immutable ranks 2--19 episode and a hash-bound pre-score ranks
+20--45 recovery. Failures remain incorrect in the fixed denominator.
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Route} & \shortstack{\textbf{Comp.}\\\textbf{/ corr.}} &
+\shortstack{\textbf{Wilson}\\\textbf{95\%}} & \textbf{Calls} &
+\shortstack{\textbf{p50/p95}\\\textbf{seconds}} & \textbf{\$} \\
+\midrule
+RLM & 41/31 & 54.3--80.5 & 476 & 50.1/628.8 & 9.873 \\
+Iterative & 45/33 & 59.0--84.0 & 426 & 14.1/90.2 & 1.710 \\
+Text decomp. & 45/37 & 68.7--90.7 & 311 & 22.1/47.6 & 1.400 \\
+BM25 & 42/25 & 41.2--69.1 & 42 & 3.0/20.0 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Prospective equal-cap BrowseComp-Plus endpoint, seed 20 ($N=45$).
+Entries under ``Comp./corr.'' are completed/correct counts. Costs are
+route-attributed active runtime; the four routes sum to \$13.279. Adding the
+interrupted-episode billing lower bound and primary judging gives \$15.015.}
+\label{tab:supp-browsecomp-equal-cap-seed20}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{RLM contrast} & \textbf{Diff.} & \textbf{Only} &
+\shortstack{\textbf{95\% interval}\\\textbf{/ exact $p$}} & \textbf{Holm} \\
+\midrule
+Iterative search & $-4.4$ & 6 / 8 & $[-20.0,+11.1]$ / .7905 & .7905 \\
+Text decomposition & $-13.3$ & 5 / 11 & $[-31.1,+4.4]$ / .2101 & .5387 \\
+BM25 + Qwen & $+13.3$ & 10 / 4 & $[-2.2,+28.9]$ / .1796 & .5387 \\
+\bottomrule
+\end{tabular}
+\caption{Declared seed-20 paired RLM contrasts in percentage points. ``Only''
+gives RLM-only/other-only correct counts. Holm adjustment covers the three
+comparisons; none rejects and the minimum adjusted value is 0.5387.}
+\label{tab:supp-browsecomp-equal-cap-paired}
+\end{table}
+
+On the 39 rows completed by every route, RLM/iterative/text/BM25 score
+30/28/31/22. This common-completion analysis is post-treatment and does not
+replace the all-attempted endpoint. GPT-5.6 Sol independently re-judges all
+173 successful outputs under route and primary-label blinding and agrees on
+172/173 ($\kappa{=}0.985$). This is second-model scorer stability, not human
+validation.
+
+\paragraph{Post-hoc seed-21 repeat.}
+The same 45 rows were rerun with only the model-card seed changed from 20 to
+21. This same-row sensitivity was specified after the seed-20 result, is not
+an independent endpoint and is not pooled with it.
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Route} & \shortstack{\textbf{Raw/cap}\\\textbf{/ corr.}} &
+\shortstack{\textbf{Wilson}\\\textbf{95\%}} &
+\shortstack{\textbf{p50/p95}\\\textbf{seconds}} & \textbf{\$} \\
+\midrule
+RLM & 37/36/30 & 52.1--78.6 & 64.2/1,219.4 & 18.170 \\
+Iterative & 45/45/31 & 54.3--80.5 & 7.9/68.3 & 1.145 \\
+Text decomp. & 45/45/29 & 49.8--76.8 & 26.0/44.8 & 1.498 \\
+BM25 & 42/42/22 & 35.0--63.0 & 3.2/21.0 & 0.356 \\
+\bottomrule
+\end{tabular}
+\caption{Post-hoc seed-21 same-row rollout sensitivity ($N=45$).
+``Raw/cap/corr.'' gives raw completion, cap-valid completion and correct
+counts. Seven RLM rows exceed the 1,200-second cap; the sole late nonempty
+output is incorrect, so fail-closed scoring leaves 30/45 unchanged.}
+\label{tab:supp-browsecomp-equal-cap-seed21}
+\end{table}
+
+RLM versus iterative/text/BM25 differs by $-2.2$, $+2.2$ and $+17.8$
+points, with Holm-adjusted $p$ values 1.0, 1.0 and 0.346. Route ordering
+changes but the non-significant RLM contrast set repeats. On the 34 rows
+cap-valid for every route, RLM/iterative/text/BM25 score 28/23/20/18; this is
+again a post-treatment sensitivity. RLM active-runtime cost is
+15.9$\times$ iterative search and 12.1$\times$ textual decomposition. The
+four route-attributed totals sum to \$21.170 and generation plus primary
+judging costs \$22.374 from pod creation through cleanup. Sol agrees on
+166/169 successful outputs ($\kappa{=}0.961$). The seed repeat supports
+rollout-instability caution, not equivalence or independent replication.
+
+\FloatBarrier
+\section{Repeatability and Cost Accounting}
+
+\paragraph{Controlled families.}
+T-STRUCT and the definitive T-MIXED $N=30$ comparison are single full-family passes. The T-MIXED old-finalizer run is a same-model $N=20$ mechanism probe; its exact-example manifest is reconstructed from stored model-I/O traces. The current-contract extension instead uses a separately frozen stable-generator manifest and SHA-256-derived offset, avoiding the historical generator's salted Python \texttt{hash(domain)} seed.
+
+\paragraph{Public anchors.}
+BrowseComp-Plus contributes four major estimates: the frozen $N=80$ two-episode completion, the zero-overlap score-blind attempted-$N=49$ replication stopped by its stability rule, the disjoint fixed-$N=45$ three-route replication with all 135 cells attempted before scoring and the prospective fixed-$N=45$ four-route equal-cap endpoint with all 180 cells attempted before scoring. The seed-21 rerun is a post-hoc same-row rollout sensitivity, not a fifth independent estimate. The earlier $N=37$ prefix records the first study's interruption and is not a confirmatory sample. T-NLP and T-SQ remain compatibility/proxy diagnostics; LB2 $>$500k and HotpotQA are bounded public diagnostics; and the public $\lambda$-RLM and prehend SRLM-style rows are pressure tests rather than official reproductions.
+
+\paragraph{Cost accounting.}
+Cost ratios compare routes within task families rather than through a global method denominator. RLM totals cover logged successful completions. The attempted-cost audit records their lower bound and the zero-usage failed rows that prevent exact reconstruction of partial failed-call billing.
+\section{Reproducibility Commands}
+
+\paragraph{Integrity and build commands.}
+From the extracted release root, run \texttt{python3 verify\_release.py};
+success is the final \texttt{ANONYMOUS RELEASE VERIFIER: PASS} line. This
+deterministic command requires no network, model, API or GPU access.
+\end{document}

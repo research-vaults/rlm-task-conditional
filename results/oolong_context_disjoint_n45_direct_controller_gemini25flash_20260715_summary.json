@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "run_id": "oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715",
+    "created_utc": "2026-07-15T03:40:56.496882+00:00",
+    "source_csv": "results/oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715.csv",
+    "method": "direct_controller",
+    "manifest": "results/oolong_context_disjoint_n45_manifest_20260715.json",
+    "trace": "results/oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715_trace.jsonl",
+    "model": "google/gemini-2.5-flash",
+    "context_variant": "standard",
+    "prompt_contract": "standard context_window_text plus natural-language question; no code execution, no recursion, final answer only"
+  },
+  "overall": {
+    "n": 45,
+    "score_sum": 24.6914,
+    "mean_score": 0.548698,
+    "exact_count": 21,
+    "exact_rate": 0.466667,
+    "cost_usd": 1.02459,
+    "input_tokens": 3412618,
+    "output_tokens": 322,
+    "errors": 0,
+    "latency_s": 94.076
+  },
+  "by_group": {
+    "counting": {
+      "n": 15,
+      "score_sum": 9.3125,
+      "mean_score": 0.620833,
+      "exact_count": 8,
+      "exact_rate": 0.533333,
+      "cost_usd": 0.337721,
+      "input_tokens": 1124986,
+      "output_tokens": 90,
+      "errors": 0,
+      "latency_s": 26.287
+    },
+    "timeline": {
+      "n": 15,
+      "score_sum": 6.0664,
+      "mean_score": 0.404427,
+      "exact_count": 5,
+      "exact_rate": 0.333333,
+      "cost_usd": 0.348202,
+      "input_tokens": 1159506,
+      "output_tokens": 140,
+      "errors": 0,
+      "latency_s": 33.55
+    },
+    "user": {
+      "n": 15,
+      "score_sum": 9.3125,
+      "mean_score": 0.620833,
+      "exact_count": 8,
+      "exact_rate": 0.533333,
+      "cost_usd": 0.338668,
+      "input_tokens": 1128126,
+      "output_tokens": 92,
+      "errors": 0,
+      "latency_s": 34.239
+    }
+  },
+  "by_length": {
+    "1024": {
+      "n": 15,
+      "score_sum": 12.5,
+      "mean_score": 0.833333,
+      "exact_count": 11,
+      "exact_rate": 0.733333,
+      "cost_usd": 0.003517,
+      "input_tokens": 10889,
+      "output_tokens": 100,
+      "errors": 0,
+      "latency_s": 10.427
+    },
+    "4096": {
+      "n": 15,
+      "score_sum": 7.6289,
+      "mean_score": 0.508593,
+      "exact_count": 6,
+      "exact_rate": 0.4,
+      "cost_usd": 0.015087,
+      "input_tokens": 49289,
+      "output_tokens": 120,
+      "errors": 0,
+      "latency_s": 8.656
+    },
+    "262144": {
+      "n": 15,
+      "score_sum": 4.5625,
+      "mean_score": 0.304167,
+      "exact_count": 4,
+      "exact_rate": 0.266667,
+      "cost_usd": 1.005987,
+      "input_tokens": 3352440,
+      "output_tokens": 102,
+      "errors": 0,
+      "latency_s": 74.993
+    }
+  }
+}

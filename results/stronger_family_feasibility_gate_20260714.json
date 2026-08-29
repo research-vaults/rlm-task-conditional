@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-07-18T19:53:24.346814+00:00",
+  "audit_type": "no_call_stronger_family_feasibility_gate",
+  "purpose": "Decide whether further paid stronger-family model runs are scientifically justified before submission.",
+  "source_artifacts": {
+    "protocol_boundary": "results/stronger_family_protocol_boundary_20260713.json",
+    "standard_smoke": "results/oolong_standard_multilength_n120_stronger_family_smoke15_analysis_20260713.json",
+    "model_freshness": "results/oolong_standard_validation_n45_model_freshness_gemini35_analysis_20260713.json",
+    "sonnet_stop_rule": "results/oolong_standard_multilength_n15_sonnet46_rlm_probe_analysis_20260713.json",
+    "lambda_label_provided": "results/oolong_heldout_lambda_rlm_n150_20260712_summary.json",
+    "prehend_label_provided": "results/oolong_heldout_prehend_srlm_n60_20260712_summary.json"
+  },
+  "web_freshness_sources_checked_2026_07_14": [
+    "https://huggingface.co/papers/2603.15653",
+    "https://huggingface.co/papers/2603.20105",
+    "https://github.com/lambda-calculus-LLM/lambda-RLM",
+    "https://github.com/alexzhang13/rlm"
+  ],
+  "repositories": {
+    "lambda_rlm": {
+      "path": "external_repos/lambda-RLM",
+      "status": "present",
+      "commit": "3874d393483dc4299101918cf8e9af670194bd88",
+      "date": "2026-04-24T14:06:08+01:00",
+      "subject": "Update README.md"
+    },
+    "prehend_srlm_style": {
+      "path": "external_repos/lm-repl",
+      "status": "present",
+      "commit": "c467bb1c2d0350f2cfe5c049186f5640a499f472",
+      "date": "2026-07-08T17:03:36-06:00",
+      "subject": "fix: bounce guard-rejection echoes as final answers"
+    }
+  },
+  "candidates": [
+    {
+      "candidate": "Scale public lambda-RLM adapter to full Oolong N=120 standard contract",
+      "evidence": "Public implementation adapter has 63/150 exact on label-provided Oolong and 0/15 exact on the matched standard-unlabeled smoke.",
+      "protocol_fidelity_0_3": 1,
+      "output_stability_0_3": 1,
+      "acceptance_value_0_3": 1,
+      "cost_discipline_0_3": 2,
+      "total_0_12": 5,
+      "decision": "DO_NOT_SCALE_NOW",
+      "reason": "The public repository is real, but the project adapter is not the lambda-RLM paper protocol. The matched smoke emitted no exact aggregate answers, so a larger run would mostly measure adapter mismatch.",
+      "required_before_scale": "A benchmark-compatible lambda-RLM/Oolong protocol or a smoke that returns valid aggregate answers under the exact paper-facing contract."
+    },
+    {
+      "candidate": "Scale public prehend/SRLM-style adapter to full Oolong N=120 standard contract",
+      "evidence": "prehend SRLM-style has 48/60 exact on label-provided Oolong and 7/15 exact on the standard-unlabeled smoke, tied with standard RLM but below SLM/direct on the same IDs.",
+      "protocol_fidelity_0_3": 1,
+      "output_stability_0_3": 2,
+      "acceptance_value_0_3": 2,
+      "cost_discipline_0_3": 2,
+      "total_0_12": 7,
+      "decision": "HOLD_UNLESS_REVIEWER_REQUIRES",
+      "reason": "This is the strongest available public stronger-family pressure row, but it is not an official Apple SRLM reproduction. Scaling it could add useful context, yet would not close the official-reproduction objection.",
+      "required_before_scale": "Official SRLM code/protocol, author-confirmed equivalence, or a predeclared N=15/N=30 standard smoke that clearly reverses the main SLM/direct/RLM ordering."
+    },
+    {
+      "candidate": "Scale Gemini 3.5 Flash as a current standard-RLM controller",
+      "evidence": "Direct Gemini 3.5 sensitivity is 20/45 exact; the RLM prefix is 5/8 exact with 3 timeout/error rows.",
+      "protocol_fidelity_0_3": 2,
+      "output_stability_0_3": 0,
+      "acceptance_value_0_3": 2,
+      "cost_discipline_0_3": 1,
+      "total_0_12": 5,
+      "decision": "DO_NOT_SCALE_NOW",
+      "reason": "It addresses freshness but not stronger-family protocol fidelity, and the attempted standard-RLM prefix showed early timeout/accounting instability.",
+      "required_before_scale": "A clean timeout-free controller prefix with reliable provider usage accounting and a clear claim that controller freshness, not family-method fidelity, is the target."
+    },
+    {
+      "candidate": "Scale Sonnet 4.6 inside standard rlms",
+      "evidence": "Sonnet 4.6 standard-RLM stop-rule probe is 0/3 exact with 1 timeout/error row and $0.049605 captured completed-row cost.",
+      "protocol_fidelity_0_3": 2,
+      "output_stability_0_3": 0,
+      "acceptance_value_0_3": 1,
+      "cost_discipline_0_3": 0,
+      "total_0_12": 3,
+      "decision": "DO_NOT_SCALE_NOW",
+      "reason": "A stronger controller swap would be expensive and still would not reproduce SRLM or lambda-RLM. The stop-rule probe also showed worse stability than the logged Gemini controller on matched rows.",
+      "required_before_scale": "A separate manuscript claim about controller scaling plus a stable low-cost compatibility prefix; neither is currently needed for the focused audit."
+    },
+    {
+      "candidate": "Run only an official or near-official SRLM/lambda-RLM same-contract comparator",
+      "evidence": "Search/source check: the lambda-RLM paper advertises the lambda-calculus-LLM/lambda-RLM implementation; SRLM surfaces as paper/Hugging Face/arXiv pages in the current search rather than an obvious official runnable Apple repository. Local repos therefore support official-public lambda adapter evidence and unofficial SRLM-style prehend pressure evidence.",
+      "protocol_fidelity_0_3": 3,
+      "output_stability_0_3": 2,
+      "acceptance_value_0_3": 3,
+      "cost_discipline_0_3": 2,
+      "total_0_12": 10,
+      "decision": "RUN_IF_PROTOCOL_AVAILABLE",
+      "reason": "This is the only stronger-family spend that would materially change the rejection-risk profile. It must be faithful enough that reviewers read it as comparator parity rather than adapter debugging.",
+      "required_before_scale": "Exact official/author-backed implementation, frozen Oolong standard-input contract, identical scorer, full prompt/raw-output/cost logging, and a predeclared stop rule."
+    }
+  ],
+  "gate_rule": {
+    "scale_only_if": "protocol_fidelity_0_3 >= 3 and acceptance_value_0_3 >= 3 and output_stability_0_3 >= 2",
+    "current_result": "No available paid extension clears the gate except a future official/near-official SRLM/lambda-RLM same-contract protocol."
+  },
+  "paper_action": "Keep stronger-family rows as bounded pressure checks, keep the main claim scoped to standard rlms v0.1.3, and do not spend on larger public-adapter or strong-controller runs before submission unless official/near-official protocol fidelity changes."
+}

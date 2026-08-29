@@ -1,0 +1,113 @@
+{
+  "run_id": "lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719",
+  "created_utc": "2026-07-19T18:55:47.713223+00:00",
+  "protocol": "results/lambda_rlm_official_cd15_protocol_20260719.md",
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "vllm_image": "vllm/vllm-openai:v0.21.0",
+  "openrouter_spend_usd": 0.0,
+  "events": [
+    {
+      "event": "pod_created",
+      "at": "2026-07-19T18:55:49.931661+00:00",
+      "pod_id": "lkk7sgyqzda9p5"
+    },
+    {
+      "event": "model_ready",
+      "at": "2026-07-19T19:00:56.084165+00:00"
+    },
+    {
+      "event": "probe_complete",
+      "at": "2026-07-19T19:00:58.614787+00:00"
+    },
+    {
+      "event": "canary_complete",
+      "at": "2026-07-19T19:09:58.650628+00:00"
+    },
+    {
+      "event": "full_cd15_complete",
+      "at": "2026-07-19T20:45:09.850653+00:00"
+    }
+  ],
+  "run_incomplete": false,
+  "pod": {
+    "consumerUserId": "<redacted-runpod-user>",
+    "containerDiskInGb": 80,
+    "costPerHr": 2.99,
+    "createdAt": "2026-07-19 18:55:48.956 +0000 UTC",
+    "desiredStatus": "RUNNING",
+    "dockerStartCmd": [
+      "--model",
+      "Qwen/Qwen3-8B",
+      "--revision",
+      "b968826d9c46dd6066d109eabc6255188de91218",
+      "--served-model-name",
+      "Qwen/Qwen3-8B",
+      "--max-model-len",
+      "32768",
+      "--gpu-memory-utilization",
+      "0.92",
+      "--max-num-seqs",
+      "1",
+      "--reasoning-parser",
+      "qwen3",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8000"
+    ],
+    "gpuCount": 1,
+    "id": "lkk7sgyqzda9p5",
+    "imageName": "vllm/vllm-openai:v0.21.0",
+    "lastStartedAt": "2026-07-19 18:55:48.951 +0000 UTC",
+    "lastStatusChange": "Rented by User: Sun Jul 19 2026 18:55:48 GMT+0000 (Coordinated Universal Time)",
+    "machineId": "lanf10yynj6c",
+    "memoryInGb": 251,
+    "name": "lambda-rlm-qwen3-8b-20260719_185547",
+    "ports": [
+      "8000/http"
+    ],
+    "publicIp": "",
+    "templateId": "",
+    "vcpuCount": 28,
+    "volumeInGb": 0,
+    "volumeMountPath": "/workspace"
+  },
+  "ready": {
+    "models": [
+      "Qwen/Qwen3-8B"
+    ],
+    "wait_s": 306.1476841670001
+  },
+  "probe": {
+    "elapsed_s": 2.5298612080005114,
+    "content": "\n\nREADY.",
+    "reasoning": "",
+    "usage": {
+      "prompt_tokens": 13,
+      "total_tokens": 109,
+      "completion_tokens": 96,
+      "prompt_tokens_details": null
+    }
+  },
+  "canary_gate": {
+    "passed": true,
+    "n": 3,
+    "missing": [],
+    "errors": [],
+    "empty_outputs": [],
+    "invalid_error_outputs": [],
+    "long_row_present": true,
+    "accuracy_not_used": true
+  },
+  "scale_decision": "expand: preregistered canary gate passed",
+  "runtime_s": 6562.147356875001,
+  "listed_hourly_usd": 2.99,
+  "listed_runtime_cost_usd": 5.450227943626737,
+  "cleanup": {
+    "pod_id": "lkk7sgyqzda9p5",
+    "http_status": 204,
+    "body": ""
+  },
+  "finished_utc": "2026-07-19T20:45:11.483548+00:00"
+}

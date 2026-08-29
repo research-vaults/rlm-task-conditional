@@ -1,0 +1,105 @@
+run_id,example_id,context_len,task_group,task,answer_type,context_variant,method,backend,model,context_window_chars,temperature,top_p,max_tokens,prediction,raw_response,gold,correct,cost_usd,input_tokens,output_tokens,call_count,execution_time,plan_trace,error,question
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,210020009,1024,counting,TASK_TYPE.NUMERIC_ONE_CLASS,ANSWER_TYPE.NUMERIC,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,1,Answer: 1,1,1.0,0.0,0,0,2,27.987,"[λ-RLM] n=3,958 chars  |  task=qa  |  q='In the above data, how many data points should be classified'
+[λ-RLM] k*=1  τ*=3958  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 4458.0 (relative units)
+",,"In the above data, how many data points should be classified as label 'negative'? Give your final answer in the form 'Answer: number'."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,212020028,4096,timeline,TASK_TYPE.NUMERIC_ONE_CLASS,ANSWER_TYPE.NUMERIC,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,The dataset contains 7 negative reviews and 2 positive reviews.,"The text contains 9 movie reviews, each classified as either **positive** or **negative**. Here's the exact breakdown:
+
+- **Negative reviews**: 7  
+- **Positive reviews**: 2  
+
+**Classification of each review**:  
+1. **Negative**  
+2. **Positive**  
+3. **Negative**  
+4. **Negative**  
+5. **Positive**  
+6. **Negative**  
+7. **Negative**  
+8. **Negative**  
+9. **Negative**  
+
+**Aggregate statistics**:  
+- **Negative**: 7  
+- **Positive**: 2  
+
+**Answer**:  
+The dataset contains **7 negative reviews** and **2 positive reviews**.",2,0.0,0.0,0,0,2,15.737,"[λ-RLM] n=11,506 chars  |  task=classification  |  q='For the following question, only consider the subset of inst'
+[λ-RLM] k*=1  τ*=11506  d=0  ⊕=majority_vote
+[λ-RLM] Ĉ ≈ 12006.0 (relative units)
+",,"For the following question, only consider the subset of instances that occur between Dec 20, 2022 and Sep 10, 2024, inclusive. Among instances occuring in this date range, how many data points should be classified as label 'positive'? Give your final answer in the form 'Answer: number'."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,218020061,262144,user,TASK_TYPE.MOST_FREQ,ANSWER_TYPE.USER,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,User: 91612,"The data required to determine which user has the most instances with the label ""positive"" is missing. However, if forced to select from the provided user IDs (87271, 42779, 22310, 91612, 32392), the answer is derived from the final synthesis. 
+
+**Answer:**  
+User: 91612",39309,0.0,0.0,0,0,60,417.929,"[λ-RLM] n=949,428 chars  |  task=qa  |  q='In the above data, which user has the most instances with th'
+[λ-RLM] k*=20  τ*=47471  d=1  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 949950.0 (relative units)
+",,"In the above data, which user has the most instances with the label positive? Give your final answer in the form 'User: [X]', where [X] is the user ID."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,210020033,1024,counting,TASK_TYPE.NUMERIC_ONE_CLASS,ANSWER_TYPE.NUMERIC,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,0,Answer: 0,0,1.0,0.0,0,0,2,42.718,"[λ-RLM] n=1,048 chars  |  task=qa  |  q='In the above data, how many data points should be classified'
+[λ-RLM] k*=1  τ*=1048  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 1548.0 (relative units)
+",,"In the above data, how many data points should be classified as label 'negative'? Give your final answer in the form 'Answer: number'."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,412040009,4096,counting,TASK_TYPE.LEAST_FREQ,ANSWER_TYPE.LABEL,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,No result produced.,No result produced.,"""True""",0.0,0.0,0,0,2,37.532,"[λ-RLM] n=11,431 chars  |  task=qa  |  q='In the above data, which of the labels is the least common? '
+[λ-RLM] k*=1  τ*=11431  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 11931.0 (relative units)
+",,"In the above data, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: True, False."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,512050034,4096,counting,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.COMPARISON,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,more common than,Answer: Entertainment & Music is more common than Education & Reference,"""more common than""",1.0,0.0,0,0,2,38.035,"[λ-RLM] n=8,166 chars  |  task=qa  |  q=""In the above data, is label 'Entertainment & Music' more com""
+[λ-RLM] k*=1  τ*=8166  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 8666.0 (relative units)
+",,"In the above data, is label 'Entertainment & Music' more common, less common, or the same frequency as label 'Education & Reference'? Give your final answer in the form 'Answer: Entertainment & Music is [X] Education & Reference', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,218020026,262144,counting,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.COMPARISON,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,more common than,Answer: negative is more common than positive,"""more common than""",1.0,0.0,0,0,157,1259.221,"[λ-RLM] n=915,812 chars  |  task=qa  |  q=""In the above data, is label 'negative' more common, less com""
+[λ-RLM] k*=20  τ*=45790  d=1  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 916330.0 (relative units)
+",,"In the above data, is label 'negative' more common, less common, or the same frequency as label 'positive'? Give your final answer in the form 'Answer: negative is [X] positive', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,210020017,1024,timeline,TASK_TYPE.MOST_FREQ,ANSWER_TYPE.DATE,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,06/29/2023,Date: 06/29/2023,"""2023-06-29 00:00:00""",1.0,0.0,0,0,2,20.598,"[λ-RLM] n=1,499 chars  |  task=qa  |  q='In the above data, which date is represented most often? Giv'
+[λ-RLM] k*=1  τ*=1499  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 1999.0 (relative units)
+",,"In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,210020029,1024,timeline,TASK_TYPE.MOST_FREQ,ANSWER_TYPE.DATE,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,03/03/2025,Date: 03/03/2025,"""2025-03-03 00:00:00""",1.0,0.0,0,0,2,13.773,"[λ-RLM] n=1,517 chars  |  task=qa  |  q='In the above data, which date is represented most often? Giv'
+[λ-RLM] k*=1  τ*=1517  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 2017.0 (relative units)
+",,"In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,218020038,262144,timeline,TASK_TYPE.MOST_FREQ,ANSWER_TYPE.DATE,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,,,"""2024-12-06 00:00:00""",0.0,0.0,0,0,0,0.0,,TimeoutError: lambda_rlm timed out after 1800s on example 218020038,"In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,418040042,262144,timeline,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.COMPARISON,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,"The text is a dataset of 5525 true/false claims, each asserting a definition or property of a word/concept, with metadata for tracking.","The provided text is a **dataset of 5525 sentences**, each making a **single claim** about the definition of a word or concept. Each claim is explicitly labeled as **true or false** based on its validity. The text includes metadata (date, user ID, instance) for each entry, and the instructions emphasize calculating exact aggregate statistics (e.g., the number of true/false claims) rather than estimating or guessing. 
+
+**Classification:**  
+**Type:** Dataset of true/false claims  
+**Purpose:** To analyze aggregate statistics (e.g., count of true/false labels) across all 5525 examples.  
+**Nature of Claims:** Definitions or assertions about words/concepts, evaluated for correctness.  
+
+**Answer:**  
+The text is a **dataset of 5525 true/false claims**, each asserting a definition or property of a word/concept, with metadata for tracking.","""more common than""",0.0,0.0,0,0,44,446.494,"[λ-RLM] n=771,444 chars  |  task=classification  |  q='For the following question, only consider the subset of inst'
+[λ-RLM] k*=8  τ*=96430  d=1  ⊕=majority_vote
+[λ-RLM] Ĉ ≈ 771940.4 (relative units)
+",,"For the following question, only consider the subset of instances that occur in May of any year. Among instances occuring in May, is label 'False' more common, less common, or the same frequency as label 'True'? Give your final answer in the form 'Answer: False is [X] True', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,310030013,1024,user,TASK_TYPE.LEAST_FREQ,ANSWER_TYPE.LABEL,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,"No further questions were provided, but the above represents the exact distribution of categories across the six articles.","The six news articles are classified as follows:  
+- **Sports**: 2 articles (Primera Liga match, Olympic star)  
+- **Business**: 2 articles (News Corp governance, credit card management)  
+- **World**: 1 article (Singapore-Taiwan relations)  
+- **Sci/Tech**: 1 article (Opteron workstation use)  
+
+**Aggregate Label Statistics**:  
+- **Sports**: 2  
+- **Business**: 2  
+- **World**: 1  
+- **Sci/Tech**: 1  
+
+**Exact counts**:  
+- **Sports**: 2  
+- **Business**: 2  
+- **World**: 1  
+- **Sci/Tech**: 1  
+
+No further questions were provided, but the above represents the exact distribution of categories across the six articles.","""Business""",0.0,0.0,0,0,2,34.289,"[λ-RLM] n=2,405 chars  |  task=extraction  |  q='For the following question, only consider the subset of inst'
+[λ-RLM] k*=1  τ*=2405  d=0  ⊕=merge_extractions
+[λ-RLM] Ĉ ≈ 2905.0 (relative units)
+",,"For the following question, only consider the subset of instances that are associated with user IDs 29633. Among instances associated with these users, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: Business."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,312030051,4096,user,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.USER,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,22165,User: 22165,22165,1.0,0.0,0,0,2,46.087,"[λ-RLM] n=11,817 chars  |  task=qa  |  q='In the above data, which user has more instances with the la'
+[λ-RLM] k*=1  τ*=11817  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 12317.0 (relative units)
+",,"In the above data, which user has more instances with the label Sports: User 22165 or User 60374? Give your final answer in the form 'User: [X]', where [X] is the user ID."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,312030020,4096,user,TASK_TYPE.MOST_FREQ,ANSWER_TYPE.USER,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,16226,User: 16226,16226,1.0,0.0,0,0,2,48.918,"[λ-RLM] n=11,612 chars  |  task=qa  |  q='In the above data, which user is represented most often? Giv'
+[λ-RLM] k*=1  τ*=11612  d=0  ⊕=select_relevant
+[λ-RLM] Ĉ ≈ 12112.0 (relative units)
+",,"In the above data, which user is represented most often? Give your final answer in the form 'User: [X]', where [X] is the user ID."
+lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719,318030064,262144,user,TASK_TYPE.RELATIVE_FREQ,ANSWER_TYPE.COMPARISON,standard,lambda_rlm,openai,Qwen/Qwen3-8B,100000,0.6,0.7,4096,,,"""more common than""",0.0,0.0,0,0,0,0.0,,TimeoutError: lambda_rlm timed out after 1800s on example 318030064,"For the following question, only consider the subset of instances that are associated with user IDs 15666. Among instances associated with these users, is label 'World' more common, less common, or the same frequency as label 'Sports'? Give your final answer in the form 'Answer: World is [X] Sports', where [X] is 'more common than', 'less common than', or 'same frequency as'."

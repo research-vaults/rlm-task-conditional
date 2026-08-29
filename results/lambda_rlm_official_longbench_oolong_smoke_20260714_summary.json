@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-07-14T17:31:18.687886+00:00",
+  "artifact_type": "lambda_rlm_official_entrypoint_smoke",
+  "jsonl": "results/lambda_rlm_official_longbench_oolong_smoke_20260714.jsonl",
+  "n": 1,
+  "completed": 0,
+  "errors": 1,
+  "mean_f1": 0.0,
+  "exact_count": 0,
+  "contains_count": 0,
+  "total_cost_usd": null,
+  "cost_known": false,
+  "model": "google/gemini-2.5-flash",
+  "contract_warning": "Uses lambda-RLM's official LongBench-v2 Single-Document QA loader, not the paper's standard-unlabeled Oolong-synth aggregation contract."
+}

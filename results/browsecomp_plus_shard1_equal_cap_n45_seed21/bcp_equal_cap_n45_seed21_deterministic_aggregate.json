@@ -1,0 +1,125 @@
+{
+  "cells": 180,
+  "endpoint": "prospectively frozen shard-1 ranks 46-90, fixed N=45",
+  "generation_cost_usd_with_interrupted_episode_lower_bound": 21.78652696755312,
+  "generation_episodes": [
+    {
+      "cells": 180,
+      "episode": 1,
+      "interrupted_episode_cost_lower_bound_usd": null,
+      "listed_rate_cost_estimate_usd": 21.78652696755312,
+      "raw": "results/browsecomp_plus_shard1_equal_cap_n45_seed21/seed21_repeat_20260728_restricted.jsonl.gz",
+      "raw_sha256": "792aa4b2c2236e0c6fbb1d583d196deae2f6f178c8d1ffa99c185ce811d08150",
+      "status": "complete",
+      "summary": "results/browsecomp_plus_shard1_equal_cap_n45_seed21/seed21_repeat_20260728_summary.json",
+      "summary_sha256": "a6224f22bba785813ac8ab4e3eb7d310a5d80e5dd1a645adc64161d61cce6fbe"
+    }
+  ],
+  "manifest_sha256": "c74487ed2cb53640c107c352ab3ba6569f5aa09a16eb74978700e791658ae816",
+  "methods": {
+    "bm25_qwen36": {
+      "attempted": 45,
+      "completed": 42,
+      "input_tokens_total": 2222815,
+      "model_calls_total": 42,
+      "normalized_contains_count": 22,
+      "normalized_contains_rate": 0.4888888888888889,
+      "normalized_contains_wilson_95": [
+        0.349570237528785,
+        0.6299553535541681
+      ],
+      "output_tokens_total": 35489,
+      "rlm_code_blocks_total": 0,
+      "rlm_iterations_total": 0,
+      "strict_exact_count": 20,
+      "strict_exact_rate": 0.4444444444444444,
+      "strict_exact_wilson_95": [
+        0.30938930034997586,
+        0.5882386550647896
+      ],
+      "wall_seconds_max": 21.097879332999582,
+      "wall_seconds_median": 3.2464125419937773,
+      "wall_seconds_p95_type7": 21.014830883601096,
+      "wall_seconds_total": 292.1814022089384
+    },
+    "iterative_search_qwen36": {
+      "attempted": 45,
+      "completed": 45,
+      "input_tokens_total": 5193400,
+      "model_calls_total": 276,
+      "normalized_contains_count": 25,
+      "normalized_contains_rate": 0.5555555555555556,
+      "normalized_contains_wilson_95": [
+        0.4117613449352105,
+        0.6906106996500243
+      ],
+      "output_tokens_total": 90417,
+      "rlm_code_blocks_total": 0,
+      "rlm_iterations_total": 0,
+      "strict_exact_count": 21,
+      "strict_exact_rate": 0.4666666666666667,
+      "strict_exact_wilson_95": [
+        0.32935132065011297,
+        0.6092254525987463
+      ],
+      "wall_seconds_max": 89.3564728749916,
+      "wall_seconds_median": 7.8686392919917125,
+      "wall_seconds_p95_type7": 68.33354584140469,
+      "wall_seconds_total": 939.0577068330167
+    },
+    "standard_rlm_qwen36": {
+      "attempted": 45,
+      "completed": 37,
+      "input_tokens_total": 8435424,
+      "model_calls_total": 667,
+      "normalized_contains_count": 26,
+      "normalized_contains_rate": 0.5777777777777777,
+      "normalized_contains_wilson_95": [
+        0.4330078870920313,
+        0.710312975327297
+      ],
+      "output_tokens_total": 361750,
+      "rlm_code_blocks_total": 577,
+      "rlm_iterations_total": 585,
+      "strict_exact_count": 24,
+      "strict_exact_rate": 0.5333333333333333,
+      "strict_exact_wilson_95": [
+        0.3907745474012537,
+        0.670648679349887
+      ],
+      "wall_seconds_max": 1314.985135625,
+      "wall_seconds_median": 64.24412879200827,
+      "wall_seconds_p95_type7": 1219.3890768167942,
+      "wall_seconds_total": 14900.576320414984
+    },
+    "text_decompose_qwen36": {
+      "attempted": 45,
+      "completed": 45,
+      "input_tokens_total": 6862966,
+      "model_calls_total": 312,
+      "normalized_contains_count": 28,
+      "normalized_contains_rate": 0.6222222222222222,
+      "normalized_contains_wilson_95": [
+        0.47629934480889535,
+        0.7489191532786209
+      ],
+      "output_tokens_total": 186460,
+      "rlm_code_blocks_total": 0,
+      "rlm_iterations_total": 0,
+      "strict_exact_count": 23,
+      "strict_exact_rate": 0.5111111111111111,
+      "strict_exact_wilson_95": [
+        0.3700446464458318,
+        0.650429762471215
+      ],
+      "wall_seconds_max": 52.08010341699992,
+      "wall_seconds_median": 25.951750041000196,
+      "wall_seconds_p95_type7": 44.806572357806715,
+      "wall_seconds_total": 1228.6020010430075
+    }
+  },
+  "n_unique_ranks": 45,
+  "protocol": "protocols/BROWSECOMP_PLUS_SHARD1_EQUAL_CAP_N45_SEED21_REPEAT_20260728.md",
+  "protocol_sha256": "fb6360b9864b2581f24be87936c1181f1eeca9ebf1623ba1d86e90e6db59f787",
+  "study_id": "browsecomp_plus_shard1_equal_cap_n45_v1"
+}

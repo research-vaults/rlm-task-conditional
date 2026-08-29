@@ -1,0 +1,493 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-14T16:35:17.916120+00:00",
+    "scope": "Matched N=15 standard-unlabeled Oolong public-contract stronger-family smoke analysis.",
+    "interpretation_boundary": "These are adapter-based pressure tests using public implementations on the paper's standard-unlabeled Oolong contract. They are not official lambda-RLM or Apple SRLM benchmark reproductions.",
+    "source_files": {
+      "slm_qparsed_typed": "results/oolong_standard_multilength_n120_slm_labeler_question_parsed_typed_20260713.csv",
+      "standard_rlm": "results/oolong_standard_multilength_n120_rlm_20260712.csv",
+      "direct_controller": "results/oolong_standard_multilength_n120_direct_controller_gemini25flash_20260713.csv",
+      "lambda_rlm": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713.csv",
+      "prehend_srlm": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713.csv",
+      "lambda_summary": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713_summary.json",
+      "prehend_summary": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713_summary.json",
+      "lambda_trace": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713_trace.jsonl",
+      "prehend_trace": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713_trace.jsonl"
+    },
+    "model": "google/gemini-2.5-flash via OpenRouter for both stronger-family adapters",
+    "smoke_ids": [
+      "213020019",
+      "213020050",
+      "313030058",
+      "413040037",
+      "413040047",
+      "513050037",
+      "613060036",
+      "613060045",
+      "713070016",
+      "713070028",
+      "713070056",
+      "813080029",
+      "813080036",
+      "813080041",
+      "913090046"
+    ],
+    "trace_line_counts": {
+      "lambda_rlm": 17,
+      "prehend_srlm": 17
+    }
+  },
+  "overall": {
+    "slm_qparsed_typed": {
+      "n": 15,
+      "exact_count": 9,
+      "exact_rate": 0.6,
+      "score_sum": 9.8679,
+      "mean_score": 0.65786,
+      "cost_usd": 0.012692,
+      "cost_per_exact_usd": 0.00141,
+      "errors": 0
+    },
+    "standard_rlm": {
+      "n": 15,
+      "exact_count": 7,
+      "exact_rate": 0.466667,
+      "score_sum": 7.2379,
+      "mean_score": 0.482527,
+      "cost_usd": 0.162989,
+      "cost_per_exact_usd": 0.023284,
+      "errors": 0
+    },
+    "direct_controller": {
+      "n": 15,
+      "exact_count": 9,
+      "exact_rate": 0.6,
+      "score_sum": 9.6667,
+      "mean_score": 0.644447,
+      "cost_usd": 0.03035,
+      "cost_per_exact_usd": 0.003372,
+      "errors": 0
+    },
+    "lambda_rlm": {
+      "n": 15,
+      "exact_count": 0,
+      "exact_rate": 0.0,
+      "score_sum": 0.0,
+      "mean_score": 0.0,
+      "cost_usd": 0.062246,
+      "cost_per_exact_usd": null,
+      "errors": 0
+    },
+    "prehend_srlm": {
+      "n": 15,
+      "exact_count": 7,
+      "exact_rate": 0.466667,
+      "score_sum": 7.005231,
+      "mean_score": 0.467015,
+      "cost_usd": 0.075803,
+      "cost_per_exact_usd": 0.010829,
+      "errors": 0
+    }
+  },
+  "by_group": {
+    "user": {
+      "slm_qparsed_typed": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "cost_usd": 0.004435,
+        "cost_per_exact_usd": 0.001478,
+        "errors": 0
+      },
+      "standard_rlm": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "cost_usd": 0.061378,
+        "cost_per_exact_usd": 0.020459,
+        "errors": 0
+      },
+      "direct_controller": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "score_sum": 4.0,
+        "mean_score": 0.8,
+        "cost_usd": 0.01001,
+        "cost_per_exact_usd": 0.002502,
+        "errors": 0
+      },
+      "lambda_rlm": {
+        "n": 5,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.020394,
+        "cost_per_exact_usd": null,
+        "errors": 0
+      },
+      "prehend_srlm": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "cost_usd": 0.030714,
+        "cost_per_exact_usd": 0.010238,
+        "errors": 0
+      }
+    },
+    "timeline": {
+      "slm_qparsed_typed": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.75,
+        "mean_score": 0.75,
+        "cost_usd": 0.003699,
+        "cost_per_exact_usd": 0.001233,
+        "errors": 0
+      },
+      "standard_rlm": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "cost_usd": 0.057561,
+        "cost_per_exact_usd": 0.019187,
+        "errors": 0
+      },
+      "direct_controller": {
+        "n": 5,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "score_sum": 2.4219,
+        "mean_score": 0.48438,
+        "cost_usd": 0.009964,
+        "cost_per_exact_usd": 0.004982,
+        "errors": 0
+      },
+      "lambda_rlm": {
+        "n": 5,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.01862,
+        "cost_per_exact_usd": null,
+        "errors": 0
+      },
+      "prehend_srlm": {
+        "n": 5,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "score_sum": 2.0,
+        "mean_score": 0.4,
+        "cost_usd": 0.024129,
+        "cost_per_exact_usd": 0.012064,
+        "errors": 0
+      }
+    },
+    "counting": {
+      "slm_qparsed_typed": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.1179,
+        "mean_score": 0.62358,
+        "cost_usd": 0.004558,
+        "cost_per_exact_usd": 0.001519,
+        "errors": 0
+      },
+      "standard_rlm": {
+        "n": 5,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "score_sum": 1.2379,
+        "mean_score": 0.24758,
+        "cost_usd": 0.04405,
+        "cost_per_exact_usd": 0.04405,
+        "errors": 0
+      },
+      "direct_controller": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "score_sum": 3.2448,
+        "mean_score": 0.64896,
+        "cost_usd": 0.010376,
+        "cost_per_exact_usd": 0.003459,
+        "errors": 0
+      },
+      "lambda_rlm": {
+        "n": 5,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "score_sum": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.023232,
+        "cost_per_exact_usd": null,
+        "errors": 0
+      },
+      "prehend_srlm": {
+        "n": 5,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "score_sum": 2.005231,
+        "mean_score": 0.401046,
+        "cost_usd": 0.02096,
+        "cost_per_exact_usd": 0.01048,
+        "errors": 0
+      }
+    }
+  },
+  "paired_exact": [
+    {
+      "method_a": "slm_qparsed_typed",
+      "method_b": "standard_rlm",
+      "n": 15,
+      "b_a_right_b_wrong": 4,
+      "c_b_right_a_wrong": 2,
+      "two_sided_exact_p": 0.6875,
+      "mean_score_diff_a_minus_b": 0.175333
+    },
+    {
+      "method_a": "slm_qparsed_typed",
+      "method_b": "direct_controller",
+      "n": 15,
+      "b_a_right_b_wrong": 1,
+      "c_b_right_a_wrong": 1,
+      "two_sided_exact_p": 1.0,
+      "mean_score_diff_a_minus_b": 0.013413
+    },
+    {
+      "method_a": "slm_qparsed_typed",
+      "method_b": "lambda_rlm",
+      "n": 15,
+      "b_a_right_b_wrong": 9,
+      "c_b_right_a_wrong": 0,
+      "two_sided_exact_p": 0.00390625,
+      "mean_score_diff_a_minus_b": 0.65786
+    },
+    {
+      "method_a": "slm_qparsed_typed",
+      "method_b": "prehend_srlm",
+      "n": 15,
+      "b_a_right_b_wrong": 3,
+      "c_b_right_a_wrong": 1,
+      "two_sided_exact_p": 0.625,
+      "mean_score_diff_a_minus_b": 0.190845
+    },
+    {
+      "method_a": "standard_rlm",
+      "method_b": "direct_controller",
+      "n": 15,
+      "b_a_right_b_wrong": 3,
+      "c_b_right_a_wrong": 5,
+      "two_sided_exact_p": 0.7265625,
+      "mean_score_diff_a_minus_b": -0.16192
+    },
+    {
+      "method_a": "standard_rlm",
+      "method_b": "lambda_rlm",
+      "n": 15,
+      "b_a_right_b_wrong": 7,
+      "c_b_right_a_wrong": 0,
+      "two_sided_exact_p": 0.015625,
+      "mean_score_diff_a_minus_b": 0.482527
+    },
+    {
+      "method_a": "standard_rlm",
+      "method_b": "prehend_srlm",
+      "n": 15,
+      "b_a_right_b_wrong": 2,
+      "c_b_right_a_wrong": 2,
+      "two_sided_exact_p": 1.0,
+      "mean_score_diff_a_minus_b": 0.015511
+    },
+    {
+      "method_a": "direct_controller",
+      "method_b": "lambda_rlm",
+      "n": 15,
+      "b_a_right_b_wrong": 9,
+      "c_b_right_a_wrong": 0,
+      "two_sided_exact_p": 0.00390625,
+      "mean_score_diff_a_minus_b": 0.644447
+    },
+    {
+      "method_a": "direct_controller",
+      "method_b": "prehend_srlm",
+      "n": 15,
+      "b_a_right_b_wrong": 3,
+      "c_b_right_a_wrong": 1,
+      "two_sided_exact_p": 0.625,
+      "mean_score_diff_a_minus_b": 0.177431
+    },
+    {
+      "method_a": "prehend_srlm",
+      "method_b": "lambda_rlm",
+      "n": 15,
+      "b_a_right_b_wrong": 7,
+      "c_b_right_a_wrong": 0,
+      "two_sided_exact_p": 0.015625,
+      "mean_score_diff_a_minus_b": 0.467015
+    }
+  ],
+  "failure_categories": {
+    "lambda_rlm": {
+      "malformed_comparison_answer": 4,
+      "wrong_value": 5,
+      "malformed_numeric_answer": 2,
+      "narrative_or_source_summary_instead_of_answer": 2,
+      "asks_for_more_data_or_refuses_aggregation": 2
+    },
+    "prehend_srlm": {
+      "exact": 7,
+      "wrong_value": 3,
+      "wrong_numeric_aggregation": 2,
+      "null_or_abstention": 1,
+      "comparison_format_mismatch": 1,
+      "multi_label_output_contract_mismatch": 1
+    }
+  },
+  "source_summaries": {
+    "lambda_rlm": {
+      "metadata": {
+        "run_id": "oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713",
+        "created_utc": "2026-07-13T01:05:40.798015+00:00",
+        "source_csv": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713.csv",
+        "method_status": "official lambda-RLM implementation via project-side frozen-manifest adapter",
+        "protocol_caveat": "LambdaRLM receives Context/Question/Answer prompt; standard rlms run receives context and root_prompt separately.",
+        "context_variant": "standard",
+        "trace": "results/oolong_standard_multilength_n120_lambda_rlm_standard_smoke15_20260713_trace.jsonl"
+      },
+      "overall": {
+        "lambda_rlm": {
+          "n": 15,
+          "score_sum": 0.0,
+          "mean_score": 0.0,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_usd": 0.062246,
+          "errors": 0
+        }
+      },
+      "by_group": {
+        "counting": {
+          "lambda_rlm": {
+            "n": 5,
+            "score_sum": 0.0,
+            "mean_score": 0.0,
+            "exact_count": 0,
+            "exact_rate": 0.0,
+            "cost_usd": 0.023232,
+            "errors": 0
+          }
+        },
+        "timeline": {
+          "lambda_rlm": {
+            "n": 5,
+            "score_sum": 0.0,
+            "mean_score": 0.0,
+            "exact_count": 0,
+            "exact_rate": 0.0,
+            "cost_usd": 0.01862,
+            "errors": 0
+          }
+        },
+        "user": {
+          "lambda_rlm": {
+            "n": 5,
+            "score_sum": 0.0,
+            "mean_score": 0.0,
+            "exact_count": 0,
+            "exact_rate": 0.0,
+            "cost_usd": 0.020394,
+            "errors": 0
+          }
+        }
+      }
+    },
+    "prehend_srlm": {
+      "metadata": {
+        "run_id": "oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713",
+        "created_utc": "2026-07-13T01:18:04.640175+00:00",
+        "source_csv": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713.csv",
+        "method_status": "public prehend/lm-repl SRLM-style implementation via project-side frozen-manifest adapter",
+        "protocol_caveat": "Not an official Apple SRLM reproduction; same frozen Oolong examples and scorer.",
+        "manifest": "results/oolong_standard_multilength_n120_5len_manifest_20260712.json",
+        "external_repo": "external_repos/lm-repl",
+        "external_repo_commit": "c467bb1",
+        "backend": "openrouter",
+        "model": "google/gemini-2.5-flash",
+        "direct_threshold": 0,
+        "n_candidates": 3,
+        "candidate_parallel": 1,
+        "candidate_temperature": 0.7,
+        "confidence_elicitation": true,
+        "max_iterations": 15,
+        "max_depth": 1,
+        "max_budget": 0.75,
+        "context_variant": "standard",
+        "trace": "results/oolong_standard_multilength_n120_prehend_srlm_standard_smoke15_20260713_trace.jsonl"
+      },
+      "overall": {
+        "prehend_srlm": {
+          "n": 15,
+          "score_sum": 7.0052,
+          "mean_score": 0.467015,
+          "exact_count": 7,
+          "exact_rate": 0.466667,
+          "cost_usd": 0.075803,
+          "errors": 0
+        }
+      },
+      "by_group": {
+        "counting": {
+          "prehend_srlm": {
+            "n": 5,
+            "score_sum": 2.0052,
+            "mean_score": 0.401046,
+            "exact_count": 2,
+            "exact_rate": 0.4,
+            "cost_usd": 0.02096,
+            "errors": 0
+          }
+        },
+        "timeline": {
+          "prehend_srlm": {
+            "n": 5,
+            "score_sum": 2.0,
+            "mean_score": 0.4,
+            "exact_count": 2,
+            "exact_rate": 0.4,
+            "cost_usd": 0.024129,
+            "errors": 0
+          }
+        },
+        "user": {
+          "prehend_srlm": {
+            "n": 5,
+            "score_sum": 3.0,
+            "mean_score": 0.6,
+            "exact_count": 3,
+            "exact_rate": 0.6,
+            "cost_usd": 0.030714,
+            "errors": 0
+          }
+        }
+      }
+    }
+  },
+  "decision": {
+    "scaled_lambda_to_n120": false,
+    "scaled_prehend_to_n120": false,
+    "reason": "lambda-RLM adapter failed all 15 examples. The prehend SRLM-style adapter reached 7/15 exact with 46.7% mean score, below SLM+typed, direct Gemini, and standard RLM on the same IDs, so a full paid N=120 run is not yet the highest-value use of budget."
+  }
+}

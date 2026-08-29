@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "run_id": "oolong_cd15_rlm_repeat3_20260716",
+    "created_utc": "2026-07-16T04:27:32.503772+00:00",
+    "source_csv": "results/oolong_context_disjoint_cd15_rlm_repeat3_20260716.csv",
+    "context_variant": "standard"
+  },
+  "overall": {
+    "rlm": {
+      "n": 15,
+      "score_sum": 7.3125,
+      "mean_score": 0.4875,
+      "exact_count": 6,
+      "exact_rate": 0.4,
+      "cost_usd": 0.415164,
+      "errors": 0
+    }
+  },
+  "by_group": {
+    "counting": {
+      "rlm": {
+        "n": 5,
+        "score_sum": 2.3125,
+        "mean_score": 0.4625,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "cost_usd": 0.078777,
+        "errors": 0
+      }
+    },
+    "timeline": {
+      "rlm": {
+        "n": 5,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "cost_usd": 0.137537,
+        "errors": 0
+      }
+    },
+    "user": {
+      "rlm": {
+        "n": 5,
+        "score_sum": 2.0,
+        "mean_score": 0.4,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "cost_usd": 0.19885,
+        "errors": 0
+      }
+    }
+  }
+}

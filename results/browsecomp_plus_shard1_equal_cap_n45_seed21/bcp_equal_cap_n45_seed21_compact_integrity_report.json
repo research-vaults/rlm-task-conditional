@@ -1,0 +1,24 @@
+{
+  "aggregate_sha256": "aaac4672bda925cee39210e43dbf47e3901756312a9add38996e8992988de72f",
+  "compact_sha256": "434ee41182c1bd8c8f21ad56b9477755c796543f67fd0a79deefa1b080941034",
+  "complete_fixed_endpoint": true,
+  "episodes": [
+    {
+      "cells": 180,
+      "episode": 1,
+      "interrupted_episode_cost_lower_bound_usd": null,
+      "listed_rate_cost_estimate_usd": 21.78652696755312,
+      "raw": "results/browsecomp_plus_shard1_equal_cap_n45_seed21/seed21_repeat_20260728_restricted.jsonl.gz",
+      "raw_sha256": "792aa4b2c2236e0c6fbb1d583d196deae2f6f178c8d1ffa99c185ce811d08150",
+      "status": "complete",
+      "summary": "results/browsecomp_plus_shard1_equal_cap_n45_seed21/seed21_repeat_20260728_summary.json",
+      "summary_sha256": "a6224f22bba785813ac8ab4e3eb7d310a5d80e5dd1a645adc64161d61cce6fbe"
+    }
+  ],
+  "expected_cells": 180,
+  "manifest_sha256": "c74487ed2cb53640c107c352ab3ba6569f5aa09a16eb74978700e791658ae816",
+  "observed_cells": 180,
+  "protocol_sha256": "fb6360b9864b2581f24be87936c1181f1eeca9ebf1623ba1d86e90e6db59f787",
+  "status": "PASS",
+  "study_id": "browsecomp_plus_shard1_equal_cap_n45_v1"
+}

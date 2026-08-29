@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "run_id": "oolong_context_disjoint_n45_gpt5_rlm_strict_20260715",
+    "created_utc": "2026-07-15T17:31:54.517220+00:00",
+    "source_csv": "results/oolong_context_disjoint_n45_gpt5_rlm_strict_20260715.csv",
+    "context_variant": "standard"
+  },
+  "overall": {
+    "rlm": {
+      "n": 45,
+      "score_sum": 26.1289,
+      "mean_score": 0.580642,
+      "exact_count": 23,
+      "exact_rate": 0.511111,
+      "cost_usd": 2.442035,
+      "errors": 15
+    }
+  },
+  "by_group": {
+    "counting": {
+      "rlm": {
+        "n": 15,
+        "score_sum": 6.0664,
+        "mean_score": 0.404427,
+        "exact_count": 5,
+        "exact_rate": 0.333333,
+        "cost_usd": 0.814743,
+        "errors": 7
+      }
+    },
+    "timeline": {
+      "rlm": {
+        "n": 15,
+        "score_sum": 9.5625,
+        "mean_score": 0.6375,
+        "exact_count": 9,
+        "exact_rate": 0.6,
+        "cost_usd": 0.746949,
+        "errors": 4
+      }
+    },
+    "user": {
+      "rlm": {
+        "n": 15,
+        "score_sum": 10.5,
+        "mean_score": 0.7,
+        "exact_count": 9,
+        "exact_rate": 0.6,
+        "cost_usd": 0.880343,
+        "errors": 4
+      }
+    }
+  }
+}

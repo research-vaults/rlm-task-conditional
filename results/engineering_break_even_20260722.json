@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-07-30T21:50:17.018564+00:00",
+  "analysis_type": "parameterized_api_savings_break_even",
+  "assumed_one_time_engineering_budgets_usd": [
+    100,
+    1000,
+    10000
+  ],
+  "formula": "ceil(assumed_one_time_engineering_budget_usd / observed_api_savings_per_case_usd)",
+  "scenarios": [
+    {
+      "label": "SU-150 method-lock replication",
+      "source": "results/oolong_standard_validation_n150_threeway_analysis_20260714.json",
+      "n": 150,
+      "standard_rlm_cost_usd": 4.144901,
+      "slm_typed_cost_usd": 0.838777,
+      "observed_api_savings_per_case_usd": 0.022040826666666666,
+      "break_even_cases": {
+        "100": 4538,
+        "1000": 45371,
+        "10000": 453704
+      }
+    },
+    {
+      "label": "VC-45 unseen-corpus replication",
+      "source": "results/oolong_validation_corpus_disjoint_n45_threeway_20260721.json",
+      "n": 45,
+      "standard_rlm_cost_usd": 1.1391739999999997,
+      "slm_typed_cost_usd": 0.312208,
+      "observed_api_savings_per_case_usd": 0.018377022222222213,
+      "break_even_cases": {
+        "100": 5442,
+        "1000": 54416,
+        "10000": 544158
+      }
+    }
+  ],
+  "interpretation_boundary": [
+    "The assumed budgets are sensitivity parameters, not measured labor or maintenance costs.",
+    "Thresholds equal ceil(budget / unrounded observed API savings per case).",
+    "Thresholds use observed successful-completion API costs and do not include failed-call billing, latency value, maintenance, or reliability differences.",
+    "SU-150 reuses earlier context windows; VC-45 transfers to unseen source corpora but is not document-disjoint.",
+    "The calculation addresses amortization of API savings only and is not a total-cost-of-ownership estimate."
+  ]
+}

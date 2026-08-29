@@ -1,0 +1,472 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-14T01:56:15.423067+00:00",
+    "manifest_n15": "results/oolong_rollout_variability_n15_manifest_20260714.json",
+    "manifest_n3": "results/oolong_rollout_variability_n3_8k_manifest_20260714.json",
+    "scope": "micro-audit: three 8k standard-input Oolong examples, one per task group; SLM/direct have base + two repeats, RLM has base + one repeat",
+    "input_source": "base prompts replayed from logged N45 traces; all new model outputs logged in rollout trace files"
+  },
+  "overall_by_rollout_method": {
+    "base_n45": {
+      "direct_controller": {
+        "n": 3,
+        "exact_count": 1,
+        "exact_rate": 0.333333,
+        "mean_score": 0.392667,
+        "cost_usd": 0.005376,
+        "errors": 0,
+        "latency_s": 4.315
+      },
+      "rlm": {
+        "n": 3,
+        "exact_count": 3,
+        "exact_rate": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.153225,
+        "errors": 0,
+        "latency_s": 0.0
+      },
+      "slm_labeler_typed": {
+        "n": 3,
+        "exact_count": 3,
+        "exact_rate": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.002086,
+        "errors": 0,
+        "latency_s": 0.0
+      }
+    },
+    "replay_rollout1": {
+      "direct_controller": {
+        "n": 3,
+        "exact_count": 1,
+        "exact_rate": 0.333333,
+        "mean_score": 0.392667,
+        "cost_usd": 0.005376,
+        "errors": 0,
+        "latency_s": 4.302
+      },
+      "rlm": {
+        "n": 3,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.1875,
+        "cost_usd": 0.057816,
+        "errors": 0,
+        "latency_s": 128.843
+      },
+      "slm_labeler_typed": {
+        "n": 3,
+        "exact_count": 3,
+        "exact_rate": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.002086,
+        "errors": 0,
+        "latency_s": 83.659
+      }
+    },
+    "replay_rollout2": {
+      "direct_controller": {
+        "n": 3,
+        "exact_count": 1,
+        "exact_rate": 0.333333,
+        "mean_score": 0.392667,
+        "cost_usd": 0.005376,
+        "errors": 0,
+        "latency_s": 2.099
+      },
+      "slm_labeler_typed": {
+        "n": 3,
+        "exact_count": 3,
+        "exact_rate": 1.0,
+        "mean_score": 1.0,
+        "cost_usd": 0.002086,
+        "errors": 0,
+        "latency_s": 76.124
+      }
+    }
+  },
+  "agreement": {
+    "slm_labeler_typed": {
+      "examples": 3,
+      "prediction_stable_examples": 3,
+      "correctness_stable_examples": 3,
+      "flip_details": []
+    },
+    "direct_controller": {
+      "examples": 3,
+      "prediction_stable_examples": 3,
+      "correctness_stable_examples": 3,
+      "flip_details": []
+    },
+    "rlm": {
+      "examples": 3,
+      "prediction_stable_examples": 0,
+      "correctness_stable_examples": 0,
+      "flip_details": [
+        {
+          "example_id": "213020016",
+          "task_group": "user",
+          "predictions": [
+            "positive",
+            "Error: Unable to parse the original context string due to persistent environment state issues (the 'context' variable was overwritten and could not be restored to its original string content). Therefore, cannot accurately determine the least common label."
+          ],
+          "scores": [
+            1.0,
+            0.0
+          ],
+          "rollouts": [
+            "base_n45",
+            "replay_rollout1"
+          ]
+        },
+        {
+          "example_id": "513050058",
+          "task_group": "counting",
+          "predictions": [
+            "less common than",
+            "I am unable to determine the frequencies of 'Health' and 'Family & Relationships' labels because the `llm_query` and `llm_query_batched` functions are not callable, returning a `TypeError: 'NoneType' object is not callable`. These functions are essential for classifying the questions and extracting the labels needed to answer the query."
+          ],
+          "scores": [
+            1.0,
+            0.0
+          ],
+          "rollouts": [
+            "base_n45",
+            "replay_rollout1"
+          ]
+        },
+        {
+          "example_id": "613060055",
+          "task_group": "timeline",
+          "predictions": [
+            "4",
+            "6"
+          ],
+          "scores": [
+            1.0,
+            0.5625
+          ],
+          "rollouts": [
+            "base_n45",
+            "replay_rollout1"
+          ]
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "rollout": "base_n45",
+      "method": "slm_labeler_typed",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "less common than",
+      "gold": "less common than",
+      "correct": "1.0",
+      "cost_usd": "0.00078",
+      "latency_s": "0",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "slm_labeler_typed",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "4",
+      "gold": "4",
+      "correct": "1.0",
+      "cost_usd": "0.000942",
+      "latency_s": "0",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "slm_labeler_typed",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.000364",
+      "latency_s": "0",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "direct_controller",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "more common than",
+      "gold": "less common than",
+      "correct": "0.0",
+      "cost_usd": "0.0019174",
+      "latency_s": "3.087",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "direct_controller",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "10",
+      "gold": "4",
+      "correct": "0.178",
+      "cost_usd": "0.0019622",
+      "latency_s": "0.617",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "direct_controller",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.0014961",
+      "latency_s": "0.611",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "rlm",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "less common than",
+      "gold": "less common than",
+      "correct": "1.0",
+      "cost_usd": "0.020107",
+      "latency_s": "0",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "rlm",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "4",
+      "gold": "4",
+      "correct": "1.0",
+      "cost_usd": "0.126778",
+      "latency_s": "0",
+      "error": ""
+    },
+    {
+      "rollout": "base_n45",
+      "method": "rlm",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.00634",
+      "latency_s": "0",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "slm_labeler_typed",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "less common than",
+      "gold": "less common than",
+      "correct": "1.0",
+      "cost_usd": "0.00077955",
+      "latency_s": "50.012",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "direct_controller",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "more common than",
+      "gold": "less common than",
+      "correct": "0.0",
+      "cost_usd": "0.0019174",
+      "latency_s": "2.183",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "slm_labeler_typed",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "4",
+      "gold": "4",
+      "correct": "1.0",
+      "cost_usd": "0.00094203",
+      "latency_s": "30.153",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "direct_controller",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "10",
+      "gold": "4",
+      "correct": "0.178",
+      "cost_usd": "0.0019622",
+      "latency_s": "0.772",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "slm_labeler_typed",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.00036396",
+      "latency_s": "3.494",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "direct_controller",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.0014961",
+      "latency_s": "1.347",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "rlm",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "I am unable to determine the frequencies of 'Health' and 'Family & Relationships' labels because the `llm_query` and `llm_query_batched` functions are not callable, returning a `TypeError: 'NoneType' object is not callable`. These functions are essential for classifying the questions and extracting the labels needed to answer the query.",
+      "gold": "less common than",
+      "correct": "0.0",
+      "cost_usd": "0.01392151",
+      "latency_s": "25.0",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "rlm",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "6",
+      "gold": "4",
+      "correct": "0.5625",
+      "cost_usd": "0.00778",
+      "latency_s": "22.034",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout1",
+      "method": "rlm",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "Error: Unable to parse the original context string due to persistent environment state issues (the 'context' variable was overwritten and could not be restored to its original string content). Therefore, cannot accurately determine the least common label.",
+      "gold": "positive",
+      "correct": "0.0",
+      "cost_usd": "0.03611472",
+      "latency_s": "81.809",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout2",
+      "method": "slm_labeler_typed",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "less common than",
+      "gold": "less common than",
+      "correct": "1.0",
+      "cost_usd": "0.00077955",
+      "latency_s": "54.634",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout2",
+      "method": "direct_controller",
+      "example_id": "513050058",
+      "task_group": "counting",
+      "context_len": "8192",
+      "prediction": "more common than",
+      "gold": "less common than",
+      "correct": "0.0",
+      "cost_usd": "0.0019174",
+      "latency_s": "0.948",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout2",
+      "method": "slm_labeler_typed",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "4",
+      "gold": "4",
+      "correct": "1.0",
+      "cost_usd": "0.00094269",
+      "latency_s": "18.868",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout2",
+      "method": "direct_controller",
+      "example_id": "613060055",
+      "task_group": "timeline",
+      "context_len": "8192",
+      "prediction": "10",
+      "gold": "4",
+      "correct": "0.178",
+      "cost_usd": "0.0019622",
+      "latency_s": "0.522",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout2",
+      "method": "slm_labeler_typed",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.00036396",
+      "latency_s": "2.622",
+      "error": ""
+    },
+    {
+      "rollout": "replay_rollout2",
+      "method": "direct_controller",
+      "example_id": "213020016",
+      "task_group": "user",
+      "context_len": "8192",
+      "prediction": "positive",
+      "gold": "positive",
+      "correct": "1.0",
+      "cost_usd": "0.0014961",
+      "latency_s": "0.629",
+      "error": ""
+    }
+  ]
+}

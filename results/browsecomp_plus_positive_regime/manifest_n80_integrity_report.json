@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "all_pools_1000_unique": true,
+    "all_required_included": true,
+    "corpus_rows_exact": true,
+    "n_exact": true,
+    "no_model_or_judge_fields": true,
+    "pool_hashes_unique": true,
+    "query_ids_unique": true
+  },
+  "created_utc": "2026-07-20T01:01:01.573155+00:00",
+  "public_manifest_sha256": "7d79ab34316c24f5cd4b615e47771c55e9d2edec8d5aabe1ff1744066b668727",
+  "restricted_manifest_sha256": "42acf2e988276be931946539f96f3e2b7026acae4c99612390e946223e20e0c9",
+  "study_id": "browsecomp_plus_positive_regime_v1",
+  "summary": {
+    "candidate_rows": 139,
+    "max_approx_context_tokens": 10774058,
+    "max_required_docs_per_row": 10,
+    "median_approx_context_tokens": 8130543,
+    "min_approx_context_tokens": 5437905,
+    "min_required_docs_per_row": 2,
+    "selected_rows": 80,
+    "unique_required_docs": 488
+  }
+}

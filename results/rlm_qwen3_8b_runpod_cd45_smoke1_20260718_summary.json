@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-07-18T20:14:39Z",
+  "n": 1,
+  "exact_count": 0,
+  "score_sum": 0.0,
+  "errors": 1,
+  "endpoint_id": "kl68voh8ttlb0q",
+  "model": "mit-oasys/rlm-qwen3-8b-v0.1",
+  "artifact": "results/rlm_qwen3_8b_runpod_cd45_smoke1_20260718.jsonl",
+  "total_elapsed_s": 420.01897382736206,
+  "runpod_note": "RunPod compute billed by active worker time; OpenAI-compatible response did not include dollar cost."
+}

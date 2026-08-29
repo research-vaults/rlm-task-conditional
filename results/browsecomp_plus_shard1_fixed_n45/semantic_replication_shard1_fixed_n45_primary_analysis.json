@@ -1,0 +1,245 @@
+{
+  "analysis_contract": "prospectively frozen disjoint official shard-1 N=45; all 135 cells attempted before semantic scoring; failures remain incorrect in the fixed denominator",
+  "attempted_n": 45,
+  "common_completion_sensitivity": {
+    "contract": "intersection of rows with successful nonblank generation from all three routes; completion is post-treatment, so the fixed-N45 all-attempted failure-as-incorrect endpoint remains primary",
+    "evidence_tier": "post_treatment_sensitivity_only",
+    "methods": {
+      "bm25_qwen36": {
+        "semantic_accuracy": 0.48717948717948717,
+        "semantic_correct": 19,
+        "wilson_95": [
+          0.33865175329862,
+          0.6380063711554202
+        ]
+      },
+      "standard_rlm_qwen36": {
+        "semantic_accuracy": 0.7692307692307693,
+        "semantic_correct": 30,
+        "wilson_95": [
+          0.6166374277165825,
+          0.8735419587485715
+        ]
+      },
+      "text_decompose_qwen36": {
+        "semantic_accuracy": 0.5897435897435898,
+        "semantic_correct": 23,
+        "wilson_95": [
+          0.43418622882896973,
+          0.7292068999927483
+        ]
+      }
+    },
+    "n": 39,
+    "paired": {
+      "bm25_qwen36__vs__text_decompose_qwen36": {
+        "difference": -0.10256410256410259,
+        "left_only": 1,
+        "mcnemar_exact_two_sided_p": 0.21875,
+        "n": 39,
+        "paired_bootstrap_95": [
+          -0.23076923076923078,
+          0.0
+        ],
+        "right_only": 5
+      },
+      "standard_rlm_qwen36__vs__bm25_qwen36": {
+        "difference": 0.2820512820512821,
+        "left_only": 12,
+        "mcnemar_exact_two_sided_p": 0.00341796875,
+        "n": 39,
+        "paired_bootstrap_95": [
+          0.1282051282051282,
+          0.4358974358974359
+        ],
+        "right_only": 1
+      },
+      "standard_rlm_qwen36__vs__text_decompose_qwen36": {
+        "difference": 0.17948717948717952,
+        "left_only": 9,
+        "mcnemar_exact_two_sided_p": 0.0654296875,
+        "n": 39,
+        "paired_bootstrap_95": [
+          0.02564102564102564,
+          0.3333333333333333
+        ],
+        "right_only": 2
+      }
+    }
+  },
+  "cost": {
+    "active_runtime_routes_total_usd": 8.648994203294425,
+    "generation_creation_to_cleanup_listed_rate_usd": 10.120193494327776,
+    "generation_plus_judge_listed_rate_usd": 10.458506663164421,
+    "generation_pod_listed_rate_usd_per_hour": 4.39,
+    "judge_creation_to_cleanup_listed_rate_usd": 0.3383131688366448,
+    "openrouter_usd": 0.0
+  },
+  "execution_episodes": {
+    "1": {
+      "attempted_cells": 107,
+      "status": "local_driver_interrupted"
+    },
+    "2": {
+      "attempted_cells": 28,
+      "status": "bounded_same-pod_recovery"
+    }
+  },
+  "fixed_endpoint_complete": true,
+  "infrastructure_amendment": "protocols/BROWSECOMP_PLUS_SHARD1_FIXED_N45_INFRASTRUCTURE_AMENDMENT_1_20260723.md",
+  "judge_attempted": 129,
+  "judge_format_failures_scored_incorrect": 1,
+  "judge_parsed": 128,
+  "judge_revision": "01e5b3ee840d3a9e0b0b493c593e85398a30ef75",
+  "latency_contract": "wall time is summarized over all 45 attempted rows per route, including failed attempts; p95 uses the linear empirical percentile (Hyndman-Fan type 7)",
+  "methods": {
+    "bm25_qwen36": {
+      "active_runtime_listed_rate_usd": 0.2936254504382014,
+      "attempted": 45,
+      "completed": 42,
+      "input_tokens_total": 2222961,
+      "model_calls_total": 42,
+      "normalized_contains": 20,
+      "output_tokens_total": 23064,
+      "rlm_code_blocks": 0,
+      "rlm_iterations": 0,
+      "semantic_accuracy": 0.4666666666666667,
+      "semantic_correct": 21,
+      "strict_exact": 17,
+      "wall_seconds_max": 21.214218417000666,
+      "wall_seconds_median": 3.1554207500012126,
+      "wall_seconds_p95": 19.589452541598423,
+      "wall_seconds_total": 240.78624637301255,
+      "wilson_95": [
+        0.32935132065011297,
+        0.6092254525987463
+      ]
+    },
+    "standard_rlm_qwen36": {
+      "active_runtime_listed_rate_usd": 6.7455901893076256,
+      "attempted": 45,
+      "completed": 42,
+      "input_tokens_total": 6133671,
+      "model_calls_total": 607,
+      "normalized_contains": 33,
+      "output_tokens_total": 188943,
+      "rlm_code_blocks": 658,
+      "rlm_iterations": 670,
+      "semantic_accuracy": 0.7333333333333333,
+      "semantic_correct": 33,
+      "strict_exact": 23,
+      "wall_seconds_max": 1289.3644081659986,
+      "wall_seconds_median": 44.613847332999285,
+      "wall_seconds_p95": 425.6940734998,
+      "wall_seconds_total": 5531.691271413998,
+      "wilson_95": [
+        0.5896116224686505,
+        0.8403509647893348
+      ]
+    },
+    "text_decompose_qwen36": {
+      "active_runtime_listed_rate_usd": 1.6097785635485988,
+      "attempted": 45,
+      "completed": 45,
+      "input_tokens_total": 7236374,
+      "model_calls_total": 314,
+      "normalized_contains": 25,
+      "output_tokens_total": 205696,
+      "rlm_code_blocks": 0,
+      "rlm_iterations": 0,
+      "semantic_accuracy": 0.6444444444444445,
+      "semantic_correct": 29,
+      "strict_exact": 19,
+      "wall_seconds_max": 62.466324791999796,
+      "wall_seconds_median": 29.647713082998962,
+      "wall_seconds_p95": 44.90112981659912,
+      "wall_seconds_total": 1320.0917605409923,
+      "wilson_95": [
+        0.4983581419637687,
+        0.7678091739578413
+      ]
+    }
+  },
+  "multiplicity": {
+    "family": [
+      "standard_rlm_qwen36__vs__bm25_qwen36",
+      "standard_rlm_qwen36__vs__text_decompose_qwen36"
+    ],
+    "holm_adjusted_p": {
+      "standard_rlm_qwen36__vs__bm25_qwen36": 0.01507568359375,
+      "standard_rlm_qwen36__vs__text_decompose_qwen36": 0.4239501953125
+    },
+    "procedure": "Holm adjustment over the two standard-RLM primary contrasts",
+    "raw_p": {
+      "standard_rlm_qwen36__vs__bm25_qwen36": 0.007537841796875,
+      "standard_rlm_qwen36__vs__text_decompose_qwen36": 0.4239501953125
+    }
+  },
+  "paired": {
+    "bm25_qwen36__vs__text_decompose_qwen36": {
+      "difference": -0.1777777777777778,
+      "left_only": 1,
+      "mcnemar_exact_two_sided_p": 0.021484375,
+      "n": 45,
+      "paired_bootstrap_95": [
+        -0.3111111111111111,
+        -0.044444444444444446
+      ],
+      "right_only": 9
+    },
+    "standard_rlm_qwen36__vs__bm25_qwen36": {
+      "difference": 0.2666666666666666,
+      "left_only": 15,
+      "mcnemar_exact_two_sided_p": 0.007537841796875,
+      "n": 45,
+      "paired_bootstrap_95": [
+        0.1111111111111111,
+        0.4444444444444444
+      ],
+      "right_only": 3
+    },
+    "standard_rlm_qwen36__vs__text_decompose_qwen36": {
+      "difference": 0.0888888888888888,
+      "left_only": 9,
+      "mcnemar_exact_two_sided_p": 0.4239501953125,
+      "n": 45,
+      "paired_bootstrap_95": [
+        -0.06666666666666667,
+        0.24444444444444444
+      ],
+      "right_only": 5
+    }
+  },
+  "planned_n": 45,
+  "post_stop_score_visibility": false,
+  "prior_shard0_attempted_n49_context_only": {
+    "methods": {
+      "bm25_qwen36": {
+        "attempted": 49,
+        "semantic_accuracy": 0.42857142857142855,
+        "semantic_correct": 21
+      },
+      "standard_rlm_qwen36": {
+        "attempted": 49,
+        "semantic_accuracy": 0.7142857142857143,
+        "semantic_correct": 35
+      },
+      "text_decompose_qwen36": {
+        "attempted": 49,
+        "semantic_accuracy": 0.42857142857142855,
+        "semantic_correct": 21
+      }
+    },
+    "scope": "chronological context only; not pooled into the shard-1 primary endpoint"
+  },
+  "semantic_judge": "google/gemma-4-26B-A4B-it",
+  "single_execution_episode": false,
+  "source_hashes": {
+    "compact": "ad5555025d4e3c3ba728c008edbdad261a9e379e8e6d3ccc8aaf2d1602b39cee",
+    "generation_episode_summary": "e2d28527df1e199db34fe2e49688b12d4eafe63bac6ef99010826ffda5c7a205",
+    "generation_recovery_summary": "3af375ab344fff7e5784c03dceacc95dba4bc0e8969d6be2376b61c9f367649f",
+    "judge": "1922cf486fcd5582b6dc8bd61077947a1da8d8db845f2380df601092e97271cb",
+    "judge_summary": "ca59c60554273614fb247004e9327f53181bc29d7a1e2298652331ab105874ee"
+  },
+  "study_id": "browsecomp_plus_shard1_fixed_n45_v1"
+}

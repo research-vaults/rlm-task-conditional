@@ -1,0 +1,444 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-12T23:40:25.706645+00:00",
+    "manifest": "results/oolong_standard_multilength_n120_5len_manifest_20260712.json",
+    "rlm_csv": "results/oolong_standard_multilength_n120_rlm_20260712.csv",
+    "slm_csv": "results/oolong_standard_multilength_n120_slm_labeler_typed_20260712.csv",
+    "slm_trace": "results/oolong_standard_multilength_n120_slm_labeler_typed_20260712_trace.jsonl",
+    "cost_note": "SLM-labeler corrected costs are recomputed from recorded token counts using the patched OpenRouter price table; raw logged costs are retained for audit.",
+    "bootstrap": {
+      "cluster_key": "context_window_id",
+      "iterations": 5000,
+      "seed": 20260712
+    }
+  },
+  "overall": {
+    "slm_labeler_typed": {
+      "n": 120,
+      "mean_score": 0.727069,
+      "exact_count": 80,
+      "exact_rate": 0.666667,
+      "corrected_cost_usd": 0.658995,
+      "raw_logged_cost_usd": 0.658994,
+      "cost_per_exact_usd": 0.008237,
+      "errors": 0,
+      "score_cluster_ci": {
+        "mean": 0.727069,
+        "lo": 0.650494,
+        "hi": 0.802035,
+        "n_clusters": 72
+      },
+      "exact_cluster_ci": {
+        "mean": 0.666667,
+        "lo": 0.581183,
+        "hi": 0.75,
+        "n_clusters": 72
+      }
+    },
+    "standard_rlm": {
+      "n": 120,
+      "mean_score": 0.489093,
+      "exact_count": 53,
+      "exact_rate": 0.441667,
+      "corrected_cost_usd": 2.68834,
+      "raw_logged_cost_usd": 2.68834,
+      "cost_per_exact_usd": 0.050723,
+      "errors": 9,
+      "score_cluster_ci": {
+        "mean": 0.489093,
+        "lo": 0.399315,
+        "hi": 0.577864,
+        "n_clusters": 72
+      },
+      "exact_cluster_ci": {
+        "mean": 0.441667,
+        "lo": 0.352459,
+        "hi": 0.529948,
+        "n_clusters": 72
+      }
+    }
+  },
+  "paired_exact_slm_labeler_typed_vs_standard_rlm": {
+    "paired_n": 120,
+    "b_slm_right_rlm_wrong": 37,
+    "c_rlm_right_slm_wrong": 10,
+    "two_sided_exact_p": 9.849e-05
+  },
+  "by_group": {
+    "counting": {
+      "slm_labeler_typed": {
+        "n": 40,
+        "mean_score": 0.532673,
+        "exact_count": 20,
+        "exact_rate": 0.5,
+        "corrected_cost_usd": 0.215875,
+        "raw_logged_cost_usd": 0.215875,
+        "cost_per_exact_usd": 0.010794,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.532673,
+          "lo": 0.383374,
+          "hi": 0.685465,
+          "n_clusters": 40
+        },
+        "exact_cluster_ci": {
+          "mean": 0.5,
+          "lo": 0.35,
+          "hi": 0.65,
+          "n_clusters": 40
+        }
+      },
+      "standard_rlm": {
+        "n": 40,
+        "mean_score": 0.261082,
+        "exact_count": 9,
+        "exact_rate": 0.225,
+        "corrected_cost_usd": 0.963355,
+        "raw_logged_cost_usd": 0.963355,
+        "cost_per_exact_usd": 0.107039,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.261082,
+          "lo": 0.13804,
+          "hi": 0.40014,
+          "n_clusters": 40
+        },
+        "exact_cluster_ci": {
+          "mean": 0.225,
+          "lo": 0.1,
+          "hi": 0.35,
+          "n_clusters": 40
+        }
+      }
+    },
+    "timeline": {
+      "slm_labeler_typed": {
+        "n": 40,
+        "mean_score": 0.867285,
+        "exact_count": 31,
+        "exact_rate": 0.775,
+        "corrected_cost_usd": 0.223215,
+        "raw_logged_cost_usd": 0.223215,
+        "cost_per_exact_usd": 0.0072,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.867285,
+          "lo": 0.77041,
+          "hi": 0.946972,
+          "n_clusters": 40
+        },
+        "exact_cluster_ci": {
+          "mean": 0.775,
+          "lo": 0.65,
+          "hi": 0.9,
+          "n_clusters": 40
+        }
+      },
+      "standard_rlm": {
+        "n": 40,
+        "mean_score": 0.540473,
+        "exact_count": 19,
+        "exact_rate": 0.475,
+        "corrected_cost_usd": 0.968282,
+        "raw_logged_cost_usd": 0.968282,
+        "cost_per_exact_usd": 0.050962,
+        "errors": 5,
+        "score_cluster_ci": {
+          "mean": 0.540473,
+          "lo": 0.393984,
+          "hi": 0.685884,
+          "n_clusters": 40
+        },
+        "exact_cluster_ci": {
+          "mean": 0.475,
+          "lo": 0.325,
+          "hi": 0.625,
+          "n_clusters": 40
+        }
+      }
+    },
+    "user": {
+      "slm_labeler_typed": {
+        "n": 40,
+        "mean_score": 0.78125,
+        "exact_count": 29,
+        "exact_rate": 0.725,
+        "corrected_cost_usd": 0.219904,
+        "raw_logged_cost_usd": 0.219904,
+        "cost_per_exact_usd": 0.007583,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.78125,
+          "lo": 0.65,
+          "hi": 0.89375,
+          "n_clusters": 40
+        },
+        "exact_cluster_ci": {
+          "mean": 0.725,
+          "lo": 0.575,
+          "hi": 0.85,
+          "n_clusters": 40
+        }
+      },
+      "standard_rlm": {
+        "n": 40,
+        "mean_score": 0.665722,
+        "exact_count": 25,
+        "exact_rate": 0.625,
+        "corrected_cost_usd": 0.756703,
+        "raw_logged_cost_usd": 0.756703,
+        "cost_per_exact_usd": 0.030268,
+        "errors": 4,
+        "score_cluster_ci": {
+          "mean": 0.665722,
+          "lo": 0.521973,
+          "hi": 0.798762,
+          "n_clusters": 40
+        },
+        "exact_cluster_ci": {
+          "mean": 0.625,
+          "lo": 0.475,
+          "hi": 0.775,
+          "n_clusters": 40
+        }
+      }
+    }
+  },
+  "by_length": {
+    "8192": {
+      "slm_labeler_typed": {
+        "n": 24,
+        "mean_score": 0.713375,
+        "exact_count": 16,
+        "exact_rate": 0.666667,
+        "corrected_cost_usd": 0.019886,
+        "raw_logged_cost_usd": 0.019884,
+        "cost_per_exact_usd": 0.001243,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.713375,
+          "lo": 0.515636,
+          "hi": 0.904768,
+          "n_clusters": 15
+        },
+        "exact_cluster_ci": {
+          "mean": 0.666667,
+          "lo": 0.461538,
+          "hi": 0.863636,
+          "n_clusters": 15
+        }
+      },
+      "standard_rlm": {
+        "n": 24,
+        "mean_score": 0.598983,
+        "exact_count": 14,
+        "exact_rate": 0.583333,
+        "corrected_cost_usd": 0.252837,
+        "raw_logged_cost_usd": 0.252837,
+        "cost_per_exact_usd": 0.01806,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.598983,
+          "lo": 0.422254,
+          "hi": 0.788413,
+          "n_clusters": 15
+        },
+        "exact_cluster_ci": {
+          "mean": 0.583333,
+          "lo": 0.392857,
+          "hi": 0.782609,
+          "n_clusters": 15
+        }
+      }
+    },
+    "16384": {
+      "slm_labeler_typed": {
+        "n": 24,
+        "mean_score": 0.822992,
+        "exact_count": 19,
+        "exact_rate": 0.791667,
+        "corrected_cost_usd": 0.041375,
+        "raw_logged_cost_usd": 0.041376,
+        "cost_per_exact_usd": 0.002178,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.822992,
+          "lo": 0.703837,
+          "hi": 0.947917,
+          "n_clusters": 16
+        },
+        "exact_cluster_ci": {
+          "mean": 0.791667,
+          "lo": 0.666667,
+          "hi": 0.916667,
+          "n_clusters": 16
+        }
+      },
+      "standard_rlm": {
+        "n": 24,
+        "mean_score": 0.523492,
+        "exact_count": 12,
+        "exact_rate": 0.5,
+        "corrected_cost_usd": 0.235581,
+        "raw_logged_cost_usd": 0.235581,
+        "cost_per_exact_usd": 0.019632,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.523492,
+          "lo": 0.318241,
+          "hi": 0.727273,
+          "n_clusters": 16
+        },
+        "exact_cluster_ci": {
+          "mean": 0.5,
+          "lo": 0.304348,
+          "hi": 0.703819,
+          "n_clusters": 16
+        }
+      }
+    },
+    "32768": {
+      "slm_labeler_typed": {
+        "n": 24,
+        "mean_score": 0.771279,
+        "exact_count": 16,
+        "exact_rate": 0.666667,
+        "corrected_cost_usd": 0.085223,
+        "raw_logged_cost_usd": 0.085223,
+        "cost_per_exact_usd": 0.005326,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.771279,
+          "lo": 0.610326,
+          "hi": 0.917988,
+          "n_clusters": 13
+        },
+        "exact_cluster_ci": {
+          "mean": 0.666667,
+          "lo": 0.44,
+          "hi": 0.875,
+          "n_clusters": 13
+        }
+      },
+      "standard_rlm": {
+        "n": 24,
+        "mean_score": 0.595867,
+        "exact_count": 13,
+        "exact_rate": 0.541667,
+        "corrected_cost_usd": 0.412515,
+        "raw_logged_cost_usd": 0.412515,
+        "cost_per_exact_usd": 0.031732,
+        "errors": 1,
+        "score_cluster_ci": {
+          "mean": 0.595867,
+          "lo": 0.434659,
+          "hi": 0.751547,
+          "n_clusters": 13
+        },
+        "exact_cluster_ci": {
+          "mean": 0.541667,
+          "lo": 0.4,
+          "hi": 0.695652,
+          "n_clusters": 13
+        }
+      }
+    },
+    "65536": {
+      "slm_labeler_typed": {
+        "n": 24,
+        "mean_score": 0.689579,
+        "exact_count": 15,
+        "exact_rate": 0.625,
+        "corrected_cost_usd": 0.176837,
+        "raw_logged_cost_usd": 0.176838,
+        "cost_per_exact_usd": 0.011789,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.689579,
+          "lo": 0.481814,
+          "hi": 0.865164,
+          "n_clusters": 14
+        },
+        "exact_cluster_ci": {
+          "mean": 0.625,
+          "lo": 0.416667,
+          "hi": 0.807692,
+          "n_clusters": 14
+        }
+      },
+      "standard_rlm": {
+        "n": 24,
+        "mean_score": 0.255767,
+        "exact_count": 4,
+        "exact_rate": 0.166667,
+        "corrected_cost_usd": 0.446445,
+        "raw_logged_cost_usd": 0.446445,
+        "cost_per_exact_usd": 0.111611,
+        "errors": 5,
+        "score_cluster_ci": {
+          "mean": 0.255767,
+          "lo": 0.128233,
+          "hi": 0.380539,
+          "n_clusters": 14
+        },
+        "exact_cluster_ci": {
+          "mean": 0.166667,
+          "lo": 0.041667,
+          "hi": 0.296296,
+          "n_clusters": 14
+        }
+      }
+    },
+    "131072": {
+      "slm_labeler_typed": {
+        "n": 24,
+        "mean_score": 0.638121,
+        "exact_count": 14,
+        "exact_rate": 0.583333,
+        "corrected_cost_usd": 0.335674,
+        "raw_logged_cost_usd": 0.335673,
+        "cost_per_exact_usd": 0.023977,
+        "errors": 0,
+        "score_cluster_ci": {
+          "mean": 0.638121,
+          "lo": 0.470065,
+          "hi": 0.8125,
+          "n_clusters": 14
+        },
+        "exact_cluster_ci": {
+          "mean": 0.583333,
+          "lo": 0.4,
+          "hi": 0.761905,
+          "n_clusters": 14
+        }
+      },
+      "standard_rlm": {
+        "n": 24,
+        "mean_score": 0.471354,
+        "exact_count": 10,
+        "exact_rate": 0.416667,
+        "corrected_cost_usd": 1.340962,
+        "raw_logged_cost_usd": 1.340962,
+        "cost_per_exact_usd": 0.134096,
+        "errors": 3,
+        "score_cluster_ci": {
+          "mean": 0.471354,
+          "lo": 0.2525,
+          "hi": 0.708333,
+          "n_clusters": 14
+        },
+        "exact_cluster_ci": {
+          "mean": 0.416667,
+          "lo": 0.208333,
+          "hi": 0.65,
+          "n_clusters": 14
+        }
+      }
+    }
+  },
+  "cost_repricing": {
+    "slm_raw_logged_total_usd": 0.658994,
+    "slm_corrected_total_usd": 0.658995,
+    "rlm_total_usd": 2.68834
+  }
+}

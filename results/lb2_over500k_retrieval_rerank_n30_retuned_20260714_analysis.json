@@ -1,0 +1,542 @@
+{
+  "run_type": "lb2_over500k_retrieval_rerank_analysis",
+  "results_path": "results/lb2_over500k_retrieval_rerank_n30_retuned_20260714.jsonl",
+  "trace_path": "results/lb2_over500k_retrieval_rerank_n30_retuned_20260714_trace.jsonl",
+  "n": 30,
+  "methods": {
+    "bm25_gemma_vote": {
+      "n": 30,
+      "correct": 8,
+      "accuracy": 0.26666666666666666,
+      "total_cost_usd": 0.035521620000000004,
+      "cost_per_example_usd": 0.0011840540000000001,
+      "invalid_example_predictions": 3,
+      "invalid_answer_votes": 24
+    },
+    "bm25_gemini_vote": {
+      "n": 30,
+      "correct": 11,
+      "accuracy": 0.36666666666666664,
+      "total_cost_usd": 0.1587545,
+      "cost_per_example_usd": 0.005291816666666667,
+      "invalid_example_predictions": 2,
+      "invalid_answer_votes": 13
+    },
+    "bm25_gemma_rerank_gemini_vote": {
+      "n": 30,
+      "correct": 12,
+      "accuracy": 0.4,
+      "total_cost_usd": 0.18627556,
+      "cost_per_example_usd": 0.006209185333333334,
+      "invalid_example_predictions": 2,
+      "invalid_answer_votes": 14
+    }
+  },
+  "by_domain": {
+    "Code Repository Understanding": {
+      "n": 5,
+      "context_chars_min": 915974,
+      "context_chars_max": 11918963,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 3,
+          "accuracy": 0.6,
+          "predictions": [
+            "?",
+            "B",
+            "A",
+            "C",
+            "C"
+          ],
+          "gold": [
+            "B",
+            "B",
+            "A",
+            "D",
+            "C"
+          ]
+        },
+        "bm25_gemini_vote": {
+          "correct": 3,
+          "accuracy": 0.6,
+          "predictions": [
+            "B",
+            "B",
+            "A",
+            "B",
+            "?"
+          ],
+          "gold": [
+            "B",
+            "B",
+            "A",
+            "D",
+            "C"
+          ]
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 3,
+          "accuracy": 0.6,
+          "predictions": [
+            "B",
+            "B",
+            "A",
+            "B",
+            "?"
+          ],
+          "gold": [
+            "B",
+            "B",
+            "A",
+            "D",
+            "C"
+          ]
+        }
+      }
+    },
+    "Long In-context Learning": {
+      "n": 5,
+      "context_chars_min": 554114,
+      "context_chars_max": 2531634,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 1,
+          "accuracy": 0.2,
+          "predictions": [
+            "?",
+            "A",
+            "A",
+            "B",
+            "A"
+          ],
+          "gold": [
+            "B",
+            "C",
+            "A",
+            "A",
+            "B"
+          ]
+        },
+        "bm25_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4,
+          "predictions": [
+            "A",
+            "D",
+            "C",
+            "A",
+            "B"
+          ],
+          "gold": [
+            "B",
+            "C",
+            "A",
+            "A",
+            "B"
+          ]
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4,
+          "predictions": [
+            "A",
+            "D",
+            "C",
+            "A",
+            "B"
+          ],
+          "gold": [
+            "B",
+            "C",
+            "A",
+            "A",
+            "B"
+          ]
+        }
+      }
+    },
+    "Long Structured Data Understanding": {
+      "n": 5,
+      "context_chars_min": 550914,
+      "context_chars_max": 9781854,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 0,
+          "accuracy": 0.0,
+          "predictions": [
+            "B",
+            "?",
+            "C",
+            "A",
+            "A"
+          ],
+          "gold": [
+            "C",
+            "B",
+            "D",
+            "B",
+            "C"
+          ]
+        },
+        "bm25_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4,
+          "predictions": [
+            "B",
+            "B",
+            "?",
+            "A",
+            "C"
+          ],
+          "gold": [
+            "C",
+            "B",
+            "D",
+            "B",
+            "C"
+          ]
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4,
+          "predictions": [
+            "B",
+            "B",
+            "?",
+            "A",
+            "C"
+          ],
+          "gold": [
+            "C",
+            "B",
+            "D",
+            "B",
+            "C"
+          ]
+        }
+      }
+    },
+    "Long-dialogue History Understanding": {
+      "n": 5,
+      "context_chars_min": 525209,
+      "context_chars_max": 566401,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 0,
+          "accuracy": 0.0,
+          "predictions": [
+            "C",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "gold": [
+            "B",
+            "B",
+            "B",
+            "D",
+            "B"
+          ]
+        },
+        "bm25_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2,
+          "predictions": [
+            "C",
+            "A",
+            "D",
+            "A",
+            "B"
+          ],
+          "gold": [
+            "B",
+            "B",
+            "B",
+            "D",
+            "B"
+          ]
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2,
+          "predictions": [
+            "C",
+            "A",
+            "D",
+            "A",
+            "B"
+          ],
+          "gold": [
+            "B",
+            "B",
+            "B",
+            "D",
+            "B"
+          ]
+        }
+      }
+    },
+    "Multi-Document QA": {
+      "n": 5,
+      "context_chars_min": 546183,
+      "context_chars_max": 2261771,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 3,
+          "accuracy": 0.6,
+          "predictions": [
+            "A",
+            "A",
+            "A",
+            "C",
+            "B"
+          ],
+          "gold": [
+            "A",
+            "B",
+            "D",
+            "C",
+            "B"
+          ]
+        },
+        "bm25_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4,
+          "predictions": [
+            "A",
+            "A",
+            "C",
+            "D",
+            "B"
+          ],
+          "gold": [
+            "A",
+            "B",
+            "D",
+            "C",
+            "B"
+          ]
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 3,
+          "accuracy": 0.6,
+          "predictions": [
+            "A",
+            "B",
+            "B",
+            "D",
+            "B"
+          ],
+          "gold": [
+            "A",
+            "B",
+            "D",
+            "C",
+            "B"
+          ]
+        }
+      }
+    },
+    "Single-Document QA": {
+      "n": 5,
+      "context_chars_min": 620252,
+      "context_chars_max": 829592,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 1,
+          "accuracy": 0.2,
+          "predictions": [
+            "A",
+            "A",
+            "B",
+            "A",
+            "A"
+          ],
+          "gold": [
+            "C",
+            "D",
+            "D",
+            "A",
+            "D"
+          ]
+        },
+        "bm25_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2,
+          "predictions": [
+            "C",
+            "B",
+            "A",
+            "B",
+            "A"
+          ],
+          "gold": [
+            "C",
+            "D",
+            "D",
+            "A",
+            "D"
+          ]
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2,
+          "predictions": [
+            "C",
+            "B",
+            "C",
+            "B",
+            "A"
+          ],
+          "gold": [
+            "C",
+            "D",
+            "D",
+            "A",
+            "D"
+          ]
+        }
+      }
+    }
+  },
+  "context_buckets": {
+    ">5M": {
+      "bm25_gemma_vote": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      },
+      "bm25_gemini_vote": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      },
+      "bm25_gemma_rerank_gemini_vote": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      }
+    },
+    "1M-2M": {
+      "bm25_gemma_vote": {
+        "n": 5,
+        "correct": 4,
+        "accuracy": 0.8
+      },
+      "bm25_gemini_vote": {
+        "n": 5,
+        "correct": 4,
+        "accuracy": 0.8
+      },
+      "bm25_gemma_rerank_gemini_vote": {
+        "n": 5,
+        "correct": 4,
+        "accuracy": 0.8
+      }
+    },
+    "750k-1M": {
+      "bm25_gemma_vote": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      },
+      "bm25_gemini_vote": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      },
+      "bm25_gemma_rerank_gemini_vote": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333
+      }
+    },
+    "2M-5M": {
+      "bm25_gemma_vote": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "bm25_gemini_vote": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "bm25_gemma_rerank_gemini_vote": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      }
+    },
+    "500k-750k": {
+      "bm25_gemma_vote": {
+        "n": 17,
+        "correct": 2,
+        "accuracy": 0.11764705882352941
+      },
+      "bm25_gemini_vote": {
+        "n": 17,
+        "correct": 5,
+        "accuracy": 0.29411764705882354
+      },
+      "bm25_gemma_rerank_gemini_vote": {
+        "n": 17,
+        "correct": 6,
+        "accuracy": 0.35294117647058826
+      }
+    }
+  },
+  "rerank_delta_rows": [
+    {
+      "_id": "66f3e58c821e116aacb2fabc",
+      "domain": "Multi-Document QA",
+      "context_chars": 645893,
+      "gold": "B",
+      "bm25_gemini_prediction": "A",
+      "bm25_gemini_correct": false,
+      "rerank_prediction": "B",
+      "rerank_correct": true
+    },
+    {
+      "_id": "66f3e604821e116aacb2fadf",
+      "domain": "Multi-Document QA",
+      "context_chars": 2261771,
+      "gold": "D",
+      "bm25_gemini_prediction": "C",
+      "bm25_gemini_correct": false,
+      "rerank_prediction": "B",
+      "rerank_correct": false
+    },
+    {
+      "_id": "66f519a6821e116aacb32579",
+      "domain": "Single-Document QA",
+      "context_chars": 654747,
+      "gold": "D",
+      "bm25_gemini_prediction": "A",
+      "bm25_gemini_correct": false,
+      "rerank_prediction": "C",
+      "rerank_correct": false
+    }
+  ],
+  "gold_distribution": {
+    "B": 12,
+    "A": 5,
+    "D": 7,
+    "C": 6
+  },
+  "domain_distribution": {
+    "Code Repository Understanding": 5,
+    "Long In-context Learning": 5,
+    "Long Structured Data Understanding": 5,
+    "Long-dialogue History Understanding": 5,
+    "Multi-Document QA": 5,
+    "Single-Document QA": 5
+  },
+  "failure_notes": [
+    "Gemma reranking gives only a one-example gain over BM25+Gemini, so reranking is not a general fix for over-window LB2.",
+    "Long-dialogue history is the clearest failure domain: retrieved excerpts rarely contain enough diffuse temporal evidence.",
+    "Gemma-only reading is cheapest but weaker overall; it occasionally solves rows Gemini misses, so model choice and evidence style interact."
+  ],
+  "paper_framing": "Use as supplement-level over-window boundary evidence. The balanced full LongBench-v2 >500k diagnostic shows that cheap retrieval/rerank routes are feasible and low-cost, but not reliable enough to close the RLM-favorable extreme-context region. It should calibrate, not replace, the existing LB2 pilot."
+}

@@ -1,0 +1,456 @@
+{
+  "evidence_role": "official lambda-RLM implementation cross-task same-contract evaluation; not original-paper benchmark reproduction",
+  "rankable_full_cd15": true,
+  "run_id": "lambda_rlm_official_cd15_qwen3_8b_runpod_pinned_full_20260719",
+  "integrity": {
+    "passed": true,
+    "errors": [],
+    "intended_n": 15,
+    "observed_n": 15,
+    "missing_ids": [],
+    "duplicate_ids": [],
+    "unexpected_ids": [],
+    "source_checks": {
+      "manifest_sha256": "6b16c98cd8a4cbb4261768e0334e5354e47f247d2f9f09788e99ac58bf15ec84",
+      "base_protocol_sha256": "ec0e07500762416ac20ac6e89a5c066acadd12b1e07e9b0f6adadb647d2fcf20",
+      "runpod_protocol_sha256": "87b766fa3f8c56860f5396ff778d86eb10f921221a4551b6e72cfc23f958d3f2",
+      "lambda_repo_commit": "3874d393483dc4299101918cf8e9af670194bd88",
+      "lambda_source_sha256": "3f0e0521f92e1e124e76aa4f717a7bf29c95386ff42b3faf6057d4fa320f42e6",
+      "benchmark_source_sha256": "903d8f42a5d6ab512cdc126db54429aee278021841ef07b9e9732afcb034727a"
+    },
+    "expected": {
+      "manifest_sha256": "6b16c98cd8a4cbb4261768e0334e5354e47f247d2f9f09788e99ac58bf15ec84",
+      "lambda_repo_commit": "3874d393483dc4299101918cf8e9af670194bd88",
+      "lambda_source_sha256": "3f0e0521f92e1e124e76aa4f717a7bf29c95386ff42b3faf6057d4fa320f42e6",
+      "benchmark_source_sha256": "903d8f42a5d6ab512cdc126db54429aee278021841ef07b9e9732afcb034727a",
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "vllm_image": "vllm/vllm-openai:v0.21.0"
+    },
+    "config_checks": {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "vllm_image": "vllm/vllm-openai:v0.21.0"
+    },
+    "official_repo_tracked_status": "",
+    "official_repo_clean_at_analysis": true,
+    "protocol_note": "The raw wrapper event points to the cumulative base protocol; the provider-specific frozen protocol is separately hashed here."
+  },
+  "all_attempted": {
+    "n": 15,
+    "exact": 8,
+    "score_sum": 8.0,
+    "errors": 2,
+    "execution_time_s_completed": 2449.318
+  },
+  "valid_model_outputs": {
+    "n": 15,
+    "exact": 8,
+    "score_sum": 8.0,
+    "errors": 2,
+    "execution_time_s_completed": 2449.318
+  },
+  "by_group": {
+    "counting": {
+      "n": 5,
+      "exact": 4,
+      "score_sum": 4.0,
+      "errors": 0,
+      "execution_time_s_completed": 1405.493
+    },
+    "timeline": {
+      "n": 5,
+      "exact": 2,
+      "score_sum": 2.0,
+      "errors": 1,
+      "execution_time_s_completed": 496.602
+    },
+    "user": {
+      "n": 5,
+      "exact": 2,
+      "score_sum": 2.0,
+      "errors": 1,
+      "execution_time_s_completed": 547.223
+    }
+  },
+  "by_length": {
+    "1024": {
+      "n": 5,
+      "exact": 4,
+      "score_sum": 4.0,
+      "errors": 0,
+      "execution_time_s_completed": 139.365
+    },
+    "4096": {
+      "n": 5,
+      "exact": 3,
+      "score_sum": 3.0,
+      "errors": 0,
+      "execution_time_s_completed": 186.309
+    },
+    "262144": {
+      "n": 5,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 2,
+      "execution_time_s_completed": 2123.644
+    }
+  },
+  "valid_by_group": {
+    "counting": {
+      "n": 5,
+      "exact": 4,
+      "score_sum": 4.0,
+      "errors": 0,
+      "execution_time_s_completed": 1405.493
+    },
+    "timeline": {
+      "n": 5,
+      "exact": 2,
+      "score_sum": 2.0,
+      "errors": 1,
+      "execution_time_s_completed": 496.602
+    },
+    "user": {
+      "n": 5,
+      "exact": 2,
+      "score_sum": 2.0,
+      "errors": 1,
+      "execution_time_s_completed": 547.223
+    }
+  },
+  "valid_by_length": {
+    "1024": {
+      "n": 5,
+      "exact": 4,
+      "score_sum": 4.0,
+      "errors": 0,
+      "execution_time_s_completed": 139.365
+    },
+    "4096": {
+      "n": 5,
+      "exact": 3,
+      "score_sum": 3.0,
+      "errors": 0,
+      "execution_time_s_completed": 186.309
+    },
+    "262144": {
+      "n": 5,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 2,
+      "execution_time_s_completed": 2123.644
+    }
+  },
+  "failure_modes": {
+    "strict_exact": 8,
+    "latent_gold_output_contract_failure": 2,
+    "semantic_or_aggregation_error": 3,
+    "timeout_or_runtime_failure": 2
+  },
+  "latent_correct_ids": [
+    "212020028",
+    "310030013"
+  ],
+  "detected_task_counts": {
+    "qa": 10,
+    "classification": 2,
+    "extraction": 1
+  },
+  "paired": {
+    "slm_qparsed_typed": {
+      "n": 15,
+      "ours_exact": 8,
+      "baseline_exact": 15,
+      "b_ours_only": 0,
+      "c_baseline_only": 7,
+      "mcnemar_exact_two_sided_p": 0.015625
+    },
+    "direct_gemini25_flash": {
+      "n": 15,
+      "ours_exact": 8,
+      "baseline_exact": 9,
+      "b_ours_only": 2,
+      "c_baseline_only": 3,
+      "mcnemar_exact_two_sided_p": 1.0
+    },
+    "standard_rlm_gemini25_flash": {
+      "n": 15,
+      "ours_exact": 8,
+      "baseline_exact": 10,
+      "b_ours_only": 1,
+      "c_baseline_only": 3,
+      "mcnemar_exact_two_sided_p": 0.625
+    },
+    "standard_rlm_gpt5": {
+      "n": 15,
+      "ours_exact": 8,
+      "baseline_exact": 10,
+      "b_ours_only": 2,
+      "c_baseline_only": 4,
+      "mcnemar_exact_two_sided_p": 0.6875
+    }
+  },
+  "paired_official_trained_qwen30b": {
+    "n": 15,
+    "ours_exact": 8,
+    "baseline_exact": 10,
+    "b_ours_only": 2,
+    "c_baseline_only": 4,
+    "mcnemar_exact_two_sided_p": 0.6875
+  },
+  "official_trained_qwen30b_reference": {
+    "n": 15,
+    "completed": 14,
+    "errors": 1,
+    "exact_count": 10,
+    "exact_rate": 0.6666666666666666,
+    "score_sum": 10.5625,
+    "mean_score": 0.7041666666666667
+  },
+  "cost": {
+    "openrouter_usd": 0.0,
+    "runpod_listed_hourly_usd": 2.99,
+    "runpod_listed_runtime_cost_usd": 5.450227943626737,
+    "runtime_s": 6562.147356875001,
+    "runpod_actual_balance_delta_usd": null,
+    "runpod_raw_balance_delta_usd": -4.6769510075,
+    "runpod_billing_export": {
+      "captured_utc": "2026-07-20T15:49:20+00:00",
+      "pod_id": "lkk7sgyqzda9p5",
+      "request_scope": {
+        "grouping": "podId",
+        "bucketSize": "day",
+        "startTime": "2026-07-19T00:00:00Z",
+        "endTime": "2026-07-20T23:59:59Z"
+      },
+      "billing_rows": [
+        {
+          "amount": 5.470828904071823,
+          "timeBilledMs": 6562425,
+          "diskSpaceBilledGB": 1440,
+          "podId": "lkk7sgyqzda9p5",
+          "time": "2026-07-19 00:00:00"
+        }
+      ],
+      "status": "finalized_provider_export",
+      "aggregate": {
+        "amount_usd": 5.470828904071823,
+        "time_billed_ms": 6562425,
+        "time_billed_s": 6562.425
+      },
+      "wrapper_runtime_s": 6562.147356875001,
+      "coverage_fraction_of_wrapper": 1.0000423097973727,
+      "interpretation": "The refreshed provider export covers the complete wrapper interval (the 0.278-second excess is billing-bucket rounding). Treat $5.470829 as finalized actual infrastructure spend while retaining the $5.450228 creation-to-cleanup listed-rate estimate as the protocol-comparison quantity."
+    },
+    "cost_scope": "Creation-to-cleanup listed-rate estimate plus account-balance delta when available; token costs are unavailable under self-hosted official streaming transport."
+  },
+  "canary_gate": {
+    "passed": true,
+    "n": 3,
+    "missing": [],
+    "errors": [],
+    "empty_outputs": [],
+    "invalid_error_outputs": [],
+    "long_row_present": true,
+    "accuracy_not_used": true
+  },
+  "scale_decision": "expand: preregistered canary gate passed",
+  "row_diagnostics": [
+    {
+      "example_id": "210020009",
+      "group": "counting",
+      "length": 1024,
+      "gold": 1,
+      "prediction": "1",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 27.987,
+      "error": ""
+    },
+    {
+      "example_id": "212020028",
+      "group": "timeline",
+      "length": 4096,
+      "gold": 2,
+      "prediction": "The dataset contains 7 negative reviews and 2 positive reviews.",
+      "strict_exact": false,
+      "failure_mode": "latent_gold_output_contract_failure",
+      "detected_task": "classification",
+      "call_count": 2,
+      "execution_time_s": 15.737,
+      "error": ""
+    },
+    {
+      "example_id": "218020061",
+      "group": "user",
+      "length": 262144,
+      "gold": 39309,
+      "prediction": "User: 91612",
+      "strict_exact": false,
+      "failure_mode": "semantic_or_aggregation_error",
+      "detected_task": "qa",
+      "call_count": 60,
+      "execution_time_s": 417.929,
+      "error": ""
+    },
+    {
+      "example_id": "210020033",
+      "group": "counting",
+      "length": 1024,
+      "gold": 0,
+      "prediction": "0",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 42.718,
+      "error": ""
+    },
+    {
+      "example_id": "412040009",
+      "group": "counting",
+      "length": 4096,
+      "gold": "True",
+      "prediction": "No result produced.",
+      "strict_exact": false,
+      "failure_mode": "semantic_or_aggregation_error",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 37.532,
+      "error": ""
+    },
+    {
+      "example_id": "512050034",
+      "group": "counting",
+      "length": 4096,
+      "gold": "more common than",
+      "prediction": "more common than",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 38.035,
+      "error": ""
+    },
+    {
+      "example_id": "218020026",
+      "group": "counting",
+      "length": 262144,
+      "gold": "more common than",
+      "prediction": "more common than",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 157,
+      "execution_time_s": 1259.221,
+      "error": ""
+    },
+    {
+      "example_id": "210020017",
+      "group": "timeline",
+      "length": 1024,
+      "gold": "2023-06-29 00:00:00",
+      "prediction": "06/29/2023",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 20.598,
+      "error": ""
+    },
+    {
+      "example_id": "210020029",
+      "group": "timeline",
+      "length": 1024,
+      "gold": "2025-03-03 00:00:00",
+      "prediction": "03/03/2025",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 13.773,
+      "error": ""
+    },
+    {
+      "example_id": "218020038",
+      "group": "timeline",
+      "length": 262144,
+      "gold": "2024-12-06 00:00:00",
+      "prediction": "",
+      "strict_exact": false,
+      "failure_mode": "timeout_or_runtime_failure",
+      "detected_task": null,
+      "call_count": 0,
+      "execution_time_s": 0.0,
+      "error": "TimeoutError: lambda_rlm timed out after 1800s on example 218020038"
+    },
+    {
+      "example_id": "418040042",
+      "group": "timeline",
+      "length": 262144,
+      "gold": "more common than",
+      "prediction": "The text is a dataset of 5525 true/false claims, each asserting a definition or property of a word/concept, with metadata for tracking.",
+      "strict_exact": false,
+      "failure_mode": "semantic_or_aggregation_error",
+      "detected_task": "classification",
+      "call_count": 44,
+      "execution_time_s": 446.494,
+      "error": ""
+    },
+    {
+      "example_id": "310030013",
+      "group": "user",
+      "length": 1024,
+      "gold": "Business",
+      "prediction": "No further questions were provided, but the above represents the exact distribution of categories across the six articles.",
+      "strict_exact": false,
+      "failure_mode": "latent_gold_output_contract_failure",
+      "detected_task": "extraction",
+      "call_count": 2,
+      "execution_time_s": 34.289,
+      "error": ""
+    },
+    {
+      "example_id": "312030051",
+      "group": "user",
+      "length": 4096,
+      "gold": 22165,
+      "prediction": "22165",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 46.087,
+      "error": ""
+    },
+    {
+      "example_id": "312030020",
+      "group": "user",
+      "length": 4096,
+      "gold": 16226,
+      "prediction": "16226",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 48.918,
+      "error": ""
+    },
+    {
+      "example_id": "318030064",
+      "group": "user",
+      "length": 262144,
+      "gold": "more common than",
+      "prediction": "",
+      "strict_exact": false,
+      "failure_mode": "timeout_or_runtime_failure",
+      "detected_task": null,
+      "call_count": 0,
+      "execution_time_s": 0.0,
+      "error": "TimeoutError: lambda_rlm timed out after 1800s on example 318030064"
+    }
+  ]
+}

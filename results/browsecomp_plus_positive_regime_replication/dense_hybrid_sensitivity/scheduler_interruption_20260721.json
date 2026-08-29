@@ -1,0 +1,19 @@
+{
+  "study_id": "browsecomp_plus_n49_dense_hybrid_sensitivity_v1",
+  "event": "serial_embedding_scheduler_interrupted_by_operator",
+  "chronology": "after retrieval plans 1-4 were durably written; during a rank-5 document embedding response; before a rank-5 plan was written; before full answer generation; before semantic judging",
+  "reason": "Five independent embedding requests per rank were taking roughly four to five minutes serially. The run was stopped to apply the outcome-invariant parallel scheduling amendment.",
+  "interrupted_rank": 5,
+  "completed_plan_ranks_before_interruption": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "answer_generation_cells_present_before_interruption": 2,
+  "answer_generation_cells_note": "The two cells are the bounded rank-1 preflight completed before the full expansion.",
+  "gpu_pod_created_by_interrupted_episode": false,
+  "semantic_scores_inspected_for_this_sensitivity_before_amendment": false,
+  "original_n49_scores_already_visible_when_study_was_designed": true,
+  "evidence_tier": "post_hoc_sensitivity_only"
+}

@@ -1,0 +1,6 @@
+method,n,exact,exact_rate,mean_score,cost_usd,errors,cost_per_exact_usd
+slm_qparsed_typed,45,36,0.8,0.837016,0.416415,0,0.011567
+direct_gemini25,45,21,0.466667,0.548698,1.02459,0,0.04879
+standard_rlm_gemini25,45,27,0.6,0.623436,1.001014,0,0.037075
+standard_rlm_gpt5,45,23,0.511111,0.580642,2.442035,15,0.106175
+standard_rlm_gpt56_luna,45,26,0.577778,0.628504,3.965806,2,0.152531

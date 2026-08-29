@@ -1,0 +1,5 @@
+method,model,n,exact_count,exact_rate,mean_score,cost_usd,cost_per_exact_usd,errors
+slm_qparsed_typed,google/gemma-4-26b-a4b-it,45,36,0.8,0.837016,0.416415,0.011567,0
+direct_gemini25,google/gemini-2.5-flash,45,21,0.466667,0.548698,1.02459,0.04879,0
+standard_rlm_gemini25,google/gemini-2.5-flash,45,27,0.6,0.623436,1.001014,0.037075,0
+standard_rlm_gpt5,openai/gpt-5,45,23,0.511111,0.580642,2.442035,0.106175,15

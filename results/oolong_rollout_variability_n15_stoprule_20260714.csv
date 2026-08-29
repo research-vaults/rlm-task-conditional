@@ -1,0 +1,6 @@
+source,n,exact_count,exact_rate,mean_score,cost_usd,errors,latency_s
+base_slm,15,12,0.8,0.86582,0.082004,0,0.0
+base_direct,15,5,0.333333,0.4291,0.1913399,0,26.551
+base_rlm,15,6,0.4,0.578127,0.934455,0,0.0
+direct_repeat_full_n15,15,5,0.333333,0.4291,0.1913399,0,34.141
+rlm_repeat_stoprule_n3,3,0,0.0,0.0,0.0008796,2,4.791

@@ -1,0 +1,52 @@
+{
+  "run_id": "tmixed_current_contract_n30_20260714",
+  "created_utc": "20260714T175947Z",
+  "n": 30,
+  "models": {
+    "direct": "google/gemini-2.5-flash",
+    "rlm": "google/gemini-2.5-flash"
+  },
+  "args": {
+    "n": 30,
+    "offset": 0,
+    "run_id": "tmixed_current_contract_n30_20260714",
+    "direct_model": "google/gemini-2.5-flash",
+    "rlm_model": "google/gemini-2.5-flash",
+    "max_iterations": 6,
+    "max_depth": 1,
+    "timeout_seconds": 120.0,
+    "max_budget": 0.15,
+    "methods": "direct_gemini,rlm_content_json_contract",
+    "manifest": "results/tmixed_current_contract_n30_manifest_20260714.json"
+  },
+  "totals": {
+    "direct_gemini": {
+      "n": 30,
+      "correct": 28,
+      "accuracy": 0.9333333333333333,
+      "minus1": 0,
+      "minus1_rate": 0.0,
+      "finalized": 30,
+      "cost_usd": 0.0223092,
+      "cost_per_example": 0.0007436400000000001
+    },
+    "rlm_content_json_contract": {
+      "n": 30,
+      "correct": 18,
+      "accuracy": 0.6,
+      "minus1": 2,
+      "minus1_rate": 0.06666666666666667,
+      "finalized": 28,
+      "cost_usd": 0.10892292999999997,
+      "cost_per_example": 0.0036307643333333326
+    }
+  },
+  "files": {
+    "csv": "./results/tmixed_current_contract_n30_20260714.csv",
+    "model_calls": "./results/model_calls_tmixed_current_contract_n30_20260714.jsonl",
+    "model_io": "./results/model_io_tmixed_current_contract_n30_20260714.jsonl",
+    "trajectories": "./results/trajectories_tmixed_current_contract_n30_20260714.jsonl",
+    "summary": "./results/tmixed_current_contract_n30_20260714_summary.json"
+  },
+  "interpretation_boundary": "This deterministic stable-generator N=30 current-contract extension is the active paper-facing T-MIXED direct-vs-repaired-RLM comparison. The earlier N=20 probe remains the mechanism evidence isolating the old final-answer contract failure."
+}

@@ -1,0 +1,150 @@
+{
+  "analysis_contract": "all 59 untouched rows were frozen; score-blind execution reached the predeclared three-consecutive-error stability stop at rank 49; ranks 1-49 and every failure are retained, with no score-visible continuation",
+  "attempted_n": 49,
+  "cost": {
+    "active_runtime_routes_total_usd": 17.251101091019745,
+    "generation_creation_to_cleanup_listed_rate_usd": 18.02586056721579,
+    "generation_plus_judge_listed_rate_usd": 18.57961365834776,
+    "generation_pod_listed_rate_usd_per_hour": 4.39,
+    "judge_creation_to_cleanup_listed_rate_usd": 0.5537530911319702,
+    "openrouter_usd": 0.0
+  },
+  "fully_generated_ranks": 48,
+  "judge_attempted": 137,
+  "judge_format_failures_scored_incorrect": 0,
+  "judge_parsed": 137,
+  "judge_revision": "01e5b3ee840d3a9e0b0b493c593e85398a30ef75",
+  "methods": {
+    "bm25_qwen36": {
+      "active_runtime_listed_rate_usd": 0.3208268691483763,
+      "attempted": 49,
+      "completed": 46,
+      "normalized_contains": 21,
+      "rlm_code_blocks": 0,
+      "rlm_iterations": 0,
+      "semantic_accuracy": 0.42857142857142855,
+      "semantic_correct": 21,
+      "strict_exact": 19,
+      "wall_seconds_max": 22.004534917003184,
+      "wall_seconds_median": 3.9869370839878684,
+      "wall_seconds_total": 263.0926489599442,
+      "wilson_95": [
+        0.30023319078881594,
+        0.5672950690998263
+      ]
+    },
+    "standard_rlm_qwen36": {
+      "active_runtime_listed_rate_usd": 15.045867653119638,
+      "attempted": 49,
+      "completed": 43,
+      "normalized_contains": 32,
+      "rlm_code_blocks": 697,
+      "rlm_iterations": 710,
+      "semantic_accuracy": 0.7142857142857143,
+      "semantic_correct": 35,
+      "strict_exact": 28,
+      "wall_seconds_max": 2694.3728635000007,
+      "wall_seconds_median": 69.91797316599695,
+      "wall_seconds_total": 12338.29693649902,
+      "wilson_95": [
+        0.575911164922199,
+        0.8215040554118739
+      ]
+    },
+    "text_decompose_qwen36": {
+      "active_runtime_listed_rate_usd": 1.884406568751732,
+      "attempted": 49,
+      "completed": 48,
+      "normalized_contains": 22,
+      "rlm_code_blocks": 0,
+      "rlm_iterations": 0,
+      "semantic_accuracy": 0.42857142857142855,
+      "semantic_correct": 21,
+      "strict_exact": 18,
+      "wall_seconds_max": 65.4533726669979,
+      "wall_seconds_median": 29.161358750003274,
+      "wall_seconds_total": 1545.2992363339945,
+      "wilson_95": [
+        0.30023319078881594,
+        0.5672950690998263
+      ]
+    }
+  },
+  "paired": {
+    "bm25_qwen36__vs__text_decompose_qwen36": {
+      "difference": 0.0,
+      "left_only": 4,
+      "mcnemar_exact_two_sided_p": 1.0,
+      "n": 49,
+      "paired_bootstrap_95": [
+        -0.12244897959183673,
+        0.12244897959183673
+      ],
+      "right_only": 4
+    },
+    "standard_rlm_qwen36__vs__bm25_qwen36": {
+      "difference": 0.28571428571428575,
+      "left_only": 19,
+      "mcnemar_exact_two_sided_p": 0.006610751152038574,
+      "n": 49,
+      "paired_bootstrap_95": [
+        0.10204081632653061,
+        0.46938775510204084
+      ],
+      "right_only": 5
+    },
+    "standard_rlm_qwen36__vs__text_decompose_qwen36": {
+      "difference": 0.28571428571428575,
+      "left_only": 17,
+      "mcnemar_exact_two_sided_p": 0.0025768280029296875,
+      "n": 49,
+      "paired_bootstrap_95": [
+        0.12244897959183673,
+        0.4489795918367347
+      ],
+      "right_only": 3
+    }
+  },
+  "planned_n": 59,
+  "pooled_descriptive_n129": {
+    "methods": {
+      "bm25_qwen36": {
+        "semantic_accuracy": 0.46511627906976744,
+        "semantic_correct": 60,
+        "wilson_95": [
+          0.38130031118129837,
+          0.550949755327321
+        ]
+      },
+      "standard_rlm_qwen36": {
+        "semantic_accuracy": 0.689922480620155,
+        "semantic_correct": 89,
+        "wilson_95": [
+          0.6055856295845823,
+          0.7632751194240455
+        ]
+      },
+      "text_decompose_qwen36": {
+        "semantic_accuracy": 0.5348837209302325,
+        "semantic_correct": 69,
+        "wilson_95": [
+          0.4490502446726789,
+          0.6186996888187015
+        ]
+      }
+    },
+    "n": 129,
+    "scope": "secondary synthesis; original N=80 and untouched replication N=49 retain separate provenance"
+  },
+  "post_stop_score_visibility": false,
+  "semantic_judge": "google/gemma-4-26B-A4B-it",
+  "single_execution_episode": true,
+  "source_hashes": {
+    "compact": "abae16fb8a9dfbbce3f8c69c127112fc046dd19ebe101d74299e6de41142a2a4",
+    "generation_summary": "737f1d02c5b49fe815e34196107128adacb9338c667c42f2fa3ecc667644c995",
+    "judge": "cbbc38bd09543510576c60b0b17186e2e6989bdcd3a6bec0845a1cd42519babf",
+    "judge_summary": "fd0eacc9f3cc950ffa72a7615683a8fe062a9049d491d6c62971231264c6f22f"
+  },
+  "study_id": "browsecomp_plus_untouched_replication_n59_v1",
+  "terminal_rank": 49
+}

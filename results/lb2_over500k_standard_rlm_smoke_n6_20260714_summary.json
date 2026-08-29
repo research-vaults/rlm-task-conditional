@@ -1,0 +1,107 @@
+{
+  "run_type": "lb2_over500k_standard_rlm_smoke",
+  "created_utc": "2026-07-14T16:58:08.397627+00:00",
+  "run_id": "lb2_over500k_standard_rlm_smoke_n6_20260714",
+  "source_results": "results/lb2_over500k_standard_rlm_smoke_n6_20260714.jsonl",
+  "manifest": {
+    "path": "results/lb2_over500k_balanced_n30_manifest_20260714.json",
+    "n": 30,
+    "dataset": "zai-org/LongBench-v2",
+    "split": "train",
+    "seed": 20260714,
+    "selection": "one shortest >500k row per domain from balanced N=30 manifest"
+  },
+  "model": "google/gemini-2.5-flash",
+  "rlm_config": {
+    "backend": "openrouter",
+    "max_depth": 1,
+    "max_iterations": 12,
+    "max_budget": 0.75,
+    "timeout_seconds": 480,
+    "stop_after_errors": 3
+  },
+  "n": 6,
+  "correct": 1,
+  "accuracy": 0.16666666666666666,
+  "errors": 1,
+  "total_cost_usd": 0.469751,
+  "cost_per_example_usd": 0.078292,
+  "by_domain": {
+    "Code Repository Understanding": {
+      "n": 1,
+      "correct": 0,
+      "errors": 0,
+      "predictions": [
+        "C"
+      ],
+      "gold": [
+        "D"
+      ],
+      "cost_usd": 0.108711
+    },
+    "Long In-context Learning": {
+      "n": 1,
+      "correct": 0,
+      "errors": 1,
+      "predictions": [
+        "?"
+      ],
+      "gold": [
+        "C"
+      ],
+      "cost_usd": 0.0
+    },
+    "Long Structured Data Understanding": {
+      "n": 1,
+      "correct": 0,
+      "errors": 0,
+      "predictions": [
+        "A"
+      ],
+      "gold": [
+        "B"
+      ],
+      "cost_usd": 0.04539
+    },
+    "Long-dialogue History Understanding": {
+      "n": 1,
+      "correct": 0,
+      "errors": 0,
+      "predictions": [
+        "D"
+      ],
+      "gold": [
+        "B"
+      ],
+      "cost_usd": 0.045459
+    },
+    "Multi-Document QA": {
+      "n": 1,
+      "correct": 0,
+      "errors": 0,
+      "predictions": [
+        "A"
+      ],
+      "gold": [
+        "C"
+      ],
+      "cost_usd": 0.037585
+    },
+    "Single-Document QA": {
+      "n": 1,
+      "correct": 1,
+      "errors": 0,
+      "predictions": [
+        "C"
+      ],
+      "gold": [
+        "C"
+      ],
+      "cost_usd": 0.232605
+    }
+  },
+  "error_types": {
+    "TimeoutError": 1
+  },
+  "paper_framing": "Bounded same-row feasibility smoke for standard rlms on the balanced LB2 >500k manifest. This is not yet a stable N=30 ranking; scale only if scaffold-level failures and cost are acceptable."
+}

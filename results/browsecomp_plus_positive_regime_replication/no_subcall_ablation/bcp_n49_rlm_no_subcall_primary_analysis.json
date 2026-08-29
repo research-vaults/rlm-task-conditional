@@ -1,0 +1,101 @@
+{
+  "attempted_prefix": {
+    "difference": -0.13333333333333341,
+    "interpretation": "mechanism sensitivity before the stability stop; descriptive and retrospective",
+    "mcnemar_exact_two_sided_p": 0.21875,
+    "n": 30,
+    "no_subcall_correct": 20,
+    "no_subcall_only": 1,
+    "paired_bootstrap_95": [
+      -0.3,
+      0.0
+    ],
+    "standard_correct": 24,
+    "standard_only": 5
+  },
+  "cost": {
+    "generation_creation_to_cleanup_listed_rate_usd": 4.705755968460083,
+    "judge_openrouter_provider_account_delta_usd": 0.0024352899999939837,
+    "openrouter_usd": 0.0024352899999939837
+  },
+  "design": "retrospective matched-row matched-cap component ablation",
+  "methods": {
+    "rlm_no_subcall_qwen36": {
+      "accuracy": 0.40816326530612246,
+      "accuracy_given_completion": 0.8333333333333334,
+      "active_runtime_listed_rate_usd": 4.326874017568147,
+      "code_blocks": 295,
+      "completed": 24,
+      "disabled_subcall_attempts": 0,
+      "root_iterations": 318,
+      "semantic_correct": 20,
+      "wall_seconds_max": 1200.3523928749782,
+      "wall_seconds_median": 20.139241791999666,
+      "wall_seconds_total": 3548.2338185069093,
+      "wilson_95": [
+        0.28215238520386865,
+        0.5475268060815286
+      ]
+    },
+    "standard_rlm_qwen36": {
+      "accuracy": 0.7142857142857143,
+      "accuracy_given_completion": 0.813953488372093,
+      "active_runtime_listed_rate_usd": 15.045867653119638,
+      "completed": 43,
+      "semantic_correct": 35,
+      "wall_seconds_max": 2694.3728635000007,
+      "wall_seconds_median": 69.91797316599695,
+      "wall_seconds_total": 12338.29693649902,
+      "wilson_95": [
+        0.575911164922199,
+        0.8215040554118739
+      ]
+    }
+  },
+  "n": 49,
+  "nonclaims": [
+    "not official SRLM",
+    "not a prospective dataset replication",
+    "not exact realized-dollar matching",
+    "does not by itself identify recursion-only causality"
+  ],
+  "paired": {
+    "common_completed_correctness": {
+      "n": 23,
+      "no_subcall_accuracy": 0.8260869565217391,
+      "no_subcall_correct": 19,
+      "standard_accuracy": 0.9130434782608695,
+      "standard_correct": 21
+    },
+    "completion_no_subcall_minus_standard": {
+      "difference": -0.3877551020408163,
+      "mcnemar_exact_two_sided_p": 2.09808349609375e-05,
+      "no_subcall_only": 1,
+      "paired_bootstrap_95": [
+        -0.5306122448979592,
+        -0.24489795918367346
+      ],
+      "standard_only": 20
+    },
+    "no_subcall_minus_standard": {
+      "difference": -0.30612244897959184,
+      "mcnemar_exact_two_sided_p": 0.000274658203125,
+      "no_subcall_only": 1,
+      "paired_bootstrap_95": [
+        -0.4489795918367347,
+        -0.16326530612244897
+      ],
+      "standard_only": 16
+    }
+  },
+  "source_hashes": {
+    "compact": "06de03657e0bc27264a0c3425d9bf23863736f872b7bf7f345481e8a5599b473",
+    "generation_summary": "c286dcbc7a0e82aa87bdcec8c893be6548112ae83c825634d0c6983f376c3ee7",
+    "judge": "05d1c4afb22633172a6c7af14ea8ac95de366e78ccf52bfbd3fd7e0774e2e603",
+    "judge_summary": "a830f25ddcc07cd3ab56813055c9de8038769dc2bc482e51922fbb46d597357c",
+    "paired_arm_judge": "05d1c4afb22633172a6c7af14ea8ac95de366e78ccf52bfbd3fd7e0774e2e603",
+    "protocol": "f7aeafc93f785703c41a511cf1ff59a32ebb6f1d2174be27f05ac7d7f760cc81",
+    "standard_compact": "abae16fb8a9dfbbce3f8c69c127112fc046dd19ebe101d74299e6de41142a2a4"
+  },
+  "study_id": "browsecomp_plus_n49_rlm_no_subcall_ablation_v1"
+}

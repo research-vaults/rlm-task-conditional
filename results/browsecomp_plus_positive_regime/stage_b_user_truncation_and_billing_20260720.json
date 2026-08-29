@@ -1,0 +1,41 @@
+{
+  "study_id": "browsecomp_plus_positive_regime_v1_3_stageb",
+  "status": "user_requested_stop_after_a_long_running_round",
+  "primary_analysis_contract": "frozen ranks 1-37, all three methods attempted; failed generations count incorrect",
+  "planned_ranks": [
+    1,
+    80
+  ],
+  "fully_paired_ranks": [
+    1,
+    37
+  ],
+  "partial_rank_38": {
+    "standard_rlm_qwen36": "cancelled during user-requested stop",
+    "bm25_qwen36": "completed",
+    "text_decompose_qwen36": "not attempted"
+  },
+  "directional_stopping": false,
+  "stop_reason": "The user requested completion and review of the current action round; no interim accuracy was used to select the stop point.",
+  "stage_b_restricted_gzip_sha256": "608abb1a60b6ada9dc5f1b6b98e9e7e013a69ed060f132b08e9799fb96731c96",
+  "semantic_judge_output_sha256": "42c4781ea93b2cf5d2db3d941673c2daec036c740bc8fe8b6eaa63023efca2ac",
+  "runpod_cleanup": {
+    "generation_pod_id": "jq315kfsisiwk4",
+    "generation_pod_delete_http_status": 204,
+    "judge_pod_id": "7jgo2yaidzu3ub",
+    "judge_pod_delete_http_status": 204,
+    "active_project_pods_after_cleanup": 0
+  },
+  "billing_usd": {
+    "openrouter": 0.0,
+    "failed_h100_provider_export": 0.4054053651634604,
+    "stage_a_h200_provider_export": 6.471934544155374,
+    "stage_b_h200_provider_export_2026_07_20": 5.2756499404786155,
+    "generation_provider_export_subtotal": 12.15298984979745,
+    "generation_listed_rate_creation_to_stop_estimate": 14.558426469635,
+    "judge_provider_export": null,
+    "judge_listed_rate_estimate": 0.33433934999981324,
+    "conservative_total_listed_rate_estimate": 14.892765819634814,
+    "note": "The provider billing export can lag pod deletion. The listed-rate creation-to-stop estimate is retained as the conservative attempted-compute total."
+  }
+}

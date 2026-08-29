@@ -1,0 +1,44 @@
+{
+  "benchmark_plaintext_printed": false,
+  "checks": {
+    "all_rows_have_1000_documents": true,
+    "base_runner_hash_locked": true,
+    "disk_free_at_least_6_gib": true,
+    "document_count_loaded": true,
+    "manifest_hash_locked": true,
+    "no_preexisting_project_pod": true,
+    "official_rlm_commit_locked": true,
+    "query_count_45": true,
+    "row_count_45": true
+  },
+  "counts": {
+    "disk_free_bytes": 14439321600,
+    "rows": 45,
+    "unique_documents_loaded": 36557,
+    "unique_query_ids": 45
+  },
+  "created_utc": "2026-07-23T18:30:52.091306+00:00",
+  "hashes": {
+    "base_runner": "ef2cf760cf0b41d707a4feca089efe33051db6b261ab450dac4df6cd8ee6be0c",
+    "encrypted_query_shard": "70cc3a6781693bb013c6855f231d15159222dddf826eb19947f6f85fcabccd4e",
+    "manifest": "579804550bb5f5b8f90a756eebd0fb9f401fe213cae56e627c12937aaba83130",
+    "manifest_integrity_report": "dbc387d7944bc7560192c332257ad1f2260356918e9ed7e97dcb26fcda23c564",
+    "protocol": "b0e4e6d29a1452042294a078bd6109705d6ce6feff9d091a1dc20d9fb9e03f08",
+    "wrapper": "a49e16a52e64ebdd954b140dce0777e53cfebb793bc9486617f4a873463f8536"
+  },
+  "model": {
+    "official_rlm_commit": "72d6940142ddfb84ee6be573dc999a37e633e671",
+    "repo": "Qwen/Qwen3.6-35B-A3B-FP8",
+    "revision": "95a723d08a9490559dae23d0cff1d9466213d989",
+    "served_model": "qwen36-35b-a3b-fp8",
+    "vllm_image": "vllm/vllm-openai@sha256:e4f88a835143cd22aee2397a26ec6bb80b3a4a6fe0c882bcbc63822904766089"
+  },
+  "model_output_created": false,
+  "openrouter_account": {
+    "available": true,
+    "total_credits": 420,
+    "total_usage": 411.257222871
+  },
+  "preexisting_pods": [],
+  "study_id": "browsecomp_plus_shard1_fixed_n45_v1"
+}

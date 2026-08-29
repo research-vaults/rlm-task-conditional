@@ -1,0 +1,166 @@
+{
+  "run_type": "lb2_over500k_retrieval_rerank",
+  "created_utc": "2026-07-14T09:03:03.063010+00:00",
+  "manifest": {
+    "path": "./results/lb2_over500k_balanced_n30_manifest_20260714.json",
+    "n": 30,
+    "dataset": "zai-org/LongBench-v2",
+    "min_context_chars": 500000,
+    "n_per_domain": 5,
+    "seed": 20260714
+  },
+  "models": {
+    "small": "google/gemma-4-26b-a4b-it",
+    "strong": "google/gemini-2.5-flash"
+  },
+  "retrieval_config": {
+    "chunk_chars": 2200,
+    "overlap_chars": 200,
+    "bm25_candidates": 24,
+    "final_chunks": 8,
+    "max_retrieved_chars": 18000
+  },
+  "methods": {
+    "bm25_gemma_vote": {
+      "n": 30,
+      "correct": 8,
+      "accuracy": 0.26666666666666666,
+      "total_cost_usd": 0.035521620000000004,
+      "cost_per_example_usd": 0.0011840540000000001,
+      "errors": 0
+    },
+    "bm25_gemini_vote": {
+      "n": 30,
+      "correct": 11,
+      "accuracy": 0.36666666666666664,
+      "total_cost_usd": 0.1587545,
+      "cost_per_example_usd": 0.005291816666666667,
+      "errors": 0
+    },
+    "bm25_gemma_rerank_gemini_vote": {
+      "n": 30,
+      "correct": 12,
+      "accuracy": 0.4,
+      "total_cost_usd": 0.18627556,
+      "cost_per_example_usd": 0.006209185333333334,
+      "errors": 0
+    }
+  },
+  "by_domain": {
+    "Code Repository Understanding": {
+      "n": 5,
+      "context_chars_min": 915974,
+      "context_chars_max": 11918963,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 3,
+          "accuracy": 0.6
+        },
+        "bm25_gemini_vote": {
+          "correct": 3,
+          "accuracy": 0.6
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 3,
+          "accuracy": 0.6
+        }
+      }
+    },
+    "Long In-context Learning": {
+      "n": 5,
+      "context_chars_min": 554114,
+      "context_chars_max": 2531634,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 1,
+          "accuracy": 0.2
+        },
+        "bm25_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4
+        }
+      }
+    },
+    "Long Structured Data Understanding": {
+      "n": 5,
+      "context_chars_min": 550914,
+      "context_chars_max": 9781854,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "bm25_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4
+        }
+      }
+    },
+    "Long-dialogue History Understanding": {
+      "n": 5,
+      "context_chars_min": 525209,
+      "context_chars_max": 566401,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "bm25_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2
+        }
+      }
+    },
+    "Multi-Document QA": {
+      "n": 5,
+      "context_chars_min": 546183,
+      "context_chars_max": 2261771,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 3,
+          "accuracy": 0.6
+        },
+        "bm25_gemini_vote": {
+          "correct": 2,
+          "accuracy": 0.4
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 3,
+          "accuracy": 0.6
+        }
+      }
+    },
+    "Single-Document QA": {
+      "n": 5,
+      "context_chars_min": 620252,
+      "context_chars_max": 829592,
+      "methods": {
+        "bm25_gemma_vote": {
+          "correct": 1,
+          "accuracy": 0.2
+        },
+        "bm25_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "correct": 1,
+          "accuracy": 0.2
+        }
+      }
+    }
+  },
+  "interpretation": "Focused full-LongBench-v2 >500k diagnostic. This tests retrieval/SLM-reader alternatives in an RLM-favorable over-window regime; it is not a full leaderboard or an official RLM-family reproduction."
+}

@@ -1,0 +1,67 @@
+{
+  "attempted_cells": 135,
+  "cost": {
+    "generation_runpod_usd": 10.120193494327776,
+    "primary_judge_runpod_usd": 0.3383131688366448,
+    "second_model_provider_delta_usd": 0.4968612499999949,
+    "second_model_reported_openrouter_usd": 0.5908925
+  },
+  "endpoint": "prospectively frozen disjoint official shard-1 fixed N=45",
+  "execution_episode_cells": {
+    "1": 107,
+    "2": 28
+  },
+  "generation_failures_scored_incorrect": 6,
+  "manifest_rows": 45,
+  "primary_pairs": {
+    "rlm_vs_bm25": {
+      "difference": 0.26666666666666666,
+      "left_only": 15,
+      "mcnemar_exact_two_sided_p": 0.007537841796875,
+      "right_only": 3
+    },
+    "rlm_vs_text": {
+      "difference": 0.08888888888888889,
+      "left_only": 9,
+      "mcnemar_exact_two_sided_p": 0.4239501953125,
+      "right_only": 5
+    },
+    "text_vs_bm25": {
+      "difference": 0.17777777777777778,
+      "left_only": 9,
+      "mcnemar_exact_two_sided_p": 0.021484375,
+      "right_only": 1
+    }
+  },
+  "primary_semantic_correct": {
+    "bm25_qwen36": 21,
+    "standard_rlm_qwen36": 33,
+    "text_decompose_qwen36": 29
+  },
+  "second_model_semantic_correct": {
+    "bm25_qwen36": 21,
+    "standard_rlm_qwen36": 33,
+    "text_decompose_qwen36": 28
+  },
+  "source_hashes": {
+    "compact": "ad5555025d4e3c3ba728c008edbdad261a9e379e8e6d3ccc8aaf2d1602b39cee",
+    "compact_integrity": "e6902cc970a27d5b58f6badfe558297d670f739f0146617203615ad81d6ec294",
+    "generation_episode_summary": "e2d28527df1e199db34fe2e49688b12d4eafe63bac6ef99010826ffda5c7a205",
+    "generation_recovery_summary": "3af375ab344fff7e5784c03dceacc95dba4bc0e8969d6be2376b61c9f367649f",
+    "manifest": "579804550bb5f5b8f90a756eebd0fb9f401fe213cae56e627c12937aaba83130",
+    "primary_analysis": "aa68736df7214ce78d611af016f1d2f4ba9fce85bd0eae5a69a7cba517aaa10b",
+    "primary_judge": "1922cf486fcd5582b6dc8bd61077947a1da8d8db845f2380df601092e97271cb",
+    "primary_judge_summary": "ca59c60554273614fb247004e9327f53181bc29d7a1e2298652331ab105874ee",
+    "second_analysis": "6bc95001640481af707b2da966eb5733375e1658ee8a9438995823343e20a780",
+    "second_judge": "673897875b17cbaec2eabc7f4b87ffca3125009dc3c93e2b321506b04720c6dc",
+    "second_judge_summary": "740b567d278fb11d480a281fe0498d7b128fe1aba4a73509a25a29b96dfb10c0"
+  },
+  "status": "PASS",
+  "study_id": "browsecomp_plus_shard1_fixed_n45_v1",
+  "successful_generations": 129,
+  "successful_output_agreement": {
+    "cohen_kappa": 0.9831878013814674,
+    "count": 128,
+    "n": 129
+  }
+}

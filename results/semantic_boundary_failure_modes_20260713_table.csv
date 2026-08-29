@@ -1,0 +1,11 @@
+diagnostic,method,n,primary_exact,primary_exact_rate,mean_evidence_f1,cost_usd,missed_gold_evidence,extra_non_gold_evidence,candidate_recall_miss,overcount,undercount,answer_correct,answer_correct_support_wrong
+HotpotQA support facts,tfidf_top2,24,3,0.125,0.436111,0.0,21,19,0,,,0,0
+HotpotQA support facts,llm_generated_lexical_operator,24,8,0.333333,0.609722,0.0195589,16,15,0,,,0,0
+HotpotQA support facts,slm_tfidf_reranker,24,9,0.375,0.7625,0.00158334,14,6,12,,,19,10
+HotpotQA support facts,slm_direct,24,14,0.583333,0.836111,0.00357981,6,7,0,,,22,8
+HotpotQA support facts,llm_direct,24,17,0.708333,0.891667,0.0204255,5,4,0,,,23,6
+Paraphrase semantic counting,literal_operator,24,1,0.041667,0.0,0.0,24,24,,0,23,,
+Paraphrase semantic counting,llm_generated_lexical_operator,24,9,0.375,0.915512,0.0139413,4,11,,11,4,,
+Paraphrase semantic counting,slm_worker_labels,24,18,0.75,0.954609,0.00183708,0,6,,6,0,,
+Paraphrase semantic counting,slm_direct,24,20,0.833333,0.977742,0.00192864,2,3,,3,1,,
+Paraphrase semantic counting,llm_direct,24,9,0.375,0.968782,0.0116279,0,6,,15,0,,

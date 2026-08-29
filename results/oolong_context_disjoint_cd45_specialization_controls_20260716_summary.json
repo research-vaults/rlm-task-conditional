@@ -1,0 +1,137 @@
+{
+  "contract": "No new model/API calls. Reuses stored Gemma SLM row-label predictions from CD-45 and changes only the typed operation family before scoring against the original Oolong gold answer.",
+  "generic_drop_exact_points": 73.333,
+  "interpretation": "wrong_family_rotated and generic_label_route are stress tests, not fair baselines. They show whether the SLM+typed result depends on correct operation-family specialization.",
+  "n": 45,
+  "routes": {
+    "generic_label_route": {
+      "by_group": {
+        "counting": {
+          "exact_count": 0,
+          "mean_score": 0.0,
+          "n": 15
+        },
+        "timeline": {
+          "exact_count": 1,
+          "mean_score": 0.06666666666666667,
+          "n": 15
+        },
+        "user": {
+          "exact_count": 2,
+          "mean_score": 0.13333333333333333,
+          "n": 15
+        }
+      },
+      "errors": 0,
+      "exact_count": 3,
+      "exact_rate": 0.06666666666666667,
+      "mean_score": 0.06666666666666667,
+      "n": 45,
+      "status_counts": {
+        "label_most": 45
+      }
+    },
+    "metadata_oracle": {
+      "by_group": {
+        "counting": {
+          "exact_count": 12,
+          "mean_score": 0.8168709333333334,
+          "n": 15
+        },
+        "timeline": {
+          "exact_count": 11,
+          "mean_score": 0.7775075333333333,
+          "n": 15
+        },
+        "user": {
+          "exact_count": 13,
+          "mean_score": 0.9166666666666666,
+          "n": 15
+        }
+      },
+      "errors": 0,
+      "exact_count": 36,
+      "exact_rate": 0.8,
+      "mean_score": 0.8370150444444444,
+      "n": 45,
+      "status_counts": {
+        "before_after_label_rate": 3,
+        "date_most": 3,
+        "label_compare": 9,
+        "label_least": 6,
+        "label_most": 3,
+        "numeric_label_count": 14,
+        "user_by_label": 3,
+        "user_most": 2,
+        "user_pair_compare": 2
+      }
+    },
+    "question_parsed": {
+      "by_group": {
+        "counting": {
+          "exact_count": 12,
+          "mean_score": 0.8168709333333334,
+          "n": 15
+        },
+        "timeline": {
+          "exact_count": 11,
+          "mean_score": 0.7775075333333333,
+          "n": 15
+        },
+        "user": {
+          "exact_count": 13,
+          "mean_score": 0.9166666666666666,
+          "n": 15
+        }
+      },
+      "errors": 0,
+      "exact_count": 36,
+      "exact_rate": 0.8,
+      "mean_score": 0.8370150444444444,
+      "n": 45,
+      "status_counts": {
+        "before_after_label_rate": 3,
+        "date_most": 3,
+        "label_compare": 9,
+        "label_least": 6,
+        "label_most": 3,
+        "numeric_label_count": 14,
+        "user_by_label": 3,
+        "user_most": 2,
+        "user_pair_compare": 2
+      }
+    },
+    "wrong_family_rotated": {
+      "by_group": {
+        "counting": {
+          "exact_count": 0,
+          "mean_score": 0.0,
+          "n": 15
+        },
+        "timeline": {
+          "exact_count": 2,
+          "mean_score": 0.17750753333333333,
+          "n": 15
+        },
+        "user": {
+          "exact_count": 0,
+          "mean_score": 0.0,
+          "n": 15
+        }
+      },
+      "errors": 0,
+      "exact_count": 2,
+      "exact_rate": 0.044444444444444446,
+      "mean_score": 0.059169177777777776,
+      "n": 45,
+      "status_counts": {
+        "date_most": 15,
+        "numeric_label_count": 12,
+        "unsupported": 3,
+        "user_most": 15
+      }
+    }
+  },
+  "run_id": "oolong_context_disjoint_cd45_specialization_controls_20260716",
+  "specialization_drop_exact_points": 75.556
+}

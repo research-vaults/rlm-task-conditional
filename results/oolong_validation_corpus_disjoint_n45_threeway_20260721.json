@@ -1,0 +1,351 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-21T02:54:46.537110+00:00",
+    "protocol": "protocols/OOLONG_VALIDATION_CORPUS_DISJOINT_N45_20260721.md",
+    "manifest": "results/oolong_validation_corpus_disjoint_n45_manifest_20260721.json",
+    "manifest_sha256": "b1db482b7df676fbf3599a9eb788df56b590617b019441199a355e25a4f3b28c",
+    "n": 45,
+    "clusters": 20,
+    "dataset_split": "validation",
+    "source_corpora": [
+      "spam",
+      "trec_coarse"
+    ],
+    "source_document_identity": "unidentifiable_from_official_schema",
+    "models": {
+      "slm_worker": "google/gemma-4-26b-a4b-it",
+      "direct_and_rlm_controller": "google/gemini-2.5-flash",
+      "rlms": "0.1.3"
+    }
+  },
+  "overall": {
+    "slm_typed": {
+      "n": 45,
+      "exact_count": 35,
+      "exact_rate": 0.7777777777777778,
+      "score_sum": 36.9459,
+      "mean_score": 0.8210200000000001,
+      "cost_usd": 0.312208,
+      "errors": 0,
+      "cost_per_exact_usd": 0.008920228571428572
+    },
+    "direct_controller": {
+      "n": 45,
+      "exact_count": 23,
+      "exact_rate": 0.5111111111111111,
+      "score_sum": 24.857200000000002,
+      "mean_score": 0.5523822222222223,
+      "cost_usd": 0.6584201000000001,
+      "errors": 0,
+      "cost_per_exact_usd": 0.028626960869565222
+    },
+    "standard_rlm": {
+      "n": 45,
+      "exact_count": 28,
+      "exact_rate": 0.6222222222222222,
+      "score_sum": 29.523400000000002,
+      "mean_score": 0.6560755555555556,
+      "cost_usd": 1.1391739999999997,
+      "errors": 0,
+      "cost_per_exact_usd": 0.0406847857142857
+    }
+  },
+  "by_group": {
+    "counting": {
+      "slm_typed": {
+        "n": 15,
+        "exact_count": 10,
+        "exact_rate": 0.6666666666666666,
+        "mean_score": 0.6963933333333333,
+        "cost_usd": 0.10822999999999999
+      },
+      "direct_controller": {
+        "n": 15,
+        "exact_count": 9,
+        "exact_rate": 0.6,
+        "mean_score": 0.6130533333333333,
+        "cost_usd": 0.2116755
+      },
+      "standard_rlm": {
+        "n": 15,
+        "exact_count": 6,
+        "exact_rate": 0.4,
+        "mean_score": 0.45156,
+        "cost_usd": 0.606157
+      }
+    },
+    "timeline": {
+      "slm_typed": {
+        "n": 15,
+        "exact_count": 14,
+        "exact_rate": 0.9333333333333333,
+        "mean_score": 0.9333333333333333,
+        "cost_usd": 0.093078
+      },
+      "direct_controller": {
+        "n": 15,
+        "exact_count": 8,
+        "exact_rate": 0.5333333333333333,
+        "mean_score": 0.5851933333333332,
+        "cost_usd": 0.2312939
+      },
+      "standard_rlm": {
+        "n": 15,
+        "exact_count": 9,
+        "exact_rate": 0.6,
+        "mean_score": 0.65,
+        "cost_usd": 0.355567
+      }
+    },
+    "user": {
+      "slm_typed": {
+        "n": 15,
+        "exact_count": 11,
+        "exact_rate": 0.7333333333333333,
+        "mean_score": 0.8333333333333334,
+        "cost_usd": 0.1109
+      },
+      "direct_controller": {
+        "n": 15,
+        "exact_count": 6,
+        "exact_rate": 0.4,
+        "mean_score": 0.4589,
+        "cost_usd": 0.21545070000000002
+      },
+      "standard_rlm": {
+        "n": 15,
+        "exact_count": 13,
+        "exact_rate": 0.8666666666666667,
+        "mean_score": 0.8666666666666667,
+        "cost_usd": 0.17745
+      }
+    }
+  },
+  "by_length": {
+    "8192": {
+      "slm_typed": {
+        "n": 9,
+        "exact_count": 8,
+        "exact_rate": 0.8888888888888888,
+        "mean_score": 0.8972333333333332,
+        "cost_usd": 0.009303
+      },
+      "direct_controller": {
+        "n": 9,
+        "exact_count": 6,
+        "exact_rate": 0.6666666666666666,
+        "mean_score": 0.6864444444444444,
+        "cost_usd": 0.0211266
+      },
+      "standard_rlm": {
+        "n": 9,
+        "exact_count": 5,
+        "exact_rate": 0.5555555555555556,
+        "mean_score": 0.6408666666666667,
+        "cost_usd": 0.059143
+      }
+    },
+    "16384": {
+      "slm_typed": {
+        "n": 9,
+        "exact_count": 5,
+        "exact_rate": 0.5555555555555556,
+        "mean_score": 0.6800888888888889,
+        "cost_usd": 0.019306
+      },
+      "direct_controller": {
+        "n": 9,
+        "exact_count": 4,
+        "exact_rate": 0.4444444444444444,
+        "mean_score": 0.4642222222222222,
+        "cost_usd": 0.043153699999999996
+      },
+      "standard_rlm": {
+        "n": 9,
+        "exact_count": 5,
+        "exact_rate": 0.5555555555555556,
+        "mean_score": 0.6395111111111111,
+        "cost_usd": 0.13162400000000002
+      }
+    },
+    "32768": {
+      "slm_typed": {
+        "n": 9,
+        "exact_count": 7,
+        "exact_rate": 0.7777777777777778,
+        "mean_score": 0.7777777777777778,
+        "cost_usd": 0.040256
+      },
+      "direct_controller": {
+        "n": 9,
+        "exact_count": 4,
+        "exact_rate": 0.4444444444444444,
+        "mean_score": 0.5746555555555556,
+        "cost_usd": 0.0849999
+      },
+      "standard_rlm": {
+        "n": 9,
+        "exact_count": 6,
+        "exact_rate": 0.6666666666666666,
+        "mean_score": 0.6666666666666666,
+        "cost_usd": 0.4327140000000001
+      }
+    },
+    "65536": {
+      "slm_typed": {
+        "n": 9,
+        "exact_count": 8,
+        "exact_rate": 0.8888888888888888,
+        "mean_score": 0.8888888888888888,
+        "cost_usd": 0.081249
+      },
+      "direct_controller": {
+        "n": 9,
+        "exact_count": 5,
+        "exact_rate": 0.5555555555555556,
+        "mean_score": 0.5773111111111111,
+        "cost_usd": 0.16859589999999997
+      },
+      "standard_rlm": {
+        "n": 9,
+        "exact_count": 5,
+        "exact_rate": 0.5555555555555556,
+        "mean_score": 0.5555555555555556,
+        "cost_usd": 0.192836
+      }
+    },
+    "131072": {
+      "slm_typed": {
+        "n": 9,
+        "exact_count": 7,
+        "exact_rate": 0.7777777777777778,
+        "mean_score": 0.8611111111111112,
+        "cost_usd": 0.16209400000000002
+      },
+      "direct_controller": {
+        "n": 9,
+        "exact_count": 4,
+        "exact_rate": 0.4444444444444444,
+        "mean_score": 0.45927777777777773,
+        "cost_usd": 0.340544
+      },
+      "standard_rlm": {
+        "n": 9,
+        "exact_count": 7,
+        "exact_rate": 0.7777777777777778,
+        "mean_score": 0.7777777777777778,
+        "cost_usd": 0.32285699999999995
+      }
+    }
+  },
+  "paired": {
+    "slm_vs_rlm": {
+      "n": 45,
+      "b_a_right_b_wrong": 10,
+      "c_b_right_a_wrong": 3,
+      "discordant": 13,
+      "two_sided_exact_p": 0.09228515625,
+      "holm_three_pair_p": 0.1845703125
+    },
+    "slm_vs_direct": {
+      "n": 45,
+      "b_a_right_b_wrong": 14,
+      "c_b_right_a_wrong": 2,
+      "discordant": 16,
+      "two_sided_exact_p": 0.004180908203125,
+      "holm_three_pair_p": 0.012542724609375
+    },
+    "direct_vs_rlm": {
+      "n": 45,
+      "b_a_right_b_wrong": 8,
+      "c_b_right_a_wrong": 13,
+      "discordant": 21,
+      "two_sided_exact_p": 0.38331031799316406,
+      "holm_three_pair_p": 0.38331031799316406
+    }
+  },
+  "cluster_bootstrap": {
+    "slm_exact": {
+      "estimate": 0.7762199146430372,
+      "lo": 0.6444444444444445,
+      "hi": 0.8936170212765957,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260721
+    },
+    "direct_exact": {
+      "estimate": 0.5093448689267895,
+      "lo": 0.3488372093023256,
+      "hi": 0.6666666666666666,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260722
+    },
+    "rlm_exact": {
+      "estimate": 0.6214849488690259,
+      "lo": 0.4883720930232558,
+      "hi": 0.75,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260723
+    },
+    "slm_minus_rlm_exact": {
+      "estimate": 0.15478259602892297,
+      "lo": 0.0,
+      "hi": 0.3111111111111111,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260724
+    },
+    "slm_minus_direct_exact": {
+      "estimate": 0.2668767338052244,
+      "lo": 0.12195121951219512,
+      "hi": 0.39999999999999997,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260725
+    },
+    "direct_minus_rlm_exact": {
+      "estimate": -0.11137934053846406,
+      "lo": -0.28571428571428575,
+      "hi": 0.06521739130434778,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260726
+    },
+    "slm_minus_rlm_score": {
+      "estimate": 0.16553799999465701,
+      "lo": 0.030000000000000027,
+      "hi": 0.30872894736842116,
+      "clusters": 20,
+      "reps": 100000,
+      "seed": 20260727
+    }
+  },
+  "cost_accounting": {
+    "captured_successful_completion_total_usd": 2.1098020999999996,
+    "openrouter_account_usage_before_usd": 383.317258824,
+    "openrouter_account_usage_after_usd": 385.622219124,
+    "openrouter_account_delta_usd": 2.3049603000000047,
+    "aborted_and_partial_overhead_usd": 0.19515820000000517,
+    "rlm_to_slm_captured_cost_ratio": 3.6487662071439546,
+    "direct_to_slm_captured_cost_ratio": 2.108914890073285,
+    "note": "Account delta includes an aborted duplicate-worker launch and partial in-flight calls; successful-completion costs come from provider usage returned in retained rows."
+  },
+  "trace_integrity": {
+    "slm_rows": 45,
+    "direct_rows": 45,
+    "rlm_rows": 45,
+    "rlm_rows_with_context": 45,
+    "rlm_rows_with_trajectory": 45,
+    "rlm_code_blocks": 205,
+    "merged_slm_trace_sha256": "c7a1b83c93cabd05143372797e4a2a6d3dca692edbbdd7e9597f396264052cd4",
+    "direct_trace_sha256": "772d044d3697c5b4e28d9fc66bbb8c4a0f638185223b8a98ec9e078ab38a3472",
+    "merged_rlm_trace_sha256": "a06c9c328d38f60eb13d4e8e76b9b179a5b856548146415886054db9138cd4e0"
+  },
+  "interpretation": {
+    "primary": "The specialized SLM+typed route retains the highest accuracy on two previously unseen upstream corpora, while standard RLM remains substantially stronger than direct prompting on user-centric aggregation.",
+    "boundary": "The result tests source-corpus transfer within the known Oolong task family. It does not identify source documents, establish natural-text prevalence, or provide official SRLM/RAH parity.",
+    "parser_repair": "A no-call preflight admitted the validation wording 'spam or ham (i.e., not spam)' before paid outputs; the complete repeated preflight had zero parser errors."
+  }
+}

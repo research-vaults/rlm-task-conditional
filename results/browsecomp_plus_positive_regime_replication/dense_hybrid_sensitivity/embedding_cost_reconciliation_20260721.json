@@ -1,0 +1,16 @@
+{
+  "captured_after_complete_plan_freeze_utc": "2026-07-21T15:29:05Z",
+  "openrouter_account_usage_before_usd": 393.928731476,
+  "openrouter_account_usage_after_usd": 394.059084196,
+  "openrouter_account_delta_usd": 0.13035272000001896,
+  "successful_embedding_request_returned_cost_sum_usd": 0.12764289000000006,
+  "delta_minus_returned_cost_usd": 0.0027098300000188997,
+  "total_credits_usd": 400.0,
+  "remaining_credits_after_usd": 5.940915803999985,
+  "embedding_requests": 245,
+  "embedding_total_tokens": 9006741,
+  "recorded_failed_attempts": 0,
+  "interpretation": "Returned usage is the directly linked successful-request cost. The bounded account delta is the conservative interval attribution and includes the interrupted rank-5 serial request or provider/account timing. The credential may be shared, so the difference is not imputed to a hidden request.",
+  "openrouter_generation_cost_usd": 0.0,
+  "runpod_cost_during_embedding_preparation_usd": 0.0
+}

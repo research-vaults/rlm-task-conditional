@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-14T18:48:47.987639+00:00",
+    "scope": "bounded rollout-repeat stop-rule artifact, not a benchmark-scale variance estimate",
+    "manifest": "results/oolong_rollout_variability_n15_manifest_20260714.json",
+    "manifest_n": 15,
+    "manifest_context_lengths": [
+      8192,
+      16384,
+      32768,
+      65536,
+      131072
+    ],
+    "manifest_task_groups": [
+      "counting",
+      "timeline",
+      "user"
+    ],
+    "stop_rule": "Run full N=15 direct-controller replay as a cheap baseline. Start standard-RLM N=15 replay, but stop after the first three 8k rows produced one wrong answer and two 360-second timeouts; do not scale this unstable path before submission."
+  },
+  "overall": {
+    "base_slm": {
+      "n": 15,
+      "exact_count": 12,
+      "exact_rate": 0.8,
+      "mean_score": 0.86582,
+      "cost_usd": 0.082004,
+      "errors": 0,
+      "latency_s": 0.0
+    },
+    "base_direct": {
+      "n": 15,
+      "exact_count": 5,
+      "exact_rate": 0.333333,
+      "mean_score": 0.4291,
+      "cost_usd": 0.1913399,
+      "errors": 0,
+      "latency_s": 26.551
+    },
+    "base_rlm": {
+      "n": 15,
+      "exact_count": 6,
+      "exact_rate": 0.4,
+      "mean_score": 0.578127,
+      "cost_usd": 0.934455,
+      "errors": 0,
+      "latency_s": 0.0
+    },
+    "direct_repeat_full_n15": {
+      "n": 15,
+      "exact_count": 5,
+      "exact_rate": 0.333333,
+      "mean_score": 0.4291,
+      "cost_usd": 0.1913399,
+      "errors": 0,
+      "latency_s": 34.141
+    },
+    "rlm_repeat_stoprule_n3": {
+      "n": 3,
+      "exact_count": 0,
+      "exact_rate": 0.0,
+      "mean_score": 0.0,
+      "cost_usd": 0.0008796,
+      "errors": 2,
+      "latency_s": 4.791
+    }
+  },
+  "by_group": {
+    "base_slm": {
+      "counting": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "mean_score": 0.8,
+        "cost_usd": 0.020962,
+        "errors": 0,
+        "latency_s": 0.0
+      },
+      "timeline": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "mean_score": 0.84746,
+        "cost_usd": 0.029547,
+        "errors": 0,
+        "latency_s": 0.0
+      },
+      "user": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "mean_score": 0.95,
+        "cost_usd": 0.031495,
+        "errors": 0,
+        "latency_s": 0.0
+      }
+    },
+    "base_direct": {
+      "counting": {
+        "n": 5,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "mean_score": 0.2,
+        "cost_usd": 0.0603643,
+        "errors": 0,
+        "latency_s": 10.148
+      },
+      "timeline": {
+        "n": 5,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.2606,
+        "cost_usd": 0.0651864,
+        "errors": 0,
+        "latency_s": 7.331
+      },
+      "user": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "mean_score": 0.8267,
+        "cost_usd": 0.0657892,
+        "errors": 0,
+        "latency_s": 9.072
+      }
+    },
+    "base_rlm": {
+      "counting": {
+        "n": 5,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "mean_score": 0.2,
+        "cost_usd": 0.307728,
+        "errors": 0,
+        "latency_s": 0.0
+      },
+      "timeline": {
+        "n": 5,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "mean_score": 0.7,
+        "cost_usd": 0.405356,
+        "errors": 0,
+        "latency_s": 0.0
+      },
+      "user": {
+        "n": 5,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "mean_score": 0.83438,
+        "cost_usd": 0.221371,
+        "errors": 0,
+        "latency_s": 0.0
+      }
+    },
+    "direct_repeat_full_n15": {
+      "counting": {
+        "n": 5,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "mean_score": 0.2,
+        "cost_usd": 0.0603643,
+        "errors": 0,
+        "latency_s": 9.722
+      },
+      "timeline": {
+        "n": 5,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.2606,
+        "cost_usd": 0.0651864,
+        "errors": 0,
+        "latency_s": 13.129
+      },
+      "user": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "mean_score": 0.8267,
+        "cost_usd": 0.0657892,
+        "errors": 0,
+        "latency_s": 11.29
+      }
+    },
+    "rlm_repeat_stoprule_n3": {
+      "counting": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.0008796,
+        "errors": 0,
+        "latency_s": 4.791
+      },
+      "timeline": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.0,
+        "errors": 1,
+        "latency_s": 0.0
+      },
+      "user": {
+        "n": 1,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.0,
+        "cost_usd": 0.0,
+        "errors": 1,
+        "latency_s": 0.0
+      }
+    }
+  },
+  "trace_rows": {
+    "direct_repeat_full_n15": 15,
+    "rlm_repeat_stoprule_n3": 3
+  },
+  "comparisons": {
+    "direct_base_vs_repeat_n15": {
+      "paired_n": 15,
+      "prediction_stable": 15,
+      "correctness_stable": 15,
+      "flips": []
+    },
+    "rlm_base_vs_stoprule_n3": {
+      "paired_n": 3,
+      "prediction_stable": 0,
+      "correctness_stable": 0,
+      "flips": [
+        {
+          "example_id": "213020016",
+          "task_group": "user",
+          "context_len": 8192,
+          "base_prediction": "positive",
+          "repeat_prediction": "",
+          "gold": "positive",
+          "base_correct": 1.0,
+          "repeat_correct": 0.0,
+          "repeat_error": "TimeoutError: rlm timed out after 360s on example 213020016"
+        },
+        {
+          "example_id": "513050058",
+          "task_group": "counting",
+          "context_len": 8192,
+          "base_prediction": "less common than",
+          "repeat_prediction": "same frequency as",
+          "gold": "less common than",
+          "base_correct": 1.0,
+          "repeat_correct": 0.0,
+          "repeat_error": ""
+        },
+        {
+          "example_id": "613060055",
+          "task_group": "timeline",
+          "context_len": 8192,
+          "base_prediction": "4",
+          "repeat_prediction": "",
+          "gold": "4",
+          "base_correct": 1.0,
+          "repeat_correct": 0.0,
+          "repeat_error": "TimeoutError: rlm timed out after 360s on example 613060055"
+        }
+      ]
+    }
+  },
+  "rlm_stoprule_rows": [
+    {
+      "run_id": "oolong_rollout_variability_n15_replay_rlm_full_20260714",
+      "example_id": "513050058",
+      "context_len": "8192",
+      "task_group": "counting",
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "context_variant": "standard_trace_replay",
+      "method": "rlm",
+      "model": "google/gemini-2.5-flash",
+      "prediction": "same frequency as",
+      "gold": "less common than",
+      "correct": "0.0",
+      "cost_usd": "0.0008796",
+      "input_tokens": "",
+      "output_tokens": "",
+      "latency_s": "4.791",
+      "error": "",
+      "question": "In the above data, is label 'Health' more common, less common, or the same frequency as label 'Family & Relationships'? Give your final answer in the form 'Answer: Health is [X] Family & Relationships', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+    },
+    {
+      "run_id": "oolong_rollout_variability_n15_replay_rlm_full_20260714",
+      "example_id": "613060055",
+      "context_len": "8192",
+      "task_group": "timeline",
+      "task": "TASK_TYPE.NUMERIC_ONE_CLASS",
+      "answer_type": "ANSWER_TYPE.NUMERIC",
+      "context_variant": "standard_trace_replay",
+      "method": "rlm",
+      "model": "google/gemini-2.5-flash",
+      "prediction": "",
+      "gold": "4",
+      "correct": "0.0",
+      "cost_usd": "0.0",
+      "input_tokens": "",
+      "output_tokens": "",
+      "latency_s": "0.0",
+      "error": "TimeoutError: rlm timed out after 360s on example 613060055",
+      "question": "For the following question, only consider the subset of instances that occur in February of any year. Among instances occuring in February, how many data points should be classified as label 'informal'? Give your final answer in the form 'Answer: number'."
+    },
+    {
+      "run_id": "oolong_rollout_variability_n15_replay_rlm_full_20260714",
+      "example_id": "213020016",
+      "context_len": "8192",
+      "task_group": "user",
+      "task": "TASK_TYPE.LEAST_FREQ",
+      "answer_type": "ANSWER_TYPE.LABEL",
+      "context_variant": "standard_trace_replay",
+      "method": "rlm",
+      "model": "google/gemini-2.5-flash",
+      "prediction": "",
+      "gold": "positive",
+      "correct": "0.0",
+      "cost_usd": "0.0",
+      "input_tokens": "",
+      "output_tokens": "",
+      "latency_s": "0.0",
+      "error": "TimeoutError: rlm timed out after 360s on example 213020016",
+      "question": "For the following question, only consider the subset of instances that are associated with user IDs 19283. Among instances associated with these users, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: positive."
+    }
+  ]
+}

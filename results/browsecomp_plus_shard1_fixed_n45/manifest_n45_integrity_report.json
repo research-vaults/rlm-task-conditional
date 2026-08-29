@@ -1,0 +1,30 @@
+{
+  "builder_sha256": "188f168bea5196332d03ded13318bc017ea83824fa96a9eb4375c0a1b46d2223",
+  "checks": {
+    "all_pools_1000_unique": true,
+    "all_required_documents_included": true,
+    "candidate_rows_expected": true,
+    "corpus_rows_exact": true,
+    "n_exact": true,
+    "no_model_or_judge_fields": true,
+    "selected_query_hashes_unique": true,
+    "selected_query_ids_unique": true,
+    "zero_prior_query_hash_overlap": true,
+    "zero_prior_query_id_overlap": true
+  },
+  "created_utc": "2026-07-23T18:28:27.142394+00:00",
+  "protocol_sha256": "b0e4e6d29a1452042294a078bd6109705d6ce6feff9d091a1dc20d9fb9e03f08",
+  "public_manifest_sha256": "0a99d4854bf21dcdc739f2035136342c0c313ca76bb2201c04190e5298302c55",
+  "restricted_manifest_sha256": "579804550bb5f5b8f90a756eebd0fb9f401fe213cae56e627c12937aaba83130",
+  "study_id": "browsecomp_plus_shard1_fixed_n45_v1",
+  "summary": {
+    "candidate_rows": 139,
+    "max_approx_context_tokens": 11760155,
+    "max_required_documents_per_row": 11,
+    "median_approx_context_tokens": 7865816,
+    "min_approx_context_tokens": 6596952,
+    "min_required_documents_per_row": 2,
+    "selected_rows": 45,
+    "unique_required_documents": 286
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "run_id": "oolong_standard_validation_n150_direct_controller_gemini25flash_20260714",
+    "created_utc": "2026-07-14T05:39:55.804188+00:00",
+    "source_csv": "results/oolong_standard_validation_n150_direct_controller_gemini25flash_20260714.csv",
+    "method": "direct_controller",
+    "manifest": "results/oolong_standard_validation_n150_manifest_20260714.json",
+    "trace": "results/oolong_standard_validation_n150_direct_controller_gemini25flash_20260714_trace.jsonl",
+    "model": "google/gemini-2.5-flash",
+    "context_variant": "standard",
+    "prompt_contract": "standard context_window_text plus natural-language question; no code execution, no recursion, final answer only"
+  },
+  "overall": {
+    "n": 150,
+    "score_sum": 71.7451,
+    "mean_score": 0.478301,
+    "exact_count": 65,
+    "exact_rate": 0.433333,
+    "cost_usd": 1.93877,
+    "input_tokens": 6453709,
+    "output_tokens": 1063,
+    "errors": 0,
+    "latency_s": 248.104
+  },
+  "by_group": {
+    "counting": {
+      "n": 50,
+      "score_sum": 21.0531,
+      "mean_score": 0.421062,
+      "exact_count": 18,
+      "exact_rate": 0.36,
+      "cost_usd": 0.631983,
+      "input_tokens": 2103919,
+      "output_tokens": 323,
+      "errors": 0,
+      "latency_s": 88.881
+    },
+    "timeline": {
+      "n": 50,
+      "score_sum": 21.64,
+      "mean_score": 0.4328,
+      "exact_count": 19,
+      "exact_rate": 0.38,
+      "cost_usd": 0.653069,
+      "input_tokens": 2173614,
+      "output_tokens": 394,
+      "errors": 0,
+      "latency_s": 83.444
+    },
+    "user": {
+      "n": 50,
+      "score_sum": 29.052,
+      "mean_score": 0.58104,
+      "exact_count": 28,
+      "exact_rate": 0.56,
+      "cost_usd": 0.653718,
+      "input_tokens": 2176176,
+      "output_tokens": 346,
+      "errors": 0,
+      "latency_s": 75.779
+    }
+  },
+  "by_length": {
+    "8192": {
+      "n": 30,
+      "score_sum": 15.2307,
+      "mean_score": 0.50769,
+      "exact_count": 13,
+      "exact_rate": 0.433333,
+      "cost_usd": 0.060854,
+      "input_tokens": 201087,
+      "output_tokens": 211,
+      "errors": 0,
+      "latency_s": 23.535
+    },
+    "16384": {
+      "n": 30,
+      "score_sum": 17.2866,
+      "mean_score": 0.57622,
+      "exact_count": 16,
+      "exact_rate": 0.533333,
+      "cost_usd": 0.126937,
+      "input_tokens": 421455,
+      "output_tokens": 200,
+      "errors": 0,
+      "latency_s": 25.91
+    },
+    "32768": {
+      "n": 30,
+      "score_sum": 16.6328,
+      "mean_score": 0.554427,
+      "exact_count": 16,
+      "exact_rate": 0.533333,
+      "cost_usd": 0.251237,
+      "input_tokens": 835425,
+      "output_tokens": 244,
+      "errors": 0,
+      "latency_s": 35.375
+    },
+    "65536": {
+      "n": 30,
+      "score_sum": 12.5045,
+      "mean_score": 0.416817,
+      "exact_count": 11,
+      "exact_rate": 0.366667,
+      "cost_usd": 0.497372,
+      "input_tokens": 1656215,
+      "output_tokens": 203,
+      "errors": 0,
+      "latency_s": 65.483
+    },
+    "131072": {
+      "n": 30,
+      "score_sum": 10.0905,
+      "mean_score": 0.33635,
+      "exact_count": 9,
+      "exact_rate": 0.3,
+      "cost_usd": 1.002371,
+      "input_tokens": 3339527,
+      "output_tokens": 205,
+      "errors": 0,
+      "latency_s": 97.801
+    }
+  }
+}

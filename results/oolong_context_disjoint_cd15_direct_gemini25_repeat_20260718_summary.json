@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "run_id": "oolong_cd15_direct_gemini25_repeat_20260718",
+    "created_utc": "2026-07-18T21:55:20.974667+00:00",
+    "source_csv": "results/oolong_context_disjoint_cd15_direct_gemini25_repeat_20260718.csv",
+    "context_variant": "standard",
+    "rlm_max_tokens": null
+  },
+  "overall": {
+    "slm_direct": {
+      "n": 15,
+      "score_sum": 8.0,
+      "mean_score": 0.533333,
+      "exact_count": 8,
+      "exact_rate": 0.533333,
+      "cost_usd": 0.340761,
+      "errors": 0
+    }
+  },
+  "by_group": {
+    "counting": {
+      "slm_direct": {
+        "n": 5,
+        "score_sum": 2.0,
+        "mean_score": 0.4,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "cost_usd": 0.069261,
+        "errors": 0
+      }
+    },
+    "timeline": {
+      "slm_direct": {
+        "n": 5,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "cost_usd": 0.137214,
+        "errors": 0
+      }
+    },
+    "user": {
+      "slm_direct": {
+        "n": 5,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "cost_usd": 0.134286,
+        "errors": 0
+      }
+    }
+  }
+}

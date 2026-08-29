@@ -1,0 +1,118 @@
+{
+  "agreement_by_selection_stratum": {
+    "malformed_primary_judge": {
+      "agreement": 3,
+      "audited": 3,
+      "rate": 1.0
+    },
+    "semantic_vs_containment_disagreement": {
+      "agreement": 23,
+      "audited": 25,
+      "rate": 0.92
+    },
+    "stratified_agreement_sample": {
+      "agreement": 17,
+      "audited": 18,
+      "rate": 0.9444444444444444
+    }
+  },
+  "audit_by_method": {
+    "bm25_qwen36": {
+      "agreement": 14,
+      "agreement_rate": 0.9333333333333333,
+      "audited": 15,
+      "primary_correct": 8,
+      "second_model_correct": 7
+    },
+    "standard_rlm_qwen36": {
+      "agreement": 11,
+      "agreement_rate": 0.9166666666666666,
+      "audited": 12,
+      "primary_correct": 8,
+      "second_model_correct": 9
+    },
+    "text_decompose_qwen36": {
+      "agreement": 18,
+      "agreement_rate": 0.9473684210526315,
+      "audited": 19,
+      "primary_correct": 10,
+      "second_model_correct": 9
+    }
+  },
+  "audit_contract": {
+    "adjudicator": "GPT-5.6 Sol, high reasoning",
+    "human_validation": false,
+    "independent_second_model": true,
+    "method_blinded": true,
+    "primary_label_blinded": true,
+    "release_contract": "aggregate counts and hashes only; no restricted questions, answers, predictions, case IDs, or rationales",
+    "selection": "all 25 semantic-vs-containment disagreements, all 3 malformed primary-judge outputs, and a deterministic 18-case stratified agreement sample",
+    "sensitivity_rule": "replace primary semantic labels only for the 46 preselected audited cells; retain primary labels for the other 194 cells"
+  },
+  "confidence_counts": {
+    "high": 46
+  },
+  "n_audited": 46,
+  "n_cells": 240,
+  "primary_second_model_agreement": {
+    "count": 43,
+    "n": 46,
+    "rate": 0.9347826086956522
+  },
+  "primary_semantic_correct": {
+    "bm25_qwen36": 39,
+    "standard_rlm_qwen36": 54,
+    "text_decompose_qwen36": 48
+  },
+  "second_model_sensitivity_pairwise": {
+    "rlm_vs_bm25": {
+      "accuracy_difference_points": 21.25,
+      "both_correct": 29,
+      "holm_adjusted_p_three_route_pairs": 0.01796436170116067,
+      "left": "standard_rlm_qwen36",
+      "left_only": 26,
+      "neither_correct": 16,
+      "right": "bm25_qwen36",
+      "right_only": 9,
+      "two_sided_exact_mcnemar_p": 0.0059881205670535564
+    },
+    "rlm_vs_text": {
+      "accuracy_difference_points": 10.0,
+      "both_correct": 35,
+      "holm_adjusted_p_three_route_pairs": 0.21550428867340088,
+      "left": "standard_rlm_qwen36",
+      "left_only": 20,
+      "neither_correct": 13,
+      "right": "text_decompose_qwen36",
+      "right_only": 12,
+      "two_sided_exact_mcnemar_p": 0.21532714972272515
+    },
+    "text_vs_bm25": {
+      "accuracy_difference_points": 11.25,
+      "both_correct": 30,
+      "holm_adjusted_p_three_route_pairs": 0.21550428867340088,
+      "left": "text_decompose_qwen36",
+      "left_only": 17,
+      "neither_correct": 25,
+      "right": "bm25_qwen36",
+      "right_only": 8,
+      "two_sided_exact_mcnemar_p": 0.10775214433670044
+    }
+  },
+  "second_model_sensitivity_semantic_correct": {
+    "bm25_qwen36": 38,
+    "standard_rlm_qwen36": 55,
+    "text_decompose_qwen36": 47
+  },
+  "selection_counts": {
+    "malformed_primary_judge": 3,
+    "semantic_vs_containment_disagreement": 25,
+    "stratified_agreement_sample": 18
+  },
+  "source_hashes": {
+    "privacy_safe_ledger_sha256": "c56082e169002a62c3bbe6267745797f2dda95993866d772416f9ce85372a07d",
+    "restricted_adjudication_sha256": "17536fc6550e2f048ffd5cb1430bd415d4ca5a127414ae63aecea6c4ec3a518e",
+    "restricted_mapping_sha256": "5a1497f6d8f98cae30be27e9cbe51691b894696181a041972555bd37de23e37c"
+  },
+  "study_id": "browsecomp_plus_qwen36_n80_resumed_primary"
+}

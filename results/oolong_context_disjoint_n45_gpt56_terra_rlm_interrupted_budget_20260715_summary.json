@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "run_id": "oolong_context_disjoint_n45_gpt56_terra_rlm_complete_20260715",
+    "created_utc": "2026-07-15T19:25:48.353466+00:00",
+    "status": "interrupted_budget_safety_not_benchmark",
+    "model": "openai/gpt-5.6-terra",
+    "backend": "openrouter",
+    "manifest": "results/oolong_context_disjoint_n45_manifest_20260715.json",
+    "source_csv": "results/oolong_context_disjoint_n45_gpt56_terra_rlm_complete_20260715.csv",
+    "run_log": "results/oolong_context_disjoint_n45_gpt56_terra_rlm_complete_20260715_run.log",
+    "strict_timeout_seconds": 240,
+    "reason": "After 13 recorded rows, repeated standard-rlms BudgetExceededError/timeout behavior made continuing likely to burn remaining provider credit without yielding a complete benchmark."
+  },
+  "recorded_rows": 13,
+  "exact_count": 7,
+  "score_sum": 7.2373,
+  "mean_score": 0.556715,
+  "captured_csv_cost_usd": 0.580884,
+  "error_rows": 4,
+  "openrouter_usage_before_usd": 220.120380919,
+  "openrouter_usage_after_row13_usd": 231.068384169,
+  "provider_usage_delta_usd": 10.948003,
+  "first_unstarted_or_interrupted_row_index": 14,
+  "first_unstarted_or_interrupted_example_id": "218020053",
+  "interpretation": "Execution-boundary evidence only: GPT-5.6 Terra is reachable and solves several short rows, but under the unchanged standard-rlms scaffold it triggered expensive budget/timeouts before reaching timeline/user groups. Do not use as a complete accuracy benchmark."
+}

@@ -1,0 +1,301 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-15T17:38:55.869084+00:00",
+    "purpose": "No-call audit showing that CD-45 is a split-validity check, not a pure difficulty-matched overlap ablation of SU-150."
+  },
+  "manifests": {
+    "cd45": {
+      "path": "results/oolong_context_disjoint_n45_manifest_20260715.json",
+      "n": 45,
+      "groups": {
+        "counting": 15,
+        "timeline": 15,
+        "user": 15
+      },
+      "lengths": {
+        "1024": 15,
+        "4096": 15,
+        "262144": 15
+      },
+      "answer_types": {
+        "ANSWER_TYPE.NUMERIC": 14,
+        "ANSWER_TYPE.LABEL": 9,
+        "ANSWER_TYPE.COMPARISON": 12,
+        "ANSWER_TYPE.DATE": 3,
+        "ANSWER_TYPE.USER": 7
+      },
+      "unique_context_windows": 32,
+      "max_context_reuse": 2,
+      "prior_overlap_check": {
+        "selected_prior_id_overlap": 0,
+        "selected_prior_context_window_overlap": 0
+      },
+      "selection_policy": "exclude every prior project Oolong example ID and context_window_id found in results/*.json/csv; select balanced task_group x context_len cells by seeded shuffle; cap context reuse within the new slice"
+    },
+    "su150": {
+      "path": "results/oolong_standard_validation_n150_manifest_20260714.json",
+      "n": 150,
+      "groups": {
+        "counting": 50,
+        "timeline": 50,
+        "user": 50
+      },
+      "lengths": {
+        "8192": 30,
+        "16384": 30,
+        "32768": 30,
+        "65536": 30,
+        "131072": 30
+      },
+      "answer_types": {
+        "ANSWER_TYPE.COMPARISON": 38,
+        "ANSWER_TYPE.NUMERIC": 40,
+        "ANSWER_TYPE.LABEL": 38,
+        "ANSWER_TYPE.DATE": 2,
+        "ANSWER_TYPE.USER": 32
+      },
+      "unique_context_windows": 73,
+      "max_context_reuse": 3,
+      "prior_overlap_check": {
+        "source": "results/oolong_standard_validation_n150_split_overlap_audit_20260714.json",
+        "interpretation": "larger fixed-pipeline replication, not context-window-disjoint validation",
+        "prior_target_id_overlap": 20,
+        "prior_context_window_overlap": 73,
+        "target_rows_on_prior_context_windows": 150,
+        "target_rows_on_new_context_windows": 0,
+        "note": "Later union-over-archived-project audit found overlap with project Oolong artifacts not fully represented by the freezer's original prior_exclusion_counts."
+      },
+      "selection_policy": "exclude the prior project Oolong ID set known to this freezer at creation time; select groups x context_lengths cells; seeded shuffle within each cell; cap total reuse of context_window_id; write only metadata needed for later hydration from public Oolong parquet"
+    },
+    "n120": {
+      "path": "results/oolong_standard_multilength_n120_5len_manifest_20260712.json",
+      "n": 120,
+      "groups": {
+        "counting": 40,
+        "timeline": 40,
+        "user": 40
+      },
+      "lengths": {
+        "8192": 24,
+        "16384": 24,
+        "32768": 24,
+        "65536": 24,
+        "131072": 24
+      },
+      "answer_types": {
+        "ANSWER_TYPE.COMPARISON": 27,
+        "ANSWER_TYPE.NUMERIC": 36,
+        "ANSWER_TYPE.LABEL": 31,
+        "ANSWER_TYPE.DATE": 7,
+        "ANSWER_TYPE.USER": 19
+      },
+      "unique_context_windows": 72,
+      "max_context_reuse": 2,
+      "prior_overlap_check": {},
+      "selection_policy": "exclude prior project Oolong IDs; select groups x context_lengths cells; seeded shuffle within each cell; cap total reuse of context_window_id; write only metadata needed for later hydration from public Oolong parquet"
+    }
+  },
+  "performance": {
+    "cd45": {
+      "slm_qparsed_typed": {
+        "n": 45,
+        "mean_score": 0.837016,
+        "exact_count": 36,
+        "exact_rate": 0.8,
+        "cost_usd": 0.416415,
+        "cost_per_exact_usd": 0.011567,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.8,
+          "ci_low": 0.686275,
+          "ci_high": 0.911111,
+          "clusters": 32
+        },
+        "score_cluster_ci": {
+          "mean": 0.837016,
+          "ci_low": 0.72044,
+          "ci_high": 0.933435,
+          "clusters": 32
+        }
+      },
+      "direct_controller": {
+        "n": 45,
+        "mean_score": 0.548698,
+        "exact_count": 21,
+        "exact_rate": 0.466667,
+        "cost_usd": 1.02459,
+        "cost_per_exact_usd": 0.04879,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.466667,
+          "ci_low": 0.304348,
+          "ci_high": 0.634146,
+          "clusters": 32
+        },
+        "score_cluster_ci": {
+          "mean": 0.548698,
+          "ci_low": 0.393277,
+          "ci_high": 0.698465,
+          "clusters": 32
+        }
+      },
+      "standard_rlm": {
+        "n": 45,
+        "mean_score": 0.623436,
+        "exact_count": 27,
+        "exact_rate": 0.6,
+        "cost_usd": 1.001014,
+        "cost_per_exact_usd": 0.037075,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.6,
+          "ci_low": 0.454545,
+          "ci_high": 0.744186,
+          "clusters": 32
+        },
+        "score_cluster_ci": {
+          "mean": 0.623436,
+          "ci_low": 0.489344,
+          "ci_high": 0.757862,
+          "clusters": 32
+        }
+      }
+    },
+    "su150": {
+      "slm_qparsed_typed": {
+        "n": 150,
+        "mean_score": 0.713955,
+        "exact_count": 98,
+        "exact_rate": 0.653333,
+        "cost_usd": 0.838777,
+        "cost_per_exact_usd": 0.008559,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.653333,
+          "ci_low": 0.573427,
+          "ci_high": 0.732877,
+          "clusters": 73
+        },
+        "score_cluster_ci": {
+          "mean": 0.713955,
+          "ci_low": 0.637013,
+          "ci_high": 0.78371,
+          "clusters": 73
+        }
+      },
+      "direct_controller": {
+        "n": 150,
+        "mean_score": 0.478301,
+        "exact_count": 65,
+        "exact_rate": 0.433333,
+        "cost_usd": 1.93877,
+        "cost_per_exact_usd": 0.029827,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.433333,
+          "ci_low": 0.351724,
+          "ci_high": 0.513889,
+          "clusters": 73
+        },
+        "score_cluster_ci": {
+          "mean": 0.478301,
+          "ci_low": 0.405749,
+          "ci_high": 0.55621,
+          "clusters": 73
+        }
+      },
+      "standard_rlm": {
+        "n": 150,
+        "mean_score": 0.484091,
+        "exact_count": 68,
+        "exact_rate": 0.453333,
+        "cost_usd": 4.144901,
+        "cost_per_exact_usd": 0.060954,
+        "errors": 6,
+        "exact_cluster_ci": {
+          "mean": 0.453333,
+          "ci_low": 0.368785,
+          "ci_high": 0.54,
+          "clusters": 73
+        },
+        "score_cluster_ci": {
+          "mean": 0.484091,
+          "ci_low": 0.403699,
+          "ci_high": 0.565342,
+          "clusters": 73
+        }
+      }
+    },
+    "n120": {
+      "slm_qparsed_typed": {
+        "n": 120,
+        "mean_score": 0.727069,
+        "exact_count": 80,
+        "exact_rate": 0.666667,
+        "cost_usd": 0.658995,
+        "cost_per_exact_usd": 0.008237,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.666667,
+          "ci_low": 0.581967,
+          "ci_high": 0.75,
+          "clusters": 72
+        },
+        "score_cluster_ci": {
+          "mean": 0.727069,
+          "ci_low": 0.650297,
+          "ci_high": 0.803891,
+          "clusters": 72
+        }
+      },
+      "direct_controller": {
+        "n": 120,
+        "mean_score": 0.500408,
+        "exact_count": 54,
+        "exact_rate": 0.45,
+        "cost_usd": 1.546563,
+        "cost_per_exact_usd": 0.02864,
+        "errors": 0,
+        "exact_cluster_ci": {
+          "mean": 0.45,
+          "ci_low": 0.361345,
+          "ci_high": 0.540541,
+          "clusters": 72
+        },
+        "score_cluster_ci": {
+          "mean": 0.500408,
+          "ci_low": 0.412456,
+          "ci_high": 0.59216,
+          "clusters": 72
+        }
+      },
+      "standard_rlm": {
+        "n": 120,
+        "mean_score": 0.489093,
+        "exact_count": 53,
+        "exact_rate": 0.441667,
+        "cost_usd": 2.68834,
+        "cost_per_exact_usd": 0.050723,
+        "errors": 9,
+        "exact_cluster_ci": {
+          "mean": 0.441667,
+          "ci_low": 0.355932,
+          "ci_high": 0.529915,
+          "clusters": 72
+        },
+        "score_cluster_ci": {
+          "mean": 0.489093,
+          "ci_low": 0.403333,
+          "ci_high": 0.575763,
+          "clusters": 72
+        }
+      }
+    }
+  },
+  "interpretation": {
+    "cleaner_split": "CD-45 excludes all prior project example IDs and context_window_id values found in archived Oolong artifacts; SU-150 does not after archival split audit.",
+    "not_difficulty_matched": "CD-45 uses 1k/4k/262k contexts with five examples per task/length cell, whereas SU-150 uses 8k/16k/32k/65k/131k contexts with ten examples per task/length cell.",
+    "easier_observed_slice": "All three compared methods score higher on CD-45 than SU-150, so CD-45 should not be described as a difficulty-matched replacement for SU-150.",
+    "paper_use": "Use SU-150 as larger fixed-pipeline scale/method-lock evidence and CD-45 as cleaner split-validity evidence under a different length mix."
+  }
+}

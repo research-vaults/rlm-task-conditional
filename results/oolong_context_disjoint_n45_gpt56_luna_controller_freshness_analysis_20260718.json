@@ -1,0 +1,948 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-18T21:35:00Z",
+    "manifest": "results/oolong_context_disjoint_n45_manifest_20260715.json",
+    "n": 45,
+    "bootstraps": 5000,
+    "seed": 20260718,
+    "inputs": {
+      "slm_qparsed_typed": "results/oolong_context_disjoint_n45_slm_labeler_question_parsed_typed_20260715.csv",
+      "direct_gemini25": "results/oolong_context_disjoint_n45_direct_controller_gemini25flash_20260715.csv",
+      "standard_rlm_gemini25": "results/oolong_context_disjoint_n45_rlm_20260715.csv",
+      "standard_rlm_gpt5": "results/oolong_context_disjoint_n45_gpt5_rlm_strict_20260715.csv",
+      "standard_rlm_gpt56_luna": "results/oolong_context_disjoint_n45_gpt56_luna_complete_20260718.csv"
+    },
+    "labels": {
+      "slm_qparsed_typed": "SLM+typed",
+      "direct_gemini25": "Direct Gemini 2.5 Flash",
+      "standard_rlm_gemini25": "Standard RLM / Gemini 2.5 Flash",
+      "standard_rlm_gpt5": "Standard RLM / GPT-5",
+      "standard_rlm_gpt56_luna": "Standard RLM / GPT-5.6 Luna"
+    },
+    "purpose": "complete GPT-5.6 Luna standard-rlms controller-freshness sensitivity on frozen CD-45"
+  },
+  "overall": {
+    "slm_qparsed_typed": {
+      "n": 45,
+      "score_sum": 37.6657,
+      "mean_score": 0.837016,
+      "exact_count": 36,
+      "exact_rate": 0.8,
+      "cost_usd": 0.416415,
+      "cost_per_exact_usd": 0.011567,
+      "errors": 0,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "score_sum": 12.2531,
+          "mean_score": 0.816873,
+          "exact_count": 12,
+          "exact_rate": 0.8,
+          "cost_usd": 0.121368,
+          "cost_per_exact_usd": 0.010114,
+          "errors": 0
+        },
+        "timeline": {
+          "n": 15,
+          "score_sum": 11.6626,
+          "mean_score": 0.777507,
+          "exact_count": 11,
+          "exact_rate": 0.733333,
+          "cost_usd": 0.149955,
+          "cost_per_exact_usd": 0.013632,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "score_sum": 13.75,
+          "mean_score": 0.916667,
+          "exact_count": 13,
+          "exact_rate": 0.866667,
+          "cost_usd": 0.145092,
+          "cost_per_exact_usd": 0.011161,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "1024": {
+          "n": 15,
+          "score_sum": 13.0,
+          "mean_score": 0.866667,
+          "exact_count": 13,
+          "exact_rate": 0.866667,
+          "cost_usd": 0.000948,
+          "cost_per_exact_usd": 7.3e-05,
+          "errors": 0
+        },
+        "4096": {
+          "n": 15,
+          "score_sum": 11.6376,
+          "mean_score": 0.77584,
+          "exact_count": 11,
+          "exact_rate": 0.733333,
+          "cost_usd": 0.006095,
+          "cost_per_exact_usd": 0.000554,
+          "errors": 0
+        },
+        "262144": {
+          "n": 15,
+          "score_sum": 13.0281,
+          "mean_score": 0.86854,
+          "exact_count": 12,
+          "exact_rate": 0.8,
+          "cost_usd": 0.409372,
+          "cost_per_exact_usd": 0.034114,
+          "errors": 0
+        }
+      },
+      "by_task": {
+        "TASK_TYPE.LEAST_FREQ": {
+          "n": 6,
+          "score_sum": 4.0,
+          "mean_score": 0.666667,
+          "exact_count": 4,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.064931,
+          "cost_per_exact_usd": 0.016233,
+          "errors": 0
+        },
+        "TASK_TYPE.MOST_FREQ": {
+          "n": 11,
+          "score_sum": 9.0,
+          "mean_score": 0.818182,
+          "exact_count": 9,
+          "exact_rate": 0.818182,
+          "cost_usd": 0.068023,
+          "cost_per_exact_usd": 0.007558,
+          "errors": 0
+        },
+        "TASK_TYPE.NUMERIC_ONE_CLASS": {
+          "n": 14,
+          "score_sum": 10.6657,
+          "mean_score": 0.761836,
+          "exact_count": 9,
+          "exact_rate": 0.642857,
+          "cost_usd": 0.117364,
+          "cost_per_exact_usd": 0.01304,
+          "errors": 0
+        },
+        "TASK_TYPE.RELATIVE_FREQ": {
+          "n": 14,
+          "score_sum": 14.0,
+          "mean_score": 1.0,
+          "exact_count": 14,
+          "exact_rate": 1.0,
+          "cost_usd": 0.166097,
+          "cost_per_exact_usd": 0.011864,
+          "errors": 0
+        }
+      },
+      "by_answer_type": {
+        "ANSWER_TYPE.COMPARISON": {
+          "n": 12,
+          "score_sum": 12.0,
+          "mean_score": 1.0,
+          "exact_count": 12,
+          "exact_rate": 1.0,
+          "cost_usd": 0.165684,
+          "cost_per_exact_usd": 0.013807,
+          "errors": 0
+        },
+        "ANSWER_TYPE.DATE": {
+          "n": 3,
+          "score_sum": 3.0,
+          "mean_score": 1.0,
+          "exact_count": 3,
+          "exact_rate": 1.0,
+          "cost_usd": 0.015321,
+          "cost_per_exact_usd": 0.005107,
+          "errors": 0
+        },
+        "ANSWER_TYPE.LABEL": {
+          "n": 9,
+          "score_sum": 6.0,
+          "mean_score": 0.666667,
+          "exact_count": 6,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.100668,
+          "cost_per_exact_usd": 0.016778,
+          "errors": 0
+        },
+        "ANSWER_TYPE.NUMERIC": {
+          "n": 14,
+          "score_sum": 10.6657,
+          "mean_score": 0.761836,
+          "exact_count": 9,
+          "exact_rate": 0.642857,
+          "cost_usd": 0.117364,
+          "cost_per_exact_usd": 0.01304,
+          "errors": 0
+        },
+        "ANSWER_TYPE.USER": {
+          "n": 7,
+          "score_sum": 6.0,
+          "mean_score": 0.857143,
+          "exact_count": 6,
+          "exact_rate": 0.857143,
+          "cost_usd": 0.017378,
+          "cost_per_exact_usd": 0.002896,
+          "errors": 0
+        }
+      }
+    },
+    "direct_gemini25": {
+      "n": 45,
+      "score_sum": 24.6914,
+      "mean_score": 0.548698,
+      "exact_count": 21,
+      "exact_rate": 0.466667,
+      "cost_usd": 1.02459,
+      "cost_per_exact_usd": 0.04879,
+      "errors": 0,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "score_sum": 9.3125,
+          "mean_score": 0.620833,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 0.337721,
+          "cost_per_exact_usd": 0.042215,
+          "errors": 0
+        },
+        "timeline": {
+          "n": 15,
+          "score_sum": 6.0664,
+          "mean_score": 0.404427,
+          "exact_count": 5,
+          "exact_rate": 0.333333,
+          "cost_usd": 0.348202,
+          "cost_per_exact_usd": 0.06964,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "score_sum": 9.3125,
+          "mean_score": 0.620833,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 0.338668,
+          "cost_per_exact_usd": 0.042333,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "1024": {
+          "n": 15,
+          "score_sum": 12.5,
+          "mean_score": 0.833333,
+          "exact_count": 11,
+          "exact_rate": 0.733333,
+          "cost_usd": 0.003517,
+          "cost_per_exact_usd": 0.00032,
+          "errors": 0
+        },
+        "4096": {
+          "n": 15,
+          "score_sum": 7.6289,
+          "mean_score": 0.508593,
+          "exact_count": 6,
+          "exact_rate": 0.4,
+          "cost_usd": 0.015087,
+          "cost_per_exact_usd": 0.002514,
+          "errors": 0
+        },
+        "262144": {
+          "n": 15,
+          "score_sum": 4.5625,
+          "mean_score": 0.304167,
+          "exact_count": 4,
+          "exact_rate": 0.266667,
+          "cost_usd": 1.005987,
+          "cost_per_exact_usd": 0.251497,
+          "errors": 0
+        }
+      },
+      "by_task": {
+        "TASK_TYPE.LEAST_FREQ": {
+          "n": 6,
+          "score_sum": 4.0,
+          "mean_score": 0.666667,
+          "exact_count": 4,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.139142,
+          "cost_per_exact_usd": 0.034785,
+          "errors": 0
+        },
+        "TASK_TYPE.MOST_FREQ": {
+          "n": 11,
+          "score_sum": 4.0,
+          "mean_score": 0.363636,
+          "exact_count": 4,
+          "exact_rate": 0.363636,
+          "cost_usd": 0.20704,
+          "cost_per_exact_usd": 0.05176,
+          "errors": 0
+        },
+        "TASK_TYPE.NUMERIC_ONE_CLASS": {
+          "n": 14,
+          "score_sum": 9.6914,
+          "mean_score": 0.692243,
+          "exact_count": 6,
+          "exact_rate": 0.428571,
+          "cost_usd": 0.271878,
+          "cost_per_exact_usd": 0.045313,
+          "errors": 0
+        },
+        "TASK_TYPE.RELATIVE_FREQ": {
+          "n": 14,
+          "score_sum": 7.0,
+          "mean_score": 0.5,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 0.40653,
+          "cost_per_exact_usd": 0.058076,
+          "errors": 0
+        }
+      },
+      "by_answer_type": {
+        "ANSWER_TYPE.COMPARISON": {
+          "n": 12,
+          "score_sum": 5.0,
+          "mean_score": 0.416667,
+          "exact_count": 5,
+          "exact_rate": 0.416667,
+          "cost_usd": 0.405287,
+          "cost_per_exact_usd": 0.081057,
+          "errors": 0
+        },
+        "ANSWER_TYPE.DATE": {
+          "n": 3,
+          "score_sum": 2.0,
+          "mean_score": 0.666667,
+          "exact_count": 2,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.064801,
+          "cost_per_exact_usd": 0.032401,
+          "errors": 0
+        },
+        "ANSWER_TYPE.LABEL": {
+          "n": 9,
+          "score_sum": 5.0,
+          "mean_score": 0.555556,
+          "exact_count": 5,
+          "exact_rate": 0.555556,
+          "cost_usd": 0.211157,
+          "cost_per_exact_usd": 0.042231,
+          "errors": 0
+        },
+        "ANSWER_TYPE.NUMERIC": {
+          "n": 14,
+          "score_sum": 9.6914,
+          "mean_score": 0.692243,
+          "exact_count": 6,
+          "exact_rate": 0.428571,
+          "cost_usd": 0.271878,
+          "cost_per_exact_usd": 0.045313,
+          "errors": 0
+        },
+        "ANSWER_TYPE.USER": {
+          "n": 7,
+          "score_sum": 3.0,
+          "mean_score": 0.428571,
+          "exact_count": 3,
+          "exact_rate": 0.428571,
+          "cost_usd": 0.071466,
+          "cost_per_exact_usd": 0.023822,
+          "errors": 0
+        }
+      }
+    },
+    "standard_rlm_gemini25": {
+      "n": 45,
+      "score_sum": 28.0546,
+      "mean_score": 0.623436,
+      "exact_count": 27,
+      "exact_rate": 0.6,
+      "cost_usd": 1.001014,
+      "cost_per_exact_usd": 0.037075,
+      "errors": 0,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "score_sum": 6.0422,
+          "mean_score": 0.402813,
+          "exact_count": 6,
+          "exact_rate": 0.4,
+          "cost_usd": 0.373732,
+          "cost_per_exact_usd": 0.062289,
+          "errors": 0
+        },
+        "timeline": {
+          "n": 15,
+          "score_sum": 8.8789,
+          "mean_score": 0.591927,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 0.358242,
+          "cost_per_exact_usd": 0.04478,
+          "errors": 0
+        },
+        "user": {
+          "n": 15,
+          "score_sum": 13.1335,
+          "mean_score": 0.875567,
+          "exact_count": 13,
+          "exact_rate": 0.866667,
+          "cost_usd": 0.26904,
+          "cost_per_exact_usd": 0.020695,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "1024": {
+          "n": 15,
+          "score_sum": 12.0422,
+          "mean_score": 0.802813,
+          "exact_count": 12,
+          "exact_rate": 0.8,
+          "cost_usd": 0.096588,
+          "cost_per_exact_usd": 0.008049,
+          "errors": 0
+        },
+        "4096": {
+          "n": 15,
+          "score_sum": 8.8789,
+          "mean_score": 0.591927,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 0.121268,
+          "cost_per_exact_usd": 0.015159,
+          "errors": 0
+        },
+        "262144": {
+          "n": 15,
+          "score_sum": 7.1335,
+          "mean_score": 0.475567,
+          "exact_count": 7,
+          "exact_rate": 0.466667,
+          "cost_usd": 0.783158,
+          "cost_per_exact_usd": 0.11188,
+          "errors": 0
+        }
+      },
+      "by_task": {
+        "TASK_TYPE.LEAST_FREQ": {
+          "n": 6,
+          "score_sum": 3.0,
+          "mean_score": 0.5,
+          "exact_count": 3,
+          "exact_rate": 0.5,
+          "cost_usd": 0.179728,
+          "cost_per_exact_usd": 0.059909,
+          "errors": 0
+        },
+        "TASK_TYPE.MOST_FREQ": {
+          "n": 11,
+          "score_sum": 8.0,
+          "mean_score": 0.727273,
+          "exact_count": 8,
+          "exact_rate": 0.727273,
+          "cost_usd": 0.257298,
+          "cost_per_exact_usd": 0.032162,
+          "errors": 0
+        },
+        "TASK_TYPE.NUMERIC_ONE_CLASS": {
+          "n": 14,
+          "score_sum": 8.0546,
+          "mean_score": 0.575329,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 0.314315,
+          "cost_per_exact_usd": 0.044902,
+          "errors": 0
+        },
+        "TASK_TYPE.RELATIVE_FREQ": {
+          "n": 14,
+          "score_sum": 9.0,
+          "mean_score": 0.642857,
+          "exact_count": 9,
+          "exact_rate": 0.642857,
+          "cost_usd": 0.249673,
+          "cost_per_exact_usd": 0.027741,
+          "errors": 0
+        }
+      },
+      "by_answer_type": {
+        "ANSWER_TYPE.COMPARISON": {
+          "n": 12,
+          "score_sum": 7.0,
+          "mean_score": 0.583333,
+          "exact_count": 7,
+          "exact_rate": 0.583333,
+          "cost_usd": 0.234026,
+          "cost_per_exact_usd": 0.033432,
+          "errors": 0
+        },
+        "ANSWER_TYPE.DATE": {
+          "n": 3,
+          "score_sum": 2.0,
+          "mean_score": 0.666667,
+          "exact_count": 2,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.088811,
+          "cost_per_exact_usd": 0.044406,
+          "errors": 0
+        },
+        "ANSWER_TYPE.LABEL": {
+          "n": 9,
+          "score_sum": 5.0,
+          "mean_score": 0.555556,
+          "exact_count": 5,
+          "exact_rate": 0.555556,
+          "cost_usd": 0.231096,
+          "cost_per_exact_usd": 0.046219,
+          "errors": 0
+        },
+        "ANSWER_TYPE.NUMERIC": {
+          "n": 14,
+          "score_sum": 8.0546,
+          "mean_score": 0.575329,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 0.314315,
+          "cost_per_exact_usd": 0.044902,
+          "errors": 0
+        },
+        "ANSWER_TYPE.USER": {
+          "n": 7,
+          "score_sum": 6.0,
+          "mean_score": 0.857143,
+          "exact_count": 6,
+          "exact_rate": 0.857143,
+          "cost_usd": 0.132766,
+          "cost_per_exact_usd": 0.022128,
+          "errors": 0
+        }
+      }
+    },
+    "standard_rlm_gpt5": {
+      "n": 45,
+      "score_sum": 26.1289,
+      "mean_score": 0.580642,
+      "exact_count": 23,
+      "exact_rate": 0.511111,
+      "cost_usd": 2.442035,
+      "cost_per_exact_usd": 0.106175,
+      "errors": 15,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "score_sum": 6.0664,
+          "mean_score": 0.404427,
+          "exact_count": 5,
+          "exact_rate": 0.333333,
+          "cost_usd": 0.814743,
+          "cost_per_exact_usd": 0.162949,
+          "errors": 7
+        },
+        "timeline": {
+          "n": 15,
+          "score_sum": 9.5625,
+          "mean_score": 0.6375,
+          "exact_count": 9,
+          "exact_rate": 0.6,
+          "cost_usd": 0.746949,
+          "cost_per_exact_usd": 0.082994,
+          "errors": 4
+        },
+        "user": {
+          "n": 15,
+          "score_sum": 10.5,
+          "mean_score": 0.7,
+          "exact_count": 9,
+          "exact_rate": 0.6,
+          "cost_usd": 0.880343,
+          "cost_per_exact_usd": 0.097816,
+          "errors": 4
+        }
+      },
+      "by_length": {
+        "1024": {
+          "n": 15,
+          "score_sum": 12.5,
+          "mean_score": 0.833333,
+          "exact_count": 11,
+          "exact_rate": 0.733333,
+          "cost_usd": 0.775185,
+          "cost_per_exact_usd": 0.070471,
+          "errors": 1
+        },
+        "4096": {
+          "n": 15,
+          "score_sum": 9.8789,
+          "mean_score": 0.658593,
+          "exact_count": 9,
+          "exact_rate": 0.6,
+          "cost_usd": 1.267096,
+          "cost_per_exact_usd": 0.140788,
+          "errors": 3
+        },
+        "262144": {
+          "n": 15,
+          "score_sum": 3.75,
+          "mean_score": 0.25,
+          "exact_count": 3,
+          "exact_rate": 0.2,
+          "cost_usd": 0.399754,
+          "cost_per_exact_usd": 0.133251,
+          "errors": 11
+        }
+      },
+      "by_task": {
+        "TASK_TYPE.LEAST_FREQ": {
+          "n": 6,
+          "score_sum": 2.0,
+          "mean_score": 0.333333,
+          "exact_count": 2,
+          "exact_rate": 0.333333,
+          "cost_usd": 0.104003,
+          "cost_per_exact_usd": 0.052001,
+          "errors": 4
+        },
+        "TASK_TYPE.MOST_FREQ": {
+          "n": 11,
+          "score_sum": 7.0,
+          "mean_score": 0.636364,
+          "exact_count": 7,
+          "exact_rate": 0.636364,
+          "cost_usd": 0.238218,
+          "cost_per_exact_usd": 0.034031,
+          "errors": 4
+        },
+        "TASK_TYPE.NUMERIC_ONE_CLASS": {
+          "n": 14,
+          "score_sum": 10.1289,
+          "mean_score": 0.723493,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 0.972716,
+          "cost_per_exact_usd": 0.138959,
+          "errors": 2
+        },
+        "TASK_TYPE.RELATIVE_FREQ": {
+          "n": 14,
+          "score_sum": 7.0,
+          "mean_score": 0.5,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 1.127098,
+          "cost_per_exact_usd": 0.161014,
+          "errors": 5
+        }
+      },
+      "by_answer_type": {
+        "ANSWER_TYPE.COMPARISON": {
+          "n": 12,
+          "score_sum": 5.0,
+          "mean_score": 0.416667,
+          "exact_count": 5,
+          "exact_rate": 0.416667,
+          "cost_usd": 0.942607,
+          "cost_per_exact_usd": 0.188521,
+          "errors": 5
+        },
+        "ANSWER_TYPE.DATE": {
+          "n": 3,
+          "score_sum": 3.0,
+          "mean_score": 1.0,
+          "exact_count": 3,
+          "exact_rate": 1.0,
+          "cost_usd": 0.088421,
+          "cost_per_exact_usd": 0.029474,
+          "errors": 0
+        },
+        "ANSWER_TYPE.LABEL": {
+          "n": 9,
+          "score_sum": 4.0,
+          "mean_score": 0.444444,
+          "exact_count": 4,
+          "exact_rate": 0.444444,
+          "cost_usd": 0.204661,
+          "cost_per_exact_usd": 0.051165,
+          "errors": 5
+        },
+        "ANSWER_TYPE.NUMERIC": {
+          "n": 14,
+          "score_sum": 10.1289,
+          "mean_score": 0.723493,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 0.972716,
+          "cost_per_exact_usd": 0.138959,
+          "errors": 2
+        },
+        "ANSWER_TYPE.USER": {
+          "n": 7,
+          "score_sum": 4.0,
+          "mean_score": 0.571429,
+          "exact_count": 4,
+          "exact_rate": 0.571429,
+          "cost_usd": 0.23363,
+          "cost_per_exact_usd": 0.058407,
+          "errors": 3
+        }
+      }
+    },
+    "standard_rlm_gpt56_luna": {
+      "n": 45,
+      "score_sum": 28.2827,
+      "mean_score": 0.628504,
+      "exact_count": 26,
+      "exact_rate": 0.577778,
+      "cost_usd": 3.965806,
+      "cost_per_exact_usd": 0.152531,
+      "errors": 2,
+      "by_group": {
+        "counting": {
+          "n": 15,
+          "score_sum": 9.3547,
+          "mean_score": 0.623647,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 1.922624,
+          "cost_per_exact_usd": 0.240328,
+          "errors": 1
+        },
+        "timeline": {
+          "n": 15,
+          "score_sum": 10.178,
+          "mean_score": 0.678533,
+          "exact_count": 10,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.859095,
+          "cost_per_exact_usd": 0.085909,
+          "errors": 1
+        },
+        "user": {
+          "n": 15,
+          "score_sum": 8.75,
+          "mean_score": 0.583333,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 1.184087,
+          "cost_per_exact_usd": 0.148011,
+          "errors": 0
+        }
+      },
+      "by_length": {
+        "1024": {
+          "n": 15,
+          "score_sum": 11.3547,
+          "mean_score": 0.75698,
+          "exact_count": 10,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.224673,
+          "cost_per_exact_usd": 0.022467,
+          "errors": 0
+        },
+        "4096": {
+          "n": 15,
+          "score_sum": 8.178,
+          "mean_score": 0.5452,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 0.585117,
+          "cost_per_exact_usd": 0.07314,
+          "errors": 1
+        },
+        "262144": {
+          "n": 15,
+          "score_sum": 8.75,
+          "mean_score": 0.583333,
+          "exact_count": 8,
+          "exact_rate": 0.533333,
+          "cost_usd": 3.156016,
+          "cost_per_exact_usd": 0.394502,
+          "errors": 1
+        }
+      },
+      "by_task": {
+        "TASK_TYPE.LEAST_FREQ": {
+          "n": 6,
+          "score_sum": 5.0,
+          "mean_score": 0.833333,
+          "exact_count": 5,
+          "exact_rate": 0.833333,
+          "cost_usd": 0.623894,
+          "cost_per_exact_usd": 0.124779,
+          "errors": 0
+        },
+        "TASK_TYPE.MOST_FREQ": {
+          "n": 11,
+          "score_sum": 7.0,
+          "mean_score": 0.636364,
+          "exact_count": 7,
+          "exact_rate": 0.636364,
+          "cost_usd": 1.0327,
+          "cost_per_exact_usd": 0.147529,
+          "errors": 0
+        },
+        "TASK_TYPE.NUMERIC_ONE_CLASS": {
+          "n": 14,
+          "score_sum": 9.2827,
+          "mean_score": 0.66305,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 1.103958,
+          "cost_per_exact_usd": 0.157708,
+          "errors": 2
+        },
+        "TASK_TYPE.RELATIVE_FREQ": {
+          "n": 14,
+          "score_sum": 7.0,
+          "mean_score": 0.5,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 1.205254,
+          "cost_per_exact_usd": 0.172179,
+          "errors": 0
+        }
+      },
+      "by_answer_type": {
+        "ANSWER_TYPE.COMPARISON": {
+          "n": 12,
+          "score_sum": 6.0,
+          "mean_score": 0.5,
+          "exact_count": 6,
+          "exact_rate": 0.5,
+          "cost_usd": 1.161469,
+          "cost_per_exact_usd": 0.193578,
+          "errors": 0
+        },
+        "ANSWER_TYPE.DATE": {
+          "n": 3,
+          "score_sum": 2.0,
+          "mean_score": 0.666667,
+          "exact_count": 2,
+          "exact_rate": 0.666667,
+          "cost_usd": 0.05246,
+          "cost_per_exact_usd": 0.02623,
+          "errors": 0
+        },
+        "ANSWER_TYPE.LABEL": {
+          "n": 9,
+          "score_sum": 8.0,
+          "mean_score": 0.888889,
+          "exact_count": 8,
+          "exact_rate": 0.888889,
+          "cost_usd": 0.99811,
+          "cost_per_exact_usd": 0.124764,
+          "errors": 0
+        },
+        "ANSWER_TYPE.NUMERIC": {
+          "n": 14,
+          "score_sum": 9.2827,
+          "mean_score": 0.66305,
+          "exact_count": 7,
+          "exact_rate": 0.5,
+          "cost_usd": 1.103958,
+          "cost_per_exact_usd": 0.157708,
+          "errors": 2
+        },
+        "ANSWER_TYPE.USER": {
+          "n": 7,
+          "score_sum": 3.0,
+          "mean_score": 0.428571,
+          "exact_count": 3,
+          "exact_rate": 0.428571,
+          "cost_usd": 0.649809,
+          "cost_per_exact_usd": 0.216603,
+          "errors": 0
+        }
+      }
+    }
+  },
+  "paired": {
+    "slm_qparsed_typed_vs_standard_rlm_gpt56_luna": {
+      "n": 45,
+      "b_a_right_b_wrong": 15,
+      "c_b_right_a_wrong": 5,
+      "two_sided_exact_p": 0.04138946533203125,
+      "exact_diff": 0.222222,
+      "score_diff": 0.208511,
+      "exact_diff_cluster_ci": {
+        "mean": 0.223509,
+        "ci_low": 0.022727,
+        "ci_high": 0.409091
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.210164,
+        "ci_low": 0.018812,
+        "ci_high": 0.391773
+      },
+      "clusters": 32
+    },
+    "standard_rlm_gpt56_luna_vs_standard_rlm_gemini25": {
+      "n": 45,
+      "b_a_right_b_wrong": 10,
+      "c_b_right_a_wrong": 11,
+      "two_sided_exact_p": 1.0,
+      "exact_diff": -0.022222,
+      "score_diff": 0.005069,
+      "exact_diff_cluster_ci": {
+        "mean": -0.023474,
+        "ci_low": -0.222222,
+        "ci_high": 0.181818
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.004027,
+        "ci_low": -0.194132,
+        "ci_high": 0.201511
+      },
+      "clusters": 32
+    },
+    "standard_rlm_gpt56_luna_vs_standard_rlm_gpt5": {
+      "n": 45,
+      "b_a_right_b_wrong": 12,
+      "c_b_right_a_wrong": 9,
+      "two_sided_exact_p": 0.6636238098144531,
+      "exact_diff": 0.066667,
+      "score_diff": 0.047862,
+      "exact_diff_cluster_ci": {
+        "mean": 0.063608,
+        "ci_low": -0.136364,
+        "ci_high": 0.261905
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.044733,
+        "ci_low": -0.147326,
+        "ci_high": 0.241098
+      },
+      "clusters": 32
+    },
+    "standard_rlm_gpt56_luna_vs_direct_gemini25": {
+      "n": 45,
+      "b_a_right_b_wrong": 12,
+      "c_b_right_a_wrong": 7,
+      "two_sided_exact_p": 0.359283447265625,
+      "exact_diff": 0.111111,
+      "score_diff": 0.079807,
+      "exact_diff_cluster_ci": {
+        "mean": 0.111553,
+        "ci_low": -0.086957,
+        "ci_high": 0.311111
+      },
+      "score_diff_cluster_ci": {
+        "mean": 0.079927,
+        "ci_low": -0.106602,
+        "ci_high": 0.275298
+      },
+      "clusters": 32
+    }
+  },
+  "interpretation": {
+    "headline": "GPT-5.6 Luna completes CD-45 and does not overturn SLM+typed; it mainly closes the current-controller freshness objection.",
+    "claim_boundary": "This is a standard rlms controller-freshness sensitivity, not official SRLM/lambda-RLM/RAH or RLM-Qwen parity."
+  }
+}

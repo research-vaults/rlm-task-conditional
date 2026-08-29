@@ -1,0 +1,20 @@
+{
+  "run_type": "oolong_validation_corpus_disjoint_n45_standard_rlm",
+  "created_utc": "2026-07-21T02:54:57.513239+00:00",
+  "run_id": "oolong_validation_corpus_disjoint_n45_standard_rlm_counting_20260721",
+  "model": "google/gemini-2.5-flash",
+  "artifact_title": "VC-45 Standard-RLM counting Results and Program Traces",
+  "artifact_description": "One VC-45 task subgroup, pre-output locked after the disclosed outcome-blind no-call parser grammar repair, evaluated with standard rlms v0.1.3; every input context, raw response, generated program trajectory, token count, latency, and captured cost is retained.",
+  "contract": "Pre-output-locked Oolong validation-split subgroup, after one outcome-blind no-call parser grammar repair, evaluated with standard rlms v0.1.3 on standard/unlabeled context_window_text, Gemini 2.5 Flash via OpenRouter, and complete trajectory capture. This is aggregate VC-45 benchmark evidence, not official SRLM/lambda-RLM/RAH parity.",
+  "source_manifest": "results/oolong_validation_corpus_disjoint_n45_counting_subset_20260721.json",
+  "dataset_split": "validation",
+  "requested_ids": "ALL_MANIFEST_EXAMPLES",
+  "n": 15,
+  "exact_count": 6,
+  "score_sum": 6.7734,
+  "cost_usd": 0.606157,
+  "errors": 0,
+  "with_trajectory": 15,
+  "code_block_count": 62,
+  "paper_framing": "Pre-output-locked source-corpus-transfer standard-RLM replication after the disclosed parser repair; not official SRLM/lambda-RLM/RAH parity."
+}

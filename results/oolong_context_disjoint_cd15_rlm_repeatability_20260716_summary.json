@@ -1,0 +1,431 @@
+{
+  "metadata": {
+    "created_utc": "2026-07-16T04:28:44.171670+00:00",
+    "manifest": "results/oolong_context_disjoint_cd15_repeatability_manifest_20260715.json",
+    "repeat_files": [
+      "results/oolong_context_disjoint_cd15_rlm_repeat1_20260716.csv",
+      "results/oolong_context_disjoint_cd15_rlm_repeat2_20260716.csv",
+      "results/oolong_context_disjoint_cd15_rlm_repeat3_20260716.csv"
+    ],
+    "controller": "google/gemini-2.5-flash via OpenRouter",
+    "context_variant": "standard/unlabeled",
+    "row_timeout_seconds": 360,
+    "note": "This is a predeclared frozen CD-15 repeatability stop-rule; it does not replace the main CD-45 or SU-150 estimates."
+  },
+  "aggregate_over_45_repeat_rows": {
+    "n": 45,
+    "score_sum": 32.0625,
+    "mean_score": 0.7125,
+    "exact_count": 30,
+    "exact_rate": 0.666667,
+    "cost_usd": 1.252444,
+    "harness_error_rows": 0,
+    "internal_error_predictions": 1,
+    "freeform_nonanswers": 2
+  },
+  "per_repeat": {
+    "repeat1": {
+      "n": 15,
+      "score_sum": 13.0,
+      "mean_score": 0.866667,
+      "exact_count": 13,
+      "exact_rate": 0.866667,
+      "cost_usd": 0.512787,
+      "harness_error_rows": 0,
+      "internal_error_predictions": 1,
+      "freeform_nonanswers": 0
+    },
+    "repeat2": {
+      "n": 15,
+      "score_sum": 11.75,
+      "mean_score": 0.783333,
+      "exact_count": 11,
+      "exact_rate": 0.733333,
+      "cost_usd": 0.324493,
+      "harness_error_rows": 0,
+      "internal_error_predictions": 0,
+      "freeform_nonanswers": 0
+    },
+    "repeat3": {
+      "n": 15,
+      "score_sum": 7.3125,
+      "mean_score": 0.4875,
+      "exact_count": 6,
+      "exact_rate": 0.4,
+      "cost_usd": 0.415164,
+      "harness_error_rows": 0,
+      "internal_error_predictions": 0,
+      "freeform_nonanswers": 2
+    }
+  },
+  "by_group": {
+    "counting": {
+      "repeat1": {
+        "n": 5,
+        "score_sum": 4.0,
+        "mean_score": 0.8,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "cost_usd": 0.103814,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 0
+      },
+      "repeat2": {
+        "n": 5,
+        "score_sum": 2.75,
+        "mean_score": 0.55,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "cost_usd": 0.088162,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 0
+      },
+      "repeat3": {
+        "n": 5,
+        "score_sum": 2.3125,
+        "mean_score": 0.4625,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "cost_usd": 0.078777,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 0
+      }
+    },
+    "timeline": {
+      "repeat1": {
+        "n": 5,
+        "score_sum": 5.0,
+        "mean_score": 1.0,
+        "exact_count": 5,
+        "exact_rate": 1.0,
+        "cost_usd": 0.223551,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 0
+      },
+      "repeat2": {
+        "n": 5,
+        "score_sum": 4.0,
+        "mean_score": 0.8,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "cost_usd": 0.133851,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 0
+      },
+      "repeat3": {
+        "n": 5,
+        "score_sum": 3.0,
+        "mean_score": 0.6,
+        "exact_count": 3,
+        "exact_rate": 0.6,
+        "cost_usd": 0.137537,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 1
+      }
+    },
+    "user": {
+      "repeat1": {
+        "n": 5,
+        "score_sum": 4.0,
+        "mean_score": 0.8,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "cost_usd": 0.185422,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 1,
+        "freeform_nonanswers": 0
+      },
+      "repeat2": {
+        "n": 5,
+        "score_sum": 5.0,
+        "mean_score": 1.0,
+        "exact_count": 5,
+        "exact_rate": 1.0,
+        "cost_usd": 0.10248,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 0
+      },
+      "repeat3": {
+        "n": 5,
+        "score_sum": 2.0,
+        "mean_score": 0.4,
+        "exact_count": 2,
+        "exact_rate": 0.4,
+        "cost_usd": 0.19885,
+        "harness_error_rows": 0,
+        "internal_error_predictions": 0,
+        "freeform_nonanswers": 1
+      }
+    }
+  },
+  "per_example_stability_counts": {
+    "0": 1,
+    "1": 1,
+    "2": 10,
+    "3": 3
+  },
+  "per_example": [
+    {
+      "example_id": "210020009",
+      "task_group": "counting",
+      "context_len": 1024,
+      "task": "TASK_TYPE.NUMERIC_ONE_CLASS",
+      "answer_type": "ANSWER_TYPE.NUMERIC",
+      "gold": "1",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.75,
+      "predictions": [
+        "1",
+        "1",
+        "0"
+      ],
+      "question": "In the above data, how many data points should be classified as label 'negative'? Give your final answer in the form 'Answer: number'."
+    },
+    {
+      "example_id": "210020033",
+      "task_group": "counting",
+      "context_len": 1024,
+      "task": "TASK_TYPE.NUMERIC_ONE_CLASS",
+      "answer_type": "ANSWER_TYPE.NUMERIC",
+      "gold": "0",
+      "exact_pattern": "100",
+      "exact_count": 1,
+      "score_sum": 2.3125,
+      "predictions": [
+        "0",
+        "1",
+        "2"
+      ],
+      "question": "In the above data, how many data points should be classified as label 'negative'? Give your final answer in the form 'Answer: number'."
+    },
+    {
+      "example_id": "412040009",
+      "task_group": "counting",
+      "context_len": 4096,
+      "task": "TASK_TYPE.LEAST_FREQ",
+      "answer_type": "ANSWER_TYPE.LABEL",
+      "gold": "True",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "True",
+        "True",
+        "False"
+      ],
+      "question": "In the above data, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: True, False."
+    },
+    {
+      "example_id": "512050034",
+      "task_group": "counting",
+      "context_len": 4096,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "gold": "more common than",
+      "exact_pattern": "000",
+      "exact_count": 0,
+      "score_sum": 0.0,
+      "predictions": [
+        "same frequency as",
+        "same frequency as",
+        "same frequency as"
+      ],
+      "question": "In the above data, is label 'Entertainment & Music' more common, less common, or the same frequency as label 'Education & Reference'? Give your final answer in the form 'Answer: Entertainment & Music is [X] Education & Reference', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+    },
+    {
+      "example_id": "218020026",
+      "task_group": "counting",
+      "context_len": 262144,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "gold": "more common than",
+      "exact_pattern": "101",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "more common than",
+        "same frequency as",
+        "more common than"
+      ],
+      "question": "In the above data, is label 'negative' more common, less common, or the same frequency as label 'positive'? Give your final answer in the form 'Answer: negative is [X] positive', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+    },
+    {
+      "example_id": "210020017",
+      "task_group": "timeline",
+      "context_len": 1024,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.DATE",
+      "gold": "2023-06-29 00:00:00",
+      "exact_pattern": "111",
+      "exact_count": 3,
+      "score_sum": 3.0,
+      "predictions": [
+        "06/29/2023",
+        "06/29/2023",
+        "06/29/2023"
+      ],
+      "question": "In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY."
+    },
+    {
+      "example_id": "210020029",
+      "task_group": "timeline",
+      "context_len": 1024,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.DATE",
+      "gold": "2025-03-03 00:00:00",
+      "exact_pattern": "101",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "03/03/2025",
+        "09/30/2024",
+        "03/03/2025"
+      ],
+      "question": "In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY."
+    },
+    {
+      "example_id": "212020028",
+      "task_group": "timeline",
+      "context_len": 4096,
+      "task": "TASK_TYPE.NUMERIC_ONE_CLASS",
+      "answer_type": "ANSWER_TYPE.NUMERIC",
+      "gold": "2",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "2",
+        "2",
+        "Here's an analysis of the provided data based on the given date range and sentiment:"
+      ],
+      "question": "For the following question, only consider the subset of instances that occur between Dec 20, 2022 and Sep 10, 2024, inclusive. Among instances occuring in this date range, how many data points should be classified as label 'positive'? Give your final answer in the form 'Answer: number'."
+    },
+    {
+      "example_id": "218020038",
+      "task_group": "timeline",
+      "context_len": 262144,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.DATE",
+      "gold": "2024-12-06 00:00:00",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "12/06/2024",
+        "12/06/2024",
+        "No dates found in the context."
+      ],
+      "question": "In the above data, which date is represented most often? Give your final answer in the form 'Date: [X]', where [X] is the date in the format MM/DD/YYYY."
+    },
+    {
+      "example_id": "418040042",
+      "task_group": "timeline",
+      "context_len": 262144,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "gold": "more common than",
+      "exact_pattern": "111",
+      "exact_count": 3,
+      "score_sum": 3.0,
+      "predictions": [
+        "more common than",
+        "more common than",
+        "more common than"
+      ],
+      "question": "For the following question, only consider the subset of instances that occur in May of any year. Among instances occuring in May, is label 'False' more common, less common, or the same frequency as label 'True'? Give your final answer in the form 'Answer: False is [X] True', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+    },
+    {
+      "example_id": "310030013",
+      "task_group": "user",
+      "context_len": 1024,
+      "task": "TASK_TYPE.LEAST_FREQ",
+      "answer_type": "ANSWER_TYPE.LABEL",
+      "gold": "Business",
+      "exact_pattern": "011",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "Error: llm() call failed - Connection error.",
+        "Business",
+        "Business"
+      ],
+      "question": "For the following question, only consider the subset of instances that are associated with user IDs 29633. Among instances associated with these users, which of the labels is the least common? Give your final answer in the form 'Label: answer' where answer is one of the labels: Business."
+    },
+    {
+      "example_id": "312030020",
+      "task_group": "user",
+      "context_len": 4096,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.USER",
+      "gold": "16226",
+      "exact_pattern": "111",
+      "exact_count": 3,
+      "score_sum": 3.0,
+      "predictions": [
+        "16226",
+        "16226",
+        "16226"
+      ],
+      "question": "In the above data, which user is represented most often? Give your final answer in the form 'User: [X]', where [X] is the user ID."
+    },
+    {
+      "example_id": "312030051",
+      "task_group": "user",
+      "context_len": 4096,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.USER",
+      "gold": "22165",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "22165",
+        "22165",
+        "Both users have an equal number of Sports instances."
+      ],
+      "question": "In the above data, which user has more instances with the label Sports: User 22165 or User 60374? Give your final answer in the form 'User: [X]', where [X] is the user ID."
+    },
+    {
+      "example_id": "218020061",
+      "task_group": "user",
+      "context_len": 262144,
+      "task": "TASK_TYPE.MOST_FREQ",
+      "answer_type": "ANSWER_TYPE.USER",
+      "gold": "39309",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "39309",
+        "39309",
+        "23861"
+      ],
+      "question": "In the above data, which user has the most instances with the label positive? Give your final answer in the form 'User: [X]', where [X] is the user ID."
+    },
+    {
+      "example_id": "318030064",
+      "task_group": "user",
+      "context_len": 262144,
+      "task": "TASK_TYPE.RELATIVE_FREQ",
+      "answer_type": "ANSWER_TYPE.COMPARISON",
+      "gold": "more common than",
+      "exact_pattern": "110",
+      "exact_count": 2,
+      "score_sum": 2.0,
+      "predictions": [
+        "more common than",
+        "more common than",
+        "same frequency as"
+      ],
+      "question": "For the following question, only consider the subset of instances that are associated with user IDs 15666. Among instances associated with these users, is label 'World' more common, less common, or the same frequency as label 'Sports'? Give your final answer in the form 'Answer: World is [X] Sports', where [X] is 'more common than', 'less common than', or 'same frequency as'."
+    }
+  ]
+}

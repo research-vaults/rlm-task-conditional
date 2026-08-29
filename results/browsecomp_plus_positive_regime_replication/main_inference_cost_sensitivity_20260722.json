@@ -1,0 +1,100 @@
+{
+  "analysis_type": "descriptive_stopped_prefix_and_route_cost_utility_sensitivity",
+  "comparisons": {
+    "standard_rlm_qwen36__vs__bm25_qwen36": {
+      "attempted_n49": {
+        "bootstrap_repetitions": 50000,
+        "bootstrap_seed": 20260722,
+        "difference": 0.28571428571428575,
+        "left_correct": 35,
+        "left_only": 19,
+        "mcnemar_exact_two_sided_p": 0.006610751152038574,
+        "n": 49,
+        "paired_percentile_bootstrap_95": [
+          0.10204081632653061,
+          0.46938775510204084
+        ],
+        "right_correct": 21,
+        "right_only": 5
+      },
+      "fully_generated_prefix_n48": {
+        "bootstrap_repetitions": 50000,
+        "bootstrap_seed": 20260723,
+        "difference": 0.29166666666666663,
+        "left_correct": 35,
+        "left_only": 19,
+        "mcnemar_exact_two_sided_p": 0.006610751152038574,
+        "n": 48,
+        "paired_percentile_bootstrap_95": [
+          0.10416666666666667,
+          0.4791666666666667
+        ],
+        "right_correct": 21,
+        "right_only": 5
+      }
+    },
+    "standard_rlm_qwen36__vs__text_decompose_qwen36": {
+      "attempted_n49": {
+        "bootstrap_repetitions": 50000,
+        "bootstrap_seed": 20260721,
+        "difference": 0.28571428571428575,
+        "left_correct": 35,
+        "left_only": 17,
+        "mcnemar_exact_two_sided_p": 0.0025768280029296875,
+        "n": 49,
+        "paired_percentile_bootstrap_95": [
+          0.12244897959183673,
+          0.4489795918367347
+        ],
+        "right_correct": 21,
+        "right_only": 3
+      },
+      "fully_generated_prefix_n48": {
+        "bootstrap_repetitions": 50000,
+        "bootstrap_seed": 20260722,
+        "difference": 0.29166666666666663,
+        "left_correct": 35,
+        "left_only": 17,
+        "mcnemar_exact_two_sided_p": 0.0025768280029296875,
+        "n": 48,
+        "paired_percentile_bootstrap_95": [
+          0.125,
+          0.4583333333333333
+        ],
+        "right_correct": 21,
+        "right_only": 3
+      }
+    }
+  },
+  "interpretation_boundary": [
+    "Dropping the terminal all-route failure tests whether that row drives the paired result; it is not a stopping-adjusted population analysis.",
+    "The bootstrap intervals and McNemar tests describe the observed attempted prefix and do not guarantee coverage under the reliability-triggered stop.",
+    "The dollar threshold values only route-attributed active-runtime cost and excludes latency value, engineering, maintenance, reliability, and failed-call billing outside returned usage.",
+    "No same-budget nonrecursive search route is evaluated, so the analysis does not isolate recursion from additional inference budget."
+  ],
+  "route_cost_utility": {
+    "bm25_qwen36": {
+      "alternative_label": "BM25",
+      "attempted_n": 49,
+      "incremental_cost_per_attempted_query_usd": 0.30051103640757676,
+      "incremental_route_attributed_cost_usd": 14.725040783971261,
+      "net_additional_correct_answers": 14,
+      "route_dollar_cost_per_net_additional_correct_answer": 1.0517886274265187
+    },
+    "text_decompose_qwen36": {
+      "alternative_label": "Text decomposition",
+      "attempted_n": 49,
+      "incremental_cost_per_attempted_query_usd": 0.26860124661975315,
+      "incremental_route_attributed_cost_usd": 13.161461084367906,
+      "net_additional_correct_answers": 14,
+      "route_dollar_cost_per_net_additional_correct_answer": 0.9401043631691361
+    }
+  },
+  "source_hashes": {
+    "compact": "abae16fb8a9dfbbce3f8c69c127112fc046dd19ebe101d74299e6de41142a2a4",
+    "judges": "cbbc38bd09543510576c60b0b17186e2e6989bdcd3a6bec0845a1cd42519babf",
+    "primary_analysis": "587353320f786e26750f44cabeab75d9830d72ba79413575c3a95c9e42554011"
+  },
+  "terminal_rank": 49,
+  "terminal_rank_all_routes_failed": true
+}

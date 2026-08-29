@@ -1,0 +1,362 @@
+{
+  "evidence_role": "official lambda-RLM implementation cross-task same-contract evaluation; not original-paper benchmark reproduction",
+  "rankable_full_cd15": false,
+  "run_id": "lambda_rlm_official_cd15_qwen3_8b_hf_nscale_20260719",
+  "all_attempted": {
+    "n": 14,
+    "exact": 4,
+    "score_sum": 4.0,
+    "errors": 2,
+    "execution_time_s_completed": 1422.788
+  },
+  "valid_model_outputs": {
+    "n": 9,
+    "exact": 4,
+    "score_sum": 4.0,
+    "errors": 0,
+    "execution_time_s_completed": 1271.712
+  },
+  "by_group": {
+    "counting": {
+      "n": 5,
+      "exact": 2,
+      "score_sum": 2.0,
+      "errors": 0,
+      "execution_time_s_completed": 184.972
+    },
+    "timeline": {
+      "n": 5,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 1,
+      "execution_time_s_completed": 844.324
+    },
+    "user": {
+      "n": 4,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 1,
+      "execution_time_s_completed": 393.492
+    }
+  },
+  "by_length": {
+    "1024": {
+      "n": 5,
+      "exact": 3,
+      "score_sum": 3.0,
+      "errors": 1,
+      "execution_time_s_completed": 100.514
+    },
+    "4096": {
+      "n": 5,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 1,
+      "execution_time_s_completed": 61.09
+    },
+    "262144": {
+      "n": 4,
+      "exact": 0,
+      "score_sum": 0.0,
+      "errors": 0,
+      "execution_time_s_completed": 1261.184
+    }
+  },
+  "valid_by_group": {
+    "counting": {
+      "n": 4,
+      "exact": 2,
+      "score_sum": 2.0,
+      "errors": 0,
+      "execution_time_s_completed": 113.829
+    },
+    "timeline": {
+      "n": 3,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 0,
+      "execution_time_s_completed": 768.76
+    },
+    "user": {
+      "n": 2,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 0,
+      "execution_time_s_completed": 389.123
+    }
+  },
+  "valid_by_length": {
+    "1024": {
+      "n": 4,
+      "exact": 3,
+      "score_sum": 3.0,
+      "errors": 0,
+      "execution_time_s_completed": 100.514
+    },
+    "4096": {
+      "n": 3,
+      "exact": 1,
+      "score_sum": 1.0,
+      "errors": 0,
+      "execution_time_s_completed": 56.721
+    },
+    "262144": {
+      "n": 2,
+      "exact": 0,
+      "score_sum": 0.0,
+      "errors": 0,
+      "execution_time_s_completed": 1114.477
+    }
+  },
+  "failure_modes": {
+    "strict_exact": 4,
+    "latent_gold_output_contract_failure": 2,
+    "semantic_or_aggregation_error": 3,
+    "provider_credit_failure": 5
+  },
+  "latent_correct_ids": [
+    "212020028",
+    "210020033"
+  ],
+  "detected_task_counts": {
+    "qa": 9,
+    "classification": 3
+  },
+  "paired": {
+    "slm_qparsed_typed": {
+      "n": 9,
+      "ours_exact": 4,
+      "baseline_exact": 9,
+      "b_ours_only": 0,
+      "c_baseline_only": 5,
+      "mcnemar_exact_two_sided_p": 0.0625
+    },
+    "direct_gemini25_flash": {
+      "n": 9,
+      "ours_exact": 4,
+      "baseline_exact": 5,
+      "b_ours_only": 1,
+      "c_baseline_only": 2,
+      "mcnemar_exact_two_sided_p": 1.0
+    },
+    "standard_rlm_gemini25_flash": {
+      "n": 9,
+      "ours_exact": 4,
+      "baseline_exact": 4,
+      "b_ours_only": 1,
+      "c_baseline_only": 1,
+      "mcnemar_exact_two_sided_p": 1.0
+    },
+    "standard_rlm_gpt5": {
+      "n": 9,
+      "ours_exact": 4,
+      "baseline_exact": 6,
+      "b_ours_only": 1,
+      "c_baseline_only": 3,
+      "mcnemar_exact_two_sided_p": 0.625
+    }
+  },
+  "cost": {
+    "openrouter_usd": 0.0,
+    "runpod_listed_hourly_usd": 0.0,
+    "runpod_listed_runtime_cost_usd": 0.0,
+    "runtime_s": 0.0,
+    "cost_scope": "creation-to-cleanup listed-rate estimate; token costs unavailable under official streaming transport"
+  },
+  "canary_gate": {
+    "passed": true,
+    "ids": [
+      "210020009",
+      "212020028",
+      "218020061"
+    ],
+    "errors": 0,
+    "nonempty_outputs": 3,
+    "accuracy_not_used": true
+  },
+  "scale_decision": "expanded after canary; stopped after two explicit provider-credit errors; nested 402 text is also infrastructure failure",
+  "row_diagnostics": [
+    {
+      "example_id": "210020009",
+      "group": "counting",
+      "length": 1024,
+      "gold": 1,
+      "prediction": "1",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 8.055,
+      "error": ""
+    },
+    {
+      "example_id": "212020028",
+      "group": "timeline",
+      "length": 4096,
+      "gold": 2,
+      "prediction": "The dataset contains 2 positive and 7 negative reviews.",
+      "strict_exact": false,
+      "failure_mode": "latent_gold_output_contract_failure",
+      "detected_task": "classification",
+      "call_count": 2,
+      "execution_time_s": 11.111,
+      "error": ""
+    },
+    {
+      "example_id": "218020061",
+      "group": "user",
+      "length": 262144,
+      "gold": 39309,
+      "prediction": "The data does not provide sufficient information to determine which user has the most instances with the label \"positive.\"",
+      "strict_exact": false,
+      "failure_mode": "semantic_or_aggregation_error",
+      "detected_task": "qa",
+      "call_count": 37,
+      "execution_time_s": 371.827,
+      "error": ""
+    },
+    {
+      "example_id": "210020033",
+      "group": "counting",
+      "length": 1024,
+      "gold": 0,
+      "prediction": "Negative.",
+      "strict_exact": false,
+      "failure_mode": "latent_gold_output_contract_failure",
+      "detected_task": "classification",
+      "call_count": 2,
+      "execution_time_s": 60.164,
+      "error": ""
+    },
+    {
+      "example_id": "412040009",
+      "group": "counting",
+      "length": 4096,
+      "gold": "True",
+      "prediction": "False",
+      "strict_exact": false,
+      "failure_mode": "semantic_or_aggregation_error",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 23.864,
+      "error": ""
+    },
+    {
+      "example_id": "512050034",
+      "group": "counting",
+      "length": 4096,
+      "gold": "more common than",
+      "prediction": "more common than",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 21.746,
+      "error": ""
+    },
+    {
+      "example_id": "218020026",
+      "group": "counting",
+      "length": 262144,
+      "gold": "more common than",
+      "prediction": "Error: Error code: 402 - {'error': 'You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.'}",
+      "strict_exact": false,
+      "failure_mode": "provider_credit_failure",
+      "detected_task": "qa",
+      "call_count": 9,
+      "execution_time_s": 71.143,
+      "error": ""
+    },
+    {
+      "example_id": "210020017",
+      "group": "timeline",
+      "length": 1024,
+      "gold": "2023-06-29 00:00:00",
+      "prediction": "",
+      "strict_exact": false,
+      "failure_mode": "provider_credit_failure",
+      "detected_task": null,
+      "call_count": 0,
+      "execution_time_s": 0.0,
+      "error": "RuntimeError: APIStatusError: Error code: 402 - {'error': 'You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.'}"
+    },
+    {
+      "example_id": "210020029",
+      "group": "timeline",
+      "length": 1024,
+      "gold": "2025-03-03 00:00:00",
+      "prediction": "03/03/2025",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 14.999,
+      "error": ""
+    },
+    {
+      "example_id": "218020038",
+      "group": "timeline",
+      "length": 262144,
+      "gold": "2024-12-06 00:00:00",
+      "prediction": "05/01/2024",
+      "strict_exact": false,
+      "failure_mode": "semantic_or_aggregation_error",
+      "detected_task": "qa",
+      "call_count": 51,
+      "execution_time_s": 742.65,
+      "error": ""
+    },
+    {
+      "example_id": "418040042",
+      "group": "timeline",
+      "length": 262144,
+      "gold": "more common than",
+      "prediction": "Error: Error code: 402 - {'error': 'You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.'}",
+      "strict_exact": false,
+      "failure_mode": "provider_credit_failure",
+      "detected_task": "classification",
+      "call_count": 5,
+      "execution_time_s": 75.564,
+      "error": ""
+    },
+    {
+      "example_id": "310030013",
+      "group": "user",
+      "length": 1024,
+      "gold": "Business",
+      "prediction": "Business",
+      "strict_exact": true,
+      "failure_mode": "strict_exact",
+      "detected_task": "qa",
+      "call_count": 2,
+      "execution_time_s": 17.296,
+      "error": ""
+    },
+    {
+      "example_id": "312030051",
+      "group": "user",
+      "length": 4096,
+      "gold": 22165,
+      "prediction": "Error: Error code: 402 - {'error': 'You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.'}",
+      "strict_exact": false,
+      "failure_mode": "provider_credit_failure",
+      "detected_task": "qa",
+      "call_count": 1,
+      "execution_time_s": 4.369,
+      "error": ""
+    },
+    {
+      "example_id": "312030020",
+      "group": "user",
+      "length": 4096,
+      "gold": 16226,
+      "prediction": "",
+      "strict_exact": false,
+      "failure_mode": "provider_credit_failure",
+      "detected_task": null,
+      "call_count": 0,
+      "execution_time_s": 0.0,
+      "error": "RuntimeError: APIStatusError: Error code: 402 - {'error': 'You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.'}"
+    }
+  ]
+}

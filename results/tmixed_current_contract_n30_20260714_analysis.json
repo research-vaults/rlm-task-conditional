@@ -1,0 +1,241 @@
+{
+  "n": 30,
+  "manifest": "./results/tmixed_current_contract_n30_manifest_20260714.json",
+  "manifest_n": 30,
+  "generator": {
+    "historical_difference": "Uses stable sha256(domain) offset instead of Python's salted hash(domain).",
+    "seeds_per_domain": 15,
+    "domain_order": [
+      "clinician_burnout_reduction",
+      "diagnostic_error_reduction"
+    ]
+  },
+  "domain_counts": {
+    "clinician_burnout_reduction": 15,
+    "diagnostic_error_reduction": 15
+  },
+  "methods": {
+    "direct_gemini": {
+      "n": 30,
+      "correct": 28,
+      "accuracy": 0.9333333333333333,
+      "minus1": 0,
+      "minus1_rate": 0.0,
+      "finalized": 30,
+      "finalized_rate": 1.0,
+      "errors": 0,
+      "cost_usd": 0.0223092,
+      "cost_per_example": 0.0007436400000000001,
+      "predictions": [
+        4,
+        4,
+        4,
+        3,
+        2,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        4,
+        2,
+        2,
+        4,
+        2,
+        3,
+        5,
+        3,
+        4,
+        5,
+        3,
+        3,
+        3,
+        4,
+        2,
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    "rlm_content_json_contract": {
+      "n": 30,
+      "correct": 18,
+      "accuracy": 0.6,
+      "minus1": 2,
+      "minus1_rate": 0.06666666666666667,
+      "finalized": 28,
+      "finalized_rate": 0.9333333333333333,
+      "errors": 2,
+      "cost_usd": 0.10892292999999997,
+      "cost_per_example": 0.0036307643333333326,
+      "predictions": [
+        4,
+        4,
+        3,
+        3,
+        1,
+        7,
+        2,
+        2,
+        3,
+        1,
+        3,
+        3,
+        0,
+        -1,
+        4,
+        2,
+        3,
+        4,
+        3,
+        4,
+        4,
+        8,
+        3,
+        2,
+        5,
+        2,
+        4,
+        3,
+        2,
+        -1
+      ]
+    }
+  },
+  "by_domain": {
+    "clinician_burnout_reduction": {
+      "direct_gemini": {
+        "n": 15,
+        "correct": 15,
+        "accuracy": 1.0,
+        "minus1": 0,
+        "minus1_rate": 0.0,
+        "finalized": 15,
+        "finalized_rate": 1.0,
+        "errors": 0,
+        "cost_usd": 0.010549300000000001,
+        "cost_per_example": 0.0007032866666666668,
+        "predictions": [
+          4,
+          4,
+          4,
+          3,
+          2,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          4,
+          2,
+          2,
+          4
+        ]
+      },
+      "rlm_content_json_contract": {
+        "n": 15,
+        "correct": 7,
+        "accuracy": 0.4666666666666667,
+        "minus1": 1,
+        "minus1_rate": 0.06666666666666667,
+        "finalized": 14,
+        "finalized_rate": 0.9333333333333333,
+        "errors": 1,
+        "cost_usd": 0.04740574999999999,
+        "cost_per_example": 0.003160383333333333,
+        "predictions": [
+          4,
+          4,
+          3,
+          3,
+          1,
+          7,
+          2,
+          2,
+          3,
+          1,
+          3,
+          3,
+          0,
+          -1,
+          4
+        ]
+      }
+    },
+    "diagnostic_error_reduction": {
+      "direct_gemini": {
+        "n": 15,
+        "correct": 13,
+        "accuracy": 0.8666666666666667,
+        "minus1": 0,
+        "minus1_rate": 0.0,
+        "finalized": 15,
+        "finalized_rate": 1.0,
+        "errors": 0,
+        "cost_usd": 0.0117599,
+        "cost_per_example": 0.0007839933333333333,
+        "predictions": [
+          2,
+          3,
+          5,
+          3,
+          4,
+          5,
+          3,
+          3,
+          3,
+          4,
+          2,
+          4,
+          3,
+          2,
+          2
+        ]
+      },
+      "rlm_content_json_contract": {
+        "n": 15,
+        "correct": 11,
+        "accuracy": 0.7333333333333333,
+        "minus1": 1,
+        "minus1_rate": 0.06666666666666667,
+        "finalized": 14,
+        "finalized_rate": 0.9333333333333333,
+        "errors": 1,
+        "cost_usd": 0.06151718,
+        "cost_per_example": 0.004101145333333333,
+        "predictions": [
+          2,
+          3,
+          4,
+          3,
+          4,
+          4,
+          8,
+          3,
+          2,
+          5,
+          2,
+          4,
+          3,
+          2,
+          -1
+        ]
+      }
+    }
+  },
+  "paired": {
+    "direct_vs_content_rlm": {
+      "b_a_right_b_wrong": 12,
+      "c_b_right_a_wrong": 2,
+      "n_discordant": 14,
+      "two_sided_exact_p": 0.012939453125
+    }
+  },
+  "cost_ratios": {
+    "content_rlm_vs_direct_total": 4.882422050095923
+  },
+  "interpretation": "This deterministic current-contract extension avoids the historical salted-generator issue and compares direct Gemini with the repaired/content-contract RLM finalizer. It is a controlled-family mechanism extension, not a public benchmark."
+}

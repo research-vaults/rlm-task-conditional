@@ -1,0 +1,20 @@
+{
+  "aggregate_sha256": "10d59683072c8357ab0b467624c89753ca3e3f0b40b9811a02ecf45fbf314395",
+  "compact_sha256": "ad5555025d4e3c3ba728c008edbdad261a9e379e8e6d3ccc8aaf2d1602b39cee",
+  "complete_fixed_endpoint": true,
+  "expected_cells": 135,
+  "generation_episode_summary_sha256": "e2d28527df1e199db34fe2e49688b12d4eafe63bac6ef99010826ffda5c7a205",
+  "manifest_sha256": "579804550bb5f5b8f90a756eebd0fb9f401fe213cae56e627c12937aaba83130",
+  "observed_cells": 135,
+  "observed_cells_by_episode": {
+    "1": 107,
+    "2": 28
+  },
+  "raw_output_sha256_by_episode": {
+    "1": "505509a9f853ba979274da7f5a15c112cdaec8ce1d0fb3bbc4e9625b538210bb",
+    "2": "0866ef44bdad65cbc4de0f740dcd36d99fc7fc86be5c882b052d5339d5723709"
+  },
+  "recovery_episode_summary_sha256": "3af375ab344fff7e5784c03dceacc95dba4bc0e8969d6be2376b61c9f367649f",
+  "status": "PASS",
+  "study_id": "browsecomp_plus_shard1_fixed_n45_v1"
+}

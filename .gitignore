@@ -1,0 +1,46 @@
+# Credentials and local configuration
+*.env
+*.key
+*.pem
+*secret*
+*token*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated analyses and caches
+_reproduced/
+cache/
+caches/
+tmp/
+*.log
+
+# Raw or restricted inputs
+data/raw/
+datasets/raw/
+results_restricted/
+*_restricted.json
+*_restricted.jsonl
+*_restricted.jsonl.gz
+
+# Large model artifacts
+checkpoints/
+models/
+*.ckpt
+*.safetensors
+*.pt
+*.pth
+
+# Editors and operating systems
+.DS_Store
+.vscode/
+.idea/
+*.swp
+

@@ -1,0 +1,199 @@
+{
+  "run_id": "official_rlm_qwen30b_cd30_completion_20260719",
+  "created_utc": "2026-07-19T05:03:33.873715+00:00",
+  "manifest": "results/oolong_context_disjoint_cd30_official_qwen_remaining_manifest_20260719.json",
+  "official_rlm_commit": "72d6940142ddfb84ee6be573dc999a37e633e671",
+  "base_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "adapter_model": "mit-oasys/rlm-qwen3-30b-a3b-v0.1",
+  "served_model": "rlm-v0.1",
+  "deployment": "pod",
+  "model_card_settings": {
+    "max_model_len": 16384,
+    "max_iterations": 20,
+    "max_depth": 1,
+    "root_max_completion_tokens": 4096,
+    "sub_max_tokens": 4096,
+    "enable_thinking": false,
+    "orchestrator": true
+  },
+  "preflight_ids": [
+    "410040038",
+    "410040043",
+    "710070026"
+  ],
+  "events": [
+    {
+      "event": "resources_created",
+      "at": "2026-07-19T05:03:39.345467+00:00"
+    },
+    {
+      "event": "base_model_ready",
+      "at": "2026-07-19T05:07:04.859885+00:00",
+      "wait_s": 205.5287299169995
+    },
+    {
+      "event": "adapter_probe_complete",
+      "at": "2026-07-19T05:07:05.755597+00:00"
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:07:05.756996+00:00",
+      "index": 1,
+      "example_id": "710070026"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:11:47.906277+00:00",
+      "index": 1,
+      "example_id": "710070026",
+      "error": ""
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:11:47.907348+00:00",
+      "index": 2,
+      "example_id": "410040043"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:12:02.430315+00:00",
+      "index": 2,
+      "example_id": "410040043",
+      "error": ""
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:12:02.430701+00:00",
+      "index": 3,
+      "example_id": "410040038"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:12:44.656545+00:00",
+      "index": 3,
+      "example_id": "410040038",
+      "error": ""
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:12:44.658494+00:00",
+      "index": 4,
+      "example_id": "710070007"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:12:51.719600+00:00",
+      "index": 4,
+      "example_id": "710070007",
+      "error": ""
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:12:51.720043+00:00",
+      "index": 5,
+      "example_id": "410040003"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:13:15.904112+00:00",
+      "index": 5,
+      "example_id": "410040003",
+      "error": ""
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:13:15.904652+00:00",
+      "index": 6,
+      "example_id": "712070012"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:13:55.713242+00:00",
+      "index": 6,
+      "example_id": "712070012",
+      "error": ""
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:13:55.716728+00:00",
+      "index": 7,
+      "example_id": "912090010"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:15:05.172778+00:00",
+      "index": 7,
+      "example_id": "912090010",
+      "error": "BadRequestError: Error code: 400 - {'error': {'message': \"This model's maximum context length is 16384 tokens. However, you requested 4096 output tokens and your prompt contains at least 12289 input tokens, for a total of at least 16385 tokens. Please reduce the length of the input prompt or the number of requested output tokens. (parameter=input_tokens, value=12289)\", 'type': 'BadRequestError', 'param': 'input_tokens', 'code': 400}}"
+    },
+    {
+      "event": "row_started",
+      "at": "2026-07-19T05:15:05.187647+00:00",
+      "index": 8,
+      "example_id": "612060011"
+    },
+    {
+      "event": "row_completed",
+      "at": "2026-07-19T05:16:12.084211+00:00",
+      "index": 8,
+      "example_id": "612060011",
+      "error": "BadRequestError: Error code: 400 - {'error': {'message': \"This model's maximum context length is 16384 tokens. However, you requested 4096 output tokens and your prompt contains at least 12289 input tokens, for a total of at least 16385 tokens. Please reduce the length of the input prompt or the number of requested output tokens. (parameter=input_tokens, value=12289)\", 'type': 'BadRequestError', 'param': 'input_tokens', 'code': 400}}"
+    }
+  ],
+  "pod_id": "a7c94t7te1le6j",
+  "watchdog": {
+    "pid": 40617,
+    "timeout_s": 21600,
+    "cancel_path": "results/official_rlm_qwen30b_cd30_completion_20260719_watchdog.cancel",
+    "log_path": "results/official_rlm_qwen30b_cd30_completion_20260719_watchdog.log"
+  },
+  "run_incomplete": false,
+  "models": [
+    "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "rlm-v0.1"
+  ],
+  "model_wait_s": 205.5287299169995,
+  "adapter_probe": {
+    "elapsed_s": 0.8949844999997367,
+    "content": "READY",
+    "usage": {
+      "prompt_tokens": 12,
+      "total_tokens": 14,
+      "completion_tokens": 2,
+      "prompt_tokens_details": null
+    }
+  },
+  "summary": {
+    "n": 8,
+    "completed": 6,
+    "errors": 2,
+    "exact_count": 2,
+    "score_sum": 3.125,
+    "mean_score": 0.390625,
+    "elapsed_s": 546.1071295000011,
+    "iterations": 57,
+    "code_blocks": 55
+  },
+  "preflight_summary": {
+    "n": 3,
+    "completed": 3,
+    "errors": 0,
+    "exact_count": 2,
+    "score_sum": 2.0,
+    "mean_score": 0.6666666666666666,
+    "elapsed_s": 338.8673565420004,
+    "iterations": 12,
+    "code_blocks": 12
+  },
+  "scale_decision": "expand to 30 frozen rows",
+  "stability_stop": "stop: 2 consecutive row errors",
+  "cleanup": [
+    {
+      "resource": "pods",
+      "id": "a7c94t7te1le6j",
+      "status": 204
+    }
+  ],
+  "watchdog_cancelled": true,
+  "finished_utc": "2026-07-19T05:16:13.499793+00:00"
+}

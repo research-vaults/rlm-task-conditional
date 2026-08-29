@@ -1,0 +1,35 @@
+{
+  "study_id": "browsecomp_plus_qwen36_n80_resumed_primary",
+  "privacy_contract": "No question, reference, prediction, query ID, or free-text rationale is released in the cell ledger.",
+  "n_cells": 240,
+  "n_ranks": 80,
+  "methods": {
+    "bm25_qwen36": {
+      "n": 80,
+      "completed": 75,
+      "semantic_correct": 39,
+      "judge_malformed": 2
+    },
+    "standard_rlm_qwen36": {
+      "n": 80,
+      "completed": 70,
+      "semantic_correct": 54,
+      "judge_malformed": 0
+    },
+    "text_decompose_qwen36": {
+      "n": 80,
+      "completed": 80,
+      "semantic_correct": 48,
+      "judge_malformed": 1
+    }
+  },
+  "blind_audit": {
+    "n_cases": 46,
+    "all_disagreements": 25,
+    "malformed_primary_judge": 3,
+    "stratified_agreement_sample": 18,
+    "method_and_primary_labels_hidden_from_adjudicator": true,
+    "packet_sha256": "5da1c4aea8ad39b0364245874a0e553700d610a0f0a8bba97d337d47df0c1ebf"
+  },
+  "ledger_sha256": "c56082e169002a62c3bbe6267745797f2dda95993866d772416f9ce85372a07d"
+}

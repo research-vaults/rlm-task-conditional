@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "run_id": "oolong_rollout_variability_n15_replay_direct_full_20260714",
+    "created_utc": "2026-07-14T18:22:34.872910+00:00",
+    "source_csv": "results/oolong_rollout_variability_n15_replay_direct_full_20260714.csv",
+    "manifest": "results/oolong_rollout_variability_n15_manifest_20260714.json",
+    "base_slm_trace": "results/oolong_standard_validation_n45_slm_labeler_typed_20260713_trace.jsonl",
+    "base_direct_trace": "results/oolong_standard_validation_n45_direct_controller_gemini25flash_20260713_trace.jsonl",
+    "trace_out": "results/oolong_rollout_variability_n15_replay_direct_full_20260714_trace.jsonl",
+    "methods": [
+      "direct_controller"
+    ],
+    "input_contract": "standard Oolong inputs replayed from logged N45 traces; no Oolong rehydration in this runner"
+  },
+  "overall": {
+    "direct_controller": {
+      "n": 15,
+      "exact_count": 5,
+      "exact_rate": 0.333333,
+      "mean_score": 0.4291,
+      "cost_usd": 0.19134,
+      "errors": 0,
+      "latency_s": 34.141
+    }
+  },
+  "by_group": {
+    "counting": {
+      "direct_controller": {
+        "n": 5,
+        "exact_count": 1,
+        "exact_rate": 0.2,
+        "mean_score": 0.2,
+        "cost_usd": 0.060364,
+        "errors": 0,
+        "latency_s": 9.722
+      }
+    },
+    "timeline": {
+      "direct_controller": {
+        "n": 5,
+        "exact_count": 0,
+        "exact_rate": 0.0,
+        "mean_score": 0.2606,
+        "cost_usd": 0.065186,
+        "errors": 0,
+        "latency_s": 13.129
+      }
+    },
+    "user": {
+      "direct_controller": {
+        "n": 5,
+        "exact_count": 4,
+        "exact_rate": 0.8,
+        "mean_score": 0.8267,
+        "cost_usd": 0.065789,
+        "errors": 0,
+        "latency_s": 11.29
+      }
+    }
+  }
+}

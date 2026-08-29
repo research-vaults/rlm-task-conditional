@@ -1,0 +1,37 @@
+{
+  "aggregate_sha256": "810121d9c1de313e4bd5e78f8cda0ffda020235c3f14f685e7baa6be4423ce3e",
+  "compact_sha256": "480ba1e9dff6c15b45a856b09c923e12510f0f7f4a8a03f9f116a78c0c2c1dc1",
+  "duplicate_selected_cells": 0,
+  "manifest_sha256": "42acf2e988276be931946539f96f3e2b7026acae4c99612390e946223e20e0c9",
+  "missing_selected_cells": 0,
+  "n_cells": 240,
+  "n_ranks": 80,
+  "post_stop_score_visibility": true,
+  "sources": [
+    {
+      "episode": "parent_stage_a",
+      "path": "results/browsecomp_plus_positive_regime/bcp_qwen36_stageA_v12_20260720_restricted.jsonl.gz",
+      "rank_max": 12,
+      "rank_min": 1,
+      "selected_cells": 36,
+      "sha256": "6cf62a7542b878bb10ff62099b9b616965e96a99a6e16fa1633f2ccc6f1ca563"
+    },
+    {
+      "episode": "parent_stage_b_before_user_stop",
+      "path": "results/browsecomp_plus_positive_regime/bcp_qwen36_stageB_r13_80_20260720_restricted.jsonl.gz",
+      "rank_max": 37,
+      "rank_min": 13,
+      "selected_cells": 75,
+      "sha256": "608abb1a60b6ada9dc5f1b6b98e9e7e013a69ed060f132b08e9799fb96731c96"
+    },
+    {
+      "episode": "resumed_stage_b",
+      "path": "results/browsecomp_plus_positive_regime/bcp_qwen36_resume_r38_80_20260720_restricted.jsonl.gz",
+      "rank_max": 80,
+      "rank_min": 38,
+      "selected_cells": 129,
+      "sha256": "1d7571058f564933189ea371e7058a22b764e26b160b4f9e8570da63fe49fd49"
+    }
+  ],
+  "status": "PASS"
+}

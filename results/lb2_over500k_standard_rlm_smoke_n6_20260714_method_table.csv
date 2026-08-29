@@ -1,0 +1,5 @@
+method,n,correct,accuracy,total_cost_usd,cost_per_example_usd,errors
+standard_rlm,6,1,0.166667,0.469751,0.078292,1
+bm25_gemma_vote,6,1,0.166667,0.006484,0.001081,0
+bm25_gemini_vote,6,2,0.333333,0.028368,0.004728,0
+bm25_gemma_rerank_gemini_vote,6,2,0.333333,0.032598,0.005433,0

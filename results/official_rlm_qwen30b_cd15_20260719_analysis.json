@@ -1,0 +1,134 @@
+{
+  "created_utc": "2026-07-20T16:58:32.949552+01:00",
+  "evidence_role": "official trained RLM-policy same-contract diagnostic; not SRLM/lambda-RLM/RAH parity",
+  "contract": {
+    "manifest": "results/oolong_context_disjoint_cd15_repeatability_manifest_20260715.json",
+    "input": "standard/unlabeled context_window_text",
+    "root_prompt": "official Oolong instruction plus natural-language question",
+    "scorer": "same local Oolong scorer as CD-15 baselines",
+    "base_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "adapter": "mit-oasys/rlm-qwen3-30b-a3b-v0.1",
+    "official_rlm_commit": "72d6940142ddfb84ee6be573dc999a37e633e671",
+    "max_iterations": 20,
+    "max_depth": 1,
+    "enable_thinking": false,
+    "max_completion_tokens": 4096,
+    "sub_max_tokens": 4096,
+    "row_cap_seconds": 1500.0
+  },
+  "official_rlm_qwen30b": {
+    "n": 15,
+    "completed": 14,
+    "errors": 1,
+    "exact_count": 10,
+    "exact_rate": 0.6666666666666666,
+    "score_sum": 10.5625,
+    "mean_score": 0.7041666666666667
+  },
+  "by_group": {
+    "counting": {
+      "n": 5,
+      "completed": 5,
+      "errors": 0,
+      "exact_count": 3,
+      "exact_rate": 0.6,
+      "score_sum": 3.5625,
+      "mean_score": 0.7125
+    },
+    "timeline": {
+      "n": 5,
+      "completed": 5,
+      "errors": 0,
+      "exact_count": 4,
+      "exact_rate": 0.8,
+      "score_sum": 4.0,
+      "mean_score": 0.8
+    },
+    "user": {
+      "n": 5,
+      "completed": 4,
+      "errors": 1,
+      "exact_count": 3,
+      "exact_rate": 0.6,
+      "score_sum": 3.0,
+      "mean_score": 0.6
+    }
+  },
+  "baselines": {
+    "slm_qparsed_typed": {
+      "n": 15,
+      "exact_count": 15,
+      "exact_rate": 1.0,
+      "mean_score": 1.0
+    },
+    "direct_gemini25_flash": {
+      "n": 15,
+      "exact_count": 9,
+      "exact_rate": 0.6,
+      "mean_score": 0.65
+    },
+    "standard_rlm_gemini25_flash": {
+      "n": 15,
+      "exact_count": 10,
+      "exact_rate": 0.6666666666666666,
+      "mean_score": 0.7041666666666667
+    },
+    "standard_rlm_gpt5": {
+      "n": 15,
+      "exact_count": 10,
+      "exact_rate": 0.6666666666666666,
+      "mean_score": 0.6666666666666666
+    }
+  },
+  "paired_exact_tests": {
+    "official_vs_slm_qparsed_typed": {
+      "n": 15,
+      "first_only": 0,
+      "second_only": 5,
+      "two_sided_exact_p": 0.0625
+    },
+    "official_vs_direct_gemini25_flash": {
+      "n": 15,
+      "first_only": 5,
+      "second_only": 4,
+      "two_sided_exact_p": 1.0
+    },
+    "official_vs_standard_rlm_gemini25_flash": {
+      "n": 15,
+      "first_only": 4,
+      "second_only": 4,
+      "two_sided_exact_p": 1.0
+    },
+    "official_vs_standard_rlm_gpt5": {
+      "n": 15,
+      "first_only": 4,
+      "second_only": 4,
+      "two_sided_exact_p": 1.0
+    }
+  },
+  "latency_and_trace": {
+    "completed_rows": 14,
+    "timeout_rows": 1,
+    "median_completed_row_s": 15.336472020993824,
+    "max_completed_row_s": 72.9410688339849,
+    "total_iterations_completed_rows": 70,
+    "total_code_blocks_completed_rows": 70,
+    "total_model_calls_completed_rows": 1412,
+    "total_input_tokens_completed_rows": 333985,
+    "total_output_tokens_completed_rows": 9828
+  },
+  "cost": {
+    "gpu": "one 80GB-class RunPod GPU",
+    "listed_rate_usd_per_hour": 2.99,
+    "protocol_accounted_compute_seconds_including_cold_start_and_timeout_cap": 2069.962142,
+    "protocol_accounted_compute_usd": 1.7192185568277778,
+    "actual_runpod_billed_ms": 14950544,
+    "actual_runpod_spend_usd": 12.509849927271716,
+    "overrun_usd": 10.790631370443938,
+    "overrun_reason": "The final request outlived the intended local alarm and the detached pod remained active after the local process died. Actual spend is reported for transparency; protocol-accounted compute is the deployment-comparison quantity.",
+    "openrouter_spend_usd": 0.0
+  },
+  "raw_artifact": "results/official_rlm_qwen30b_cd15_20260719.jsonl",
+  "raw_rows": 14,
+  "adjudicated_timeout_example_id": "318030064"
+}

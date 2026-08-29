@@ -1,0 +1,6 @@
+method,n,exact_count,exact_rate,mean_evidence_f1,cost_usd,errors
+literal_operator,24,1,0.041667,0.000000,0.00000000,0
+llm_direct,24,9,0.375000,0.968782,0.01162790,0
+llm_generated_lexical_operator,24,9,0.375000,0.915512,0.01394130,0
+slm_direct,24,20,0.833333,0.977742,0.00192864,0
+slm_worker_labels,24,18,0.750000,0.954609,0.00183708,0

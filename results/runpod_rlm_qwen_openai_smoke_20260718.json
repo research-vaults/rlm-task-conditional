@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-07-18T20:02:07Z",
+  "endpoint_id": "kl68voh8ttlb0q",
+  "base_url": "https://api.runpod.ai/v2/kl68voh8ttlb0q/openai/v1",
+  "model": "mit-oasys/rlm-qwen3-8b-v0.1",
+  "steps": [
+    {
+      "step": "models_list",
+      "ok": true,
+      "elapsed_s": 136.43979477882385,
+      "models": [
+        "mit-oasys/rlm-qwen3-8b-v0.1"
+      ]
+    },
+    {
+      "step": "chat_completion_ready",
+      "ok": true,
+      "elapsed_s": 1.1931912899017334,
+      "content": "You responded with:\n[Answer]\nREADY",
+      "usage": {
+        "completion_tokens": 9,
+        "prompt_tokens": 12,
+        "total_tokens": 21,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      }
+    }
+  ]
+}

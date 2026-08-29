@@ -1,0 +1,188 @@
+{
+  "created_utc": "2026-07-21T05:28:41.974241+00:00",
+  "note": "No-call failure-mode analysis over frozen semantic-boundary diagnostics; not a new model run.",
+  "source_results": {
+    "hotpotqa": "results/hotpotqa_public_semantic_n24_20260713_results.jsonl",
+    "semantic_paraphrase": "results/semantic_paraphrase_longcontext_n24_20260713_results.jsonl"
+  },
+  "hotpotqa_support_fact_failure_modes": {
+    "tfidf_top2": {
+      "n": 24,
+      "support_exact": 3,
+      "support_exact_rate": 0.125,
+      "answer_correct": 0,
+      "answer_accuracy": 0.0,
+      "missed_gold_evidence": 21,
+      "extra_non_gold_evidence": 19,
+      "candidate_recall_miss": 0,
+      "answer_correct_support_wrong": 0,
+      "answer_wrong_support_exact": 3,
+      "mean_evidence_f1": 0.436111,
+      "cost_usd": 0.0
+    },
+    "llm_generated_lexical_operator": {
+      "n": 24,
+      "support_exact": 8,
+      "support_exact_rate": 0.333333,
+      "answer_correct": 0,
+      "answer_accuracy": 0.0,
+      "missed_gold_evidence": 16,
+      "extra_non_gold_evidence": 15,
+      "candidate_recall_miss": 0,
+      "answer_correct_support_wrong": 0,
+      "answer_wrong_support_exact": 8,
+      "mean_evidence_f1": 0.609722,
+      "cost_usd": 0.0195589
+    },
+    "slm_tfidf_reranker": {
+      "n": 24,
+      "support_exact": 9,
+      "support_exact_rate": 0.375,
+      "answer_correct": 19,
+      "answer_accuracy": 0.791667,
+      "missed_gold_evidence": 14,
+      "extra_non_gold_evidence": 6,
+      "candidate_recall_miss": 12,
+      "answer_correct_support_wrong": 10,
+      "answer_wrong_support_exact": 0,
+      "mean_evidence_f1": 0.7625,
+      "cost_usd": 0.00158334
+    },
+    "slm_direct": {
+      "n": 24,
+      "support_exact": 14,
+      "support_exact_rate": 0.583333,
+      "answer_correct": 22,
+      "answer_accuracy": 0.916667,
+      "missed_gold_evidence": 6,
+      "extra_non_gold_evidence": 7,
+      "candidate_recall_miss": 0,
+      "answer_correct_support_wrong": 8,
+      "answer_wrong_support_exact": 0,
+      "mean_evidence_f1": 0.836111,
+      "cost_usd": 0.00357981
+    },
+    "llm_direct": {
+      "n": 24,
+      "support_exact": 17,
+      "support_exact_rate": 0.708333,
+      "answer_correct": 23,
+      "answer_accuracy": 0.958333,
+      "missed_gold_evidence": 5,
+      "extra_non_gold_evidence": 4,
+      "candidate_recall_miss": 0,
+      "answer_correct_support_wrong": 6,
+      "answer_wrong_support_exact": 0,
+      "mean_evidence_f1": 0.891667,
+      "cost_usd": 0.0204255
+    }
+  },
+  "semantic_paraphrase_failure_modes": {
+    "literal_operator": {
+      "n": 24,
+      "exact_count": 1,
+      "exact_rate": 0.041667,
+      "overcount": 0,
+      "undercount": 23,
+      "missed_gold_evidence": 24,
+      "extra_non_gold_evidence": 24,
+      "mean_evidence_f1": 0.0,
+      "cost_usd": 0.0
+    },
+    "llm_generated_lexical_operator": {
+      "n": 24,
+      "exact_count": 9,
+      "exact_rate": 0.375,
+      "overcount": 11,
+      "undercount": 4,
+      "missed_gold_evidence": 4,
+      "extra_non_gold_evidence": 11,
+      "mean_evidence_f1": 0.915512,
+      "cost_usd": 0.0139413
+    },
+    "slm_worker_labels": {
+      "n": 24,
+      "exact_count": 18,
+      "exact_rate": 0.75,
+      "overcount": 6,
+      "undercount": 0,
+      "missed_gold_evidence": 0,
+      "extra_non_gold_evidence": 6,
+      "mean_evidence_f1": 0.954609,
+      "cost_usd": 0.00183708
+    },
+    "slm_direct": {
+      "n": 24,
+      "exact_count": 20,
+      "exact_rate": 0.833333,
+      "overcount": 3,
+      "undercount": 1,
+      "missed_gold_evidence": 2,
+      "extra_non_gold_evidence": 3,
+      "mean_evidence_f1": 0.977742,
+      "cost_usd": 0.00192864
+    },
+    "llm_direct": {
+      "n": 24,
+      "exact_count": 9,
+      "exact_rate": 0.375,
+      "overcount": 15,
+      "undercount": 0,
+      "missed_gold_evidence": 0,
+      "extra_non_gold_evidence": 6,
+      "mean_evidence_f1": 0.968782,
+      "cost_usd": 0.0116279
+    }
+  },
+  "representative_cases": [
+    {
+      "case_type": "Hotpot lexical false-positive filter",
+      "example_id": "5ab4378f5542991751b4d6f3",
+      "question": "Are both Kaiping and Pingxiang, Guangxi located in Guandong Province?",
+      "gold": "H00,H15",
+      "method_a": "llm_generated_lexical_operator",
+      "method_a_prediction": "H25,H15",
+      "method_b": "llm_direct",
+      "method_b_prediction": "H00,H15",
+      "lesson": "Generated lexical include/exclude phrases can select adjacent non-gold support even when a direct semantic reader selects the exact support set."
+    },
+    {
+      "case_type": "Hotpot candidate-recall bottleneck",
+      "example_id": "5ade662155429975fa854ebd",
+      "question": "What were the nicknames for the companion of Nuna?",
+      "gold": "H01,H24",
+      "method_a": "slm_tfidf_reranker",
+      "method_a_prediction": "H01",
+      "method_b": "llm_direct",
+      "method_b_prediction": "H01,H24",
+      "lesson": "Cheap semantic reranking cannot recover gold evidence absent from the candidate set; retrieval recall is a first-order mechanism."
+    },
+    {
+      "case_type": "Paraphrase lexical overcount",
+      "example_id": "SP_staff_exhaustion_02",
+      "question": "How many passages indicate staff burnout or clinician exhaustion?",
+      "gold": "6",
+      "method_a": "llm_generated_lexical_operator",
+      "method_a_prediction": "8",
+      "method_b": "slm_direct",
+      "method_b_prediction": "6",
+      "lesson": "Lexical operators overcount semantically adjacent distractors; cheap semantic reading can preserve the intended criterion."
+    },
+    {
+      "case_type": "Paraphrase SLM direct/worker agreement",
+      "example_id": "SP_staff_exhaustion_00",
+      "question": "How many passages indicate staff burnout or clinician exhaustion?",
+      "gold": "7",
+      "method_a": "slm_worker_labels",
+      "method_a_prediction": "7",
+      "method_b": "slm_direct",
+      "method_b_prediction": "7",
+      "lesson": "For local semantic interpretation, direct SLM reading and SLM worker labeling often agree without dynamic program generation."
+    }
+  ],
+  "interpretation": {
+    "public_semantic_boundary": "On HotpotQA, frontier direct reading is strongest, but cheap Gemma direct remains answer-useful; lexical filters and candidate-limited reranking expose distinct evidence-selection bottlenecks.",
+    "paraphrase_boundary": "On generated paraphrase counting, Gemma direct/worker paths beat lexical/programmatic filters, whose main error is overcounting semantically adjacent distractors.",
+    "paper_claim": "This supports a task-conditioned primitive choice: semantic retrieval or SLM semantic workers for semantic evidence, typed deterministic operators for known aggregation, and RLM fallback when no task-appropriate harness exists."
+  }
+}

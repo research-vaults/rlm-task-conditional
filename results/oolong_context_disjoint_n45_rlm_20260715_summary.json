@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "run_id": "oolong_context_disjoint_n45_rlm_20260715",
+    "created_utc": "2026-07-15T04:06:28.177178+00:00",
+    "source_csv": "results/oolong_context_disjoint_n45_rlm_20260715.csv",
+    "context_variant": "standard"
+  },
+  "overall": {
+    "rlm": {
+      "n": 45,
+      "score_sum": 28.0546,
+      "mean_score": 0.623436,
+      "exact_count": 27,
+      "exact_rate": 0.6,
+      "cost_usd": 1.001014,
+      "errors": 0
+    }
+  },
+  "by_group": {
+    "counting": {
+      "rlm": {
+        "n": 15,
+        "score_sum": 6.0422,
+        "mean_score": 0.402813,
+        "exact_count": 6,
+        "exact_rate": 0.4,
+        "cost_usd": 0.373732,
+        "errors": 0
+      }
+    },
+    "timeline": {
+      "rlm": {
+        "n": 15,
+        "score_sum": 8.8789,
+        "mean_score": 0.591927,
+        "exact_count": 8,
+        "exact_rate": 0.533333,
+        "cost_usd": 0.358242,
+        "errors": 0
+      }
+    },
+    "user": {
+      "rlm": {
+        "n": 15,
+        "score_sum": 13.1335,
+        "mean_score": 0.875567,
+        "exact_count": 13,
+        "exact_rate": 0.866667,
+        "cost_usd": 0.26904,
+        "errors": 0
+      }
+    }
+  }
+}

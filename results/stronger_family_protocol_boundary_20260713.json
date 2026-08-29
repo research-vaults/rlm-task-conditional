@@ -1,0 +1,136 @@
+{
+  "created_utc": "2026-07-14T16:35:17.939414+00:00",
+  "audit_type": "no_call_stronger_family_protocol_boundary",
+  "purpose": "Prevent overclaiming adapter pressure tests as official SRLM/lambda-RLM reproductions while keeping comparator evidence visible.",
+  "web_freshness_note": "A 2026-07-13 web check found the SRLM arXiv/HuggingFace paper pages but no official Apple runnable repository in the search results; the prehend fork is therefore retained as SRLM-style pressure evidence only.",
+  "repositories": {
+    "lambda_rlm": {
+      "path": "external_repos/lambda-RLM",
+      "status": "present",
+      "commit": "3874d393483dc4299101918cf8e9af670194bd88",
+      "date": "2026-04-24T14:06:08+01:00",
+      "subject": "Update README.md"
+    },
+    "prehend": {
+      "path": "external_repos/lm-repl",
+      "status": "present",
+      "commit": "c467bb1c2d0350f2cfe5c049186f5640a499f472",
+      "date": "2026-07-08T17:03:36-06:00",
+      "subject": "fix: bounce guard-rejection echoes as final answers"
+    }
+  },
+  "source_files": {
+    "lambda_adapter": {
+      "path": "scripts/eval_oolong_lambda_rlm_frozen_manifest.py",
+      "exists": true,
+      "bytes": 15253
+    },
+    "prehend_adapter": {
+      "path": "scripts/eval_oolong_prehend_srlm_frozen_manifest.py",
+      "exists": true,
+      "bytes": 18133
+    },
+    "standard_smoke_analysis": {
+      "path": "results/oolong_standard_multilength_n120_stronger_family_smoke15_analysis_20260713.json",
+      "exists": true,
+      "bytes": 14336
+    },
+    "lambda_n150_summary": {
+      "path": "results/oolong_heldout_lambda_rlm_n150_20260712_summary.json",
+      "exists": true,
+      "bytes": 1374
+    },
+    "prehend_n60_summary": {
+      "path": "results/oolong_heldout_prehend_srlm_n60_20260712_summary.json",
+      "exists": true,
+      "bytes": 1813
+    }
+  },
+  "rows": [
+    {
+      "family": "standard_rlm",
+      "paper": "Recursive Language Models",
+      "local_source": "pip/local rlms v0.1.3 plus project evaluator",
+      "implementation_status": "official audited target",
+      "protocol_match_level": "target_method",
+      "contract": "standard-unlabeled Oolong context_window_text for N=120; label-provided Oolong for N=80/N=150 ablations",
+      "largest_current_same_contract": "N=120 standard-unlabeled",
+      "n": 120,
+      "exact_count": 53,
+      "mean_score": 0.489,
+      "cost_usd": 2.68834,
+      "can_support": "Paper's primary claims about deployed standard rlms v0.1.3 behavior and cost under the evaluated contracts.",
+      "cannot_support": "Claims about all RLM-family methods, official SRLM, official lambda-RLM, or training/native recursive models.",
+      "next_action": "Keep as central audited method; no extra run unless task contract changes."
+    },
+    {
+      "family": "lambda_rlm",
+      "paper": "The Y-Combinator for LLMs / lambda-RLM",
+      "local_source": "external_repos/lambda-RLM",
+      "implementation_status": "official public repository, project-side frozen-manifest adapter",
+      "protocol_match_level": "public_implementation_adapter_not_paper_protocol",
+      "contract": "Context/Question/Answer prompt through LambdaRLM.completion; not lambda-RLM paper benchmark protocol.",
+      "largest_current_same_contract": "N=150 label-provided ablation; N=15 standard-unlabeled smoke",
+      "n": 150,
+      "exact_count": 63,
+      "mean_score": 0.430504,
+      "cost_usd": 0.283037,
+      "can_support": "A bounded pressure check showing our project-side adapter did not show a reversal on frozen Oolong rows.",
+      "cannot_support": "A method-level loss for lambda-RLM, formal guarantee comparison, or reproduction of its four-task/nine-model paper protocol.",
+      "next_action": "Do not scale unless an official benchmark-compatible lambda-RLM/Oolong protocol is available."
+    },
+    {
+      "family": "lambda_rlm_standard_smoke",
+      "paper": "The Y-Combinator for LLMs / lambda-RLM",
+      "local_source": "external_repos/lambda-RLM",
+      "implementation_status": "official public repository, project-side standard-contract adapter",
+      "protocol_match_level": "smoke_adapter_not_method_comparison",
+      "contract": "Same first 15 frozen N=120 standard-unlabeled Oolong rows as SLM/direct/RLM subset.",
+      "largest_current_same_contract": "N=15 standard-unlabeled smoke",
+      "n": 15,
+      "exact_count": 0,
+      "mean_score": 0.0,
+      "cost_usd": 0.062246,
+      "can_support": "Explains why this adapter was not scaled: zero exact answers and malformed/narrative outputs under our required aggregate-answer contract.",
+      "cannot_support": "Evidence that the full lambda-RLM method fails on Oolong or on its own tasks.",
+      "next_action": "Keep in supplement only; label as adapter debug row."
+    },
+    {
+      "family": "srlm_prehend",
+      "paper": "Recursive Language Models Meet Uncertainty / SRLM",
+      "local_source": "external_repos/lm-repl",
+      "implementation_status": "public SRLM-style fork, not official Apple repository",
+      "protocol_match_level": "unofficial_style_adapter",
+      "contract": "prehend.SRLM K-candidate uncertainty-guided selection on frozen Oolong examples; project-side adapter and scorer.",
+      "largest_current_same_contract": "N=60 label-provided ablation; N=15 standard-unlabeled smoke",
+      "n": 60,
+      "exact_count": 48,
+      "mean_score": 0.830191,
+      "cost_usd": 0.214733,
+      "can_support": "A stronger-family pressure check showing uncertainty-guided selection can approach standard RLM on label-provided Oolong.",
+      "cannot_support": "Official Apple SRLM reproduction, official SRLM benchmark parity, or claim that SRLM cannot beat our SLM route.",
+      "next_action": "Only scale if an official SRLM implementation/protocol appears or a smoke suggests a plausible reversal."
+    },
+    {
+      "family": "srlm_prehend_standard_smoke",
+      "paper": "Recursive Language Models Meet Uncertainty / SRLM",
+      "local_source": "external_repos/lm-repl",
+      "implementation_status": "public SRLM-style fork, project-side standard-contract adapter",
+      "protocol_match_level": "small_smoke_not_official",
+      "contract": "Same first 15 frozen N=120 standard-unlabeled Oolong rows as SLM/direct/RLM subset.",
+      "largest_current_same_contract": "N=15 standard-unlabeled smoke",
+      "n": 15,
+      "exact_count": 7,
+      "mean_score": 0.467015,
+      "cost_usd": 0.075803,
+      "can_support": "A budgeted standard-contract pressure check; it tied standard RLM on exact count but did not beat SLM+typed or direct Gemini on the smoke subset.",
+      "cannot_support": "A final ranking of SRLM versus SLM+typed at N=120 or across SRLM's benchmark suite.",
+      "next_action": "Do not spend on full N=120 prehend run unless claim scope changes or a reviewer explicitly requires it."
+    }
+  ],
+  "decision": {
+    "full_paid_scale_recommended_now": false,
+    "reason": "The available stronger-family rows are adapter-bound. The standard-unlabeled N=15 smoke does not show an immediate reversal, and scaling a non-official adapter would not close the official-reproduction criticism.",
+    "paper_action": "Keep stronger-family rows in the supplement as bounded pressure checks; make the main claim explicitly about standard rlms v0.1.3 and operation-matched alternatives."
+  }
+}

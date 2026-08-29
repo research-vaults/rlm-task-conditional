@@ -1,0 +1,47 @@
+{
+  "error_top": [],
+  "metadata_contract": "No-call diagnostic. Deterministic question variants only; no benchmark task/output metadata is used by the robust parser. Stored SLM row-label predictions from the frozen N=120 run are reused.",
+  "overall": {
+    "answer_type_matches": 360,
+    "errors": 0,
+    "exact_count": 240,
+    "mean_score": 0.7270694416666666,
+    "n": 360,
+    "robust_parse_ok": 360,
+    "strict_template_parse_ok": 149,
+    "task_matches": 360
+  },
+  "run_id": "oolong_question_paraphrase_stress_20260713",
+  "variants": {
+    "deterministic_paraphrase": {
+      "answer_type_matches": 120,
+      "errors": 0,
+      "exact_count": 80,
+      "mean_score": 0.7270694416666666,
+      "n": 120,
+      "robust_parse_ok": 120,
+      "strict_template_parse_ok": 0,
+      "task_matches": 120
+    },
+    "format_removed": {
+      "answer_type_matches": 120,
+      "errors": 0,
+      "exact_count": 80,
+      "mean_score": 0.7270694416666666,
+      "n": 120,
+      "robust_parse_ok": 120,
+      "strict_template_parse_ok": 29,
+      "task_matches": 120
+    },
+    "original": {
+      "answer_type_matches": 120,
+      "errors": 0,
+      "exact_count": 80,
+      "mean_score": 0.7270694416666666,
+      "n": 120,
+      "robust_parse_ok": 120,
+      "strict_template_parse_ok": 120,
+      "task_matches": 120
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-07-21T15:29:05Z",
+  "study_id": "browsecomp_plus_n49_dense_hybrid_sensitivity_v1",
+  "chronology": "complete retrieval plans frozen before resumed ranks 2-49 answer generation and before semantic judging",
+  "evidence_tier": "post_hoc_sensitivity_only",
+  "plan_path": "results/browsecomp_plus_positive_regime_replication/dense_hybrid_sensitivity/bcp_n49_dense_hybrid_sensitivity_20260721_retrieval_plans_restricted.jsonl.gz",
+  "plan_sha256": "b25becf25a3c3a3e78b984f507a10a65933d1c632422c638968379197945f474",
+  "plans": 49,
+  "embedding_requests": 245,
+  "embedding_total_tokens": 9006741,
+  "embedding_returned_cost_usd": 0.12764289000000006,
+  "recorded_failed_attempts": 0,
+  "serial_plan_ranks": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "parallel_plan_rank_interval": [
+    5,
+    49
+  ],
+  "rank1_answer_preflight_already_present": true,
+  "remaining_answer_generation_rank_interval": [
+    2,
+    49
+  ],
+  "semantic_judging_started": false,
+  "execution_lock_sha256": "e0d01676044fc371205d3986df38ee12794fb8f267e9f252478a7538ab4420c3",
+  "scheduler_interruption_sha256": "fa7261bce8a5a4edc8d95804ef1b40309d9bbe557699b7486522739f343ce5c6"
+}

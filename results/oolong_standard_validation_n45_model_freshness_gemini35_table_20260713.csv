@@ -1,0 +1,6 @@
+method,n,exact,exact_rate,mean_score,cost_usd,cost_per_exact_usd,errors,input_tokens,output_tokens,latency_s
+slm_qparsed_typed,45,30,0.666667,0.726051,0.248136,0.008271,0,0,0,0.0
+direct_gemini25,45,18,0.4,0.459733,0.580068,0.032226,0,1930802,331,73.432
+direct_gemini35,45,20,0.444444,0.506876,2.942868,0.147143,0,1930802,5185,169.136
+standard_rlm_gemini25,45,17,0.377778,0.438091,1.799692,0.105864,1,0,0,0.0
+aborted_partial_rlm_gemini35_prefix,8,5,0.625,0.625,0.468394,0.093679,3,0,0,0.0

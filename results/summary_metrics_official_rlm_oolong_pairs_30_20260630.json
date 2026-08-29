@@ -1,0 +1,17 @@
+{
+  "official_rlm_depth1": {
+    "n": 30,
+    "accuracy": 0.9666666666666667,
+    "evidence_recall": 1.0,
+    "hallucination_rate": 0.0,
+    "avg_latency_s": 37.111147395769756,
+    "model_calls": 30,
+    "strong_model_calls": 30,
+    "strong_input_tokens": 270810,
+    "strong_output_tokens": 46665,
+    "total_input_tokens": 270810,
+    "total_output_tokens": 46665,
+    "estimated_api_cost_usd": 0.5947785,
+    "cost_per_correct_usd": 0.020509603448275862
+  }
+}

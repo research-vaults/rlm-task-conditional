@@ -1,0 +1,263 @@
+{
+  "run_type": "lb2_over500k_standard_rlm_smoke_analysis",
+  "n": 6,
+  "source_rlm_results": "results/lb2_over500k_standard_rlm_smoke_n6_20260714.jsonl",
+  "source_retrieval_results": "results/lb2_over500k_retrieval_rerank_n30_retuned_20260714.jsonl",
+  "methods": {
+    "standard_rlm": {
+      "n": 6,
+      "correct": 1,
+      "accuracy": 0.16666666666666666,
+      "total_cost_usd": 0.469751,
+      "cost_per_example_usd": 0.078292,
+      "errors": 1
+    },
+    "bm25_gemma_vote": {
+      "n": 6,
+      "correct": 1,
+      "accuracy": 0.16666666666666666,
+      "total_cost_usd": 0.006484,
+      "cost_per_example_usd": 0.001081,
+      "errors": 0
+    },
+    "bm25_gemini_vote": {
+      "n": 6,
+      "correct": 2,
+      "accuracy": 0.3333333333333333,
+      "total_cost_usd": 0.028368,
+      "cost_per_example_usd": 0.004728,
+      "errors": 0
+    },
+    "bm25_gemma_rerank_gemini_vote": {
+      "n": 6,
+      "correct": 2,
+      "accuracy": 0.3333333333333333,
+      "total_cost_usd": 0.032598,
+      "cost_per_example_usd": 0.005433,
+      "errors": 0
+    }
+  },
+  "paired_rows": [
+    {
+      "_id": "66fa788abb02136c067c6d75",
+      "domain": "Code Repository Understanding",
+      "context_chars": 915974,
+      "gold": "D",
+      "methods": {
+        "standard_rlm": {
+          "prediction": "C",
+          "correct": false,
+          "cost_usd": 0.10871133000000002,
+          "elapsed_seconds": 67.799,
+          "error": ""
+        },
+        "bm25_gemma_vote": {
+          "prediction": "C",
+          "correct": false,
+          "cost_usd": 0.0012155400000000002,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemini_vote": {
+          "prediction": "B",
+          "correct": false,
+          "cost_usd": 0.005587699999999999,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "prediction": "B",
+          "correct": false,
+          "cost_usd": 0.00622982,
+          "elapsed_seconds": null,
+          "error": ""
+        }
+      }
+    },
+    {
+      "_id": "66f2d224821e116aacb2bb8a",
+      "domain": "Long In-context Learning",
+      "context_chars": 554114,
+      "gold": "C",
+      "methods": {
+        "standard_rlm": {
+          "prediction": "?",
+          "correct": false,
+          "cost_usd": 0.0,
+          "elapsed_seconds": 480.144,
+          "error": "TimeoutError: standard_rlm timed out after 480s"
+        },
+        "bm25_gemma_vote": {
+          "prediction": "A",
+          "correct": false,
+          "cost_usd": 0.00101934,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemini_vote": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.0042014999999999995,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.004823579999999999,
+          "elapsed_seconds": null,
+          "error": ""
+        }
+      }
+    },
+    {
+      "_id": "6724c788bb02136c067d792d",
+      "domain": "Long Structured Data Understanding",
+      "context_chars": 550914,
+      "gold": "B",
+      "methods": {
+        "standard_rlm": {
+          "prediction": "A",
+          "correct": false,
+          "cost_usd": 0.045390269999999996,
+          "elapsed_seconds": 141.665,
+          "error": ""
+        },
+        "bm25_gemma_vote": {
+          "prediction": "?",
+          "correct": false,
+          "cost_usd": 0.0013068,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemini_vote": {
+          "prediction": "B",
+          "correct": true,
+          "cost_usd": 0.005638799999999999,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "prediction": "B",
+          "correct": true,
+          "cost_usd": 0.006725839999999999,
+          "elapsed_seconds": null,
+          "error": ""
+        }
+      }
+    },
+    {
+      "_id": "6719dc46bb02136c067d470b",
+      "domain": "Long-dialogue History Understanding",
+      "context_chars": 525209,
+      "gold": "B",
+      "methods": {
+        "standard_rlm": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.04545935,
+          "elapsed_seconds": 51.273,
+          "error": ""
+        },
+        "bm25_gemma_vote": {
+          "prediction": "A",
+          "correct": false,
+          "cost_usd": 0.0009001800000000002,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemini_vote": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.0036848999999999996,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.004219199999999999,
+          "elapsed_seconds": null,
+          "error": ""
+        }
+      }
+    },
+    {
+      "_id": "66fa415cbb02136c067c671c",
+      "domain": "Multi-Document QA",
+      "context_chars": 546183,
+      "gold": "C",
+      "methods": {
+        "standard_rlm": {
+          "prediction": "A",
+          "correct": false,
+          "cost_usd": 0.03758485,
+          "elapsed_seconds": 43.689,
+          "error": ""
+        },
+        "bm25_gemma_vote": {
+          "prediction": "C",
+          "correct": true,
+          "cost_usd": 0.0010247400000000001,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemini_vote": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.004676,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "prediction": "D",
+          "correct": false,
+          "cost_usd": 0.00542462,
+          "elapsed_seconds": null,
+          "error": ""
+        }
+      }
+    },
+    {
+      "_id": "66f168d8821e116aacb27519",
+      "domain": "Single-Document QA",
+      "context_chars": 620252,
+      "gold": "C",
+      "methods": {
+        "standard_rlm": {
+          "prediction": "C",
+          "correct": true,
+          "cost_usd": 0.23260516999999997,
+          "elapsed_seconds": 166.276,
+          "error": ""
+        },
+        "bm25_gemma_vote": {
+          "prediction": "A",
+          "correct": false,
+          "cost_usd": 0.0010170600000000002,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemini_vote": {
+          "prediction": "C",
+          "correct": true,
+          "cost_usd": 0.004579499999999999,
+          "elapsed_seconds": null,
+          "error": ""
+        },
+        "bm25_gemma_rerank_gemini_vote": {
+          "prediction": "C",
+          "correct": true,
+          "cost_usd": 0.00517518,
+          "elapsed_seconds": null,
+          "error": ""
+        }
+      }
+    }
+  ],
+  "decision": {
+    "scale_standard_rlm_to_n30_now": false,
+    "reason": "The bounded same-row smoke solved 1/6 with one 480s timeout. The best retrieval route on the same six rows is bm25_gemini_vote with 2/6 at $0.028368, versus standard RLM 1/6 at $0.469751. This does not justify a blind N=30 standard-RLM scale-up before submission.",
+    "paper_role": "Supplement-level feasibility/stop-rule evidence for the over-window positive-regime section; not a full LongBench-v2 ranking and not an SRLM/lambda-RLM reproduction."
+  }
+}

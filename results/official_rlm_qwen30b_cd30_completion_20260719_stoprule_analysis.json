@@ -1,0 +1,125 @@
+{
+  "created_utc": "2026-07-19T06:25:21.853137+01:00",
+  "evidence_role": "prospectively frozen official-policy completion attempt stopped under its predeclared stability rule; deployability evidence only, not a CD-45 accuracy estimate",
+  "nonclaims": [
+    "No pooled CD-45 official-policy accuracy or mean-score row is estimated.",
+    "The returned prefix is not treated as random or representative after the stability stop.",
+    "The protocol was not resumed with a larger context limit or smaller output cap after outcomes were seen.",
+    "This is not an SRLM, lambda-RLM, or RAH reproduction."
+  ],
+  "contract": {
+    "remaining_manifest": "results/oolong_context_disjoint_cd30_official_qwen_remaining_manifest_20260719.json",
+    "prior_cd15_manifest": "results/oolong_context_disjoint_cd15_repeatability_manifest_20260715.json",
+    "remaining_n": 30,
+    "overlap_with_prior_cd15": 0,
+    "selection_rule": "Preserve parent order and include every CD-45 row whose ID is absent from the frozen CD-15 subset.",
+    "outcome_blind": true,
+    "official_rlm_commit": "72d6940142ddfb84ee6be573dc999a37e633e671",
+    "base_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "adapter_model": "mit-oasys/rlm-qwen3-30b-a3b-v0.1",
+    "settings": {
+      "max_model_len": 16384,
+      "max_iterations": 20,
+      "max_depth": 1,
+      "root_max_completion_tokens": 4096,
+      "sub_max_tokens": 4096,
+      "enable_thinking": false,
+      "orchestrator": true
+    },
+    "preflight_n": 3,
+    "max_total_errors": 3,
+    "max_consecutive_errors": 2
+  },
+  "returned_prefix": {
+    "n": 8,
+    "completed": 6,
+    "errors": 2,
+    "exact_count": 2,
+    "score_sum": 3.125,
+    "mean_score": 0.390625,
+    "elapsed_s": 546.1071295000011,
+    "iterations": 57,
+    "code_blocks": 55,
+    "exact_rate_over_returned_prefix_descriptive_only": 0.25,
+    "mean_score_over_returned_prefix_descriptive_only": 0.390625,
+    "median_completed_row_s": 31.990960000000086,
+    "row_ids": [
+      "710070026",
+      "410040043",
+      "410040038",
+      "710070007",
+      "410040003",
+      "712070012",
+      "912090010",
+      "612060011"
+    ],
+    "by_group": {
+      "counting": {
+        "attempted": 6,
+        "completed": 4,
+        "errors": 2,
+        "exact_count": 1
+      },
+      "timeline": {
+        "attempted": 1,
+        "completed": 1,
+        "errors": 0,
+        "exact_count": 0
+      },
+      "user": {
+        "attempted": 1,
+        "completed": 1,
+        "errors": 0,
+        "exact_count": 1
+      }
+    }
+  },
+  "preflight": {
+    "n": 3,
+    "completed": 3,
+    "errors": 0,
+    "exact_count": 2,
+    "score_sum": 2.0,
+    "mean_score": 0.6666666666666666,
+    "elapsed_s": 338.8673565420004,
+    "iterations": 12,
+    "code_blocks": 12
+  },
+  "stop": {
+    "trigger": "stop: 2 consecutive row errors",
+    "error_count": 2,
+    "error_example_ids": [
+      "912090010",
+      "612060011"
+    ],
+    "error_type": "official serving context limit exceeded by at least one token",
+    "max_model_len": 16384,
+    "minimum_input_tokens": 12289,
+    "requested_output_tokens": 4096,
+    "minimum_total_tokens": 16385
+  },
+  "usage": {
+    "model_calls": 66,
+    "input_tokens": 34880,
+    "output_tokens": 17812,
+    "iterations": 57,
+    "code_blocks": 55
+  },
+  "cost": {
+    "listed_rate_usd_per_hour": 2.99,
+    "provider_runtime_seconds_created_to_cleanup": 754.154326,
+    "provider_rate_estimate_usd": 0.6263670652055555,
+    "billing_history_query_result": [],
+    "billing_history_note": "RunPod billing endpoint had not populated this pod at analysis time.",
+    "openrouter_spend_usd": 0.0
+  },
+  "cleanup": [
+    {
+      "resource": "pods",
+      "id": "a7c94t7te1le6j",
+      "status": 204
+    }
+  ],
+  "watchdog_cancelled": true,
+  "raw_artifact": "results/official_rlm_qwen30b_cd30_completion_20260719.jsonl"
+}

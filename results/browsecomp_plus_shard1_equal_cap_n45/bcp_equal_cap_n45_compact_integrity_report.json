@@ -1,0 +1,46 @@
+{
+  "aggregate_sha256": "1f5b92c241c1526ebd28252a85b9f24447cd7494e8a114af69dc083b3f7522d4",
+  "compact_sha256": "b8e1f6bd84238ceff6f7e944fc71d670da961e1a57511585e63f2c9ce758e7f9",
+  "complete_fixed_endpoint": true,
+  "episodes": [
+    {
+      "cells": 4,
+      "episode": 1,
+      "interrupted_episode_cost_lower_bound_usd": null,
+      "listed_rate_cost_estimate_usd": 1.2423299122369824,
+      "raw": "results/browsecomp_plus_shard1_equal_cap_n45/bcp_equal_cap_qwen36_r1_qualification_20260726_restricted.jsonl.gz",
+      "raw_sha256": "be51035f51fbbf7bece713e74bc1166a8781fcf0c2eef2b7e5aa140d9d25e489",
+      "status": "complete",
+      "summary": "results/browsecomp_plus_shard1_equal_cap_n45/bcp_equal_cap_qwen36_r1_qualification_20260726_summary.json",
+      "summary_sha256": "b832c1dafb0660ac175daf62eae4e15607294c2086731ea1ce678fea97e40d65"
+    },
+    {
+      "cells": 72,
+      "episode": 2,
+      "interrupted_episode_cost_lower_bound_usd": 5.596058240602777,
+      "listed_rate_cost_estimate_usd": null,
+      "raw": "results/browsecomp_plus_shard1_equal_cap_n45/bcp_equal_cap_qwen36_r2_45_20260726_restricted.jsonl.gz",
+      "raw_sha256": "f2904f602e9467ca402793f8b58df292e96b9113c7f39fe51fa464a146126d10",
+      "status": "local_session_interrupted_after_locked_cells",
+      "summary": "results/browsecomp_plus_shard1_equal_cap_n45/bcp_equal_cap_qwen36_r2_45_20260726_summary.json",
+      "summary_sha256": "80399a32879814f8ab6e6c091b421dff696817914ee0f7d2d584e3581ab56a2a"
+    },
+    {
+      "cells": 104,
+      "episode": 3,
+      "interrupted_episode_cost_lower_bound_usd": null,
+      "listed_rate_cost_estimate_usd": 7.637506201979691,
+      "raw": "results/browsecomp_plus_shard1_equal_cap_n45/bcp_equal_cap_qwen36_r20_45_recovery1_20260726_restricted.jsonl.gz",
+      "raw_sha256": "8dd8128fe38761067228fc0e06001b08c2dd4efc3b7cd0e2f273a8fe6e077f15",
+      "status": "complete",
+      "summary": "results/browsecomp_plus_shard1_equal_cap_n45/bcp_equal_cap_qwen36_r20_45_recovery1_20260726_summary.json",
+      "summary_sha256": "85648626c772c3602016e6303d9eeaed4472c242773049d6ace42fefee60d50d"
+    }
+  ],
+  "expected_cells": 180,
+  "manifest_sha256": "c74487ed2cb53640c107c352ab3ba6569f5aa09a16eb74978700e791658ae816",
+  "observed_cells": 180,
+  "protocol_sha256": "81ac6d1edeff000db29507208c4f9a68ee7a621e270bbcd54c40b6751bf0aca4",
+  "status": "PASS",
+  "study_id": "browsecomp_plus_shard1_equal_cap_n45_v1"
+}
