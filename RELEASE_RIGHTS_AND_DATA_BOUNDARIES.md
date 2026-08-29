@@ -18,9 +18,10 @@ Source-document-scale benchmark content is excluded. The repository contains
 release-safe manifests, aggregates, hashes, protocols and compact generated
 traces needed to verify reported results without redistributing the underlying
 BrowseComp-Plus, Oolong, LongBench-v2 or HotpotQA corpora. Commands requiring
-those excluded source payloads are marked `LOCAL_ONLY`. The frozen manuscript
-source snapshots and bibliography are retained only for claim verification;
-venue template files and compiled submission PDFs are not included.
+those excluded source payloads are marked `LOCAL_ONLY`. Frozen manuscript
+sources, the official workshop style and compiled manuscript PDFs are retained
+for claim verification, reproducibility and private archival storage. The venue
+style remains governed by its original terms.
 
 Selected files can contain short task statements, answers or generated
 responses needed to audit a row, but not source-document-scale benchmark

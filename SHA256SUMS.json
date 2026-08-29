@@ -18,13 +18,88 @@
     },
     {
       "path": "README.md",
-      "bytes": 4792,
-      "sha256": "aeebdc8b537cd0deb5bc4aab6dd99a007577b3df6bdfc8761c3cd383e5e5c6a1"
+      "bytes": 4941,
+      "sha256": "02a0f5e6e5a61bc33de2a2046c6fc4e0eec32b5268029b57f57f583ede52d69e"
     },
     {
       "path": "RELEASE_RIGHTS_AND_DATA_BOUNDARIES.md",
-      "bytes": 2551,
-      "sha256": "d9a281b97c83326bb48ad4290a57f1ae93700eda503f7f41318d2c15594e8e5e"
+      "bytes": 2608,
+      "sha256": "a8139be05d0a88050aecc29199d01ec1814ab8df8da87c48879d7f853ce27f39"
+    },
+    {
+      "path": "manuscript/lcfm_2026/README.md",
+      "bytes": 1570,
+      "sha256": "4965b7ab19d0409504206521ee89d7e0e8dc15c3650d23604dcb3c8dcc284301"
+    },
+    {
+      "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Full.pdf",
+      "bytes": 505618,
+      "sha256": "dca778cba6b4b703c2330fc5b6008f73b40098041ed15b1d58b14730a4cae040"
+    },
+    {
+      "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Main_and_References.pdf",
+      "bytes": 1693941,
+      "sha256": "0fcdc2a7b2e6f253c78743e8bd856a0b1d98e72aa33c01cc90c2a2bb7a91bfcc"
+    },
+    {
+      "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Supplement_and_Checklist.pdf",
+      "bytes": 3069405,
+      "sha256": "e5537e0b9a9831f6bdd868fc50287d379dfdc5897b976090b62c72310a451b6c"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/appendix.tex",
+      "bytes": 71739,
+      "sha256": "20da866341d7912fb5379d3086cdf66733912f87429668f51b382b405bf26e34"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/checklist_answered.tex",
+      "bytes": 7454,
+      "sha256": "3422bd4cb0f9228eb68d880b900502ddec09c6933d4ca7a18ff53e873456ecdd"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/checklist_official.tex",
+      "bytes": 26167,
+      "sha256": "780ba13c480f652dcc42e69ed61a752ce0ea270f15d332d4a45b059dabad84f6"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/fig_task_comparison_submission.pdf",
+      "bytes": 105198,
+      "sha256": "d2444d2a479d0fedb9194807475d0e55337b1262622f29d62ea7a51c893b2d79"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/figures_expansion/fig_completion_decomp_seed20.pdf",
+      "bytes": 13893,
+      "sha256": "9bab9af8b12070c6ff4c5d114610312cb8caaeb45969f2191fe8d1e88eb475f2"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/figures_expansion/fig_pareto_dual_seed_overlay.pdf",
+      "bytes": 16761,
+      "sha256": "5d4d188fabf7f059c3aab239bfcd878a0ada2b7aeb3eb95f4a9d80874bbf5d5d"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/figures_expansion/fig_rollout_transitions_seed20_seed21.pdf",
+      "bytes": 14320,
+      "sha256": "225fae4e2e67367990f4366597ccd905c96139265691fcd83bcab8d3ee36e761"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/main.tex",
+      "bytes": 36230,
+      "sha256": "0a9bfe79f407b1bdf57c1e79d8caccd06f7d19c1d795b90c7350641674eae94f"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/neurips_2026.sty",
+      "bytes": 13687,
+      "sha256": "0bd02e695b26255c2c4cd1bff4d9c1e3d2a05e5a17fcc96b4cad81d9f28590ae"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/references.bib",
+      "bytes": 14853,
+      "sha256": "1afcf4e14a3ba02efeaf3c39edf495c4ba2a8b75c793a1567a2b32113716571e"
+    },
+    {
+      "path": "manuscript/lcfm_2026/source/semantic_boundary_failure_modes_20260713.pdf",
+      "bytes": 228170,
+      "sha256": "7384e14a95768c2103fef68eabff9713aae6dea9cf6296c1cbf93db8124640fd"
     },
     {
       "path": "paper/main_aaai_submission.tex",
@@ -1913,8 +1988,8 @@
     },
     {
       "path": "verify_release.py",
-      "bytes": 51822,
-      "sha256": "320088147b5676261793583c5ba10d21b0c095e30f9e6edd512caf83b2f6f7f4"
+      "bytes": 51986,
+      "sha256": "e0745438f54580cb6b52627f5ce7e726ed1cb698079f852cdc6a840cae534e7d"
     }
   ]
 }

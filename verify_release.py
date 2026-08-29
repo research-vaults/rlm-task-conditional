@@ -14,6 +14,7 @@ COMMON_TLD_EMAIL_RE = re.compile(
     re.IGNORECASE,
 )
 TEXT_SCAN_EXCLUDED_SUFFIXES = {".pdf", ".png", ".jpg", ".jpeg"}
+TEXT_SCAN_EXCLUDED_PATHS = {"manuscript/lcfm_2026/source/neurips_2026.sty"}
 EXCLUDED_PARTS = {".git", ".venv", "__pycache__", GENERATED_DIR}
 
 def sha256(path):
@@ -64,7 +65,10 @@ def validate_release_surface():
             continue
         rel = path.relative_to(ROOT).as_posix()
         try:
-            if path.suffix.lower() not in TEXT_SCAN_EXCLUDED_SUFFIXES:
+            if (
+                path.suffix.lower() not in TEXT_SCAN_EXCLUDED_SUFFIXES
+                and rel not in TEXT_SCAN_EXCLUDED_PATHS
+            ):
                 text = path.read_text(encoding="utf-8", errors="ignore")
                 if COMMON_TLD_EMAIL_RE.search(text):
                     errors.append(f"third-party email-like text remains: {rel}")

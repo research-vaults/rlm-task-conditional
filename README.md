@@ -16,6 +16,8 @@ across controlled aggregation and open multi-document search settings.
 - `results/`: release-safe rows, aggregates, compact traces and statistical
   summaries. Restricted source documents are excluded.
 - `paper/`: frozen anonymized source snapshots used only by the claim verifier.
+- `manuscript/lcfm_2026/`: the latest canonical workshop PDF, convenient
+  main/supplement PDF splits and the complete compilable LaTeX source tree.
 - `CLAIM_TO_COMMAND_MAP.md`: maps evidence to commands and states whether each
   command is public, needs withheld inputs or requires fresh provider calls.
 - `CONFIGURATION.md`: environment variables, external inputs and execution boundaries.

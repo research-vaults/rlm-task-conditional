@@ -1,0 +1,85 @@
+\section*{NeurIPS Paper Checklist}
+
+\begin{enumerate}
+
+\item {\bf Claims}
+\item[] Question: Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+\item[] Answer: \answerYes{}.
+\item[] Justification: The abstract and Introduction state the evaluated scaffold, matched-route contribution, central uncertainty result and task-conditional scope; Sections~2--6 distinguish evidence from non-claims.
+
+\item {\bf Limitations}
+\item[] Question: Does the paper discuss the limitations of the work performed by the authors?
+\item[] Answer: \answerYes{}.
+\item[] Justification: Section~6 discusses external validity, measurement, cost scope, evaluator authority, split boundaries and the absence of human adjudication.
+
+\item {\bf Theory assumptions and proofs}
+\item[] Question: For each theoretical result, does the paper provide the full set of assumptions and a complete (and correct) proof?
+\item[] Answer: \answerNA{}.
+\item[] Justification: The paper is an empirical evaluation audit and makes no theorem or formal-proof contribution.
+
+\item {\bf Experimental result reproducibility}
+\item[] Question: Does the paper fully disclose all the information needed to reproduce the main experimental results of the paper to the extent that it affects the main claims and/or conclusions of the paper (regardless of whether the code and data are provided or not)?
+\item[] Answer: \answerYes{}.
+\item[] Justification: Section~2 and Appendix~\ref{app:reproducibility} specify inputs, routes, scoring, failures, uncertainty, versions, caps, compute and cost boundaries for the claim-bearing results.
+
+\item {\bf Open access to data and code}
+\item[] Question: Does the paper provide open access to the data and code, with sufficient instructions to faithfully reproduce the main experimental results, as described in supplemental material?
+\item[] Answer: \answerNo{}.
+\item[] Justification: The single-PDF workshop submission does not provide a public code/data URL. Appendix~\ref{app:reproducibility} documents the reproduction contract and asset boundaries; an anonymized artifact is planned after review.
+
+\item {\bf Experimental setting/details}
+\item[] Question: Does the paper specify all the training and test details (e.g., data splits, hyperparameters, how they were chosen, type of optimizer) necessary to understand the results?
+\item[] Answer: \answerYes{}.
+\item[] Justification: Section~2 specifies the frozen splits, route roles, decoding policies, seeds, estimands, scorers and stopping rules. No model is trained by this work; official trained checkpoints are inference-only diagnostics.
+
+\item {\bf Experiment statistical significance}
+\item[] Question: Does the paper report error bars suitably and correctly defined or other appropriate information about the statistical significance of the experiments?
+\item[] Answer: \answerYes{}.
+\item[] Justification: Section~2 defines paired McNemar tests, fixed-seed row and cluster bootstraps and Holm correction; Section~3 and Appendix~\ref{app:stability} report intervals, discordances and adjusted values for central contrasts.
+
+\item {\bf Experiments compute resources}
+\item[] Question: For each experiment, does the paper provide sufficient information on the computer resources (type of compute workers, memory, time of execution) needed to reproduce the experiments?
+\item[] Answer: \answerYes{}.
+\item[] Justification: Appendix~\ref{app:reproducibility} identifies hosted APIs, self-hosted model revisions, 80GB GPU deployments, container/harness versions, elapsed time and route-level costs for the principal self-hosted runs.
+
+\item {\bf Code of ethics}
+\item[] Question: Does the research conducted in the paper conform, in every respect, with the NeurIPS Code of Ethics \url{https://neurips.cc/public/EthicsGuidelines}?
+\item[] Answer: \answerYes{}.
+\item[] Justification: The study uses public or synthetic benchmark interfaces, does not involve human subjects and does not redistribute restricted source-document-scale corpora; Section~6 and Appendix~\ref{app:reproducibility} state these boundaries.
+
+\item {\bf Broader impacts}
+\item[] Question: Does the paper discuss both potential positive societal impacts and negative societal impacts of the work performed?
+\item[] Answer: \answerYes{}.
+\item[] Justification: Section~6 discusses lower inference cost and accessibility as potential benefits and overgeneralized routing decisions as the main potential harm.
+
+\item {\bf Safeguards}
+\item[] Question: Does the paper describe safeguards that have been put in place for responsible release of data or models that have a high risk for misuse (e.g., pre-trained language models, image generators, or scraped datasets)?
+\item[] Answer: \answerNA{}.
+\item[] Justification: The work releases no model or high-risk scraped dataset and does not redistribute the source-document-scale benchmark corpora.
+
+\item {\bf Licenses for existing assets}
+\item[] Question: Are the creators or original owners of assets (e.g., code, data, models), used in the paper, properly credited and are the license and terms of use explicitly mentioned and properly respected?
+\item[] Answer: \answerNo{}.
+\item[] Justification: The originating papers and official assets are credited, no third-party corpus is redistributed and Appendix~\ref{app:reproducibility} states the access boundary. The PDF does not reproduce a complete license inventory for every hosted model and benchmark interface.
+
+\item {\bf New assets}
+\item[] Question: Are new assets introduced in the paper well documented and is the documentation provided alongside the assets?
+\item[] Answer: \answerNA{}.
+\item[] Justification: No new model or dataset asset accompanies this single-PDF workshop submission; a separately documented audit artifact is planned after review.
+
+\item {\bf Crowdsourcing and research with human subjects}
+\item[] Question: For crowdsourcing experiments and research with human subjects, does the paper include the full text of instructions given to participants and screenshots, if applicable, as well as details about compensation (if any)?
+\item[] Answer: \answerNA{}.
+\item[] Justification: The study does not use crowdsourcing or human-subject experiments.
+
+\item {\bf Institutional review board (IRB) approvals or equivalent for research with human subjects}
+\item[] Question: Does the paper describe potential risks incurred by study participants, whether such risks were disclosed to the subjects, and whether Institutional Review Board (IRB) approvals (or an equivalent approval/review based on the requirements of your country or institution) were obtained?
+\item[] Answer: \answerNA{}.
+\item[] Justification: The study does not involve human subjects, so IRB review is not applicable.
+
+\item {\bf Declaration of LLM usage}
+\item[] Question: Does the paper describe the usage of LLMs if it is an important, original, or non-standard component of the core methods in this research? Note that if the LLM is used only for writing, editing, or formatting purposes and does \emph{not} impact the core methodology, scientific rigor, or originality of the research, declaration is not required.
+\item[] Answer: \answerYes{}.
+\item[] Justification: Sections~1--3 and Appendix~\ref{app:reproducibility} identify the LLM controllers, workers, direct routes and judges central to the evaluation; Section~6 separately discloses AI assistance.
+
+\end{enumerate}
