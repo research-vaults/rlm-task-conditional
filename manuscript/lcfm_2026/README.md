@@ -6,8 +6,8 @@ Long-Context Foundation Models workshop.
 ## PDFs
 
 - `RLM_TaskConditional_LCFM_NeurIPS2026_Full.pdf` is the exact 31-page
-  submission artifact. SHA-256:
-  `f29762df1b7b8b2a47e669f52f94a7967e30d9c963879d12a1cbf73f293040d6`.
+  current manuscript artifact. SHA-256:
+  `21410a8b8dfcd09bd0b91ac2bbe8b2fc51fc182700365d87111e3123bf4afdc5`.
 - `RLM_TaskConditional_LCFM_NeurIPS2026_Main_and_References.pdf` is a derived
   storage copy of pages 1–11: eight technical pages followed by references.
 - `RLM_TaskConditional_LCFM_NeurIPS2026_Supplement_and_Checklist.pdf` is a
@@ -22,7 +22,7 @@ PDF is the canonical submission artifact.
 `source/` is the complete source tree used for the canonical PDF, including:
 
 - `main.tex` (SHA-256
-  `3bfb1c27a25fa23f8402e527dc947d7818ae42b247931dbd117fc626fcc42602`);
+  `413612eb6e4b46bed026727c3e35ed566d4f2b1c10a0b449599bc85e1dc5b289`);
 - `appendix.tex` (SHA-256
   `5b6791414d31e1f7cd05d4962afcedb6406d942260e1b2672c83168fb0a53138`);
 - the bibliography, answered checklist, workshop style and all referenced

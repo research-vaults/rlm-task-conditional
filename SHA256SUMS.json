@@ -28,23 +28,23 @@
     },
     {
       "path": "manuscript/lcfm_2026/README.md",
-      "bytes": 1570,
-      "sha256": "f9f433e09746423bf59eb7fe37a05b0a33fd372d3f51ce14ee75568b5c1e8cee"
+      "bytes": 1578,
+      "sha256": "533609f58c812cd2793627332bca3c853a5137b50a5f69a18b43f43bebf94d38"
     },
     {
       "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Full.pdf",
-      "bytes": 541186,
-      "sha256": "f29762df1b7b8b2a47e669f52f94a7967e30d9c963879d12a1cbf73f293040d6"
+      "bytes": 541494,
+      "sha256": "21410a8b8dfcd09bd0b91ac2bbe8b2fc51fc182700365d87111e3123bf4afdc5"
     },
     {
       "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Main_and_References.pdf",
-      "bytes": 380125,
-      "sha256": "7646d982f1a29d9ddfe80e9841370bbf8dc5393c61977aacd8381ffbb3e48a6f"
+      "bytes": 1786569,
+      "sha256": "4945b70c7d068b3169bb49fca6255ad08474f0bca683d64f6cc6beff93960c81"
     },
     {
       "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Supplement_and_Checklist.pdf",
-      "bytes": 433226,
-      "sha256": "c1476ce93f22a91421d01d8edfdfe30e7ef8f54a59e440f64601c906c9349a9f"
+      "bytes": 3269031,
+      "sha256": "d11c560cd719a84510827ef73a374344db61e08ea72c5312b3aef1bae58f9948"
     },
     {
       "path": "manuscript/lcfm_2026/source/analysis_completion_20260928.tex",
@@ -93,8 +93,8 @@
     },
     {
       "path": "manuscript/lcfm_2026/source/main.tex",
-      "bytes": 34903,
-      "sha256": "3bfb1c27a25fa23f8402e527dc947d7818ae42b247931dbd117fc626fcc42602"
+      "bytes": 34924,
+      "sha256": "413612eb6e4b46bed026727c3e35ed566d4f2b1c10a0b449599bc85e1dc5b289"
     },
     {
       "path": "manuscript/lcfm_2026/source/neurips_2026.sty",
