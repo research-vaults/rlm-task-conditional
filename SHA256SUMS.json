@@ -18,18 +18,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 4941,
-      "sha256": "02a0f5e6e5a61bc33de2a2046c6fc4e0eec32b5268029b57f57f583ede52d69e"
+      "bytes": 5513,
+      "sha256": "bfdd162c34544c95e6fae5a0f2e04631b2e45c9028bdf7c255af14b4f8775c83"
     },
     {
       "path": "RELEASE_RIGHTS_AND_DATA_BOUNDARIES.md",
-      "bytes": 2608,
-      "sha256": "a8139be05d0a88050aecc29199d01ec1814ab8df8da87c48879d7f853ce27f39"
+      "bytes": 2969,
+      "sha256": "ee60cf09d2c35418cf7977c393719dfc5eea40a99d5207298c2190b03f9ef7b3"
     },
     {
       "path": "manuscript/lcfm_2026/README.md",
-      "bytes": 1578,
-      "sha256": "533609f58c812cd2793627332bca3c853a5137b50a5f69a18b43f43bebf94d38"
+      "bytes": 1673,
+      "sha256": "c5af2b5dbcfecdc48666d99ad83e478f344fda288bbde3e8b5b72c02ce0d44fd"
     },
     {
       "path": "manuscript/lcfm_2026/RLM_TaskConditional_LCFM_NeurIPS2026_Full.pdf",

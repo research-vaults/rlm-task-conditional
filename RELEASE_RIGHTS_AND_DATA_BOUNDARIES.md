@@ -2,10 +2,16 @@
 
 ## Release status
 
-This private repository is supplied for reproducibility inspection. No license
+This public repository is supplied for reproducibility inspection. No license
 to redistribute, republish or create derivative works from the project-authored
 manuscript, code or evidence files is granted unless a separate repository
 license states otherwise.
+
+Public visibility permits inspection but does not change the ownership or
+license of project-authored or third-party material. The repository contents
+omit project-author identity, but the hosting URL and account are not certified
+anonymous for double-blind review. Reviewer-facing venue snapshots remain
+separate.
 
 ## Third-party data and software
 
@@ -42,7 +48,7 @@ compiles every Python file and checks the claim-bearing released evidence
 without model, network or GPU calls. A corrected release should regenerate the
 manifest and identify affected claims or artifacts. During anonymous review,
 correction notices should be communicated through the venue's official
-submission channel.
+submission channel rather than by linking this public repository.
 
 Absence of a file from the release repository does not imply that it was
 unused. Restricted and privacy-sensitive inputs remain outside the package

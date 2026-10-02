@@ -1,6 +1,6 @@
 # When Are Recursive Language Models Useful?
 
-This private, anonymized repository contains the release-ready code and
+This public, author-anonymized repository contains the reproducibility code and
 release-safe evidence for **When Are Recursive Language Models Useful? A
 Cost-Aware, Task-Conditional Evaluation**.
 
@@ -116,9 +116,20 @@ Intentionally excluded:
 
 Released records contain only material needed to inspect and verify the
 reported analyses. Upstream datasets and third-party model code remain under
-their original terms. This private repository does not grant an additional
+their original terms. This public repository does not grant an additional
 license for third-party data and does not redistribute restricted benchmark
 content.
 
-The repository is intentionally anonymous. Author and affiliation metadata can
-be added after the applicable review process permits de-anonymization.
+The repository contents intentionally omit project-author and affiliation
+metadata. Public hosting is not, however, certified as anonymous for any
+double-blind venue: conference reviewers should use the separately frozen
+reviewer-facing snapshot supplied through the venue rather than this URL.
+
+## Release Status
+
+This repository is the clean public counterpart of a separate private research
+history. Internal reviews, planning records, comparator archives, credentials,
+restricted inputs and old drafts are not part of this repository or its
+reachable Git history. `SHA256SUMS.json` versions every released file, and
+`verify_release.py` checks the immutable evidence surface without network,
+model or GPU calls.

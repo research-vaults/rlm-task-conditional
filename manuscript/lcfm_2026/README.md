@@ -1,12 +1,12 @@
-# LCFM 2026 Manuscript Snapshot
+# Manuscript Snapshot
 
-This directory stores the canonical anonymous manuscript for the NeurIPS 2026
-Long-Context Foundation Models workshop.
+This directory stores the author-anonymized manuscript snapshot corresponding
+to this reproducibility release.
 
 ## PDFs
 
 - `RLM_TaskConditional_LCFM_NeurIPS2026_Full.pdf` is the exact 31-page
-  current manuscript artifact. SHA-256:
+  manuscript artifact archived with this release. SHA-256:
   `21410a8b8dfcd09bd0b91ac2bbe8b2fc51fc182700365d87111e3123bf4afdc5`.
 - `RLM_TaskConditional_LCFM_NeurIPS2026_Main_and_References.pdf` is a derived
   storage copy of pages 1–11: eight technical pages followed by references.
@@ -15,7 +15,8 @@ Long-Context Foundation Models workshop.
   checklist.
 
 The two split PDFs are provided for convenient storage and reading. The full
-PDF is the canonical submission artifact.
+PDF is the canonical manuscript artifact for this release; it should not be
+assumed to be identical to a later venue-uploaded revision.
 
 ## LaTeX Source
 
